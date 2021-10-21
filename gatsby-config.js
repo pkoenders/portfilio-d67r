@@ -210,12 +210,12 @@ module.exports = {
     //     policy: [{ userAgent: '*', allow: '/' }],
     //   },
     // },
-    'gatsby-plugin-sitemap',
+    'gatsby-plugin-advanced-sitemap',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://d67r.app',
-        sitemap: 'https://d67r.app/sitemap/sitemap-index.xml',
+        sitemap: 'https://d67r.app/sitemap-index.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }],
