@@ -1,0 +1,1533 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID",
+        "placeholder": "Slug"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text": {
+            "type": "Slice",
+            "fieldset": "Text",
+            "description": "Rich Text section with option for 1 or 2 columns",
+            "icon": "text_fields",
+            "non-repeat": {
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "default_value": "Default (992px)",
+                  "label": "Width",
+                  "placeholder": "Please select"
+                }
+              },
+              "columns": {
+                "type": "Select",
+                "config": {
+                  "options": ["1 Column", "2 Columns"],
+                  "label": "Columns",
+                  "placeholder": "Please select (Default is 1)"
+                }
+              },
+              "font_sizing": {
+                "type": "Select",
+                "config": {
+                  "options": ["100%", "110%", "120%", "130%", "140%", "150%"],
+                  "default_value": "100%",
+                  "label": "Font sizing",
+                  "placeholder": "Please select"
+                }
+              },
+              "text_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "label": "Text alignment",
+                  "placeholder": "Please select (Default is left)"
+                }
+              },
+              "animate_scroll": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": false,
+                  "label": "Animate with scroll position"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading1,heading2,heading3,heading4,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true,
+                  "label": "content",
+                  "placeholder": "Add some content"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button link",
+                  "placeholder": "Button link",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button label",
+                  "placeholder": "Button label"
+                }
+              },
+              "button_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Primary",
+                  "label": "Button style",
+                  "placeholder": "Select a style (Default is Primary)"
+                }
+              },
+              "button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Button icon align"
+                }
+              },
+              "secondary_button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Secondary button link",
+                  "placeholder": "Secondary button link",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "secondary_button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button label",
+                  "placeholder": "Secondary button label"
+                }
+              },
+              "secondary_button_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Secondary",
+                    "Primary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Secondary",
+                  "label": "Secondary button Style",
+                  "placeholder": "Select a style (Default is Secondary)"
+                }
+              },
+              "secondary_button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "secondary_button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Secondary button icon align"
+                }
+              },
+              "button_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "label": "Button alignment",
+                  "placeholder": "Please choose (Default is left"
+                }
+              },
+              "default_padding": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical padding (Top & Bottom)"
+                }
+              },
+              "v_padding_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Top (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "v_padding_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Bottom (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "Grey",
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "Header",
+                    "Footer"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background colour",
+                  "placeholder": "Please select - (Optional)"
+                }
+              },
+              "background_tint": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "100",
+                    "200",
+                    "300",
+                    "400",
+                    "500",
+                    "600",
+                    "700",
+                    "800",
+                    "900",
+                    "1100",
+                    "1200",
+                    "1300"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background tint"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "quote": {
+            "type": "Slice",
+            "fieldset": "Quote",
+            "description": "A stylized quote",
+            "icon": "format_quote",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Title",
+                  "placeholder": "Quote area title"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "default_value": "Default (992px)",
+                  "label": "Width",
+                  "placeholder": "Please select"
+                }
+              },
+              "align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "default_value": "Left",
+                  "label": "Align"
+                }
+              },
+              "default_padding": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical padding (Top & Bottom)"
+                }
+              },
+              "v_padding_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Top (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "v_padding_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Bottom (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "Grey",
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "Header",
+                    "Footer"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background colour",
+                  "placeholder": "Please select - (Optional)"
+                }
+              },
+              "background_tint": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "100",
+                    "200",
+                    "300",
+                    "400",
+                    "500",
+                    "600",
+                    "700",
+                    "800",
+                    "900",
+                    "1100",
+                    "1200",
+                    "1300"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background tint"
+                }
+              }
+            },
+            "repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Quote title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Content",
+                  "placeholder": "Quote content"
+                }
+              },
+              "active": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": true,
+                  "label": "Active"
+                }
+              }
+            }
+          },
+          "cards": {
+            "type": "Slice",
+            "fieldset": "Cards",
+            "description": "A collection of images with descriptions & links",
+            "icon": "dashboard",
+            "non-repeat": {
+              "animate_scroll": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": true,
+                  "label": "Animate with scroll position"
+                }
+              },
+              "card_title": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Title"
+                }
+              },
+              "align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "default_value": "Left",
+                  "label": "Align title"
+                }
+              },
+              "presentation_type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Gallery", "Carousel", "Profile"],
+                  "label": "Present as",
+                  "placeholder": "Please select"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "default_value": "Default (992px)",
+                  "label": "Width",
+                  "placeholder": "Width"
+                }
+              },
+              "default_padding": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical padding (Top & Bottom)"
+                }
+              },
+              "v_padding_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Top (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "v_padding_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Bottom (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "Grey",
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "Header",
+                    "Footer"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background colour",
+                  "placeholder": "Please select - (Optional)"
+                }
+              },
+              "background_tint": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "100",
+                    "200",
+                    "300",
+                    "400",
+                    "500",
+                    "600",
+                    "700",
+                    "800",
+                    "900",
+                    "1100",
+                    "1200",
+                    "1300"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background tint"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": null,
+                    "height": null
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "format": {
+                "type": "Select",
+                "config": {
+                  "options": ["Landscape", "Portrait"],
+                  "label": "Image format",
+                  "placeholder": "Image format"
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph,strong,em,hyperlink",
+                  "label": "Decription"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "label": "Link to"
+                }
+              },
+              "link_label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Link label",
+                  "placeholder": "Link label"
+                }
+              }
+            }
+          },
+          "media_highlight": {
+            "type": "Slice",
+            "fieldset": "Media Highlight",
+            "description": "Highlight an shared media item. Title, description, link and layout options",
+            "icon": "star",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true,
+                  "label": "Content",
+                  "placeholder": "Optional description"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button link",
+                  "placeholder": "Button link",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button label",
+                  "placeholder": "Button label"
+                }
+              },
+              "button_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Primary",
+                  "label": "Button style",
+                  "placeholder": "Select a style (Default is Primary)"
+                }
+              },
+              "button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Button icon align"
+                }
+              },
+              "secondary_button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Secondary button link",
+                  "placeholder": "Secondary button link",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "secondary_button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button label",
+                  "placeholder": "Secondary button label"
+                }
+              },
+              "secondary_button_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Secondary",
+                    "Primary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Secondary",
+                  "label": "Secondary button Style",
+                  "placeholder": "Select a style (Default is Secondary)"
+                }
+              },
+              "secondary_button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "secondary_button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Secondary button icon align"
+                }
+              },
+              "font_size": {
+                "type": "Select",
+                "config": {
+                  "options": ["100%", "110%", "120%", "130%", "140%", "150%"],
+                  "default_value": "100%",
+                  "label": "Font size",
+                  "placeholder": "Please select"
+                }
+              },
+              "align_content": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "default_value": "Left",
+                  "label": "Align content",
+                  "placeholder": "Please select"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "default_value": "Default (992px)",
+                  "label": "Width",
+                  "placeholder": "Please select"
+                }
+              },
+              "default_padding": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical padding (Top & Bottom)"
+                }
+              },
+              "v_padding_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding top (Default is 0px)",
+                  "placeholder": "0"
+                }
+              },
+              "v_padding_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding bottom (Default is 0px)",
+                  "placeholder": "0"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "Grey",
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "Header",
+                    "Footer"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background colour",
+                  "placeholder": "Please select - (Optional)"
+                }
+              },
+              "background_tint": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "100",
+                    "200",
+                    "300",
+                    "400",
+                    "500",
+                    "600",
+                    "700",
+                    "800",
+                    "900",
+                    "1100",
+                    "1200",
+                    "1300"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background tint"
+                }
+              },
+              "add_media": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["shared_content", "forms"],
+                  "label": "Add media",
+                  "placeholder": "Add a shared media item"
+                }
+              },
+              "position_media": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right", "Top", "Bottom"],
+                  "default_value": "Left",
+                  "label": "Position media",
+                  "placeholder": "Please select"
+                }
+              },
+              "media_size": {
+                "type": "Select",
+                "config": {
+                  "options": ["100%", "75%", "50%", "25%", "125%", "150%"],
+                  "default_value": "100%",
+                  "label": "Media size",
+                  "placeholder": "Please select"
+                }
+              },
+              "animate_scroll": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": true,
+                  "label": "Animate with scroll position"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "static_component": {
+            "type": "Slice",
+            "fieldset": "Static component",
+            "description": "Static component",
+            "icon": "border_all",
+            "non-repeat": {
+              "component_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Component name",
+                  "placeholder": "<MyStaticComponent>"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "form": {
+            "type": "Slice",
+            "fieldset": "Form",
+            "description": "Add a form",
+            "icon": "format_align_justify",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Content"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "default_value": "Default (992px)",
+                  "label": "Width",
+                  "placeholder": "Please select"
+                }
+              },
+              "select_form": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["forms"],
+                  "label": "Select form",
+                  "placeholder": "Select a form"
+                }
+              },
+              "default_padding": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical padding (Top & Bottom)"
+                }
+              },
+              "v_padding_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding top (Default is 0px)",
+                  "placeholder": "0"
+                }
+              },
+              "v_padding_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding bottom (Default is 0px)",
+                  "placeholder": "0"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "Grey",
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "Header",
+                    "Footer"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background colour",
+                  "placeholder": "Please select - (Optional)"
+                }
+              },
+              "background_tint": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "100",
+                    "200",
+                    "300",
+                    "400",
+                    "500",
+                    "600",
+                    "700",
+                    "800",
+                    "900",
+                    "1100",
+                    "1200",
+                    "1300"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background tint"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "hero_image": {
+            "type": "Slice",
+            "fieldset": "Hero Image",
+            "description": "Create a hero image with formating options",
+            "icon": "filter_hdr",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3",
+                  "label": "Title",
+                  "placeholder": "Title"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Description",
+                  "placeholder": "Description"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button link",
+                  "placeholder": "Button link",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button label",
+                  "placeholder": "Button label"
+                }
+              },
+              "button_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Primary",
+                  "label": "Button style",
+                  "placeholder": "Select a style (Default is Primary)"
+                }
+              },
+              "button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Button icon align"
+                }
+              },
+              "secondary_button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Secondary button link",
+                  "placeholder": "Secondary button link",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "secondary_button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button label",
+                  "placeholder": "Secondary button label"
+                }
+              },
+              "secondary_button_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Secondary",
+                    "Primary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Secondary",
+                  "label": "Secondary button Style",
+                  "placeholder": "Select a style (Default is Secondary)"
+                }
+              },
+              "secondary_button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "secondary_button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Secondary button icon align"
+                }
+              },
+              "align_content": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "label": "Align content",
+                  "placeholder": "Please select (Default is Left)"
+                }
+              },
+              "vertical_align_content": {
+                "type": "Select",
+                "config": {
+                  "options": ["Centre", "Top", "Bottom"],
+                  "label": "Vertical align content",
+                  "placeholder": "Vertical align (Default is center)"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Full width (100%)",
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)"
+                  ],
+                  "default_value": "Full width (100%)",
+                  "label": "Image width",
+                  "placeholder": "Please select"
+                }
+              },
+              "height": {
+                "type": "Number",
+                "config": {
+                  "label": "Image height (Default is 450 px)",
+                  "placeholder": "450"
+                }
+              },
+              "v_height": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "100%",
+                  "default_value": false,
+                  "label": "Set image to a height of 100%"
+                }
+              },
+              "default_margin": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical margin (Top & Bottom)"
+                }
+              },
+              "margin_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Margin top",
+                  "placeholder": "0"
+                }
+              },
+              "margin_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Margin bottom",
+                  "placeholder": "0"
+                }
+              },
+              "overlay_from": {
+                "type": "Color",
+                "config": {
+                  "label": "Transparent overlay - From"
+                }
+              },
+              "overlay_from_opacity": {
+                "type": "Number",
+                "config": {
+                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%)",
+                  "placeholder": "33"
+                }
+              },
+              "overlay_to": {
+                "type": "Color",
+                "config": {
+                  "label": "Transparent overlay - To"
+                }
+              },
+              "overlay_to_opacity": {
+                "type": "Number",
+                "config": {
+                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%",
+                  "placeholder": "33"
+                }
+              },
+              "overlay_direction": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Vertical",
+                    "Horizontal",
+                    "Top left to bottom right",
+                    "Top Right to bottom left"
+                  ],
+                  "label": "Transparent overlay direction",
+                  "placeholder": "Select one"
+                }
+              },
+              "align_image": {
+                "type": "Select",
+                "config": {
+                  "options": ["Center", "Top", "Bottom"],
+                  "label": "Align image",
+                  "placeholder": "Select one"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "styled_list": {
+            "type": "Slice",
+            "fieldset": "Styled list",
+            "description": "Add a Styled list - Custom bullets or numbered",
+            "icon": "format_list_bulleted",
+            "non-repeat": {
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "label": "Width",
+                  "placeholder": "Please select"
+                }
+              },
+              "list_type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Disc", "Square", "Checked", "Numbered"],
+                  "default_value": "Disc",
+                  "label": "List type"
+                }
+              },
+              "font_size": {
+                "type": "Select",
+                "config": {
+                  "options": ["100%", "110%", "120%", "130%", "140%", "150%"],
+                  "default_value": "100%",
+                  "label": "Font size"
+                }
+              },
+              "default_padding": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default - 32px",
+                    "1/2 - 16px",
+                    "1/4 - 8px",
+                    "1/8 - 4px",
+                    "1/16 - 2px",
+                    "0",
+                    "1XL - 40px",
+                    "2XL - 48px",
+                    "3XL - 56px",
+                    "4XL - 64px"
+                  ],
+                  "default_value": "Default - 32px",
+                  "label": "Vertical padding (Top & Bottom)"
+                }
+              },
+              "v_padding_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Top (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "v_padding_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Vertical padding - Bottom (Default is 0)",
+                  "placeholder": "0"
+                }
+              },
+              "theme": {
+                "type": "Select",
+                "config": {
+                  "options": ["Default", "Grey", "Primary", "Secondary", "Tertiary"],
+                  "default_value": "Default",
+                  "label": "Theme"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "Grey",
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "Header",
+                    "Footer"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background colour",
+                  "placeholder": "Please select - (Optional)"
+                }
+              },
+              "background_tint": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default",
+                    "100",
+                    "200",
+                    "300",
+                    "400",
+                    "500",
+                    "600",
+                    "700",
+                    "800",
+                    "900",
+                    "1100",
+                    "1200",
+                    "1300"
+                  ],
+                  "default_value": "Default",
+                  "label": "Background tint"
+                }
+              }
+            },
+            "repeat": {
+              "item": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Item"
+                }
+              },
+              "uncheck": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "If type of Checked - remove tick"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "SEO": {
+    "body1": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "general_seo_card": {
+            "type": "Slice",
+            "fieldset": "General SEO Card",
+            "description": "General SEO fields, Title, Description and Image.",
+            "icon": "art_track",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title",
+                  "placeholder": "Title..."
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Description",
+                  "placeholder": "Description..."
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1200,
+                    "height": 650
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "open_graph": {
+            "type": "Slice",
+            "fieldset": "Open Graph",
+            "description": "Open Graph SEO fields",
+            "icon": "loyalty",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title",
+                  "placeholder": "Title..."
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Article", "Product", "Recipe"],
+                  "label": "Type",
+                  "placeholder": "Please select"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Description",
+                  "placeholder": "Description..."
+                }
+              },
+              "price": {
+                "type": "Number",
+                "config": {
+                  "label": "Price",
+                  "placeholder": "Enter Product Price..."
+                }
+              },
+              "currency": {
+                "type": "Select",
+                "config": {
+                  "options": ["NZD", "USD", "Euro"],
+                  "label": "Currency"
+                }
+              },
+              "availability": {
+                "type": "Select",
+                "config": {
+                  "options": ["In-stock", "Out of stock"],
+                  "label": "Availability"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "twitter_card": {
+            "type": "Slice",
+            "fieldset": "Twitter Card",
+            "description": "Twitter summary card with image",
+            "icon": "subtitles",
+            "non-repeat": {
+              "card_type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Standard Summary Card", "Summary Card with Large Image"],
+                  "label": "Card type"
+                }
+              },
+              "twitter_handle": {
+                "type": "Text",
+                "config": {
+                  "label": "Twitter Handle",
+                  "placeholder": "Twitter handle..."
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Title",
+                  "placeholder": "Twitter Card Title..."
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Description",
+                  "placeholder": "Twitter Card Description..."
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 300,
+                    "height": 300
+                  },
+                  "thumbnails": [
+                    {
+                      "name": "large_image",
+                      "width": 600,
+                      "height": 314
+                    }
+                  ],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

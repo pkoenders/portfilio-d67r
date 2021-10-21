@@ -1,0 +1,61 @@
+{
+  "Main": {
+    "doc_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Document name"
+      }
+    },
+    "nav": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Nav Item",
+            "description": "Nav Item with Sub Navigation",
+            "icon": "insert_link",
+            "non-repeat": {
+              "label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Label",
+                  "placeholder": "Enter Link Label..."
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "Select Link...",
+                  "select": null
+                }
+              }
+            },
+            "repeat": {
+              "sub_nav_link_label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Sub Nav Link Label",
+                  "placeholder": "Enter Sub Nav Link Label..."
+                }
+              },
+              "sub_nav_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Sub Nav Link",
+                  "placeholder": "Select Sub Nav Link...",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

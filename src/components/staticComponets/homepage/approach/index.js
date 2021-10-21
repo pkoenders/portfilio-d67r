@@ -1,0 +1,231 @@
+import React from 'react'
+
+// Page components
+import Button from '/src/components/common/buttons/linkButton'
+import Icon from '/src/components/common/icons/material'
+
+import styled from 'styled-components'
+
+const ApproachSection = styled.section`
+  padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+  display: flex;
+  .intro {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+
+    div {
+      padding: ${({ theme }) => theme.padding.default} 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      grid-gap: ${({ theme }) => theme.padding['1/2']};
+      > i {
+        font-size: 40px;
+        /* background-image: radial-gradient(
+          circle,
+          rgba(95, 205, 153, 1) 0%,
+          rgba(95, 205, 153, 0) 75%
+        );
+        background-size: 100%;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent; */
+        color: ${({ theme }) => theme.colors.tertiary[700]};
+        /* opacity: 0.75; */
+        margin-top: -${({ theme }) => theme.padding['1/4']};
+        /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
+      }
+
+      span {
+        width: 100%;
+
+        p:first-of-type {
+          font-weight: 600;
+          margin-bottom: 0.3em;
+        }
+        p,
+        ul,
+        li {
+          text-align: left;
+        }
+        span {
+          margin-top: ${({ theme }) => theme.padding['1/2']};
+          a {
+            margin: 0 auto 0 0;
+          }
+        }
+      }
+    }
+  }
+`
+
+const Approch = () => {
+  return (
+    <ApproachSection className="section-layout slim">
+      <div>
+        <article className="intro">
+          <div>
+            <Icon icon={'speed'} />
+            <span>
+              <p>Performance</p>
+              <p>
+                I design and build websites that use; next-generation image formats and
+                optimisation, styled components, lazy-loading, prefetching resources, and more to
+                improve the performance and page loading speed of your website.
+              </p>
+              <p>
+                <a href="https://internetretailing.net/mobile-theme/mobile-theme/majority-of-websites-currently-fail-to-meet-googles-core-web-vitals-user-experience-requirements-23050">
+                  Only 4% of websites
+                </a>{' '}
+                meet Google's Core Web Vitals. Does your website meet the Core Web Vitals? More
+                importantly, has your website provider talked to you about their strategy on how
+                they plan to meet the Core Web Vitals? As of June 2021, Google will start to
+                consider{' '}
+                <a href="https://developers.google.com/search/blog/2020/11/timing-for-page-experience">
+                  “Page Experience”
+                </a>{' '}
+                as part of search ranking, as measured by a set of metrics called Core Web Vitals.
+              </p>
+              <p>
+                An optimised website that loads quickly helps achieve the Core Web Vitals and also
+                contributes to better user experience and positive page rankings.
+              </p>
+            </span>
+          </div>
+
+          {/* <div>
+          <Icon icon={'hub'} />
+          <span>
+            <p>Integrations</p>
+            <p>
+              Sourcing content, transform data, and more. Almost anything you can imagine — from
+              CMS's, spreadsheets, to e-commerce — I can offer a seamless integration of services.
+            </p>
+          </span>
+        </div> */}
+
+          <div>
+            <Icon icon={'accessibility_new'} />
+            <span>
+              <p>Accessibility</p>
+              <p>
+                I support digital accessibility, and it is considered into my design and build from
+                the start. It is not an afterthought or something to test for later.{' '}
+                <a href="https://www.stats.govt.nz/news/one-in-four-new-zealanders-identified-as-disabled">
+                  24% of New Zealanders
+                </a>{' '}
+                identify themselves as having a disability. It does not make sense to ignore these
+                users. An accessible website is inclusive. Is your website accessible?
+              </p>
+
+              <p>
+                The framework I use is recognised by <a href="https://webaim.org/">WebAIM</a> as the
+                most accessible web framework with built-in best practices like accessible routing,
+                progressive page enhancement and a built-in linting tool to find accessibility
+                errors. Help make the web work for everyone.
+              </p>
+            </span>
+          </div>
+
+          <div>
+            <Icon icon={'preview'} />
+            <span>
+              <p>Content &amp; Previews</p>
+              <p>
+                2021 offers a wide range of content systems.{' '}
+                <a href="https://www.datocms.com">DatoCMS</a>,{' '}
+                <a href="https://www.sanity.io/">Sanity</a>,{' '}
+                <a href="https://wordpress.com">WordPress</a>,{' '}
+                <a href="https://www.contentful.com">Contentful</a> and{' '}
+                <a href="https://agilitycms.com">Agility</a> are a selection of the products I have
+                worked with.
+              </p>
+
+              <p>
+                I have created a <a href="/prismic-template">demonstration template</a> of what
+                Prismic can accomplish with just one single, simple and manageable template. In
+                fact, this website is built with <a href="https://prismic.io/">Prismic CMS</a>.
+                Prismic It is cost-effective and has a great user onboarding and experience for
+                content creators, designers and developers. Prismic empowers content creators to
+                build and publish websites without constraints in locales of your choice. Create a
+                schedule for releases, preview and share your content changes.
+              </p>
+              <p>
+                Don't let your website design and content be funnelled into restrictive and
+                uncompromising templates. Build and publish what and when you want to.
+              </p>
+
+              <Button
+                buttonLabel={'Demonstration template'}
+                buttonType={'Static'}
+                buttonLink={'/prismic-template'}
+                buttonStyle={'primary'}
+                // buttonIcon={'article'}
+                // buttonIconAlign={'right'}
+              />
+            </span>
+          </div>
+
+          <div>
+            <Icon icon={'security'} />
+            <span>
+              <p>Security</p>
+              <p>
+                I use <a href="https://reactjs.org/">React</a> to generate static HTML at build
+                time. No server and no reachable database equals no malicious requests, DDOS attacks
+                or accidental exposure. Your website attack surface will be low to non-existent.
+              </p>
+            </span>
+          </div>
+
+          <div>
+            <Icon icon={'savings'} />
+            <span>
+              <p>Cost</p>
+              <p>
+                The static websites I build are hosted on a global CDN that don’t require complex
+                scaling operations or expensive plans. They scale when needed, but when traffic
+                drops so does your usage — and your costs. Host your website for less (cheaper than
+                Wix, WordPress and Squarespace) and use less energy. If you plan to administer your
+                website on your own, and you have low traffic, you could be hosting for free. It's a
+                smarter choice for the concious whom are considering responsible hosting with lower
+                costs and carbon footprint!
+              </p>
+            </span>
+          </div>
+
+          <div>
+            <Icon icon={'support'} />
+            <span>
+              <p>Support</p>
+              <p>
+                In my hands, your next website will be blazing fast, accessible, secure and
+                customised. You will get personal support and I will answer your calls because I
+                just simply ❤️ what I do.
+              </p>
+              <Button
+                buttonLabel={'Reach out'}
+                buttonType={'Static'}
+                buttonLink={'/contact'}
+                buttonStyle={'primary'}
+                buttonIcon={'send'}
+                buttonIconAlign={'right'}
+              />
+            </span>
+          </div>
+        </article>
+      </div>
+    </ApproachSection>
+  )
+}
+
+export default Approch

@@ -1,0 +1,262 @@
+{
+  "Main": {
+    "form_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Form name",
+        "placeholder": "Required"
+      }
+    },
+    "from_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "From content"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text_input": {
+            "type": "Slice",
+            "fieldset": "Text input",
+            "description": "Add a text field",
+            "icon": "title",
+            "non-repeat": {
+              "field_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Field name",
+                  "placeholder": "Name of the field"
+                }
+              },
+              "field_type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Text", "Email", "Tel", "Number"],
+                  "default_value": "Text",
+                  "label": "Field type"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": true,
+                  "label": "Required"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text_area_input": {
+            "type": "Slice",
+            "fieldset": "Text area input ",
+            "description": "Add a text area field",
+            "icon": "aspect_ratio",
+            "non-repeat": {
+              "field_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Field name"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "Yes",
+                  "default_value": false,
+                  "label": "Required"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "button": {
+            "type": "Slice",
+            "fieldset": "Button",
+            "description": "Add a submit button",
+            "icon": "send",
+            "non-repeat": {
+              "button_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Button name"
+                }
+              },
+              "button_type": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Primary",
+                    "Secondary",
+                    "Tertiary",
+                    "White",
+                    "Black",
+                    "Link",
+                    "Transparent"
+                  ],
+                  "default_value": "Primary",
+                  "label": "Button type"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "checkbox": {
+            "type": "Slice",
+            "fieldset": "Checkbox",
+            "description": "Checkbox",
+            "icon": "check_box",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title"
+                }
+              },
+              "align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Horizontal", "Vertical"],
+                  "label": "Align",
+                  "placeholder": "Horizontal (Default)"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Required"
+                }
+              }
+            },
+            "repeat": {
+              "item": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Item"
+                }
+              }
+            }
+          },
+          "radio_button": {
+            "type": "Slice",
+            "fieldset": "Radio button",
+            "description": "Radio button",
+            "icon": "radio_button_checked",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title"
+                }
+              },
+              "align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Horizontal", "Vertical"],
+                  "label": "Align",
+                  "placeholder": "Horizontal (Default)"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Required"
+                }
+              }
+            },
+            "repeat": {
+              "item": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Item"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "required"
+                }
+              }
+            }
+          },
+          "select_list": {
+            "type": "Slice",
+            "fieldset": "Select list",
+            "description": "Select list",
+            "icon": "view_list",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title",
+                  "placeholder": "Name of field"
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Required"
+                }
+              }
+            },
+            "repeat": {
+              "item": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Item"
+                }
+              }
+            }
+          },
+          "rich_text": {
+            "type": "Slice",
+            "fieldset": "Rich text",
+            "description": "Rich text",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink,image,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "text"
+                }
+              },
+              "align_with_input": {
+                "type": "Select",
+                "config": {
+                  "options": ["False", "Below", "Above"],
+                  "default_value": "False",
+                  "label": "Align with input"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

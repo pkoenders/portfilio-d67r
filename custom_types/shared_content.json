@@ -1,0 +1,335 @@
+{
+  "Main": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text": {
+            "type": "Slice",
+            "fieldset": "Text",
+            "description": "A text block that can be shared across the sight",
+            "icon": "border_color",
+            "display": "list",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Nme",
+                  "placeholder": "Content name"
+                }
+              },
+              "columns": {
+                "type": "Select",
+                "config": {
+                  "options": ["One column (default)", "Two columns"],
+                  "label": "Columns",
+                  "placeholder": "One column (default)"
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Main text",
+                  "placeholder": "Enter some content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image": {
+            "type": "Slice",
+            "fieldset": "Image",
+            "description": "An internal image that can be shared accros pages",
+            "icon": "insert_photo",
+            "display": "list",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Image name"
+                }
+              },
+              "format": {
+                "type": "Select",
+                "config": {
+                  "options": ["Landscape (default)", "Portrait"],
+                  "label": "Format",
+                  "placeholder": "Landscape (default)"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "embedded_cloud_media": {
+            "type": "Slice",
+            "fieldset": "Embedded cloud media",
+            "description": "A cloud media link that can be shared across pages",
+            "icon": "cloud",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Media name"
+                }
+              },
+              "media": {
+                "type": "Text",
+                "config": {
+                  "label": "Media",
+                  "placeholder": "https://www.youtube.com/embed..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "document": {
+            "type": "Slice",
+            "fieldset": "Internal document",
+            "description": "Internal document that can be shared across pages",
+            "icon": "description",
+            "display": "list",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Document name"
+                }
+              },
+              "document": {
+                "type": "Link",
+                "config": {
+                  "label": "Document",
+                  "placeholder": "Link to internal documents",
+                  "select": null
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "external_link": {
+            "type": "Slice",
+            "fieldset": "External link",
+            "description": "External document that can be shared between pages",
+            "icon": "cloud_download",
+            "display": "list",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Document name"
+                }
+              },
+              "documnt": {
+                "type": "Link",
+                "config": {
+                  "label": "Documnt",
+                  "placeholder": "Add an external document",
+                  "select": null
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "geopoint": {
+            "type": "Slice",
+            "fieldset": "Geopoint",
+            "description": "A stored geopoint",
+            "icon": "place",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Geopoint name"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink",
+                  "label": "Description"
+                }
+              },
+              "zoom_level": {
+                "type": "Number",
+                "config": {
+                  "label": "Zoom level (1 - 22) Default is 16",
+                  "placeholder": "16"
+                }
+              },
+              "geopoint": {
+                "type": "GeoPoint",
+                "config": {
+                  "label": "Geopoint  (Please enter coordinates only!)"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "alert_banner": {
+            "type": "Slice",
+            "fieldset": "Alert banner",
+            "description": "Alrt banner",
+            "icon": "report_problem",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true,
+                  "label": "Content"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Default (992px)",
+                    "Skinny (576px)",
+                    "Slim (768px)",
+                    "Large (1200px)",
+                    "Wide (1366px)",
+                    "Extra wide (1680px)",
+                    "Full width (100%)"
+                  ],
+                  "default_value": "Default (992px)",
+                  "label": "Width",
+                  "placeholder": "Please select"
+                }
+              },
+              "align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "default_value": "Left",
+                  "label": "Align"
+                }
+              },
+              "user_can_close": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": true,
+                  "label": "User can close"
+                }
+              },
+              "expiry_date": {
+                "type": "Timestamp",
+                "config": {
+                  "label": "Expiry date"
+                }
+              },
+              "level": {
+                "type": "Select",
+                "config": {
+                  "options": ["1 - Green", "2 - Khaki", "3 - Yellow", "4 - Orange", "5 - Red"],
+                  "default_value": "1 - Green",
+                  "label": "Level"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button link",
+                  "placeholder": "Button link",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button label",
+                  "placeholder": "Button label"
+                }
+              },
+              "button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Button icon align"
+                }
+              },
+              "secondary_button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Secondary button link",
+                  "placeholder": "Secondary button link",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "secondary_button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button label",
+                  "placeholder": "Secondary button label"
+                }
+              },
+              "secondary_button_style": {
+                "type": "Select",
+                "config": {
+                  "options": ["Link", "White", "Black", "Transparent"],
+                  "default_value": "Link",
+                  "label": "Secondary button Style",
+                  "placeholder": "Select a style (Default is Secondary)"
+                }
+              },
+              "secondary_button_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button icon",
+                  "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "secondary_button_icon_align": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Secondary button icon align"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

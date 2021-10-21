@@ -1,0 +1,477 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title",
+        "placeholder": "Blog post title..."
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
+      }
+    },
+    "release_date": {
+      "type": "Date",
+      "config": {
+        "label": "Release Date"
+      }
+    },
+    "author": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "label": "Author",
+        "placeholder": "Link to an author document"
+      }
+    },
+    "intro": {
+      "type": "Text",
+      "config": {
+        "label": "Intro"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "text_blog": {
+            "type": "Slice",
+            "fieldset": "Text-Blog",
+            "description": "A rich text section",
+            "icon": "text_fields",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true,
+                  "label": "Text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "quote_blog": {
+            "type": "Slice",
+            "fieldset": "Quote - Blog",
+            "description": "A stylized quote",
+            "icon": "format_quote",
+            "non-repeat": {
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em",
+                  "allowTargetBlank": true,
+                  "label": "Quote"
+                }
+              },
+              "reference": {
+                "type": "Text",
+                "config": {
+                  "label": "Reference"
+                }
+              },
+              "reference_url": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Reference URL",
+                  "select": null
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_blog": {
+            "type": "Slice",
+            "fieldset": "Image - Blog",
+            "description": "An image with optional caption",
+            "icon": "image",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "hero_image": {
+            "type": "Slice",
+            "fieldset": "Hero Image",
+            "description": "Create a hero image with formating options",
+            "icon": "filter_hdr",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3",
+                  "label": "Title",
+                  "placeholder": "Title"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Description",
+                  "placeholder": "Description"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button link",
+                  "placeholder": "Button link",
+                  "select": null,
+                  "allowTargetBlank": true
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button text",
+                  "placeholder": "Button text"
+                }
+              },
+              "button_style": {
+                "type": "Select",
+                "config": {
+                  "options": ["Primary", "Secondary", "Tertiary"],
+                  "label": "Button style",
+                  "placeholder": "Select a style (Default is Primary)"
+                }
+              },
+              "secondary_button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Secondary button link",
+                  "placeholder": "Secondary button link",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "secondary_button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Secondary button text",
+                  "placeholder": "Secondary button text"
+                }
+              },
+              "secondary_button_style": {
+                "type": "Select",
+                "config": {
+                  "options": ["Secondary", "Tertiary", "Primary"],
+                  "label": "Secondary button Style",
+                  "placeholder": "Select a style (Default is Secondary)"
+                }
+              },
+              "align_content": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Centre", "Right"],
+                  "label": "Align content",
+                  "placeholder": "Please select (Default is Left)"
+                }
+              },
+              "vertical_align_content": {
+                "type": "Select",
+                "config": {
+                  "options": ["Centre", "Top", "Bottom"],
+                  "label": "Vertical align content",
+                  "placeholder": "Vertical align (Default is center)"
+                }
+              },
+              "width": {
+                "type": "Select",
+                "config": {
+                  "options": ["Default", "Skinny", "Slim", "Extra wide", "Full width"],
+                  "label": "Image width",
+                  "placeholder": "Please select"
+                }
+              },
+              "height": {
+                "type": "Number",
+                "config": {
+                  "label": "Image height (Default is 450 px)",
+                  "placeholder": "450"
+                }
+              },
+              "v_height": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "No",
+                  "placeholder_true": "100%",
+                  "default_value": false,
+                  "label": "Set image to a height of 100%"
+                }
+              },
+              "margin_top": {
+                "type": "Number",
+                "config": {
+                  "label": "Margin top",
+                  "placeholder": "32"
+                }
+              },
+              "margin_bottom": {
+                "type": "Number",
+                "config": {
+                  "label": "Margin bottom",
+                  "placeholder": "32"
+                }
+              },
+              "overlay_from": {
+                "type": "Color",
+                "config": {
+                  "label": "Transparent overlay - From"
+                }
+              },
+              "overlay_from_opacity": {
+                "type": "Number",
+                "config": {
+                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%)",
+                  "placeholder": "33"
+                }
+              },
+              "overlay_to": {
+                "type": "Color",
+                "config": {
+                  "label": "Transparent overlay - To"
+                }
+              },
+              "overlay_to_opacity": {
+                "type": "Number",
+                "config": {
+                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%",
+                  "placeholder": "33"
+                }
+              },
+              "overlay_direction": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Vertical",
+                    "Horizontal",
+                    "Top left to bottom right",
+                    "Top Right to bottom left"
+                  ],
+                  "label": "Transparent overlay direction",
+                  "placeholder": "Select one"
+                }
+              },
+              "align_image": {
+                "type": "Select",
+                "config": {
+                  "options": ["Center", "Top", "Bottom"],
+                  "label": "Align image",
+                  "placeholder": "Select one"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "references": {
+            "type": "Slice",
+            "fieldset": "References",
+            "description": "References",
+            "icon": "link",
+            "display": "list",
+            "non-repeat": {
+              "references": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "References"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "SEO": {
+    "body1": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "general_seo_card": {
+            "type": "Slice",
+            "fieldset": "General SEO Card",
+            "description": "General SEO fields, Title, Description and Image.",
+            "icon": "art_track",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title",
+                  "placeholder": "Title..."
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Description",
+                  "placeholder": "Description..."
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1200,
+                    "height": 650
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "twitter_card": {
+            "type": "Slice",
+            "fieldset": "Twitter Card",
+            "description": "Twitter summary card with image",
+            "icon": "subtitles",
+            "non-repeat": {
+              "card_type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Standard Summary Card", "Summary Card with Large Image"],
+                  "label": "Card type"
+                }
+              },
+              "twitter_handle": {
+                "type": "Text",
+                "config": {
+                  "label": "Twitter Handle",
+                  "placeholder": "Twitter handle..."
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Title",
+                  "placeholder": "Twitter Card Title..."
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Description",
+                  "placeholder": "Twitter Card Description..."
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 300,
+                    "height": 300
+                  },
+                  "thumbnails": [
+                    {
+                      "name": "large_image",
+                      "width": 600,
+                      "height": 314
+                    }
+                  ],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "open_graph": {
+            "type": "Slice",
+            "fieldset": "Open Graph",
+            "description": "Open Graph SEO fields",
+            "icon": "loyalty",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title",
+                  "placeholder": "Title..."
+                }
+              },
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Article", "Product", "Recipe"],
+                  "label": "Type",
+                  "placeholder": "Please select"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Description",
+                  "placeholder": "Description..."
+                }
+              },
+              "price": {
+                "type": "Number",
+                "config": {
+                  "label": "Price",
+                  "placeholder": "Enter Product Price..."
+                }
+              },
+              "currency": {
+                "type": "Select",
+                "config": {
+                  "options": ["NZD", "USD", "Euro"],
+                  "label": "Currency"
+                }
+              },
+              "availability": {
+                "type": "Select",
+                "config": {
+                  "options": ["In-stock", "Out of stock"],
+                  "label": "Availability"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}
