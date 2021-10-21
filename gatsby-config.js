@@ -188,16 +188,35 @@ module.exports = {
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
-    //     trackingId: 'UA-7623107-7',
+    //     trackingId: '290625237',
+    //   },
+    // },
+
+    // {
+    //   resolve: 'gatsby-plugin-google-tagmanager',
+    //   options: {
+    //     id: 'GTM-TNBTNLW',
+    //     includeInDevelopment: false,
+    //     enableWebVitalsTracking: true,
     //   },
     // },
 
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        id: 'GTM-TNBTNLW',
-        includeInDevelopment: false,
-        enableWebVitalsTracking: true,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          'G-V4GEV21FN2', // Google Analytics / GA
+        ],
+
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+
+          // Avoids sending pageview hits from custom paths
+          exclude: ['/preview/**', '/do-not-track/me/too/'],
+        },
       },
     },
 
@@ -215,7 +234,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://d67r.app',
-        sitemap: 'https://d67r.app/sitemap-index.xml',
+        sitemap: 'https://d67r.app/sitemap.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }],
