@@ -42,6 +42,7 @@
     "gatsby-remark-images-medium-zoom": "^1.7.0",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-source-google-spreadsheet": "^2.0.0",
+    "gatsby-source-google-spreadsheets": "^3.0.8",
     "gatsby-source-prismic": "^4.2.0",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.6.0",
