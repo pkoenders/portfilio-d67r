@@ -21,7 +21,7 @@
     "chart.js": "^3.5.1",
     "dateformat": "^4.5.1",
     "final-form": "^4.20.2",
-    "gatsby": "^3.9.1",
+    "gatsby": "^4.0.0-next",
     "gatsby-background-image": "^1.5.3",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
