@@ -37,9 +37,7 @@ export default withPrismicPreview(HomeTemplate, [
 export const query = graphql`
   query Homepage($locale: String) {
     sitePlugin(name: { eq: "gatsby-plugin-prismic-previews" }) {
-      pluginOptions {
-        repositoryName
-      }
+      pluginOptions
     }
 
     ## Get the main nav in local context
