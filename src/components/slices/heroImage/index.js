@@ -18,7 +18,7 @@ import {
   getPostionAlign,
   getGradientDirection,
   // getBGroundPosition,
-} from '/src/utils/helpers'
+} from '../../../utils/helpers'
 
 // Buttons
 import Button from '/src/components/common/buttons/linkButton'
