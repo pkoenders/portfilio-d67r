@@ -155,13 +155,13 @@ export function getHeroImgHeight(height) {
   // } else {
   switch (height) {
     case null:
-      return 450 + 'px'
+      return '450px'
 
     case height:
       return height + 'px'
 
     default:
-      return 450 + 'px'
+      return '450px'
   }
 }
 
