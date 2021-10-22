@@ -154,6 +154,10 @@ export function getHeroImgHeight(height) {
   //   return height + 'vh'
   // } else {
 
+  if (height === 'null') {
+    return '450px'
+  }
+
   switch (height) {
     case '':
     case 'null':
