@@ -30,7 +30,6 @@ const HomeTemplate = ({ data, location }) => {
 export default withPrismicPreview(HomeTemplate, [
   {
     repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
-    // linkResolver,
   },
 ])
 
@@ -98,7 +97,7 @@ export const query = graphql`
         # Page data
         body {
           ##
-          ## Hero image
+          ## Hero mage
           ... on PrismicHomepageDataBodyHeroImage {
             slice_type
             primary {
