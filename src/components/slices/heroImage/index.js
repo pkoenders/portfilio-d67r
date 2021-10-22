@@ -223,6 +223,12 @@ const FullWidthImage = ({ slice }) => {
   const image = getImage(slice.primary.image.localFile.childImageSharp.gatsbyImageData)
   const bgImage = convertToBgImage(image)
 
+  // Add some inline styles
+  const imageMargin = {
+    marginTop: vMarginTop,
+    marginBottom: vMarginBottom,
+  }
+
   const imageHeight = {
     height: `${sectionHeight}`,
   }
@@ -237,10 +243,7 @@ const FullWidthImage = ({ slice }) => {
     <WrapperHeroImage
       aria-label="Hero image"
       className={'section-layout heroImage ' + sectionWidth}
-      style={{
-        marginTop: vMarginTop + 'px',
-        marginBottom: vMarginBottom + 'px',
-      }}
+      style={imageMargin}
     >
       <div>
         {slice.primary.image.localFile.childImageSharp.gatsbyImageData && (
