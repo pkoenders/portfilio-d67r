@@ -210,6 +210,8 @@ module.exports = {
     //   },
     // },
 
+    'gatsby-plugin-advanced-sitemap',
+
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -221,7 +223,7 @@ module.exports = {
         // This object is used for configuration specific to this plugin
         pluginConfig: {
           // Puts tracking script in the head instead of the body
-          head: false,
+          head: true,
 
           // Avoids sending pageview hits from custom paths
           exclude: ['/preview/**', '/do-not-track/me/too/'],
@@ -238,7 +240,6 @@ module.exports = {
     //     policy: [{ userAgent: '*', allow: '/' }],
     //   },
     // },
-    'gatsby-plugin-advanced-sitemap',
 
     {
       resolve: 'gatsby-plugin-robots-txt',
@@ -282,9 +283,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Portfolio | Peter Koenders`,
-        description: `Portfolio | Peter Koenders`,
-        short_name: `Peter Koenders`,
+        name: `Website Design - Palmerston North`,
+        description: `Website Design - Palmerston North`,
+        short_name: `Website Design`,
         start_url: `/`,
         background_color: `#091b38`,
         theme_color: `#091b38`,
