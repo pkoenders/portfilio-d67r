@@ -156,14 +156,14 @@ const WrapperHeroImage = styled.section`
 
 const FullWidthImage = ({ slice }) => {
   // Container width
-  var sectionWidth = getContentWidth(slice.primary.width)
+  const sectionWidth = getContentWidth(slice.primary.width)
 
   // Hero image height
-  var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
+  const sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
   // Overlay colors
-  var overlayFrom = getColor(slice.primary.overlay_from)
-  var overlayTo = getColor(slice.primary.overlay_to)
+  const overlayFrom = getColor(slice.primary.overlay_from)
+  const overlayTo = getColor(slice.primary.overlay_to)
 
   if (overlayFrom === null || overlayFrom === 'transparent') {
     overlayFrom = '#000000'
@@ -181,7 +181,7 @@ const FullWidthImage = ({ slice }) => {
   overlayTo = getHexToRGB(overlayTo, overlayToOpacity)
 
   // Banner overlay (gradient) direction
-  var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
+  const overlayDirection = getGradientDirection(slice.primary.overlay_direction)
 
   // Banner bGround postion
   const alignBGround = getPostionAlign(slice.primary.align_image)
@@ -241,8 +241,8 @@ const FullWidthImage = ({ slice }) => {
             {...bgImage}
             preserveStackingContext
             style={{
-              backgroundPosition: `center ${alignBGround}`,
               height: `${sectionHeight}`,
+              backgroundPosition: `center ${alignBGround}`,
               backgroundImage:
                 `linear-gradient(` +
                 overlayDirection +
