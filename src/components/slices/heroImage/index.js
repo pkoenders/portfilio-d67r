@@ -156,10 +156,10 @@ const WrapperHeroImage = styled.section`
 
 const FullWidthImage = ({ slice }) => {
   // Container width
-  const sectionWidth = getContentWidth(slice.primary.width)
+  var sectionWidth = getContentWidth(slice.primary.width)
 
   // Hero image height
-  const sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
+  var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
   // Overlay colors
   var overlayFrom = getColor(slice.primary.overlay_from)
@@ -181,13 +181,13 @@ const FullWidthImage = ({ slice }) => {
   overlayTo = getHexToRGB(overlayTo, overlayToOpacity)
 
   // Banner overlay (gradient) direction
-  const overlayDirection = getGradientDirection(slice.primary.overlay_direction)
+  var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
 
   // Banner bGround postion
-  const alignBGround = getPostionAlign(slice.primary.align_image)
+  var alignBGround = getPostionAlign(slice.primary.align_image)
 
   // Banner margins
-  const defaultMargin = getAutoSpacing(slice.primary.default_margin)
+  var defaultMargin = getAutoSpacing(slice.primary.default_margin)
   var vMarginTop = getManualSpacing(slice.primary.margin_top)
   var vMarginBottom = getManualSpacing(slice.primary.margin_bottom)
   if (vMarginTop === null) {
