@@ -158,7 +158,7 @@ export function getHeroImgHeight(height, vheight) {
         return '450px'
 
       case height:
-        return height + 'px'
+        return String(height) + 'px'
 
       default:
         return '450px'
