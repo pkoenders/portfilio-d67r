@@ -243,14 +243,7 @@ const FullWidthImage = ({ slice }) => {
             style={{
               height: `${sectionHeight}`,
               backgroundPosition: `center ${alignBGround}`,
-              backgroundImage:
-                `linear-gradient(` +
-                overlayDirection +
-                `, rgba(` +
-                overlayFrom +
-                `), rgba(` +
-                overlayTo +
-                `))`,
+              backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
             }}
           />
         )}
