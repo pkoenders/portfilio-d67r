@@ -151,17 +151,17 @@ export function getHeroImgHeight(height, vheight) {
   if (vheight === true) {
     height = parseFloat(100 - (60 / 100) * 10)
     //console.log(height)
-    return String(height) + 'vh'
+    return height + 'vh'
   } else {
     switch (height) {
       case null:
-        return '450px'
+        return 450
 
       case height:
-        return String(height) + 'px'
+        return height
 
       default:
-        return '450px'
+        return 450
     }
   }
 }
