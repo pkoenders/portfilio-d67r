@@ -18,7 +18,7 @@ import {
   getStyle,
   getPostionAlign,
   getGradientDirection,
-  getBGroundPosition,
+  // getBGroundPosition,
 } from '/src/utils/helpers'
 
 // Buttons
@@ -184,7 +184,7 @@ const FullWidthImage = ({ slice }) => {
   var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
 
   // Banner bGround postion
-  var alignBGround = getBGroundPosition(slice.primary.align_image)
+  const alignBGround = getPostionAlign(slice.primary.align_image)
 
   // Banner margins
   const defaultMargin = getAutoSpacing(slice.primary.default_margin)
@@ -241,7 +241,7 @@ const FullWidthImage = ({ slice }) => {
             {...bgImage}
             preserveStackingContext
             style={{
-              backgroundPosition: alignBGround,
+              backgroundPosition: `center ${alignBGround}`,
               height: sectionHeight,
               backgroundImage:
                 `linear-gradient(` +
