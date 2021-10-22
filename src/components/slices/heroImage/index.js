@@ -223,6 +223,16 @@ const FullWidthImage = ({ slice }) => {
   const image = getImage(slice.primary.image.localFile.childImageSharp.gatsbyImageData)
   const bgImage = convertToBgImage(image)
 
+  const imageHeight = {
+    height: `${sectionHeight}`,
+  }
+
+  const bgroundStyle = {
+    height: `${sectionHeight}`,
+    backgroundPosition: `center ${alignBGround}`,
+    backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
+  }
+
   return (
     <WrapperHeroImage
       aria-label="Hero image"
@@ -240,19 +250,13 @@ const FullWidthImage = ({ slice }) => {
             // Spread bgImage into BackgroundImage:
             {...bgImage}
             preserveStackingContext
-            style={{
-              height: `${sectionHeight}`,
-              backgroundPosition: `center ${alignBGround}`,
-              backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
-            }}
+            style={bgroundStyle}
           />
         )}
 
         <div
           className={'wrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
-          style={{
-            height: `${sectionHeight}`,
-          }}
+          style={imageHeight}
         >
           <div className={'content ' + `${slice.primary.align_content}`.toLowerCase()}>
             {(title || description) !== null && (
