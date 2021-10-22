@@ -159,7 +159,7 @@ const FullWidthImage = ({ slice }) => {
   var sectionWidth = getContentWidth(slice.primary.width)
 
   // Hero image height
-  var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
+  const sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
   // Overlay colors
   var overlayFrom = getColor(slice.primary.overlay_from)
