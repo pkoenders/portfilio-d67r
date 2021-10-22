@@ -230,12 +230,12 @@ const FullWidthImage = ({ slice }) => {
   }
 
   const imageHeight = {
-    height: `${sectionHeight}`,
+    height: String(sectionHeight),
     // height: '450px',
   }
 
   const bgroundStyle = {
-    height: `${sectionHeight}`,
+    height: String(sectionHeight),
     // height: '450px',
     backgroundPosition: `center ${alignBGround}`,
     backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
