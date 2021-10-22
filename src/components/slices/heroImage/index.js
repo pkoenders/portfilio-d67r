@@ -162,8 +162,8 @@ const FullWidthImage = ({ slice }) => {
   const sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
   // Overlay colors
-  const overlayFrom = getColor(slice.primary.overlay_from)
-  const overlayTo = getColor(slice.primary.overlay_to)
+  var overlayFrom = getColor(slice.primary.overlay_from)
+  var overlayTo = getColor(slice.primary.overlay_to)
 
   if (overlayFrom === null || overlayFrom === 'transparent') {
     overlayFrom = '#000000'
