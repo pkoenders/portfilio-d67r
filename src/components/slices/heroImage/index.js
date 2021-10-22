@@ -164,6 +164,8 @@ const FullWidthImage = ({ slice }) => {
     sectionHeight = parseFloat(100 - (60 / 100) * 10) + 'vh'
   }
 
+  console.log('sectionHeight = ' + sectionHeight)
+
   // Overlay colors
   var overlayFrom = getColor(slice.primary.overlay_from)
   var overlayTo = getColor(slice.primary.overlay_to)
