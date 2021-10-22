@@ -225,16 +225,16 @@ const FullWidthImage = ({ slice }) => {
 
   // Add some inline styles
   const imageMargin = {
-    marginTop: vMarginTop,
-    marginBottom: vMarginBottom,
+    marginTop: `${vMarginTop}px`,
+    marginBottom: `${vMarginBottom}px`,
   }
 
   const imageHeight = {
-    height: `${sectionHeight}`,
+    height: `${sectionHeight}px`,
   }
 
   const bgroundStyle = {
-    height: `${sectionHeight}`,
+    height: `${sectionHeight}px`,
     backgroundPosition: `center ${alignBGround}`,
     backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
   }
