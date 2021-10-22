@@ -1,5 +1,4 @@
 import React from 'react'
-
 // Helpers
 import { getImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
@@ -159,7 +158,11 @@ const FullWidthImage = ({ slice }) => {
   var sectionWidth = getContentWidth(slice.primary.width)
 
   // Hero image height
-  var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
+  var sectionHeight = getHeroImgHeight(slice.primary.height)
+
+  if (slice.primary.v_height === true) {
+    sectionHeight = parseFloat(100 - (60 / 100) * 10) + 'vh'
+  }
 
   // Overlay colors
   var overlayFrom = getColor(slice.primary.overlay_from)
