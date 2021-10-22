@@ -17,7 +17,6 @@ import {
   getStyle,
   getPostionAlign,
   getGradientDirection,
-  // getBGroundPosition,
 } from '../../../utils/helpers'
 
 // Buttons
