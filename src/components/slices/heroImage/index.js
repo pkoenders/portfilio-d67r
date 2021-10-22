@@ -159,7 +159,7 @@ const FullWidthImage = ({ slice }) => {
   var sectionWidth = getContentWidth(slice.primary.width)
 
   // Hero image height
-  const sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
+  var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
   // Overlay colors
   var overlayFrom = getColor(slice.primary.overlay_from)
@@ -242,7 +242,7 @@ const FullWidthImage = ({ slice }) => {
             preserveStackingContext
             style={{
               backgroundPosition: `center ${alignBGround}`,
-              height: sectionHeight,
+              height: `${sectionHeight}`,
               backgroundImage:
                 `linear-gradient(` +
                 overlayDirection +
@@ -258,7 +258,7 @@ const FullWidthImage = ({ slice }) => {
         <div
           className={'wrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
           style={{
-            height: sectionHeight,
+            height: `${sectionHeight}`,
           }}
         >
           <div className={'content ' + `${slice.primary.align_content}`.toLowerCase()}>
