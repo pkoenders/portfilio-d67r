@@ -16,7 +16,7 @@ const SEOGeneral = ({ slice }) => (
           <title>{metaTitle}</title>
           <meta
             name="google-site-verification"
-            content="DAiQEMzcJlBMppysBm9TztriuQblYdj_9Rlbi23ddC0"
+            content="IEc3M4dn1WAD587hXAeNTEion1kcNSPTrC7CUAcGo74"
           />
 
           {/* Page description. No longer than 155 characters. */}
