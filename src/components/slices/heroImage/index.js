@@ -157,7 +157,7 @@ const FullWidthImage = ({ slice }) => {
   var sectionWidth = getContentWidth(slice.primary.width)
 
   // Hero image height
-  var sectionHeight = getHeroImgHeight(slice.primary.height)
+  var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
   // if (slice.primary.v_height === true) {
   //   sectionHeight = parseFloat(100 - (60 / 100) * 10) + 'vh'

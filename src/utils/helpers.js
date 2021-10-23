@@ -147,15 +147,14 @@ export function getContentWidth(width) {
 }
 
 // Return hero image height
-export function getHeroImgHeight(height) {
+export function getHeroImgHeight(height, vheight) {
   if (vheight === true) {
     height = parseFloat(100 - (60 / 100) * 10)
     return height + 'vh'
-  } else {
+  }
 
   if (typeof height == 'number') {
     return height + 'px'
-    
   } else {
     switch (height) {
       case null:
