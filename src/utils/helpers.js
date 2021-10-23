@@ -156,17 +156,14 @@ export function getHeroImgHeight(height) {
 
   if (!isNaN(height)) {
     return height + 'px'
-  }
+  } else {
+    switch (height) {
+      case null:
+        return '450px'
 
-  switch (height) {
-    case null:
-      return '450px'
-
-    // case height <= 10000:
-    //   return height + 'px'
-
-    default:
-      return '450px'
+      default:
+        return '450px'
+    }
   }
 }
 
