@@ -22,8 +22,8 @@ const IntroSection = styled.section`
   .title {
     display: flex;
     margin: auto;
-    font-size: 120%;
-    font-weight: 600;
+    /* font-size: 120%; */
+    /* font-weight: 600; */
     color: ${({ theme }) => theme.colors.page[100]};
   }
 
@@ -202,7 +202,7 @@ const Intro = () => {
 
   return (
     <IntroSection className="sectionIntro section-layout wide">
-      <p className="title">Tēnā koe, welcome to my portfolio.</p>
+      <h2 className="title">Tēnā koe, welcome to my portfolio.</h2>
       <div>
         <article className="intro">
           <div className="part1">

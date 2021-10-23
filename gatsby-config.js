@@ -25,43 +25,56 @@ module.exports = {
     `babel-plugin-styled-components`,
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sass',
+
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
-          google: [
+          google2: [
             {
               family: `Material+Icons+Round`,
               text: `abcdefghijklmnopqrstuvwxyz_`,
-              strategy: 'base64', // 'base64' || 'cdn'
+              // fontDisplay: 'swap',
+              // strategy: 'base64',
+              // strategy: 'cdn',
             },
 
             {
               family: 'Roboto',
-              variants: ['300', '400', '500', '600'],
+              axes: 'wght@300;400;500;600',
               // fontDisplay: 'swap',
-              strategy: 'base64', // 'base64' || 'cdn'
+              // strategy: 'base64', // 'base64' || 'cdn'
+              // strategy: 'cdn',
             },
+
+            // {
+            //   family: 'Open+Sans',
+            //   axes: 'wght@300;400;500;600',
+            //   // fontDisplay: 'swap',
+            //   // strategy: 'base64', // 'base64' || 'cdn'
+            //   // strategy: 'cdn',
+            // },
 
             {
               family: 'Rokkitt',
-              variants: ['300', '500', '600'],
+              axes: 'wght@300;500',
               // fontDisplay: 'swap',
-              strategy: 'base64',
+              // strategy: 'base64',
+              // strategy: 'cdn',
             },
 
             {
               family: 'Merriweather',
-              variants: ['400', '700'],
+              axes: 'wght@400',
               // fontDisplay: 'swap',
-              // text: '“ ”',
-              strategy: 'base64',
+              // strategy: 'base64',
+              // strategy: 'cdn',
             },
           ],
         },
         useMinify: true,
         // usePreload: true,
-        // usePreconnect: false,
+        // usePreconnect: true,
       },
     },
 
