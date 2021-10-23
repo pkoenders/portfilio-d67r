@@ -154,7 +154,7 @@ export function getHeroImgHeight(height) {
   //   return height + 'vh'
   // } else {
 
-  if (!isNaN(height)) {
+  if (typeof height == 'number') {
     return height + 'px'
   } else {
     switch (height) {
