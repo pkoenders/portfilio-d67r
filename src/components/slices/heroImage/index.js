@@ -159,7 +159,7 @@ const FullWidthImage = ({ slice }) => {
   // Hero image height
   var sectionHeight = getHeroImgHeight(slice.primary.height)
 
-  if (slice.primary.height === 'null') {
+  if (slice.primary.height === null) {
     sectionHeight = '450px'
   }
 
