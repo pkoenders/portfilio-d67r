@@ -198,22 +198,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
 
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: '290625237',
-    //   },
-    // },
-
-    // {
-    //   resolve: 'gatsby-plugin-google-tagmanager',
-    //   options: {
-    //     id: 'GTM-TNBTNLW',
-    //     includeInDevelopment: false,
-    //     enableWebVitalsTracking: true,
-    //   },
-    // },
-
     'gatsby-plugin-advanced-sitemap',
 
     {
@@ -236,14 +220,6 @@ module.exports = {
     },
 
     'gatsby-plugin-react-helmet',
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     host: 'https://pkoenders.netlify.app',
-    //     sitemap: 'https://pkoenders.netlify.app/sitemap/sitemap-index.xml',
-    //     policy: [{ userAgent: '*', allow: '/' }],
-    //   },
-    // },
 
     {
       resolve: 'gatsby-plugin-robots-txt',
