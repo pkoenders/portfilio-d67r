@@ -111,6 +111,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.font.sans};
     line-height: ${({ theme }) => theme.lineHeight.snug};
+    margin-bottom: .5rem;
   }
 
   h4 {

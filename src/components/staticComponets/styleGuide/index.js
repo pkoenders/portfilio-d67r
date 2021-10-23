@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const StyleGuide = styled.div`
 
-  margin: ${({ theme }) => theme.margin.default} 0;
+  margin: ${({ theme }) => theme.margin['4xl']} 0;
 
   /* padding: 0 ${({ theme }) => theme.padding['1/2']}; */
 
@@ -32,6 +32,7 @@ const StyleGuide = styled.div`
 
   .typographyStyles {
     display: flex;
+    margin-top: ${({ theme }) => theme.margin.default};
       flex-direction: column;
       grid-gap: ${({ theme }) => theme.padding['1/4']};
       h1,h2,h3,h4,h5,p {
@@ -158,10 +159,10 @@ const Styleguide = () => {
             <div className="typographyStyles">
               <h1>Heading 1 - slab 'Rokkitt, serif'</h1>
               <h2>Heading 2 - slab 'Rokkitt, serif'</h2>
-              <h3>Heading 3 - sans 'Roboto, sans-serif'</h3>
-              <h4>Heading 4 - sans 'Roboto, sans-serif'</h4>
-              <h5>Heading 5 - sans 'Roboto, sans-serif'</h5>
-              <p>Paragraph - sans 'Roboto, sans-serif'</p>
+              <h3>Heading 3 - sans 'Open sans, sans-serif'</h3>
+              <h4>Heading 4 - sans 'Open sans, sans-serif'</h4>
+              <h5>Heading 5 - sans 'Open sans, sans-serif'</h5>
+              <p>Paragraph - sans 'Open sans, sans-serif'</p>
               <p className="serif">Serif - '"Bodoni Moda", serif'</p>
               <p className="mono">Mono - 'Menlo', 'Monaco'</p>
             </div>
@@ -489,32 +490,32 @@ const Styleguide = () => {
               <p>
                 <strong>Header</strong>
               </p>
-              <span className="background-header-bground-default default dark">Header default</span>
-              <span className="background-header-bground-900 dark">Header 900</span>
-              <span className="background-header-bground-800 dark">Header 800</span>
-              <span className="background-header-bground-700 dark">Header 700</span>
-              <span className="background-header-bground-600 dark">Header 600</span>
-              <span className="background-header-bground-500 dark">Header 500</span>
-              <span className="background-header-bground-400">Header 400</span>
-              <span className="background-header-bground-300">Header 300</span>
-              <span className="background-header-bground-200">Header 200</span>
-              <span className="background-header-bground-100">Header 100</span>
+              <span className="background-header-default default dark">Header default</span>
+              <span className="background-header-900 dark">Header 900</span>
+              <span className="background-header-800 dark">Header 800</span>
+              <span className="background-header-700 dark">Header 700</span>
+              <span className="background-header-600 dark">Header 600</span>
+              <span className="background-header-500 dark">Header 500</span>
+              <span className="background-header-400">Header 400</span>
+              <span className="background-header-300">Header 300</span>
+              <span className="background-header-200">Header 200</span>
+              <span className="background-header-100">Header 100</span>
             </div>
 
             <div className="colors">
               <p>
                 <strong>Footer</strong>
               </p>
-              <span className="background-footer-bground-default default dark">Footer default</span>
-              <span className="background-footer-bground-900 dark">Footer 900</span>
-              <span className="background-footer-bground-800 dark">Footer 800</span>
-              <span className="background-footer-bground-700 dark">Footer 700</span>
-              <span className="background-footer-bground-600 dark">Footer 600</span>
-              <span className="background-footer-bground-500 dark">Footer 500</span>
-              <span className="background-footer-bground-400">Footer 400</span>
-              <span className="background-footer-bground-300">Footer 300</span>
-              <span className="background-footer-bground-200">Footer 200</span>
-              <span className="background-footer-bground-100">Footer 100</span>
+              <span className="background-footer-default default dark">Footer default</span>
+              <span className="background-footer-900 dark">Footer 900</span>
+              <span className="background-footer-800 dark">Footer 800</span>
+              <span className="background-footer-700 dark">Footer 700</span>
+              <span className="background-footer-600 dark">Footer 600</span>
+              <span className="background-footer-500 dark">Footer 500</span>
+              <span className="background-footer-400">Footer 400</span>
+              <span className="background-footer-300">Footer 300</span>
+              <span className="background-footer-200">Footer 200</span>
+              <span className="background-footer-100">Footer 100</span>
             </div>
           </div>
           <div className="colors">

@@ -33,7 +33,7 @@ const BtnWrapper = styled.span`
     text-align: center;
     text-transform: uppercase;
     text-decoration: none !important;
-    font-weight: 500;
+    font-weight: 600;
     font-family: inherit;
     line-height: initial;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
