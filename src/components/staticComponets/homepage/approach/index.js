@@ -79,8 +79,8 @@ const Approch = () => {
               <p>Performance</p>
               <p>
                 I design and build websites that use; next-generation image formats and
-                optimisation, styled components, lazy-loading, prefetching resources, and more to
-                improve the performance and page loading speed of your website.
+                optimisation, styled-components, lazy-loading, prefetching resources, and more to
+                improve your website's performance and page loading speed.
               </p>
               <p>
                 <a href="https://internetretailing.net/mobile-theme/mobile-theme/majority-of-websites-currently-fail-to-meet-googles-core-web-vitals-user-experience-requirements-23050">
@@ -93,11 +93,11 @@ const Approch = () => {
                 <a href="https://developers.google.com/search/blog/2020/11/timing-for-page-experience">
                   “Page Experience”
                 </a>{' '}
-                as part of search ranking, as measured by a set of metrics called Core Web Vitals.
+                as part of search ranking, measured by a set of Core Web Vitals metrics.
               </p>
               <p>
-                An optimised website that loads quickly helps achieve the Core Web Vitals and also
-                contributes to better user experience and positive page rankings.
+                An optimised website that loads quickly helps achieve the Core Web Vitals and
+                contributes to a better user experience and positive page rankings.
               </p>
             </span>
           </div>
@@ -128,8 +128,8 @@ const Approch = () => {
               </p>
 
               <p>
-                The framework I use is recognised by <a href="https://webaim.org/">WebAIM</a> as the
-                most accessible web framework with built-in best practices like accessible routing,
+                <a href="https://webaim.org/">WebAIM</a> recognises the framework I use as the most
+                accessible web framework with built-in best practices like accessible routing,
                 progressive page enhancement and a built-in linting tool to find accessibility
                 errors. Help make the web work for everyone.
               </p>
@@ -145,22 +145,22 @@ const Approch = () => {
                 <a href="https://www.datocms.com">DatoCMS</a>,{' '}
                 <a href="https://www.sanity.io/">Sanity</a>,{' '}
                 <a href="https://wordpress.com">WordPress</a>,{' '}
-                <a href="https://www.contentful.com">Contentful</a> and{' '}
-                <a href="https://agilitycms.com">Agility</a> are a selection of the products I have
-                worked with.
+                <a href="https://www.contentful.com">Contentful</a>, and{' '}
+                <a href="https://agilitycms.com">Agility</a> are tools I have worked with in the
+                past.
               </p>
 
               <p>
                 I have created a <a href="/prismic-template">demonstration template</a> of what
-                Prismic can accomplish with just one single, simple and manageable template. In
-                fact, this website is built with <a href="https://prismic.io/">Prismic CMS</a>.
-                Prismic It is cost-effective and has a great user onboarding and experience for
-                content creators, designers and developers. Prismic empowers content creators to
-                build and publish websites without constraints in locales of your choice. Create a
-                schedule for releases, preview and share your content changes.
+                Prismic can accomplish with just one manageable and straightforward template. This
+                website is utilising <a href="https://prismic.io/">Prismic CMS</a> to manage
+                content. Prismic is cost-effective and has a great user onboarding and experience
+                for content creators, designers and developers. Prismic empowers content creators to
+                develop and publish websites without constraints in locales of their choice. Create
+                a schedule for releases, preview and share your content changes.
               </p>
               <p>
-                Don't let your website design and content be funnelled into restrictive and
+                Don't let your website design and content to drift into restrictive and
                 uncompromising templates. Build and publish what and when you want to.
               </p>
 
@@ -192,13 +192,13 @@ const Approch = () => {
             <span>
               <p>Cost</p>
               <p>
-                The static websites I build are hosted on a global CDN that don’t require complex
-                scaling operations or expensive plans. They scale when needed, but when traffic
-                drops so does your usage — and your costs. Host your website for less (cheaper than
+                I design and develop websites for a global CDN that don't require complex scaling
+                operations or expensive hosting plans. They scale when needed, but when traffic
+                drops, so does your usage — and your costs. Host your website for less (cheaper than
                 Wix, WordPress and Squarespace) and use less energy. If you plan to administer your
-                website on your own, and you have low traffic, you could be hosting for free. It's a
-                smarter choice for the concious whom are considering responsible hosting with lower
-                costs and carbon footprint!
+                website on your own and have a low traffic, you could be hosting for free. It's a
+                more brilliant choice for the conscious who consider responsible hosting with lower
+                costs and a carbon footprint!
               </p>
             </span>
           </div>
@@ -208,9 +208,9 @@ const Approch = () => {
             <span>
               <p>Support</p>
               <p>
-                In my hands, your next website will be blazing fast, accessible, secure and
-                customised. You will get personal support and I will answer your calls because I
-                just simply ❤️ what I do.
+                In my hands, your following website will be blazingly fast, accessible, secure and
+                customised. You will get personal support and answer your calls because I just
+                simply ❤️ what I do.
               </p>
               <Button
                 buttonLabel={'Reach out'}

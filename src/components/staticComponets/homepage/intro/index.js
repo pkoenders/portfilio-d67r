@@ -212,8 +212,8 @@ const Intro = () => {
               follow_the_signs
             </i> */}
               <p>
-                I’m a UI/UX designer &amp; developer, originally from a traditional Graphic Design
-                background and transitioned into Digital and Web Design
+                I'm a UI/UX designer &amp; developer, originally from a traditional Graphic Design
+                background and transitioned into Digital and Web Design.
               </p>
             </span>
           </div>
@@ -239,8 +239,8 @@ const Intro = () => {
             </i> */}
               {/* <IconDevelopment /> */}
               <p>
-                With professionalism, integrity, and care. I work in a collaborative manner to plan,
-                design and deliver crafted solutions
+                I work collaboratively to plan, design, and deliver crafted solutions with
+                professionalism, integrity, and care.
               </p>
             </span>
           </div>
