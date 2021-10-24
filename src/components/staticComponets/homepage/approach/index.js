@@ -208,9 +208,9 @@ const Approch = () => {
             <span>
               <p>Support</p>
               <p>
-                In my hands, your following website will be blazingly fast, accessible, secure and
-                customised. You will get personal support and answer your calls because I just
-                simply ❤️ what I do.
+                In my hands, your website will be blazingly fast, accessible, secure and customised.
+                You will get personal support and answer your calls because I just simply ❤️ what I
+                do.
               </p>
               <Button
                 buttonLabel={'Reach out'}
