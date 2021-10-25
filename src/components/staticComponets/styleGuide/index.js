@@ -139,22 +139,21 @@ const Styleguide = () => {
         <div className="intro">
           <h1>Style guide</h1>
           <p>
-            This style guide is a reference for key design elements of the website. This includes
-            its colour scheme, typography, spacing, icons, imagery, and the visual language. It is
-            reccommended to include new and updated styles on this page.
+            This style guide is a reference for key design elements of the website. The guide also
+            includes colour scheme, typography, spacing, icons, imagery, and visual language. Site
+            administrators should update new and modified styles on this page.
           </p>
           <div className="section">
             <p>
               <strong>Typography</strong>
               <br />
-              Fonts are selected and preloaded from Google Font library along with icons from
+              Fonts are selected and preloaded from the Google Font library along with icons from
               Material Icons. For consistency, avoid applying a bold style to heading fonts.
             </p>
             <p>
-              To select icons, go to{' '}
-              <a href="https://fonts.google.com/icons">Material Icons Libray</a> and select rounded
-              style, copy and pass in the icon CSS name as a paramater. Eg; 'Contact Page will be
-              'contact_page'.{' '}
+              Go to <a href="https://fonts.google.com/icons">Material Icons Libray</a> and select
+              rounded style, copy and pass in the icon CSS name as a parameter to select icons. Eg;
+              'Contact Page will be 'contact_page'.
             </p>
             <div className="typographyStyles">
               <h1>Heading 1 - slab 'Rokkitt, serif'</h1>
@@ -363,8 +362,9 @@ const Styleguide = () => {
           <div className="section">
             <p>
               <strong>Colours</strong>
-              <br /> Website colours are predefined and restricted to keep consistincy and ensure
-              colours are matched as close as an be as complementarities.
+              <br />
+              Website colours are predefined and restricted to keep consistency and ensure colours
+              are matched as close as an be as complementarities.
             </p>
             <ul>
               <li>Page - Text colour</li>
@@ -378,8 +378,9 @@ const Styleguide = () => {
               <li>Alerts</li>
             </ul>
             <p>
-              All colors have a tint value from 900 - 100 with the expetion of Alert colours.
-              Primary, Seconday and Tertiary colours have an additional shade value from 1100 - 1300
+              All colours have a tint value from 900 - 100 with the exception of Alert colours.
+              Primary, Secondary and Tertiary colours have an additional shade value from 1100 -
+              1300
             </p>
             <div className="colors">
               <p>
