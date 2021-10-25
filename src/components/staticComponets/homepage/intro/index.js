@@ -22,6 +22,7 @@ const IntroSection = styled.section`
   .title {
     display: flex;
     margin: auto;
+    padding: 0 ${({ theme }) => theme.padding['1/2']};
     /* font-size: 120%; */
     /* font-weight: 600; */
     color: ${({ theme }) => theme.colors.page[100]};
