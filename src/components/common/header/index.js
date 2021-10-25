@@ -251,6 +251,9 @@ const HeaderWrapper = styled.header`
 
         button {
           left: 0px;
+          i {
+            color: ${({ theme }) => theme.colors.page[100]};
+          }
         }
       }
     }
