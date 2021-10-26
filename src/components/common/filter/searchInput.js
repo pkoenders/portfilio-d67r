@@ -8,7 +8,7 @@ import IconMaterial from '/src/components/common/icons/material'
 
 import styled from 'styled-components'
 
-const Input = styled.div`
+const Input = styled.div.attrs({ id: 'searchInput' })`
   display: flex;
   justify-content: center;
   margin: 0;

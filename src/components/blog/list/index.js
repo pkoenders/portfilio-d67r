@@ -13,6 +13,7 @@ import GridItem from './item'
 
 // Filter componetent styles
 import Filter from '/src/components/common/filter/filter'
+import SkipFilter from '/src/components/common/filter/skipFilter'
 import ListTagBtns from '/src/components/common/filter/tagBtns'
 import SearchBox from '/src/components/common/filter/searchBox'
 import SortList from '/src/components/common/filter/sortList'
@@ -245,7 +246,8 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
     <>
       {pageIntro.show_filters === true && (
-        <Filter>
+        <Filter aria-label="Filter tools">
+          <SkipFilter />
           <div>
             {pageIntro.show_tags === true && tagList.length > 0 && (
               <ListTagBtns

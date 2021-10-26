@@ -4,6 +4,8 @@ const FilterWrapper = styled.div`
   margin-top: ${({ theme }) => theme.header.height};
   padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
   background-color: ${({ theme }) => theme.colors.tertiary[200]};
+  position: relative;
+
   > div {
     position: relative;
     display: flex;
