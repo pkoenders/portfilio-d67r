@@ -118,7 +118,7 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
       <nav aria-label="Navigate to previous page or next page" role="navigation">
         {/* <Link aria-label="Back" to="../"> */}
 
-        <button onClick={() => window.history.back()} aria-label="Back">
+        <button onClick={() => window.history.back()}>
           <IconMaterial icon={'arrow_back'} />
           {i18n[currentLang].back}
         </button>
