@@ -241,8 +241,8 @@ const Intro = () => {
             </i> */}
               {/* <IconDevelopment /> */}
               <p>
-                I work collaboratively to plan, design, and deliver crafted solutions with
-                professionalism, integrity, and care.
+                I collaboratively plan, design, and deliver crafted solutions with professionalism,
+                integrity and care.
               </p>
             </span>
           </div>
