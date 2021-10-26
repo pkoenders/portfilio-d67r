@@ -38,7 +38,14 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   // Toggle sort order - Asc / Desc
   const sortAscDescClick = useCallback(
     (e) => {
+      // Toggle class button
       e.target.classList.toggle('desc')
+
+      // Toggle Aria labels for button
+      e.target.getAttribute('aria-label') === 'Sort by descending'
+        ? e.target.setAttribute('aria-label', 'Sort by ascending')
+        : e.target.setAttribute('aria-label', 'Sort by descending')
+
       setAscDescSort(!ascDesc)
       setAllPosts(allPosts.sort().reverse())
     },
@@ -67,14 +74,14 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   const sortItemClick = useCallback(
     (e) => {
       // Update the label title to the selected title
+      const sortLabelBtn = e.target.parentNode.previousSibling
       const sortLabel = e.target.parentNode.previousSibling.querySelector('span')
+
+      sortLabelBtn.setAttribute('aria-label', `Sort by ${e.target.innerText}`)
       sortLabel.innerText = e.target.innerText
 
       // Add the node to be sorted to the node path
       const filterNode = e.target.getAttribute('data-nodepath')
-
-      // If filter by date, we srt a flag to reverse order to show latested at top of list
-      const filterDate = filterNode.includes('date')
 
       // https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value?page=1&tab=votes#tab-top
       // Sort the node with lodash
@@ -96,7 +103,6 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
         sortPosts = _.cloneDeep([...dataList.items])
         sortPosts = _.sortBy(dataList.items, filterNode)
         ascDesc === false && sortPosts.reverse()
-        filterDate === true && sortPosts.reverse()
         setSourceList(sortPosts)
         setAllPosts(sortPosts)
       }
@@ -114,9 +120,12 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   }
   function handleCloseSortList() {
     const selectList = document.querySelector('.sort div')
+    const selectListBtn = document.querySelector('.sort div button')
     const sortList = document.querySelector('.sort div div')
+
     if (selectList) {
       selectList.classList.remove('isActive')
+      selectListBtn.setAttribute('aria-expanded', 'false')
       sortList.classList.remove('isActive')
 
       // Reset the buttons
@@ -155,6 +164,7 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
     var filterBtns = document.getElementsByClassName('tagButton')
     for (var x = 0; x < filterBtns.length; ++x) {
       filterBtns[x].classList.remove('isActive')
+      filterBtns[x].setAttribute('aria-label', 'Tag is unselected')
     }
 
     var allCards = document.getElementsByClassName('item')

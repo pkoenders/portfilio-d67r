@@ -68,7 +68,14 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
   // Toggle sort order - Asc / Desc
   const sortAscDescClick = useCallback(
     (e) => {
+      // Toggle class button
       e.target.classList.toggle('desc')
+
+      // Toggle Aria labels for button
+      e.target.getAttribute('aria-label') === 'Sort by descending'
+        ? e.target.setAttribute('aria-label', 'Sort by ascending')
+        : e.target.setAttribute('aria-label', 'Sort by descending')
+
       setAscDescSort(!ascDesc)
       setAllPosts(allPosts.sort().reverse())
     },
@@ -97,7 +104,10 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
   const sortItemClick = useCallback(
     (e) => {
       // Update the label title to the selected title
+      const sortLabelBtn = e.target.parentNode.previousSibling
       const sortLabel = e.target.parentNode.previousSibling.querySelector('span')
+
+      sortLabelBtn.setAttribute('aria-label', `Sort by ${e.target.innerText}`)
       sortLabel.innerText = e.target.innerText
 
       // Add the node to be sorted to the node path
@@ -140,9 +150,12 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
   }
   function handleCloseSortList() {
     const selectList = document.querySelector('.sort div')
+    const selectListBtn = document.querySelector('.sort div button')
     const sortList = document.querySelector('.sort div div')
+
     if (selectList) {
       selectList.classList.remove('isActive')
+      selectListBtn.setAttribute('aria-expanded', 'false')
       sortList.classList.remove('isActive')
 
       // Reset the buttons
@@ -181,6 +194,7 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
     var filterBtns = document.getElementsByClassName('tagButton')
     for (var x = 0; x < filterBtns.length; ++x) {
       filterBtns[x].classList.remove('isActive')
+      filterBtns[x].setAttribute('aria-label', 'Tag is unselected')
     }
 
     var allCards = document.getElementsByClassName('item')

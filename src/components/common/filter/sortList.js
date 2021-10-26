@@ -114,7 +114,7 @@ const SortListWrapper = styled.div`
 
 const SortSelect = styled.button.attrs((props) => ({
   type: props.type || 'button',
-  'aria-label': 'Sort results',
+  // 'aria-label': 'Sort results',
 }))`
   & span,
   i {
@@ -130,13 +130,26 @@ const SortItem = styled.button.attrs((props) => ({
   'aria-label': 'Select item',
 }))``
 
+// Toggle sort list - ariaExpanded
+function toggleAria(e) {
+  e.target.getAttribute('aria-expanded') === 'true'
+    ? e.target.setAttribute('aria-expanded', 'false')
+    : e.target.setAttribute('aria-expanded', 'true')
+}
+
 const Sort = ({ currentLang, items, toggleSortListClick, sortItemClick, sortAscDescClick }) => {
   return (
     <SortListWrapper className="sort">
       <span>{i18n[currentLang].sortBy}</span>
 
       <div>
-        <SortSelect onClick={toggleSortListClick}>
+        <SortSelect
+          onClick={(e) => {
+            toggleSortListClick(e)
+            toggleAria(e)
+          }}
+          aria-label={`Sort by ${items[0].title}`}
+        >
           <span>{items[0].title}</span>
           <IconMaterial icon={'expand_more'} />
         </SortSelect>

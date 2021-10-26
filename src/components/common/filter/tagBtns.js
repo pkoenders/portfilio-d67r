@@ -144,6 +144,11 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
     // Select filter btn
     tagBtn.classList.toggle('isActive')
 
+    // Set the aria label for tags
+    tagBtn.getAttribute('aria-label') === 'Tag is Selected'
+      ? tagBtn.setAttribute('aria-label', 'Tag is unselected')
+      : tagBtn.setAttribute('aria-label', 'Tag is Selected')
+
     //  var activeFilterBtns = document.getElementsByClassName('tagButton isActive')
     var allCards = document.getElementsByClassName('item')
 
@@ -242,9 +247,14 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
     document.querySelector('.wrapper').classList.toggle('showMore')
+
     e.target.innerHTML === 'unfold_more'
       ? (e.target.innerHTML = 'unfold_less')
       : (e.target.innerHTML = 'unfold_more')
+
+    e.target.getAttribute('aria-expanded') === 'true'
+      ? e.target.setAttribute('aria-expanded', 'false')
+      : e.target.setAttribute('aria-expanded', 'true')
   }
 
   return (
@@ -262,6 +272,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
             type={'button'}
             onClick={toggleMoreTagBtns}
             ariaLabel={'Toggle for more tags'}
+            ariaExpanded={'false'}
           />
         )}
       </div>
@@ -276,6 +287,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
               key={`tagButton-` + index}
               onMouseDown={resetCards}
               onClick={handleFilterItem}
+              aria-label={'Unselected'}
             >
               {node}
             </button>

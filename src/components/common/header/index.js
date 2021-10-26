@@ -532,7 +532,29 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     const menuItem = e.currentTarget
     menuItem.classList.toggle('isActive')
     menuItem.nextSibling.classList.toggle('isActive')
+
+    menuItem.setAttribute('aria-label', 'Secondary navigation is open')
+    menuItem.setAttribute('aria-expanded', 'true')
+    menuItem.setAttribute('aria-pressed', 'true')
+
+    if (menuItem.classList.contains('isActive')) {
+      handleOpenSecondaryNavAria(menuItem)
+    } else {
+      handleCloseSecondaryNavAria(menuItem)
+    }
+
     handleCloseSecondaryNav(menuItem)
+  }
+
+  function handleOpenSecondaryNavAria(menuItem) {
+    menuItem.setAttribute('aria-label', 'Secondary navigation is open')
+    menuItem.setAttribute('aria-expanded', 'true')
+    menuItem.setAttribute('aria-pressed', 'true')
+  }
+  function handleCloseSecondaryNavAria(menuItem) {
+    menuItem.setAttribute('aria-label', 'Secondary navigation is closed')
+    menuItem.setAttribute('aria-expanded', 'false')
+    menuItem.setAttribute('aria-pressed', 'false')
   }
 
   function handleCloseSecondaryNav(menuItem) {
@@ -543,6 +565,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         if (secondaryNavBtn[i] !== menuItem) {
           secondaryNavBtn[i].classList.remove('isActive')
           secondaryNavList[i].classList.remove('isActive')
+          handleCloseSecondaryNavAria(secondaryNavBtn[i])
         }
       }
     }
@@ -606,6 +629,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       for (var i = 0; i < secondaryNavBtn.length; ++i) {
         secondaryNavBtn[i].classList.remove('isActive')
         secondaryNavList[i].classList.remove('isActive')
+        handleCloseSecondaryNavAria(secondaryNavBtn[i])
       }
 
       headerNav.classList.remove('open', 'fillBground')
@@ -663,7 +687,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         <button
           className="hamburger hamburger--squeeze"
           type="button"
-          aria-label="Open and Close navigation menu"
+          aria-label="Open and close mobile navigation menu"
           aria-controls="mainNavigation"
           aria-expanded="false"
           aria-pressed="false"
@@ -706,6 +730,10 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                       }`
                     }
                     onClick={handleToggleSecondaryNav}
+                    aria-label="Open and close secondary navigation"
+                    aria-controls="secondaryNavList"
+                    aria-expanded="false"
+                    aria-pressed="false"
                     // onKeyDown={handleToggleSecondaryNav}
                   >
                     {navItem.primary.label.text}
