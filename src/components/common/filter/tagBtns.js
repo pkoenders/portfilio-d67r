@@ -252,6 +252,10 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
       ? (e.target.innerHTML = 'unfold_less')
       : (e.target.innerHTML = 'unfold_more')
 
+    e.target.getAttribute('aria-label') === 'View more tags'
+      ? e.target.setAttribute('aria-label', 'View less tags')
+      : e.target.setAttribute('aria-label', 'View more tags')
+
     e.target.getAttribute('aria-expanded') === 'true'
       ? e.target.setAttribute('aria-expanded', 'false')
       : e.target.setAttribute('aria-expanded', 'true')
@@ -271,7 +275,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
             icon={'unfold_more'}
             type={'button'}
             onClick={toggleMoreTagBtns}
-            ariaLabel={'Toggle for more tags'}
+            ariaLabel={'View more tags'}
             ariaExpanded={'false'}
           />
         )}
