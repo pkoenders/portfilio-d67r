@@ -117,10 +117,10 @@ const Approch = () => {
             <span>
               <p>Accessibility</p>
               <p>
-                I support digital accessibility. Accessibility does not happen by accident. It has
-                to be purposefully planned, built, and tested. Inaccessible websites deprive users
-                with disabilities of experiences and opportunities that other people take for
-                granted.{' '}
+                ● I have an interest in and support digital accessibility. Accessibility does not
+                happen by accident. It has to be purposefully planned, built, and tested.
+                Inaccessible websites deprive users with disabilities of experiences and
+                opportunities that other people take for granted.{' '}
                 <a href="https://www.stats.govt.nz/news/one-in-four-new-zealanders-identified-as-disabled">
                   24% of New Zealanders
                 </a>{' '}
@@ -210,7 +210,7 @@ const Approch = () => {
               <p>Support</p>
               <p>
                 In my hands, your website will be blazingly fast, accessible, secure and customised.
-                You will get personal support and answer your calls because I just simply ❤️ what I
+                You will get personal support, and I respond to requests because I simply ❤️ what I
                 do.
               </p>
               <Button
