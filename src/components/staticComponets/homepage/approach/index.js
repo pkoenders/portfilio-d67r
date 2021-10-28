@@ -117,7 +117,7 @@ const Approch = () => {
             <span>
               <p>Accessibility</p>
               <p>
-                ● I have an interest in and support digital accessibility. Accessibility does not
+                I have an interest in and support digital accessibility. Accessibility does not
                 happen by accident. It has to be purposefully planned, built, and tested.
                 Inaccessible websites deprive users with disabilities of experiences and
                 opportunities that other people take for granted.{' '}
