@@ -14,7 +14,7 @@ import CardContent from '/src/components/common/layout/listResults/cardContent'
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-const Card = ({ cardItem, presentationType }) => {
+const Card = ({ cardItem, presentationType, item, carouselLength }) => {
   // Validate image format
   var imgFormat = getImgFormat(cardItem.format)
   // Validate content
@@ -30,6 +30,9 @@ const Card = ({ cardItem, presentationType }) => {
       className={`cardItem ${presentationType} ${
         presentationType === `carousel` ? `keen-slider__slide` : ''
       }`}
+      role="group"
+      aria-roledescription="Card"
+      aria-label={`Item ${item + 1} of ${carouselLength}`}
     >
       <Link to={link.uid !== null ? linkResolver(link) : `./#null`} className="link">
         <CardContent>

@@ -130,13 +130,19 @@ const CardsWrapper = styled.section`
   .cardItem.profile {
     overflow: visible;
     display: flex;
-    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+   
+    /* @media (max-width: ${({ theme }) => theme.screens.sm}) {
       padding-top:  ${({ theme }) => theme.padding['1/2']} !important;
+    } */
+    a.noLink{
+      cursor: default;
     }
     a {
       width: 100%;
       text-decoration: none;
-      > div {
+      
+      
+      article {
           overflow: visible;
           grid-gap: ${({ theme }) => theme.padding['1/2']};
           padding-top: ${({ theme }) => theme.padding.default};
@@ -149,9 +155,7 @@ const CardsWrapper = styled.section`
           border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
           margin: 0 auto;
           box-shadow: ${({ theme }) => theme.boxShadow.lg};
-
         }
-
         .content {
            width: 100%;
           display: flex;
@@ -365,6 +369,7 @@ const Cards = ({ slice }) => {
 
   // Validate title text
   const title = slice.primary.card_title
+  const ariaLabel = slice.primary.aria_label
   const align = getPostionAlign(slice.primary.align)
 
   // How do we present this? Carousel or Gallery
@@ -426,11 +431,13 @@ const Cards = ({ slice }) => {
           </span>
         )}
 
+        {/* Masonary Cards - Gallery */}
         {presentationType === 'gallery' && (
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="masonry-grid"
             columnClassName="masonry-grid_column"
+            aria-label={ariaLabel}
           >
             {slice.items.map((cardItem, index) => {
               return (
@@ -438,17 +445,21 @@ const Cards = ({ slice }) => {
                   cardItem={cardItem}
                   key={slice.id + index}
                   presentationType={presentationType}
+                  item={index}
+                  carouselLength={slice.items.length}
                 />
               )
             })}
           </Masonry>
         )}
 
+        {/* Masonary Cards - Profile */}
         {presentationType === 'profile' && (
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="masonry-grid"
             columnClassName="masonry-grid_column"
+            aria-label={ariaLabel}
           >
             {slice.items.map((cardItem, index) => {
               return (
@@ -456,26 +467,36 @@ const Cards = ({ slice }) => {
                   cardItem={cardItem}
                   key={slice.id + index}
                   presentationType={presentationType}
+                  item={index}
+                  carouselLength={slice.items.length}
                 />
               )
             })}
           </Masonry>
         )}
 
+        {/* Carousel */}
         {presentationType === 'carousel' && (
-          <div className="carousel">
-            <div ref={sliderRef} className="keen-slider">
+          <div
+            className="carousel"
+            aria-roledescription="carousel"
+            aria-label={ariaLabel}
+            aria-live="polite"
+          >
+            <div ref={sliderRef} id="carousel-items" className="keen-slider">
               {slider && (
                 <>
                   <NavArrow
                     onClick={(e) => e.stopPropagation() || slider.prev()}
                     disabled={currentSlide === 0}
                     direction={'prev'}
+                    aria-controls="carousel-items"
                   />
                   <NavArrow
                     onClick={(e) => e.stopPropagation() || slider.next()}
                     disabled={currentSlide === slider.details().size - 1}
                     direction={'next'}
+                    aria-controls="carousel-items"
                   />
                 </>
               )}
@@ -486,6 +507,8 @@ const Cards = ({ slice }) => {
                     cardItem={cardItem}
                     key={slice.id + index}
                     presentationType={presentationType}
+                    item={index}
+                    carouselLength={slice.items.length}
                   />
                 )
               })}

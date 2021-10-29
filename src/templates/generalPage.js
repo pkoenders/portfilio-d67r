@@ -233,6 +233,7 @@ export const query = graphql`
                 raw
                 text
               }
+              aria_label
               align
               presentation_type
               width

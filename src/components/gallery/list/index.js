@@ -343,7 +343,7 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
           {allPosts.length > 0 ? (
             <SimpleReactLightbox>
               <SRLWrapper options={options}>
-                <ListGrid defaultColCount={2}>
+                <ListGrid defaultColCount={2} aria-label="List of portfolio items">
                   {allPosts.map((node, index) => (
                     <GridItem
                       thisItem={allPosts[index]}
