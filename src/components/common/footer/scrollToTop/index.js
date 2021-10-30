@@ -16,6 +16,10 @@ const Button = styled.button.attrs((props) => ({
   color: ${({ theme }) => theme.colors.footer.default};
   display: flex;
 
+  @media print {
+    display: none;
+  }
+
   i {
     margin-top: ${({ theme }) => theme.margin['1/4']};
     border-radius: 999rem;

@@ -22,6 +22,10 @@ const SecondaryNavWrapper = styled.section`
   will-change: transform;
   transition: ${({ theme }) => theme.transition.easeOut.lazy};
 
+  @media print {
+    display: none;
+  }
+
   nav {
     height: 60px;
     align-items: center;

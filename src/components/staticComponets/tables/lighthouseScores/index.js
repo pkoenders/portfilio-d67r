@@ -245,28 +245,44 @@ const LighthouseScores = () => {
         Header: 'Errors',
         accessor: 'errors',
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? <Icon icon={'close'} /> : <Icon icon={'done'} />,
+          value === 'TRUE' ? (
+            <Icon icon={'done'} ariaLabel={'Yes'} />
+          ) : (
+            <Icon icon={'close'} ariaLabel={'No'} />
+          ),
       },
       {
         Header: 'Responsive',
         accessor: 'responsive',
         Cell: ({ cell: { value } }) =>
           // value === 'TRUE' ? (className) : (className = 'red'),
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon icon={'done'} ariaLabel={'Yes'} />
+          ) : (
+            <Icon icon={'close'} ariaLabel={'No'} />
+          ),
       },
 
       {
         Header: 'Secure',
         accessor: 'secure', // accessor is the "key" in the data
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon icon={'done'} ariaLabel={'Yes'} />
+          ) : (
+            <Icon icon={'close'} ariaLabel={'No'} />
+          ),
       },
 
       {
         Header: 'PWA',
         accessor: 'pwa',
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon icon={'done'} ariaLabel={'Yes'} />
+          ) : (
+            <Icon icon={'close'} ariaLabel={'No'} />
+          ),
       },
 
       {

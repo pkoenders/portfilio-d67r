@@ -20,6 +20,10 @@ const FilterWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
   }
+
+  @media print {
+    display: none;
+  }
 `
 
 export default FilterWrapper

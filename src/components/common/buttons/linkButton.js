@@ -18,6 +18,9 @@ const BtnWrapper = styled.span`
   }
 
   .btn {
+    @media print {
+      display: none;
+    }
     display: flex;
     flex-direction: row;
     align-self: center;

@@ -92,7 +92,12 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref }) => {
   return (
     <>
       {type === undefined && (
-        <MaterialIcon className={`material-icons${style} md-${size}`} aria-hidden="true" ref={ref}>
+        <MaterialIcon
+          className={`material-icons${style} md-${size}`}
+          aria-hidden="true"
+          aria-label={ariaLabel}
+          ref={ref}
+        >
           {icon}
         </MaterialIcon>
       )}
