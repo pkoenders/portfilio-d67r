@@ -56,7 +56,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     main {
-      margin: 11mm 0;      
+      margin: 11mm 0; 
+      overflow: hidden;      
     }
 
     div, li, a {

@@ -102,6 +102,7 @@ const HeaderWrapper = styled.header`
         right: ${({ theme }) => theme.padding['1/2']};
         left: auto;
       }
+
       @media print {
         left: ${({ theme }) => theme.padding['1/2']};
         right: auto;
