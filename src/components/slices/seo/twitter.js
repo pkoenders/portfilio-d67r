@@ -14,7 +14,7 @@ const SEOTwitter = ({ slice }) => (
         <Helmet>
           {/* Twitter Card data */}
           {/* The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”. */}
-          {slice.primary.title.text ? (
+          {slice.primary.card_type ? (
             <meta name="twitter:card" content={slice.primary.card_type} />
           ) : (
             ''
