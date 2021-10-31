@@ -34,32 +34,65 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
       aria-roledescription="Card"
       aria-label={`Item ${item + 1} of ${carouselLength}`}
     >
-      <Link to={link.uid !== null ? linkResolver(link) : `./#null`} className="link">
-        <CardContent>
-          {image && (
-            <GatsbyImage
-              className={'imageWrapper landscape ' + imgFormat}
-              image={image.localFile.childImageSharp.gatsbyImageData}
-              alt={image.alt ? image.alt : 'Sorry, no image description is available at this time'}
-            />
-          )}
-          <div className="content">
-            {title && (
-              <div className="title">
-                {title}
-                {presentationType === 'gallery' && <IconMaterial icon={'arrow_forward'} />}
-              </div>
+      {link.uid !== null ? (
+        <Link to={linkResolver(link)} className="link">
+          <CardContent>
+            {image && (
+              <GatsbyImage
+                className={'imageWrapper landscape ' + imgFormat}
+                image={image.localFile.childImageSharp.gatsbyImageData}
+                alt={
+                  image.alt ? image.alt : 'Sorry, no image description is available at this time'
+                }
+              />
             )}
-            {content.text && <RichText render={content.raw} />}
-            {linkLabel && presentationType === 'carousel' && (
-              <span className="link">
-                {linkLabel}
-                <IconMaterial icon={'arrow_forward'} />
-              </span>
+            <div className="content">
+              {title && (
+                <div className="title">
+                  {title}
+                  {presentationType === 'gallery' && <IconMaterial icon={'arrow_forward'} />}
+                </div>
+              )}
+              {content.text && <RichText render={content.raw} />}
+              {linkLabel && presentationType === 'carousel' && (
+                <span className="link">
+                  {linkLabel}
+                  <IconMaterial icon={'arrow_forward'} />
+                </span>
+              )}
+            </div>
+          </CardContent>
+        </Link>
+      ) : (
+        <div className="profile">
+          <CardContent>
+            {image && (
+              <GatsbyImage
+                className={'imageWrapper landscape ' + imgFormat}
+                image={image.localFile.childImageSharp.gatsbyImageData}
+                alt={
+                  image.alt ? image.alt : 'Sorry, no image description is available at this time'
+                }
+              />
             )}
-          </div>
-        </CardContent>
-      </Link>
+            <div className="content">
+              {title && (
+                <div className="title">
+                  {title}
+                  {presentationType === 'gallery' && <IconMaterial icon={'arrow_forward'} />}
+                </div>
+              )}
+              {content.text && <RichText render={content.raw} />}
+              {linkLabel && presentationType === 'carousel' && (
+                <span className="link">
+                  {linkLabel}
+                  <IconMaterial icon={'arrow_forward'} />
+                </span>
+              )}
+            </div>
+          </CardContent>
+        </div>
+      )}
     </div>
   )
 }
