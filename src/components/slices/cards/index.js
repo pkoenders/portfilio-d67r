@@ -131,10 +131,6 @@ const CardsWrapper = styled.section`
     overflow: visible;
     display: flex;
    
-    /* @media (max-width: ${({ theme }) => theme.screens.sm}) {
-      padding-top:  ${({ theme }) => theme.padding['1/2']} !important;
-    } */
-   
     div {
       width: 100%;
       text-decoration: none;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CardContent = styled.div`
+const CardContent = styled.article`
   overflow: hidden;
   display: flex;
   flex-direction: column;
