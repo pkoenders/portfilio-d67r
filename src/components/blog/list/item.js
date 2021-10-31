@@ -177,7 +177,7 @@ const BlogPost = ({ thisItem, animateScroll }) => {
 
               <div className="content" ref={innerTxt}>
                 {title && (
-                  <div className="title">
+                  <div className="title" aria-label="title">
                     {title}
                     <IconMaterial icon={'arrow_forward'} />
                   </div>

@@ -684,7 +684,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     >
       <div className="skipNav">
         <a className="skipLink" href="#main">
-          Skip navigation
+          Skip to main content
         </a>
       </div>
 
