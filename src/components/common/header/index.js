@@ -688,7 +688,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         </a>
       </div>
 
-      <nav className="headerNav" aria-label="Main navigation" role="navigation">
+      <nav className="headerNav" aria-label="Main navigation">
         <button
           className="hamburger hamburger--squeeze"
           type="button"
