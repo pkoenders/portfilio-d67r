@@ -213,7 +213,7 @@ const ContactNew = ({ formData, slice }) => {
           </div>
         )}
 
-        <Form onSubmit={onSubmit}>
+        <Form role="form" onSubmit={onSubmit}>
           {({ values, invalid }) => (
             <form
               id="form"

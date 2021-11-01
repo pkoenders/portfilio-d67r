@@ -70,7 +70,7 @@ const ApproachSection = styled.section`
 
 const Approch = () => {
   return (
-    <ApproachSection className="section-layout slim">
+    <ApproachSection className="section-layout slim" aria-label="Approach">
       <div>
         <article className="intro">
           <div>

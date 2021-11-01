@@ -203,7 +203,7 @@ const Intro = () => {
   }, [])
 
   return (
-    <IntroSection className="sectionIntro section-layout wide">
+    <IntroSection className="sectionIntro section-layout wide" aria-label="Homepage intro">
       <h2 className="title">
         <span lang="mi">Tēnā koe</span>, welcome to my portfolio.
       </h2>
