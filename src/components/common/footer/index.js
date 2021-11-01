@@ -14,7 +14,7 @@ const FooterWrapper = styled.footer`
   text-align: center;
   z-index: 1;
 
-  > div {
+  > nav {
     max-width: ${({ theme }) => theme.screens.lg};
     position: relative;
     margin: 0 auto;
@@ -64,7 +64,7 @@ const Footer = ({ currentLang, currentPrefix }) => {
 
   return (
     <FooterWrapper>
-      <div>
+      <nav aria-label="Footer navigation">
         <ScrollToTop />
         <p>
           {/* © {new Date().getFullYear()} - {i18n[currentLang].siteTitle} */}©{' '}
@@ -77,7 +77,7 @@ const Footer = ({ currentLang, currentPrefix }) => {
           <span>{i18n[currentLang].linkToHomepage}</span>
           <Brand />
         </Link>
-      </div>
+      </nav>
     </FooterWrapper>
   )
 }

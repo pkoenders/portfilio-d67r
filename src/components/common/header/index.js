@@ -712,7 +712,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           <Brand alt={'Logo - Link to homepage'} />
         </Link>
 
-        <ul aria-label="Secondary navigation">
+        <ul>
           {primaryNav.map((navItem, index) => {
             //console.log(navItem.link)
             return (
