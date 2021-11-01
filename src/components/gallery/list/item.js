@@ -179,10 +179,10 @@ const GalleryItem = ({ thisItem, animateScroll }) => {
 
               <div className="content" ref={innerTxt}>
                 {title && (
-                  <div className="title" aria-label="title">
+                  <h2 className="title">
                     {title}
                     <IconMaterial icon={'arrow_forward'} />
-                  </div>
+                  </h2>
                 )}
                 {intro && <p>{intro}</p>}
                 {tagData && <Tags tagData={tagData} />}
