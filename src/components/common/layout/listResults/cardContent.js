@@ -73,6 +73,7 @@ const CardContent = styled.article`
     padding: ${({ theme }) => theme.padding['1/2']};
 
     .title {
+      font-family: ${({ theme }) => theme.font.sans};
       font-size: 103%;
       font-weight: 600;
       align-content: space-between;
