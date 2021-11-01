@@ -137,7 +137,13 @@ const GalleryItem = ({ currentLang, itemData }) => {
           <div className="content">
             {date && <span className="date">{date}</span>}
             {link && (
-              <a href={link} className="visit">
+              <a
+                href={link}
+                target="_blank"
+                aria-describedby="Open link in a new window"
+                rel="noreferrer"
+                className="visit"
+              >
                 <IconMaterial icon={'open_in_new'} />
                 {link}
               </a>
