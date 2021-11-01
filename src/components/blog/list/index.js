@@ -26,6 +26,9 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   // A little loDash for sorting assistance
   var _ = require('lodash')
 
+  // Page title
+  const pageTitle = pageIntro.title.text
+
   // Set up some states
   // And set the intial sort by title
   var [sourceList, setSourceList] = useState(
@@ -245,6 +248,8 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
     <>
+      {pageTitle !== null && <h1 className="hide">{pageTitle}</h1>}
+
       {pageIntro.show_filters === true && (
         <Filter aria-label="Filter tools">
           <SkipFilter />
@@ -300,7 +305,6 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
           </div>
         </Filter>
       )}
-
       <Section
         // style={{
         //   marginTop: '0px',

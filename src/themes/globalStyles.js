@@ -71,6 +71,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
+  .hide {
+    display: none;
+  }
   section.light {
     color: ${({ theme }) => theme.colors.page.default};
   }
