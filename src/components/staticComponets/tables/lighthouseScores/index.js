@@ -157,7 +157,7 @@ function ReactTable({ columns, data, getCellProps = defaultPropGetter }) {
   // Render the UI for your table
   return (
     <>
-      <table {...getTableProps()}>
+      <table {...getTableProps()} aria-describedby="table-description">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -242,47 +242,31 @@ const LighthouseScores = () => {
         accessor: 'url', // accessor is the "key" in the data
       },
       {
-        Header: 'Errors',
+        Header: 'No errors',
         accessor: 'errors',
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? (
-            <Icon icon={'done'} ariaLabel={'Yes'} />
-          ) : (
-            <Icon icon={'close'} ariaLabel={'No'} />
-          ),
+          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
       },
       {
         Header: 'Responsive',
         accessor: 'responsive',
         Cell: ({ cell: { value } }) =>
           // value === 'TRUE' ? (className) : (className = 'red'),
-          value === 'TRUE' ? (
-            <Icon icon={'done'} ariaLabel={'Yes'} />
-          ) : (
-            <Icon icon={'close'} ariaLabel={'No'} />
-          ),
+          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
       },
 
       {
         Header: 'Secure',
         accessor: 'secure', // accessor is the "key" in the data
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? (
-            <Icon icon={'done'} ariaLabel={'Yes'} />
-          ) : (
-            <Icon icon={'close'} ariaLabel={'No'} />
-          ),
+          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
       },
 
       {
         Header: 'PWA',
         accessor: 'pwa',
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? (
-            <Icon icon={'done'} ariaLabel={'Yes'} />
-          ) : (
-            <Icon icon={'close'} ariaLabel={'No'} />
-          ),
+          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
       },
 
       {
@@ -522,7 +506,7 @@ const LighthouseScores = () => {
       classOverides={'xl'}
     >
       <LighthouseScoresTableWrapper>
-        <p className="title">
+        <p className="title" id="table-description">
           A selection of websites in the Manawatu region and their average lighthouse scores.
         </p>
         {/* <p className="title">Total count: {tableData.totalCount}</p> */}
@@ -565,6 +549,9 @@ const LighthouseScores = () => {
             getCellProps={(cellInfo) => ({
               className:
                 (cellInfo.value === 'FALSE' && 'red') || (cellInfo.value === 'TRUE' && 'green'),
+
+              'aria-label':
+                (cellInfo.value === 'FALSE' && 'False') || (cellInfo.value === 'TRUE' && 'True'),
             })}
           />
         </div>

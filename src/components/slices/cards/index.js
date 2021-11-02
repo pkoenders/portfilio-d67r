@@ -199,70 +199,70 @@ const CardsWrapper = styled.section`
     .cardItem {
       cursor: col-resize;
 
-      a {
+      > a {
         width: 100%;
         text-decoration: none;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         grid-gap: ${({ theme }) => theme.padding['1/2']};
-        > div {
+      
+        article {
           background-color: transparent;
           border: none;
           box-shadow: none;
           overflow: visible;
-        }
-        .imageWrapper {
-          border-radius: ${({ theme }) => theme.borderRadius.default};
-          border: none;
-          @media (max-width: ${({ theme }) => theme.screens.sm}) {
-            border-radius: 0px;
-          }
-        }
-
-        .content {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          grid-gap: ${({ theme }) => theme.padding['1/4']};
-          .title,
-          p {
-            justify-content: inherit;
-          }
-
-          p{
-            display: flex;
-            a{
-             display: contents;
+        
+          .imageWrapper {
+            border-radius: ${({ theme }) => theme.borderRadius.default};
+            border: none;
+            @media (max-width: ${({ theme }) => theme.screens.sm}) {
+              border-radius: 0px;
             }
           }
-          .link {
-            text-transform: uppercase;
-            position: relative;
+
+          .content {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             grid-gap: ${({ theme }) => theme.padding['1/4']};
-            margin: 0 auto;
-            align-items: center;
-            white-space: nowrap;
-            width: fit-content;
-            padding: 8px 18px;
-            color: ${({ theme }) => theme.colors.page.default};
-            background-color: #ffffffa8;
-            border-radius: ${({ theme }) => theme.borderRadius.default};
-            box-shadow: ${({ theme }) => theme.boxShadow.default};
-            i {
-              position: inherit;
-              transition: ${({ theme }) => theme.transition.easeIn.default};
-              right: 0px;
+            
+            .title{
+              justify-content: center;
+            }
+
+            p {
+              text-align: center;
+              a {
+              width: auto;
+              }
+            }
+
+            .link {
+              text-transform: uppercase;
+              position: relative;
+              display: flex;
+              grid-gap: ${({ theme }) => theme.padding['1/4']};
+              margin: 0 auto;
+              align-items: center;
+              white-space: nowrap;
+              width: fit-content;
+              padding: 8px 18px;
+              color: ${({ theme }) => theme.colors.page.default};
+              background-color: #ffffffa8;
+              border-radius: ${({ theme }) => theme.borderRadius.default};
+              box-shadow: ${({ theme }) => theme.boxShadow.default};
+              i {
+                position: inherit;
+                transition: ${({ theme }) => theme.transition.easeIn.default};
+                right: 0px;
+              }
             }
           }
         }
       }
+
       a:hover {
-        /* overflow: visible; */
-        > div {
-          /* box-shadow: none; */
-        }
         .imageWrapper {
           box-shadow: ${({ theme }) => theme.boxShadow.lg};
         }
@@ -279,6 +279,7 @@ const CardsWrapper = styled.section`
       }
     }
   }
+
 
   &.light {
     .carousel {
