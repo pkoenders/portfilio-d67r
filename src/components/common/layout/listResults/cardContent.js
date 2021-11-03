@@ -97,6 +97,17 @@ const CardContent = styled.article`
         width: auto;
       }
     }
+
+    p:last-of-type {
+      display: flex;
+      flex-direction: row;
+      grid-column-gap: ${({ theme }) => theme.padding['1/4']};
+      align-items: center;
+      /* margin: ${({ theme }) => theme.padding['1/4']} 0; */
+      i {
+        color: ${({ theme }) => theme.colors.secondary.default};
+      }
+    }
   }
 
   &:hover {

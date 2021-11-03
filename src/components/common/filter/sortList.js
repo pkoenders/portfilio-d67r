@@ -37,13 +37,13 @@ const SortListWrapper = styled.div`
     user-select: none;
     min-width: 160px;
     position: relative;
-    cursor: pointer;
+    /* cursor: pointer; */
     background-color: ${({ theme }) => theme.colors.page.bground.default};
     border: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.sm};
     button {
       display: flex;
-      cursor: pointer;
+      /* cursor: pointer; */
       width: 100%;
       white-space: nowrap;
       align-items: center;
@@ -71,7 +71,7 @@ const SortListWrapper = styled.div`
 
       button {
         display: flex;
-        cursor: pointer;
+        /* cursor: pointer; */
         white-space: nowrap;
         text-align: left;
         width: 100%;

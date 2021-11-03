@@ -20,6 +20,7 @@ const NoResultsWrapper = styled.div`
 
   button {
     margin: 0 auto;
+    cursor: default !important;
   }
 `
 const NoResults = ({ resetFilters, query }) => {

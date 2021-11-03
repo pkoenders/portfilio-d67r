@@ -197,7 +197,7 @@ const CardsWrapper = styled.section`
     }
 
     .cardItem {
-      cursor: col-resize;
+      /* cursor: col-resize; */
 
       > a {
         width: 100%;

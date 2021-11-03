@@ -10,7 +10,7 @@ const ArrowBtn = styled.button.attrs((props) => ({
 }))`
   display: flex;
   align-items: center;
-  cursor: pointer;
+  /* cursor: pointer; */
   user-select: none;
   background-color: #ffffffa8 !important;
   padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding['1/4']};
