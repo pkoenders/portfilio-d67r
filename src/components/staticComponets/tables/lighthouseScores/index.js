@@ -86,12 +86,12 @@ const LighthouseScoresTableWrapper = styled.div`
         font-weight: 500;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         /* border-radius: ${({ theme }) => theme.borderRadius.sm}; */
         white-space: nowrap;
 
         i {
-          margin: 0 0 0 0;
+          margin: 0 ${({ theme }) => theme.margin['1/16']} 0 0;
           width: fit-content;
           position: relative;
         }
@@ -164,10 +164,7 @@ function ReactTable({ columns, data, getCellProps = defaultPropGetter }) {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   <span>
-                    {column.render('Header')}
-
                     {/* Add a sort direction indicator */}
-
                     {column.isSorted ? (
                       column.isSortedDesc ? (
                         <Icon icon={'expand_less'} />
@@ -177,6 +174,8 @@ function ReactTable({ columns, data, getCellProps = defaultPropGetter }) {
                     ) : (
                       <Icon icon={'unfold_more'} />
                     )}
+                    {/* Label */}
+                    {column.render('Header')}
                   </span>
                 </th>
               ))}
