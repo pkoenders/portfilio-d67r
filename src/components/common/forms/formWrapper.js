@@ -181,6 +181,11 @@ const FormWraper = styled.div`
       }
     }
 
+    div.richText {
+      p {
+        text-indent: 0;
+      }
+    }
     div.richText.above {
       padding-top: ${({ theme }) => theme.padding['1/4']};
       margin-top: -${({ theme }) => theme.margin.default};
