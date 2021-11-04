@@ -20,12 +20,18 @@ const FooterWrapper = styled.footer`
     margin: 0 auto;
     z-index: 1000 !important;
 
-    a {
+    p {
+      margin-bottom: ${({ theme }) => theme.margin['1/4']};
+      position: relative;
+    }
+
+    a.brand {
       position: relative;
       color: unset;
       display: flex;
       margin: 0 auto;
       width: fit-content;
+      padding: 4px 12px;
 
       span {
         display: none;
@@ -41,11 +47,6 @@ const FooterWrapper = styled.footer`
     a:hover {
       color: inherit;
       text-decoration: none;
-    }
-
-    p {
-      margin-bottom: ${({ theme }) => theme.margin['1/4']};
-      position: relative;
     }
   }
 `
@@ -73,8 +74,8 @@ const Footer = ({ currentLang, currentPrefix }) => {
         <Link
           to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
           title={i18n[currentLang].linkToHomepage}
+          className="brand"
         >
-          <span>{i18n[currentLang].linkToHomepage}</span>
           <Brand />
         </Link>
       </nav>

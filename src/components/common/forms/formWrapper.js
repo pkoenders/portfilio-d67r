@@ -45,8 +45,14 @@ const FormWraper = styled.div`
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    border: 1px solid ${({ theme }) => theme.colors.primary.default} !important;
-    outline: none !important;
+    outline: 2px solid ${({ theme }) => theme.colors.focusVisible};
+  }
+
+  input:focus:not(:focus-visible),
+  textarea:focus:not(:focus-visible),
+  select:focus:not(:focus-visible) {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.primary.default};
   }
 
   [type='color'],
