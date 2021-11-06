@@ -3,7 +3,7 @@ import React from 'react'
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-const TextAreaInput = ({ label, input, type, meta, required }) => {
+const TextAreaInput = ({ label, input, type, meta, describedby, required }) => {
   const { name } = input
   const { dirty, error, touched, invalid } = meta
   const hasError = invalid && !!touched
@@ -18,7 +18,15 @@ const TextAreaInput = ({ label, input, type, meta, required }) => {
       {required && !hasValue && <span className="required">Required</span>}
       {hasError && <span className="error">{error}</span>}
       <span className="textArea">
-        <textarea id={name} type={type} rows="5" placeholder={'Enter your ' + label} {...input} />
+        <textarea
+          id={name}
+          type={type}
+          rows="5"
+          aria-invalid={hasError && 'true'}
+          placeholder={'Enter your ' + label}
+          aria-describedby={describedby && `Described by ${describedby}`}
+          {...input}
+        />
         {hasValue && <IconMaterial icon={'check_circle'} />}
       </span>
     </label>

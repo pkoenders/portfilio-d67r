@@ -185,6 +185,11 @@ const ContactNew = ({ formData, slice }) => {
         .closest('fieldset')
         .querySelector('.fieldSetRequired')
         .classList.remove('isRequired', 'error')
+
+      e.target.closest('fieldset').querySelector('legend').querySelector('span').innerHTML =
+        'Required'
+
+      e.target.closest('fieldset').querySelector('legend').setAttribute('aria-invalid', 'false')
     }
 
     function addError() {
@@ -192,6 +197,11 @@ const ContactNew = ({ formData, slice }) => {
         .closest('fieldset')
         .querySelector('.fieldSetRequired')
         .classList.add('isRequired', 'error')
+
+      e.target.closest('fieldset').querySelector('legend').querySelector('span').innerHTML =
+        'A selection is required'
+
+      e.target.closest('fieldset').querySelector('legend').setAttribute('aria-invalid', 'true')
     }
   }, [])
 
@@ -234,9 +244,10 @@ const ContactNew = ({ formData, slice }) => {
                     {formDataFields[index].slice_type === 'rich_text' && (
                       <div
                         key={formDataFields[index].id}
-                        className={
-                          'richText ' + formDataFields[index].primary.align_with_input.toLowerCase()
-                        }
+                        id={`Described by ${formDataFields[index].primary.described}`}
+                        className={`richText ${formDataFields[
+                          index
+                        ].primary.align_with_input.toLowerCase()}`}
                       >
                         {formDataFields[index].primary.text.text && (
                           <RichText
@@ -255,6 +266,7 @@ const ContactNew = ({ formData, slice }) => {
                         label={formDataFields[index].primary.field_name.text}
                         type={formDataFields[index].primary.field_type.toLowerCase()}
                         component={TextInput}
+                        describedby={formDataFields[index].primary.described_by}
                         validate={
                           formDataFields[index].primary.required === true
                             ? formDataFields[index].primary.field_type.toLowerCase() === 'email'
@@ -275,7 +287,13 @@ const ContactNew = ({ formData, slice }) => {
                           `${formDataFields[index].primary.required === true && ' requiredSet'}`
                         }
                       >
-                        <legend name={formDataFields[index].primary.title.text}>
+                        <legend
+                          aria-describedby={
+                            formDataFields[index].primary.described_by &&
+                            `Described by ${formDataFields[index].primary.described_by}`
+                          }
+                          aria-invalid="false"
+                        >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (
                             <span className="fieldSetRequired isRequired required">Required</span>
@@ -306,7 +324,13 @@ const ContactNew = ({ formData, slice }) => {
                           `${formDataFields[index].primary.required === true && ' requiredSet'}`
                         }
                       >
-                        <legend>
+                        <legend
+                          aria-describedby={
+                            formDataFields[index].primary.described &&
+                            `Described by ${formDataFields[index].primary.described}`
+                          }
+                          aria-invalid="false"
+                        >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (
                             <span className="fieldSetRequired isRequired required">Required</span>
@@ -348,6 +372,10 @@ const ContactNew = ({ formData, slice }) => {
                               id={formDataFields[index].primary.title.text}
                               name={formDataFields[index].primary.title.text}
                               onClick={toggleFieldSet}
+                              aria-describedby={
+                                formDataFields[index].primary.described &&
+                                `Described by ${formDataFields[index].primary.described}`
+                              }
                             >
                               {formDataFields[index].items.map((listItem) => {
                                 return (
@@ -356,6 +384,7 @@ const ContactNew = ({ formData, slice }) => {
                                     label={listItem.item.text}
                                     component={SelectList}
                                     onClick={toggleFieldSet}
+                                    describedby={formDataFields[index].primary.described_by}
                                   />
                                 )
                               })}
@@ -374,6 +403,7 @@ const ContactNew = ({ formData, slice }) => {
                           .toLowerCase()}
                         label={formDataFields[index].primary.field_name.text}
                         component={TextAreaInput}
+                        describedby={formDataFields[index].primary.described_by}
                         validate={formDataFields[index].primary.required === true ? isRequired : ''}
                       />
                     )}

@@ -51,6 +51,12 @@
                   "default_value": true,
                   "label": "Required"
                 }
+              },
+              "described_by": {
+                "type": "Text",
+                "config": {
+                  "label": "Described by"
+                }
               }
             },
             "repeat": {}
@@ -75,6 +81,12 @@
                   "placeholder_true": "Yes",
                   "default_value": false,
                   "label": "Required"
+                }
+              },
+              "described_by": {
+                "type": "Text",
+                "config": {
+                  "label": "Described by"
                 }
               }
             },
@@ -139,6 +151,12 @@
                   "default_value": false,
                   "label": "Required"
                 }
+              },
+              "described_by": {
+                "type": "Text",
+                "config": {
+                  "label": "Described by"
+                }
               }
             },
             "repeat": {
@@ -177,6 +195,12 @@
                 "config": {
                   "default_value": false,
                   "label": "Required"
+                }
+              },
+              "described_by": {
+                "type": "Text",
+                "config": {
+                  "label": "Described by"
                 }
               }
             },
@@ -217,6 +241,12 @@
                   "default_value": false,
                   "label": "Required"
                 }
+              },
+              "described_by": {
+                "type": "Text",
+                "config": {
+                  "label": "Described by"
+                }
               }
             },
             "repeat": {
@@ -250,6 +280,12 @@
                   "options": ["False", "Below", "Above"],
                   "default_value": "False",
                   "label": "Align with input"
+                }
+              },
+              "described": {
+                "type": "Text",
+                "config": {
+                  "label": "Described"
                 }
               }
             },

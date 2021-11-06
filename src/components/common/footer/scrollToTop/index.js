@@ -22,10 +22,10 @@ const Button = styled.button.attrs((props) => ({
 
   i {
     margin-top: ${({ theme }) => theme.margin['1/4']};
-    margin-bottom: -8px;
+    margin-bottom: -${({ theme }) => theme.margin['1/4']};
+    padding: ${({ theme }) => theme.padding['1/4']};
     border-radius: 999rem;
     background-color: ${({ theme }) => theme.colors.footer.text.default};
-    padding: 10px;
     font-size: 28px;
     transition: all, 0.15s ease-out;
   }
@@ -33,7 +33,7 @@ const Button = styled.button.attrs((props) => ({
   &:hover {
     i {
       margin-top: 0;
-      padding-bottom: 18px;
+      padding-bottom: ${({ theme }) => theme.padding['1/2']};
     }
   }
 `

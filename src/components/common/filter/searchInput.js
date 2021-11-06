@@ -57,7 +57,7 @@ const Reset = styled.button.attrs((props) => ({
 }))`
   position: absolute;
   align-self: center;
-  cursor: pointer;
+  /* cursor: pointer; */
   user-select: none;
   right: ${({ theme }) => theme.margin['1/2']};
   opacity: 0.5;

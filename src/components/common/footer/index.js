@@ -31,7 +31,7 @@ const FooterWrapper = styled.footer`
       display: flex;
       margin: 0 auto;
       width: fit-content;
-      padding: 4px 12px;
+      padding: 2px 12px;
 
       span {
         display: none;

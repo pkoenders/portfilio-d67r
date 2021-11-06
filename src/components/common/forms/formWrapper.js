@@ -172,7 +172,7 @@ const FormWraper = styled.div`
         line-height: inherit;
         margin-top: 2px;
         width: fit-content !important;
-        color: ${({ theme }) => theme.colors.page[400]};
+        color: ${({ theme }) => theme.colors.page[600]};
         display: inline-flex;
         text-transform: uppercase;
       }

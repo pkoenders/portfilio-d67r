@@ -3,7 +3,7 @@ import React from 'react'
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-const TextInput = ({ label, input, type, meta }) => {
+const TextInput = ({ label, input, type, meta, describedby }) => {
   const { name } = input
   // const { delay, active, pristine, dirty, error, touched, children, invalid } = meta
   const { dirty, error, touched, invalid } = meta
@@ -20,12 +20,14 @@ const TextInput = ({ label, input, type, meta }) => {
     >
       {label}
       {required && !hasValue && <span className="required">Required</span>}
-      {hasError && <span className="error">{error}</span>}
+      {hasError && <span className="error">{`is ${error}`}</span>}
       <span>
         <input
           type={type}
           id={name}
           required={required}
+          aria-invalid={hasError && 'true'}
+          aria-describedby={describedby && `Described by ${describedby}`}
           placeholder={'Enter your ' + label}
           {...input}
         />
