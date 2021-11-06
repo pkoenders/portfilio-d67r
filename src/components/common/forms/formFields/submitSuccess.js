@@ -36,7 +36,7 @@ const Success = styled.div`
 
 const SubmitSuccess = ({ resetForm }) => {
   return (
-    <Success>
+    <Success aria-live="polite">
       <IconSubmitSuccess aria-hidden="true" />
       <p>Thank you</p>
       <p>We have recieved your enquiry and will get back to you soon.</p>
