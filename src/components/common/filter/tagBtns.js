@@ -198,6 +198,12 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
       } else {
         allCards[i].classList.remove('show')
       }
+
+      if (allCards[i].classList.contains('isActive')) {
+        allCards[i].setAttribute('aria-hidden', 'false')
+      } else {
+        allCards[i].setAttribute('aria-hidden', 'true')
+      }
     }
 
     // Check if filter btns are active and display the reset btn

@@ -35,7 +35,7 @@ const Error = styled.div`
 
 const SubmitError = ({ resetForm }) => {
   return (
-    <Error className={'formSuccess'} aria-live="polite">
+    <Error className={'formSuccess'}>
       <IconSubmitError aria-hidden="true" />
       <p>Sorry, there has been an error</p>
       <p>Could you please try and complete the form again.</p>

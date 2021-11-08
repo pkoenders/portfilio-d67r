@@ -433,8 +433,10 @@ const ContactNew = ({ formData, slice }) => {
             </form>
           )}
         </Form>
-        {errorMessage && <SubmittError resetForm={resetForm} />}
-        {successMessage && <SubmitSuccess resetForm={resetForm} />}
+        <div aria-live="polite">
+          {errorMessage && <SubmittError resetForm={resetForm} />}
+          {successMessage && <SubmitSuccess resetForm={resetForm} />}
+        </div>
       </FormWrapper>
     </section>
   )

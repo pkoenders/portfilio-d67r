@@ -11,7 +11,9 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const AlertWrapper = styled.div`
+const AlertWrapper = styled.div.attrs((props) => ({
+  role: 'alert',
+}))`
   aspect-ratio: unset !important;
   position: relative;
   padding: ${({ theme }) => theme.padding['1/2']};
