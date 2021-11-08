@@ -292,7 +292,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
           {tagList.map((node, index) => (
             <button
               className="tagButton"
-              type="button"
+              // type="button"
               id={_.camelCase(node)}
               key={`tagButton-` + index}
               onMouseDown={resetCards}
