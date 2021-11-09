@@ -27,6 +27,9 @@ const IntroSection = styled.section`
     /* font-size: 120%; */
     /* font-weight: 600; */
     color: ${({ theme }) => theme.colors.page[100]};
+    span {
+      display: contents;
+    }
   }
 
   .intro {
