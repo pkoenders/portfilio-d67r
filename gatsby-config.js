@@ -6,7 +6,7 @@ const linkResolver = require('./src/utils/linkResolver')
 
 module.exports = {
   siteMetadata: {
-    title: `Website Design - Palmerston North`,
+    title: `Website Designer - Palmerston North`,
     description: `Web Designer - Palmerston North`,
     siteUrl: 'https://d67r.app', // No trailing slash allowed!
     defaultImage: '/static/android-chrome-512x512.png', // Path to your image you placed in the 'static' folder
