@@ -111,7 +111,7 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
       const sortLabelBtn = e.target.parentNode.previousSibling
       const sortLabel = e.target.parentNode.previousSibling.querySelector('span')
 
-      sortLabelBtn.setAttribute('aria-label', `Sort by ${e.target.innerText}`)
+      sortLabelBtn.setAttribute('aria-label', `Sort by ${e.target.innerText} active`)
       sortLabel.innerText = e.target.innerText
 
       // Add the node to be sorted to the node path

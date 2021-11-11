@@ -11,34 +11,39 @@ const ListTagBtnsWrapper = styled.div`
     align-items: center;
     display: flex;
     flex-direction: row;
-    grid-gap: ${({ theme }) => theme.padding['1/8']};
-    top: 0;
-    right: ${({ theme }) => theme.padding['1/4']};
+    width: 100%;
+    justify-content: space-between;
+    pointer-events: none;
     button {
+      pointer-events: all;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-size: 20px;
+      font-size: 26px;
       aspect-ratio: 1;
-      padding: 2px;
+      padding: ${({ theme }) => theme.padding['1/4']};
       /* cursor: pointer; */
       user-select: none;
       background-color: #fff;
-      /* border: 1px solid ${({ theme }) => theme.colors.tertiary[600]}; */
       border: 1px solid transparent;
-      /* border-radius: ${({ theme }) => theme.borderRadius.sm}; */
       border-radius: 999rem;
+      position: absolute;
+      top: -${({ theme }) => theme.margin['1/4']};
+
+      right: 0px;
+
       &:hover {
-        border: 1px solid ${({ theme }) => theme.colors.tertiary[600]};
-        color: ${({ theme }) => theme.colors.tertiary.default};
+        border: 1px solid ${({ theme }) => theme.colors.primary[600]};
+        color: ${({ theme }) => theme.colors.primary.default};
       }
     }
   }
 
   span.wrapper {
-    height: 26px;
+    height: 30px;
+    padding: 2px 0;
     max-height: 100%;
     transition: all 3.5s ease-in;
     display: flex;
@@ -50,8 +55,7 @@ const ListTagBtnsWrapper = styled.div`
       flex-wrap: wrap;
       grid-gap: ${({ theme }) => theme.padding['1/4']};
       justify-content: center;
-      /* height: min-content; */
-      margin: 0 ${({ theme }) => theme.padding.default};
+      margin: 0 ${({ theme }) => theme.padding['2xl']};
     }
   }
 
@@ -95,9 +99,9 @@ const ResetTagsBtn = styled.button.attrs((props) => ({
   type: props.type || 'button',
   'aria-label': 'Reset tags',
 }))`
-  /* border: none !important; */
-  /* background-color: transparent !important; */
   position: relative;
+  left: 0px;
+  right: auto;
   i {
     font-size: 20px;
     pointer-events: none;
