@@ -7,7 +7,6 @@ import styled from 'styled-components'
 
 const ListTagBtnsWrapper = styled.div`
   .utils {
-    position: absolute;
     align-items: center;
     display: flex;
     flex-direction: row;
