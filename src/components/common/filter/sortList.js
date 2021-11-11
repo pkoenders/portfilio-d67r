@@ -11,7 +11,9 @@ import AscDesc from './ascDesc'
 
 import styled from 'styled-components'
 
-const SortListWrapper = styled.div`
+const SortListWrapper = styled.div.attrs((props) => ({
+  'aria-label': 'Sort list',
+}))`
   z-index: 200;
   position: relative;
   display: flex;
@@ -127,7 +129,7 @@ const SortSelect = styled.button.attrs((props) => ({
 `
 const SortItem = styled.button.attrs((props) => ({
   type: props.type || 'button',
-  'aria-label': 'Select item',
+  // 'aria-label': 'Select item',
 }))``
 
 // Toggle sort list - ariaExpanded

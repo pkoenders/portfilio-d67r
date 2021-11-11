@@ -41,7 +41,7 @@ const AscDescBtnWrapper = styled.button.attrs((props) => ({
 `
 const AscDesc = ({ onClick }) => {
   return (
-    <AscDescBtnWrapper onClick={onClick} className="order">
+    <AscDescBtnWrapper onClick={onClick} className="order" aria-live="polite">
       <IconMaterial icon={'filter_list'} />
     </AscDescBtnWrapper>
   )
