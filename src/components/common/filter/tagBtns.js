@@ -76,6 +76,7 @@ const ListTagBtnsWrapper = styled.div`
     /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]}; */
     border: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.sm};
+    box-shadow: ${({ theme }) => theme.boxShadow.default};
   }
 
   .tagButton:hover {
@@ -91,6 +92,7 @@ const ListTagBtnsWrapper = styled.div`
     color: ${({ theme }) => theme.colors.page.default};
     background-color: ${({ theme }) => theme.colors.secondary[600]};
     border: 1px solid transparent;
+    box-shadow: none;
   }
 `
 
