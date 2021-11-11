@@ -146,9 +146,9 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
     tagBtn.classList.toggle('isActive')
 
     // Set the aria label for tags
-    tagBtn.getAttribute('aria-label') === `${tagBtnText} - selected`
-      ? tagBtn.setAttribute('aria-label', `${tagBtnText} - unselected`)
-      : tagBtn.setAttribute('aria-label', `${tagBtnText} - selected`)
+    tagBtn.getAttribute('aria-label') === `${tagBtnText} - tag selected`
+      ? tagBtn.setAttribute('aria-label', `${tagBtnText} - tag unselected`)
+      : tagBtn.setAttribute('aria-label', `${tagBtnText} - tag selected`)
 
     //  var activeFilterBtns = document.getElementsByClassName('tagButton isActive')
     var allCards = document.getElementsByClassName('item')
@@ -298,7 +298,6 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
               key={`tagButton-` + index}
               onMouseDown={resetCards}
               onClick={handleFilterItem}
-              aria-label={` ${node} - unselected`}
             >
               {node}
             </button>
