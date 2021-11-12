@@ -244,28 +244,44 @@ const LighthouseScores = () => {
         Header: 'No errors',
         accessor: 'errors',
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon ariaLabel="True" icon={'done'} />
+          ) : (
+            <Icon ariaLabel="False" icon={'close'} />
+          ),
       },
       {
         Header: 'Responsive',
         accessor: 'responsive',
         Cell: ({ cell: { value } }) =>
           // value === 'TRUE' ? (className) : (className = 'red'),
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon ariaLabel="True" icon={'done'} />
+          ) : (
+            <Icon ariaLabel="False" icon={'close'} />
+          ),
       },
 
       {
         Header: 'Secure',
         accessor: 'secure', // accessor is the "key" in the data
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon ariaLabel="True" icon={'done'} />
+          ) : (
+            <Icon ariaLabel="False" icon={'close'} />
+          ),
       },
 
       {
         Header: 'PWA',
         accessor: 'pwa',
         Cell: ({ cell: { value } }) =>
-          value === 'TRUE' ? <Icon icon={'done'} /> : <Icon icon={'close'} />,
+          value === 'TRUE' ? (
+            <Icon ariaLabel="True" icon={'done'} />
+          ) : (
+            <Icon ariaLabel="False" icon={'close'} />
+          ),
       },
 
       {
@@ -506,15 +522,37 @@ const LighthouseScores = () => {
     >
       <LighthouseScoresTableWrapper>
         <p className="title" id="table-description">
-          A selection of websites in the Manawatu region and their average lighthouse scores.
+          A selection of websites in the Manawatu region and their average Lighthouse scores.
         </p>
         {/* <p className="title">Total count: {tableData.totalCount}</p> */}
         <LighthouseScoresWrapper>
-          <canvas id="accessibilityChart" width="auto" height="auto"></canvas>
-          <canvas id="seoChart"></canvas>
-          <canvas id="performmanceChart"></canvas>
-          <canvas id="bestPracticeChart"></canvas>
+          <canvas
+            id="accessibilityChart"
+            width="auto"
+            height="auto"
+            title={`Average accessibility scrore ${accessiblityData}%`}
+          ></canvas>
+          <canvas
+            id="seoChart"
+            width="auto"
+            height="auto"
+            title={`Average SEO scrore ${seoData}%`}
+          ></canvas>
+          <canvas
+            id="performmanceChart"
+            width="auto"
+            height="auto"
+            title={`Average performance scrore ${performanceData}%`}
+          ></canvas>
+          <canvas
+            id="bestPracticeChart"
+            width="auto"
+            height="auto"
+            title={`Average best practice scrore ${bestPracticeData}%`}
+          ></canvas>
         </LighthouseScoresWrapper>
+
+        <p className="title">The breakdown</p>
         <div className="tableWrapper">
           <ReactTable
             // data={tableData.edges.map((score) => {
@@ -549,8 +587,8 @@ const LighthouseScores = () => {
               className:
                 (cellInfo.value === 'FALSE' && 'red') || (cellInfo.value === 'TRUE' && 'green'),
 
-              'aria-label':
-                (cellInfo.value === 'FALSE' && 'False') || (cellInfo.value === 'TRUE' && 'True'),
+              // 'aria-label':
+              //   (cellInfo.value === 'FALSE' && 'False') || (cellInfo.value === 'TRUE' && 'True'),
             })}
           />
         </div>

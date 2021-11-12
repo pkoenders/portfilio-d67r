@@ -90,11 +90,17 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref }) => {
   }
 
   return (
+    // aria hidden, visible and as button
     <>
-      {type === undefined && (
+      {type === undefined && ariaLabel === undefined && (
+        <MaterialIcon className={`material-icons${style} md-${size}`} aria-hidden="true" ref={ref}>
+          {icon}
+        </MaterialIcon>
+      )}
+
+      {type === undefined && ariaLabel !== undefined && (
         <MaterialIcon
           className={`material-icons${style} md-${size}`}
-          aria-hidden="true"
           aria-label={ariaLabel}
           ref={ref}
         >
@@ -105,7 +111,6 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref }) => {
       {type === 'button' && (
         <MaterialIconButton
           className={`material-icons${style} md-${size}`}
-          aria-label={ariaLabel}
           onClick={onClick}
           ref={ref}
         >
