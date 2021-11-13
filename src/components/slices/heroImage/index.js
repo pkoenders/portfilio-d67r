@@ -112,10 +112,16 @@ const WrapperHeroImage = styled.section`
       }
 
       .content {
-        padding: 0;
-        color: #ffffff;
-        width: 100%;
+        /* width: 100%; */
+        width: fit-content;
+        margin: 0 auto;
         display: grid;
+        padding: 0;
+        padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['2xl']};
+        color: #ffffff;
+        background-color: ${({ theme }) => theme.colors.header.default};
+        border-radius: ${({ theme }) => theme.borderRadius.default};
+
         span * {
           margin: 0;
         }
@@ -187,6 +193,20 @@ const FullWidthImage = ({ slice }) => {
   // Banner overlay (gradient) direction
   var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
 
+  // Background color
+  var bgroundColor = getColor(slice.primary.background_color)
+  if (bgroundColor === null || bgroundColor === 'transparent') {
+    bgroundColor = '#000000'
+  }
+
+  // Background opacity
+  var bgroundOpacity = getOpacity(slice.primary.background_opacity)
+
+  // Background colors to RGBA
+  bgroundColor = getHexToRGB(bgroundColor, bgroundOpacity)
+
+  // console.log('bgroundColor = ' + bgroundColor)
+
   // Banner bGround postion
   var alignBGround = getPostionAlign(slice.primary.align_image)
 
@@ -245,6 +265,10 @@ const FullWidthImage = ({ slice }) => {
     backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
   }
 
+  const contentBgroundColor = {
+    backgroundColor: `rgb(${bgroundColor})`,
+  }
+
   return (
     <WrapperHeroImage
       aria-label="Hero image"
@@ -267,7 +291,10 @@ const FullWidthImage = ({ slice }) => {
           className={'wrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
           style={imageHeight}
         >
-          <div className={'content ' + `${slice.primary.align_content}`.toLowerCase()}>
+          <div
+            className={'content ' + `${slice.primary.align_content}`.toLowerCase()}
+            style={contentBgroundColor}
+          >
             {(title || description) !== null && (
               <span>
                 {title !== null && <RichText render={title} />}

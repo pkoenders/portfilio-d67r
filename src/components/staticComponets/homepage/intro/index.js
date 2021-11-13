@@ -233,7 +233,7 @@ const Intro = () => {
             </i> */}
               <p>
                 I support digital accessibility, am curious and enjoy working with creative and
-                integration teams delivering digital solutions.
+                integration teams.
               </p>
             </span>
           </div>
@@ -246,8 +246,8 @@ const Intro = () => {
             </i> */}
               {/* <IconDevelopment /> */}
               <p>
-                I collaboratively plan, design, and deliver crafted solutions with professionalism,
-                integrity and care.
+                I take pride in my craft. I collaboratively plan, design, and deliver optimised
+                digital solutions built with best practices, professionalism, integrity and care.
               </p>
             </span>
           </div>
