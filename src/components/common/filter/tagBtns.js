@@ -33,6 +33,10 @@ const ListTagBtnsWrapper = styled.div`
 
       right: 0px;
 
+      i {
+        pointer-events: none;
+      }
+
       &:hover {
         border: 1px solid ${({ theme }) => theme.colors.primary[600]};
         color: ${({ theme }) => theme.colors.primary.default};
