@@ -62,6 +62,7 @@ export const query = graphql`
     ##
     ## Main navigation
     prismicMainNavigation(lang: { eq: $locale }) {
+      _previewable
       type
       lang
       data {
