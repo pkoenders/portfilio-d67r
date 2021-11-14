@@ -247,7 +247,7 @@ const Intro = () => {
               {/* <IconDevelopment /> */}
               <p>
                 I take pride in my craft. I collaboratively plan, design, and deliver optimised
-                digital solutions built with best practices, professionalism, integrity and care.
+                digital solutions with best practices, professionalism, integrity and care.
               </p>
             </span>
           </div>
