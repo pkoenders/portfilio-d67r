@@ -124,8 +124,9 @@ const CardsWrapper = styled.section`
     }
   }
 
-  // Profile layout
-  .cardItem.profile {
+  // Profile layout - Grid and List
+  .cardItem.profile,
+  .cardItem.profileList {
     overflow: visible;
     display: flex;
 
@@ -156,6 +157,54 @@ const CardsWrapper = styled.section`
         .title,
         p {
           justify-content: inherit;
+        }
+
+        p {
+          display: block;
+          margin: 0;
+          a {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+
+  // Profile layout - List only
+  .cardItem.profileList {
+    overflow: visible;
+    /* flex-direction: row;
+    grid-row-gap: ${({ theme }) => theme.padding.default}; */
+
+    div {
+      width: 100%;
+      text-decoration: none;
+
+      article {
+        overflow: visible;
+        padding-top: 0;
+        flex-direction: row;
+        align-items: center;
+        box-shadow: none;
+      }
+      .imageWrapper {
+        aspect-ratio: 1;
+        width: 128px;
+        border-radius: 999rem;
+        /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
+        border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+        margin: 0;
+        box-shadow: ${({ theme }) => theme.boxShadow.lg};
+      }
+      .content {
+        //width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-gap: ${({ theme }) => theme.padding['1/4']};
+        .title,
+        p {
+          justify-content: flex-start;
         }
 
         p {
@@ -326,6 +375,12 @@ const CardsWrapper = styled.section`
   }
 `
 
+const CardList = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-gap: ${({ theme }) => theme.padding.default};
+`
+
 const Cards = ({ slice }) => {
   // Set up the section with an id and some classes and styles
   // Add a page ID to reference
@@ -429,7 +484,7 @@ const Cards = ({ slice }) => {
           </span>
         )}
 
-        {/* Masonary Cards - Gallery */}
+        {/* Masonary Cards - Gallery grid - Masonary style */}
         {presentationType === 'gallery' && (
           <Masonry
             breakpointCols={breakpointColumnsObj}
@@ -451,7 +506,24 @@ const Cards = ({ slice }) => {
           </Masonry>
         )}
 
-        {/* Masonary Cards - Profile */}
+        {/* Masonary Cards - Gallery list */}
+        {presentationType === 'galleryList' && (
+          <CardList>
+            {slice.items.map((cardItem, index) => {
+              return (
+                <CardItem
+                  cardItem={cardItem}
+                  key={slice.id + index}
+                  presentationType={presentationType}
+                  item={index}
+                  carouselLength={slice.items.length}
+                />
+              )
+            })}
+          </CardList>
+        )}
+
+        {/* Masonary Cards - Profile grid - Masonary style */}
         {presentationType === 'profile' && (
           <Masonry
             breakpointCols={breakpointColumnsObj}
@@ -471,6 +543,23 @@ const Cards = ({ slice }) => {
               )
             })}
           </Masonry>
+        )}
+
+        {/* Masonary Cards - Profile list */}
+        {presentationType === 'profileList' && (
+          <CardList>
+            {slice.items.map((cardItem, index) => {
+              return (
+                <CardItem
+                  cardItem={cardItem}
+                  key={slice.id + index}
+                  presentationType={presentationType}
+                  item={index}
+                  carouselLength={slice.items.length}
+                />
+              )
+            })}
+          </CardList>
         )}
 
         {/* Carousel */}

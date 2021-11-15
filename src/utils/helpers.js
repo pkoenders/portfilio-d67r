@@ -69,18 +69,24 @@ export function resizeAllGridItems(gridItems) {
   })
 }
 
-// Return card presentation mode
+// Return card presentation
 export function getPresentationType(presentAs) {
   switch (presentAs) {
-    case 'Gallery':
+    case 'Gallery grid':
     case null:
       return 'gallery'
 
+    case 'Gallery list':
+      return 'galleryList'
+
+    case 'Profile grid':
+      return 'profile'
+
+    case 'Profile list':
+      return 'profileList'
+
     case 'Carousel':
       return 'carousel'
-
-    case 'Profile':
-      return 'profile'
 
     default:
       return 'gallery'

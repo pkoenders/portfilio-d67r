@@ -439,7 +439,13 @@
               "presentation_type": {
                 "type": "Select",
                 "config": {
-                  "options": ["Gallery", "Carousel", "Profile"],
+                  "options": [
+                    "Gallery grid",
+                    "Gallery list",
+                    "Profile grid",
+                    "Profile list",
+                    "Carousel"
+                  ],
                   "label": "Present as",
                   "placeholder": "Please select"
                 }
@@ -1229,7 +1235,7 @@
                 "type": "Number",
                 "config": {
                   "label": "Background opacity",
-                  "placeholder": "66"
+                  "placeholder": "33"
                 }
               },
               "image": {
