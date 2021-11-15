@@ -33,7 +33,7 @@ const CardsWrapper = styled.section`
   padding: 0 ${({ theme }) => theme.padding['1/2']};
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    padding-top:  0 !important;
+    padding-top: 0 !important;
     padding-bottom: ${({ theme }) => theme.padding.default} !important;
   }
 
@@ -97,7 +97,7 @@ const CardsWrapper = styled.section`
     overflow: visible;
     display: flex;
     @media (max-width: ${({ theme }) => theme.screens.sm}) {
-      padding-top:  ${({ theme }) => theme.padding['1/2']} !important;
+      padding-top: ${({ theme }) => theme.padding['1/2']} !important;
     }
 
     a {
@@ -108,9 +108,9 @@ const CardsWrapper = styled.section`
 
         div.portrait {
           img {
-             aspect-ratio: 3/4;
-             object-fit: fill;
-             object-position: center bottom;
+            aspect-ratio: 3/4;
+            object-fit: fill;
+            object-position: center bottom;
           }
         }
       }
@@ -122,43 +122,47 @@ const CardsWrapper = styled.section`
         display: contents;
       }
     }
-
   }
-  
 
   // Profile layout
   .cardItem.profile {
     overflow: visible;
     display: flex;
-   
+
     div {
       width: 100%;
       text-decoration: none;
-      
-      
+
       article {
-          overflow: visible;
-          grid-gap: ${({ theme }) => theme.padding['1/2']};
-          padding-top: ${({ theme }) => theme.padding.default};
+        overflow: visible;
+        grid-gap: ${({ theme }) => theme.padding['1/2']};
+        padding-top: ${({ theme }) => theme.padding.default};
+      }
+      .imageWrapper {
+        aspect-ratio: 1;
+        width: 128px;
+        border-radius: 999rem;
+        /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
+        border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+        margin: 0 auto;
+        box-shadow: ${({ theme }) => theme.boxShadow.lg};
+      }
+      .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-gap: ${({ theme }) => theme.padding['1/4']};
+        .title,
+        p {
+          justify-content: inherit;
         }
-        .imageWrapper {
-          aspect-ratio: 1;
-          width: 128px;
-          border-radius: 999rem;
-          /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
-          border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
-          margin: 0 auto;
-          box-shadow: ${({ theme }) => theme.boxShadow.lg};
-        }
-        .content {
-           width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          grid-gap: ${({ theme }) => theme.padding['1/4']};
-          .title,
-          p {
-            justify-content: inherit;
+
+        p {
+          display: block;
+          margin: 0;
+          a {
+            white-space: nowrap;
           }
         }
       }
@@ -166,14 +170,14 @@ const CardsWrapper = styled.section`
   }
 
   // Carousel layout keen_slider {
-  .keen-slider{
+  .keen-slider {
     margin: 0 -16px;
   }
 
   .carousel {
     position: relative;
-     .cardItem {
-      overflow: visible !important; 
+    .cardItem {
+      overflow: visible !important;
     }
 
     .nav {
@@ -206,13 +210,13 @@ const CardsWrapper = styled.section`
         display: flex;
         flex-direction: column;
         grid-gap: ${({ theme }) => theme.padding['1/2']};
-      
+
         article {
           background-color: transparent;
           border: none;
           box-shadow: none;
           overflow: visible;
-        
+
           .imageWrapper {
             border-radius: ${({ theme }) => theme.borderRadius.default};
             border: none;
@@ -226,15 +230,15 @@ const CardsWrapper = styled.section`
             flex-direction: column;
             justify-content: center;
             grid-gap: ${({ theme }) => theme.padding['1/4']};
-            
-            .title{
+
+            .title {
               justify-content: center;
             }
 
             p {
               text-align: center;
               a {
-              width: auto;
+                width: auto;
               }
             }
 
@@ -280,12 +284,11 @@ const CardsWrapper = styled.section`
     }
   }
 
-
   &.light {
     .carousel {
       .nav {
         .item {
-          background-color:${({ theme }) => theme.colors.page[100]};
+          background-color: ${({ theme }) => theme.colors.page[100]};
         }
 
         .item:hover,
