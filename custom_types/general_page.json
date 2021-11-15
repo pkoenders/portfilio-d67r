@@ -425,7 +425,7 @@
               "aria_label": {
                 "type": "Text",
                 "config": {
-                  "label": "Aria label"
+                  "label": "Aria label - (If presented as a Carousel)"
                 }
               },
               "align": {
