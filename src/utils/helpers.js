@@ -59,7 +59,8 @@ export function resizeAllGridItems(gridItems) {
     if (item.parentNode === null) return
     // Resize grid
     const grid = item.parentNode
-    grid.style.height = 100 + '%'
+    //grid.style.height = 100 + '%'
+    grid.style.height = 'fit-content'
     grid.style.minHeight = 100 + '%'
 
     const rowHeight = 0
