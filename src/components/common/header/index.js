@@ -19,7 +19,7 @@ import styled from 'styled-components'
 const HeaderWrapper = styled.header`
   .skipNav {
     position: absolute;
-    top: -100%;
+    top: -1000rem;
     /* transform: translateY(-100%); */
     left: 0px;
     right: 0px;
