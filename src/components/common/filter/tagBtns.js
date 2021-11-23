@@ -21,7 +21,6 @@ const ListTagBtnsWrapper = styled.div`
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-size: 26px;
       aspect-ratio: 1;
       padding: ${({ theme }) => theme.padding['1/4']};
       /* cursor: pointer; */
@@ -35,6 +34,7 @@ const ListTagBtnsWrapper = styled.div`
       right: 0px;
 
       i {
+        font-size: 20px;
         pointer-events: none;
       }
 
@@ -109,7 +109,6 @@ const ResetTagsBtn = styled.button.attrs((props) => ({
   left: 0px;
   right: auto;
   i {
-    font-size: 20px;
     pointer-events: none;
     @keyframes rotation {
       from {
