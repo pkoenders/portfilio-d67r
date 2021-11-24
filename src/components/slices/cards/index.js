@@ -142,6 +142,7 @@ const CardsWrapper = styled.section`
       .imageWrapper {
         aspect-ratio: 1;
         width: 128px;
+        z-index: 1;
         border-radius: 999rem;
         /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
         border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
@@ -189,7 +190,7 @@ const CardsWrapper = styled.section`
       }
       .imageWrapper {
         aspect-ratio: 1;
-        z-index: 1;
+
         width: 128px;
         border-radius: 999rem;
         /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
