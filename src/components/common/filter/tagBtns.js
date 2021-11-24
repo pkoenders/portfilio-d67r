@@ -32,9 +32,9 @@ const ListTagBtnsWrapper = styled.div`
       top: -${({ theme }) => theme.margin['1/4']};
 
       right: 0px;
-
+      font-size: 20px;
       i {
-        font-size: 20px;
+        font-size: inherit;
         pointer-events: none;
       }
 
