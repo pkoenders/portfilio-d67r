@@ -61,7 +61,7 @@ export function resizeAllGridItems(gridItems) {
     const grid = item.parentNode
     //grid.style.height = 100 + '%'
     // grid.style.height = 'fit-content'
-    grid.style.minHeight = 100 + '%'
+    // grid.style.minHeight = 100 + '%'
 
     const rowHeight = 0
     const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'))

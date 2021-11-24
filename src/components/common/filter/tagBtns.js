@@ -108,6 +108,7 @@ const ResetTagsBtn = styled.button.attrs((props) => ({
   position: relative;
   left: 0px;
   right: auto;
+  width: fit-content;
   i {
     pointer-events: none;
     @keyframes rotation {

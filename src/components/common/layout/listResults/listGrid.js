@@ -25,6 +25,8 @@ const Grid = styled.ul.attrs((props) => ({
   z-index: 1000;
   width: auto;
   height: fit-content;
+  height: fit-content;
+  min-height: 100%;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     grid-template-columns: repeat(2, 1fr);
