@@ -117,10 +117,22 @@ export const GlobalStyles = createGlobalStyle`
   a:focus {
     outline: none;
   }
+  
+  :focus:not(:focus-visible),
+  :focus:not(:-webkit-direct-focus) {
+    outline: 0; 
+  }
 
-  a:focus-visible,
-  button:focus-visible{
-    outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important; 
+    /* :not([tabindex='-1']),
+  :focus:not(:focus-visible),
+  a:focus:not(:focus-visible),
+  button:focus:not(:focus-visible) {
+    outline: 0;
+  } */
+
+  :focus-visible,
+  :-webkit-direct-focus {
+    outline: 2px solid ${({ theme }) => theme.colors.focusVisible}; 
   }
 
   /* a:-moz-focusring {
@@ -281,8 +293,8 @@ export const GlobalStyles = createGlobalStyle`
   button {
     font-size: ${({ theme }) => theme.fontSize.base};
     color: ${({ theme }) => theme.colors.page.default};
-   background-color: transparent;  
-    outline: none;
+    background-color: transparent;  
+    /* outline: none; */
     border:none;
   }
 
