@@ -74,7 +74,7 @@ const GalleryItem = ({ thisItem, animateScroll }) => {
   // Use 'Resize all grid items' for grid filtering
   useEffect(() => {
     resizeAllGridItems(gridItems)
-    'mouseup, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
+    'onclick, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         // Helpers - resizeAllGridItems
         resizeAllGridItems(gridItems)

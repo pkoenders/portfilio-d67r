@@ -56,6 +56,7 @@ const SkipFilter = () => {
       <a className="skipLink" href="#listResults" onClick={KeepLocation}>
         Skip filter
       </a>
+
       <a className="skipLink" href="#searchInput" onClick={KeepLocation}>
         Skip filter tags
       </a>

@@ -133,10 +133,13 @@ const SortItem = styled.button.attrs((props) => ({
 }))``
 
 // Toggle sort list - ariaExpanded
-function toggleAria(e) {
-  e.target.getAttribute('aria-expanded') === 'true'
-    ? e.target.setAttribute('aria-expanded', 'false')
-    : e.target.setAttribute('aria-expanded', 'true')
+function toggleAria() {
+  const sortWrapper = document.querySelector('.sortWrapper')
+  if (sortWrapper.classList.contains('isActive')) {
+    sortWrapper.setAttribute('aria-expanded', 'true')
+  } else {
+    sortWrapper.setAttribute('aria-expanded', 'false')
+  }
 }
 
 const Sort = ({ currentLang, items, toggleSortListClick, sortItemClick, sortAscDescClick }) => {
@@ -156,11 +159,12 @@ const Sort = ({ currentLang, items, toggleSortListClick, sortItemClick, sortAscD
           <IconMaterial icon={'expand_more'} />
         </SortSelect>
 
-        <div>
+        <div className="sortWrapper" aria-expanded="false">
           {items.map((node, i) => (
             <SortItem
               type="button"
               onClick={sortItemClick}
+              aria-label={`Sort by ${items[i].title}`}
               data-nodepath={items[i].nodePath}
               key={'list-item'[i]}
             >
