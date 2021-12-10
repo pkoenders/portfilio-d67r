@@ -1,7 +1,7 @@
-export const isRequired = (value) => (value ? undefined : 'required')
+export const isRequired = (value) => (value ? undefined : 'Is required')
 
 export function isValidEmail(value) {
-  return /\S+@\S+\.\S+/.test(value) ? undefined : 'invalid'
+  return /\S+@\S+\.\S+/.test(value) ? undefined : 'Email address is invalid'
 }
 
 export const composeValidators =

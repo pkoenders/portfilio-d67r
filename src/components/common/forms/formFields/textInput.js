@@ -20,7 +20,7 @@ const TextInput = ({ label, input, type, meta, describedby }) => {
     >
       {label}
       {required && !hasValue && <span className="required">Required</span>}
-      {hasError && <span className="error">{`is ${error}`}</span>}
+      {hasError && <span className="error">{`${error}`}</span>}
       <span>
         <input
           type={type}
