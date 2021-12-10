@@ -27,7 +27,9 @@ const FormWraper = styled.div`
   input::placeholder,
   textarea::placeholder {
     color: inherit;
-    opacity: 0.54;
+    /* opacity: 0.54;  */
+    opacity: 0;
+    text-indent: -1000em;
   }
 
   input:-internal-autofill-selected,
@@ -166,15 +168,15 @@ const FormWraper = styled.div`
       .required,
       .requiredCheck,
       .error {
-        font-size: 80%;
-        letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
+        /* font-size: 80%; */
+        /* letter-spacing: ${({ theme }) => theme.letterSpacing.wide}; */
         font-weight: normal;
         line-height: inherit;
-        margin-top: 2px;
+        /* margin-top: 2px; */
         width: fit-content !important;
         color: ${({ theme }) => theme.colors.page[600]};
         display: inline-flex;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
       }
       .error {
         color: ${({ theme }) => theme.colors.alert.tomato};

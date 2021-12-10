@@ -87,8 +87,31 @@ export const GlobalStyles = createGlobalStyle`
   section.light {
     color: ${({ theme }) => theme.colors.page.default};
   }
-   section.dark {
+   
+  section.dark {
     color: ${({ theme }) => theme.colors.page[100]};
+    
+    a {
+       color: ${({ theme }) => theme.colors.primary[500]};
+    }
+    form {
+      input:focus-visible,
+      textarea:focus-visible,
+      select:focus-visible {
+        outline: 2px solid ${({ theme }) => theme.colors.primary[400]};
+      }
+      label,
+      legend,
+      .submitForm {
+        .required,
+        .requiredCheck {
+          color: ${({ theme }) => theme.colors.primary[400]};
+        }
+        .error {
+          color: ${({ theme }) => theme.colors.alert.tomato};
+        }
+      }
+    }
   }
 
   a,
