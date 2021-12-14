@@ -48,7 +48,7 @@ const ApproachSection = styled.section`
       span {
         width: 100%;
         h4 {
-          font-weight: 600;
+          font-weight: 500;
           margin-bottom: 0.1em;
         }
 
