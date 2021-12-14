@@ -233,7 +233,7 @@ const Intro = () => {
             </i> */}
               <p>
                 I support digital accessibility, am curious and enjoy working with creative and
-                integration teams.
+                development teams.
               </p>
             </span>
           </div>
