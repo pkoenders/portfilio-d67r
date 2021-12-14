@@ -71,6 +71,7 @@ const BtnWrapper = styled.span`
   }
 
   .btn.primary {
+    color: ${({ theme }) => theme.colors.header.default};
     background-color: ${({ theme }) => theme.colors.primary.default};
     border: 1px solid ${({ theme }) => theme.colors.primary[1100]};
     i {
