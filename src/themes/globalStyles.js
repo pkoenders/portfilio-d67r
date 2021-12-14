@@ -84,7 +84,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow:hidden;
   }
 
-  section.light {
+ section.light {
     color: ${({ theme }) => theme.colors.page.default};
   }
    
@@ -137,7 +137,7 @@ export const GlobalStyles = createGlobalStyle`
     border-bottom: 1px solid ${({ theme }) => theme.colors.accent.default} !important;
   }
 
-  a:focus {
+  /* a:focus {
     outline: none;
   }
   
@@ -146,21 +146,37 @@ export const GlobalStyles = createGlobalStyle`
     outline: 0; 
   }
 
-    /* :not([tabindex='-1']),
-  :focus:not(:focus-visible),
-  a:focus:not(:focus-visible),
-  button:focus:not(:focus-visible) {
-    outline: 0;
-  } */
-
   :focus-visible,
   :-webkit-direct-focus {
     outline: 2px solid ${({ theme }) => theme.colors.focusVisible}; 
+  } */
+
+
+
+
+
+  /* a:focus,
+  button {
+    outline: none;
+  } */
+
+  *:focus,
+  *:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important;  
   }
 
-  /* a:-moz-focusring {
-    outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important; 
-  } */
+  .dark,
+  header, 
+  footer {
+    *:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
+  }
+
+   *:focus:not(:focus-visible) {
+    outline: none !important;
+  }
 
   .marginTopInital {
     margin-top:0 !important;

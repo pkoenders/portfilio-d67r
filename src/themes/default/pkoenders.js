@@ -165,22 +165,6 @@ export const defaultTheme = {
       1300: '#9f123f',
     },
 
-    // primary: {
-    //   default: '#2A708D',
-    //   100: '#e9f0f3',
-    //   200: '#d4e2e8',
-    //   300: '#bfd4dc',
-    //   400: '#a9c5d1',
-    //   500: '#94b7c6',
-    //   600: '#7fa9ba',
-    //   700: '#699aaf',
-    //   800: '#548ca3',
-    //   900: '#3f7e98',
-    //   1100: '#2a6f8d',
-    //   1200: '#25637d',
-    //   1300: '#20566d',
-    // },
-
     primary: {
       default: '#51bfeb',
       100: 'edf8fd',
@@ -254,6 +238,7 @@ export const defaultTheme = {
     white: '#fff',
     // focusVisible: '#9ecaed',
     focusVisible: '#005FCC',
+    focusVisibleOnDark: '#80BBFF',
 
     grey: {
       default: '#323335',
