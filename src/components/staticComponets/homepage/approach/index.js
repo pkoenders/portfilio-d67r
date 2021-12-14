@@ -41,17 +41,21 @@ const ApproachSection = styled.section`
         -moz-text-fill-color: transparent; */
         color: ${({ theme }) => theme.colors.tertiary[900]};
         /* opacity: 0.75; */
-        margin-top: -${({ theme }) => theme.padding['1/4']};
+        margin-top: -${({ theme }) => theme.padding['1/8']};
         /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
       }
 
       span {
         width: 100%;
-
-        p:first-of-type {
+        h4 {
           font-weight: 600;
           margin-bottom: 0.3em;
         }
+
+        /* p:first-of-type {
+          font-weight: 600;
+          margin-bottom: 0.3em;
+        } */
         p,
         ul,
         li {
@@ -76,7 +80,7 @@ const Approch = () => {
           <div>
             <Icon icon={'speed'} />
             <span>
-              <p>Performance</p>
+              <h4>Performance</h4>
               <p>
                 I design and build websites that use; next-generation image formats and
                 optimisation, styled-components, lazy-loading, prefetching resources, and more to
@@ -115,7 +119,7 @@ const Approch = () => {
           <div>
             <Icon icon={'accessibility_new'} />
             <span>
-              <p>Accessibility</p>
+              <h4>Accessibility</h4>
               <p>
                 I have an interest in and support digital accessibility. Accessibility does not
                 happen by accident. It has to be purposefully planned, built, and tested.
@@ -140,7 +144,7 @@ const Approch = () => {
           <div>
             <Icon icon={'preview'} />
             <span>
-              <p>Content &amp; Previews</p>
+              <h4>Content &amp; Previews</h4>
               <p>
                 2021 offers a wide range of content systems.{' '}
                 <a href="https://www.datocms.com">DatoCMS</a>,{' '}
@@ -179,7 +183,7 @@ const Approch = () => {
           <div>
             <Icon icon={'security'} />
             <span>
-              <p>Security</p>
+              <h4>Security</h4>
               <p>
                 I use <a href="https://reactjs.org/">React</a> to generate static HTML at build
                 time. No server and no reachable database equals no malicious requests, DDOS attacks
@@ -191,7 +195,7 @@ const Approch = () => {
           <div>
             <Icon icon={'savings'} />
             <span>
-              <p>Cost</p>
+              <h4>Cost</h4>
               <p>
                 I design and develop websites for a global CDN that don't require complex scaling
                 operations or expensive hosting plans. They scale when needed, but when traffic
@@ -207,7 +211,7 @@ const Approch = () => {
           <div>
             <Icon icon={'support'} />
             <span>
-              <p>Support</p>
+              <h4>Support</h4>
               <p>
                 In my hands, your website will be blazingly fast, accessible, secure and customised.
                 You will get personal support, and I respond to requests because I simply ❤️ what I
