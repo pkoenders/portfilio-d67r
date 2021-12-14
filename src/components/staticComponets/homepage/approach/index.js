@@ -49,7 +49,7 @@ const ApproachSection = styled.section`
         width: 100%;
         h4 {
           font-weight: 600;
-          margin-bottom: 0.3em;
+          margin-bottom: 0.1em;
         }
 
         /* p:first-of-type {
