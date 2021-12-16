@@ -20,8 +20,6 @@ const LayoutWrapper = styled.div`
     flex-grow: 1;
     overflow-x: hidden;
     display: flex;
-    padding: 0;
-    margin: 0;
 
     main {
       display: flex;
