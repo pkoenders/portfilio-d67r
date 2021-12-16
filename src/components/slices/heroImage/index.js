@@ -29,6 +29,7 @@ const WrapperHeroImage = styled.section`
   padding-bottom: 0px;
   position: relative;
   z-index: 100;
+  width: 100%;
 
   > div {
     max-width: ${({ theme }) => theme.screens.md};
@@ -63,6 +64,7 @@ const WrapperHeroImage = styled.section`
       max-width: ${({ theme }) => theme.screens.md};
       margin: 0 auto;
       z-index: 100;
+
       top: 0;
       left: 0;
       right: 0;
