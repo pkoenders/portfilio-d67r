@@ -229,7 +229,7 @@ export const defaultTheme = {
       1300: '#0e1215',
 
       bground: {
-        default: '#ffffff',
+        default: '#fcfcfc',
       },
     },
 
