@@ -144,6 +144,7 @@ export const query = graphql`
                   imgixParams: {
                     q: 80
                     fill: "blur"
+                    fit: "crop"
                     fm: "avif, webp"
                     nr: 100
                     dpr: 2
