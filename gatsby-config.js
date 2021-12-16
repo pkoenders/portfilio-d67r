@@ -198,7 +198,8 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    'gatsby-plugin-advanced-sitemap',
+    // 'gatsby-plugin-advanced-sitemap',
+    `gatsby-plugin-sitemap`,
 
     {
       resolve: `gatsby-plugin-google-gtag`,

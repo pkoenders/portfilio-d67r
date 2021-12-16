@@ -80,7 +80,7 @@ export const query = graphql`
         }
         intro {
           text
-          raw
+          richText
         }
         show_filters
         show_input
@@ -111,11 +111,17 @@ export const query = graphql`
 
                       main_image {
                         alt
-                        gatsbyImageData (
+                        gatsbyImageData(
                           width: 992
                           layout: CONSTRAINED
                           placeholder: BLURRED
-                          imgixParams: { q: 90, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                          imgixParams: {
+                            q: 90
+                            fm: "avif, webp"
+                            nr: 100
+                            dpr: 2
+                            auto: "compress,enhance,format"
+                          }
                         )
                       }
                       intro

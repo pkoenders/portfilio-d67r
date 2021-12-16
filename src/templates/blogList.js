@@ -82,7 +82,7 @@ export const query = graphql`
         }
         intro {
           text
-          raw
+          richText
         }
         show_filters
         show_input
