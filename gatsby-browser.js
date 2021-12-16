@@ -1,12 +1,12 @@
-const React = require('react')
-const Layout = require('./src/components/layout')
-
 // Import our Theme and wrap in the Them Provider
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles, theme } from '/src/themes/globalStyles'
 
 // Import our Prismic Preview Provider
 import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
+
+const React = require('react')
+// const Layout = require('./src/components/layout')
 
 // Styling for the preview modals.
 // import 'gatsby-plugin-prismic-previews/dist/styles.css'
