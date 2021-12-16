@@ -33,6 +33,7 @@ const WrapperHeroImage = styled.section`
   > div {
     /* max-width: ${({ theme }) => theme.screens.md}; */
     width: 100%;
+    padding: 0;
   }
 
   .full {
