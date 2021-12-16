@@ -311,7 +311,7 @@ const ImageHighlight = ({ slice }) => {
   }, [])
 
   // Validate content
-  const content = validateString(slice.primary.content.raw)
+  const content = validateString(slice.primary.content.richText)
 
   // Validate primary button
   const primaryButtonLabel = validateString(slice.primary.button_label)
@@ -356,7 +356,7 @@ const ImageHighlight = ({ slice }) => {
 
       if (mediaType === 'image') {
         mediaContentObj =
-          mediaContent.data.body[0].primary.image.localFile.childImageSharp.gatsbyImageData
+          mediaContent.data.body[0].primary.image.gatsbyImageData
         mediaType = 'Image'
         var imagFormat = getImgFormat(mediaContent.data.body[0].primary.format)
       }
@@ -367,13 +367,13 @@ const ImageHighlight = ({ slice }) => {
       }
 
       if (mediaType === 'text') {
-        mediaContentObj = mediaContent.data.body[0].primary.text.raw
+        mediaContentObj = mediaContent.data.body[0].primary.text.richText
         mediaType = 'Text'
       }
 
       if (mediaType === 'geopoint') {
         mediaType = 'Geopoint'
-        var mediaDescription = mediaContent.data.body[0].primary.description.raw
+        var mediaDescription = mediaContent.data.body[0].primary.description.richText
         var mediaGeoPoint = mediaContent.data.body[0].primary.geopoint
         // Zoom level (For Google maps)
         var mediaZoomLevel = getZoomLevel(mediaContent.data.body[0].primary.zoom_level)

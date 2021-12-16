@@ -223,10 +223,10 @@ const FullWidthImage = ({ slice }) => {
   }
 
   // Validate title
-  const title = validateString(slice.primary.title.raw)
+  const title = validateString(slice.primary.title.richText)
 
   // Validate description
-  const description = validateString(slice.primary.description.raw)
+  const description = validateString(slice.primary.description.richText)
 
   // Validate primary button
   const primaryButtonLabel = validateString(slice.primary.button_label)
@@ -244,7 +244,7 @@ const FullWidthImage = ({ slice }) => {
 
   // console.log(secondaryButtonLink.raw.link_type)
 
-  const image = getImage(slice.primary.image.localFile.childImageSharp.gatsbyImageData)
+  const image = getImage(slice.primary.image.gatsbyImageData)
   const bgImage = convertToBgImage(image)
 
   // Add some inline styles
@@ -276,7 +276,7 @@ const FullWidthImage = ({ slice }) => {
       style={imageMargin}
     >
       <div>
-        {slice.primary.image.localFile.childImageSharp.gatsbyImageData && (
+        {slice.primary.image.gatsbyImageData && (
           <BackgroundImage
             // Tag="section"
             Tag="div"

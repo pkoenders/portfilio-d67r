@@ -253,7 +253,7 @@ const StyledList = ({ slice }) => {
               <ul className={`${listTheme} ${listStyle}`}>
                 {slice.items.map((node, index) => (
                   <li key={slice.id + index}>
-                    {slice.items[index].item.raw && (
+                    {slice.items[index].item.richText && (
                       <>
                         {listStyle === 'numbered' && <span>{index + 1}</span>}
                         {listStyle === 'disc' && <span></span>}
@@ -272,7 +272,7 @@ const StyledList = ({ slice }) => {
                           </>
                         )}
                         <RichText
-                          render={slice.items[index].item.raw}
+                          render={slice.items[index].item.richText}
                           linkResolver={linkResolver}
                         />
                       </>

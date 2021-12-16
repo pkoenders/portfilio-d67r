@@ -139,7 +139,7 @@ export const query = graphql`
             creation_date(formatString: "MMMM YYYY")
             intro
             description {
-              raw
+              richText
             }
             link {
               url
@@ -147,18 +147,13 @@ export const query = graphql`
             width
             height
             main_image {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    quality: 90
-                    breakpoints: [768, 992, 1200, 1366]
-                    layout: CONSTRAINED
-                    formats: [AUTO, WEBP]
-                    placeholder: BLURRED
-                    transformOptions: { cropFocus: CENTER }
-                  )
-                }
-              }
+              alt
+              gatsbyImageData (
+                breakpoints: [768, 992, 1200, 1366]
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                imgixParams: { q: 90, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+              )
               #alt
             }
 
@@ -166,18 +161,13 @@ export const query = graphql`
               ... on PrismicGalleryItemDataBody1ImageList {
                 items {
                   image {
-                    localFile {
-                      childImageSharp {
-                        gatsbyImageData(
-                          quality: 90
-                          breakpoints: [768, 992, 1200, 1366]
-                          layout: CONSTRAINED
-                          formats: [AUTO, WEBP]
-                          placeholder: BLURRED
-                          transformOptions: { cropFocus: CENTER }
-                        )
-                      }
-                    }
+                    alt
+                    gatsbyImageData (
+                      breakpoints: [768, 992, 1200, 1366]
+                      layout: CONSTRAINED
+                      placeholder: BLURRED
+                      imgixParams: { q: 90, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                    )
                   }
                 }
                 slice_type

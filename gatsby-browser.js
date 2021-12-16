@@ -9,7 +9,7 @@ import { GlobalStyles, theme } from '/src/themes/globalStyles'
 import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
 
 // Styling for the preview modals.
-import 'gatsby-plugin-prismic-previews/dist/styles.css'
+// import 'gatsby-plugin-prismic-previews/dist/styles.css'
 // Adds a shared React Context for Prismic preview sessions.
 
 // export const wrapPageElement = ({ element }) => (

@@ -56,7 +56,7 @@ const BlockQuote = styled.blockquote`
 const Quote = ({ slice }) => (
   <BlockQuote>
     <IconMaterial icon={'format_quote'} />
-    <RichText render={slice.primary.quote.raw} />
+    <RichText render={slice.primary.quote.richText} />
     {slice.primary.reference !== undefined && <span>{slice.primary.reference}</span>}
     {slice.primary.reference_url.url !== null && (
       <a href={slice.primary.reference_url.url} className="visit">

@@ -103,6 +103,7 @@ module.exports = {
           shared_content: require('./custom_types/shared_content.json'),
           main_navigation: require('./custom_types/main_navigation.json'),
         },
+
         // add prismic toolbar
         // prismicToolbar: true,
       },
@@ -197,7 +198,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-
     'gatsby-plugin-advanced-sitemap',
 
     {

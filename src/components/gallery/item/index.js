@@ -80,7 +80,7 @@ const GalleryBody = styled.article`
     }
 
     a:hover {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.promarydefault};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.primarydefault};
     }
 
     .date {
@@ -97,9 +97,9 @@ const GalleryBody = styled.article`
     }
     div {
       display: flex;
-      overflow: hidden;
+      /* overflow: hidden; */
       border: 1px solid ${({ theme }) => theme.colors.card[400]};
-      box-shadow: ${({ theme }) => theme.boxShadow.lg};
+      box-shadow: ${({ theme }) => theme.boxShadow.xl};
       border-radius: ${({ theme }) => theme.borderRadius.default};
     }
   }
@@ -110,20 +110,9 @@ const GalleryItem = ({ currentLang, itemData }) => {
   const title = validateString(galleryItem.title.text)
   const date = galleryItem.creation_date
   const link = galleryItem.link.url
-  const content = validateString(galleryItem.description.raw)
-  const mainImage = galleryItem.main_image.localFile.childImageSharp.gatsbyImageData
+  const content = validateString(galleryItem.description.richText)
+  const mainImage = galleryItem.main_image.gatsbyImageData
   const galleryImageRoll = galleryItem.body1[0]
-
-  // mediumZoom('[data-zoomable]')
-  // mediumZoom(document.querySelector('.zoom'))
-
-  // const zoomImages = [...document.querySelectorAll('[data-zoomable]')]
-
-  // mediumZoom(zoomImages)
-
-  // mediumZoom('.zoom')
-
-  // const zoom = React(mediumZoom())
 
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
@@ -160,8 +149,8 @@ const GalleryItem = ({ currentLang, itemData }) => {
                 <GatsbyImage
                   image={mainImage}
                   alt={
-                    galleryItem.main_image.localFile.alt
-                      ? galleryItem.main_image.localFile.alt
+                    galleryItem.main_image.alt
+                      ? galleryItem.main_image.alt
                       : 'This image currently has no description'
                   }
                 />
@@ -172,10 +161,10 @@ const GalleryItem = ({ currentLang, itemData }) => {
               galleryImageRoll.items.map((item, index) => (
                 <Zoom zoomMargin={32}>
                   <GatsbyImage
-                    image={item.image.localFile.childImageSharp.gatsbyImageData}
+                    image={item.image.gatsbyImageData}
                     alt={
-                      item.image.localFile.alt
-                        ? item.image.localFile.alt
+                      item.image.alt
+                        ? item.image.alt
                         : 'This image currently has no description'
                     }
                     key={index}

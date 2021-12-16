@@ -171,11 +171,11 @@ const Quotes = ({ slice }) => {
               (node, index) =>
                 slice.items[index].active === true && (
                   <div key={slice.id + index}>
-                    {slice.items[index].content.raw && (
+                    {slice.items[index].content.richText && (
                       <>
                         <BlockQuote>
                           {/* <IconMaterial icon={'format_quote'} />{' '} */}
-                          <RichText render={slice.items[index].content.raw} />
+                          <RichText render={slice.items[index].content.richText} />
                           {slice.items[index].title !== undefined && (
                             <span>{slice.items[index].title}</span>
                           )}

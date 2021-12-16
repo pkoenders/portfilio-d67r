@@ -17,7 +17,7 @@ const BlogReferences = styled.div`
 
 const ReferencesBlog = ({ slice }) => {
   // Validate text
-  const content = validateString(slice.primary.references.raw)
+  const content = validateString(slice.primary.references.richText)
   return (
     <>
       {content !== null && (

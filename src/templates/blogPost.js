@@ -138,7 +138,7 @@ export const query = graphql`
                 id
                 primary {
                   text {
-                    raw
+                    richText
                   }
                 }
                 slice_type
@@ -148,20 +148,13 @@ export const query = graphql`
                 slice_type
                 primary {
                   image {
-                    localFile {
-                      childImageSharp {
-                        gatsbyImageData(
-                          quality: 90
-                          width: 992
-                          layout: CONSTRAINED
-                          formats: [AUTO, WEBP, AVIF]
-                          placeholder: BLURRED
-                          transformOptions: { cropFocus: CENTER }
-                          # aspectRatio: 1.77
-                        )
-                      }
-                    }
                     alt
+                    gatsbyImageData (
+                      width: 992
+                      layout: CONSTRAINED
+                      placeholder: BLURRED
+                      imgixParams: { q: 90, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                    )
                   }
                 }
               }
@@ -170,7 +163,7 @@ export const query = graphql`
                 id
                 primary {
                   quote {
-                    raw
+                    richText
                   }
                   reference
                   reference_url {
@@ -185,7 +178,7 @@ export const query = graphql`
                 slice_type
                 primary {
                   references {
-                    raw
+                    richText
                   }
                 }
               }

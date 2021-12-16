@@ -89,22 +89,23 @@ const HeaderWrapper = styled.header`
       display: flex;
       align-self: center;
       align-items: center;
+      padding: 0 ${({ theme }) => theme.padding['1/4']};
       margin: auto 0;
       z-index: 1003;
       position: absolute;
-      left: ${({ theme }) => theme.padding['1/2']};
+      left: ${({ theme }) => theme.padding['1/4']};
       right: auto;
       height: ${({ theme }) => theme.header.height};
       top: inherit;
 
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
         order: 1;
-        right: ${({ theme }) => theme.padding['1/2']};
+        right: ${({ theme }) => theme.padding['1/4']};
         left: auto;
       }
 
       @media print {
-        left: ${({ theme }) => theme.padding['1/2']};
+        left: ${({ theme }) => theme.padding['1/4']};
         right: auto;
       }
 

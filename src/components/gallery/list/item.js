@@ -168,7 +168,7 @@ const GalleryItem = ({ thisItem, animateScroll }) => {
               {content.main_image && (
                 <div className="imageWrapper">
                   <GatsbyImage
-                    image={content.main_image.localFile.childImageSharp.gatsbyImageData}
+                    image={content.main_image.gatsbyImageData}
                     alt={content.main_image.alt ? content.main_image.alt : content.title.text}
                   />
                   <span className="openLightBox">

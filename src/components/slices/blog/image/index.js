@@ -29,7 +29,7 @@ const BlogImage = ({ slice }) => {
       {slice.slice_type === 'image_blog' && (
         <Zoom zoomMargin={32}>
           <GatsbyImage
-            image={mediaObj.localFile.childImageSharp.gatsbyImageData}
+            image={mediaObj.gatsbyImageData}
             alt={mediaObj.alt ? mediaObj.alt : 'Placeholder image'}
           />
         </Zoom>

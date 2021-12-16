@@ -13,7 +13,7 @@ const TextBlogWrapper = styled.div`
 
 const TextBlog = ({ slice }) => {
   // Validate text
-  const content = validateString(slice.primary.text.raw)
+  const content = validateString(slice.primary.text.richText)
   return (
     <TextBlogWrapper>
       {content !== null ? <RichText render={content} linkResolver={linkResolver} /> : ''}

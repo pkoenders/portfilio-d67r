@@ -110,20 +110,13 @@ export const query = graphql`
                       }
 
                       main_image {
-                        localFile {
-                          childImageSharp {
-                            gatsbyImageData(
-                              quality: 90
-                              width: 992
-                              layout: CONSTRAINED
-                              formats: [AUTO, WEBP, AVIF]
-                              placeholder: BLURRED
-                              transformOptions: { cropFocus: CENTER }
-                              # aspectRatio: 1.77
-                            )
-                          }
-                        }
                         alt
+                        gatsbyImageData (
+                          width: 992
+                          layout: CONSTRAINED
+                          placeholder: BLURRED
+                          imgixParams: { q: 90, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                        )
                       }
                       intro
                     }

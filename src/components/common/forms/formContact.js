@@ -101,7 +101,7 @@ const ContactNew = ({ formData, slice }) => {
   // Validate form name
   const formName = validateString(allFormData.select_form.document.data.form_name.text)
   // Validate form description
-  const formDecription = validateString(allFormData.select_form.document.data.from_content.raw)
+  const formDecription = validateString(allFormData.select_form.document.data.from_content.richText)
   // Form data
   const formDataFields = allFormData.select_form.document.data.body
 
@@ -251,7 +251,7 @@ const ContactNew = ({ formData, slice }) => {
                       >
                         {formDataFields[index].primary.text.text && (
                           <RichText
-                            render={formDataFields[index].primary.text.raw}
+                            render={formDataFields[index].primary.text.richText}
                             linkResolver={linkResolver}
                           />
                         )}

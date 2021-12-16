@@ -187,7 +187,7 @@ const Text = ({ slice }) => {
               textAlign: txtAlign,
             }}
           >
-            {content.text && <RichText render={content.raw} linkResolver={linkResolver} />}
+            {content.text && <RichText render={content.richText} linkResolver={linkResolver} />}
           </article>
         )}
 
