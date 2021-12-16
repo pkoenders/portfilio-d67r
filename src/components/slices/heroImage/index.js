@@ -31,9 +31,7 @@ const WrapperHeroImage = styled.section`
   z-index: 100;
 
   > div {
-    /* max-width: ${({ theme }) => theme.screens.md}; */
-    width: 100%;
-    padding: 0;
+    max-width: ${({ theme }) => theme.screens.md};
   }
 
   .full {
