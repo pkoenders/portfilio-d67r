@@ -29,27 +29,27 @@ const WrapperHeroImage = styled.section`
   padding-bottom: 0px;
   position: relative;
   z-index: 100;
-  width: 100%;
 
   > div {
-    max-width: ${({ theme }) => theme.screens.md};
+    /* max-width: ${({ theme }) => theme.screens.md}; */
+    width: 100%;
   }
 
   .full {
     > div {
-      max-width: 100%;
+      width: 100%;
     }
   }
 
   .wide {
     > div {
-      max-width: ${({ theme }) => theme.screens.xl};
+      width: ${({ theme }) => theme.screens.xl};
     }
   }
 
   .slim {
     > div {
-      max-width: ${({ theme }) => theme.screens.md};
+      width: ${({ theme }) => theme.screens.md};
     }
   }
 
