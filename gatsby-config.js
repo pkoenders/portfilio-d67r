@@ -26,19 +26,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sass',
 
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       `Material+Icons+Round`,
-    //       `Open+Sans\:300,400,500,600,700`, // you can also specify font weights and styles
-    //       `Rokkitt\:300,500`,
-    //       `Merriweather\:400`,
-    //     ],
-    //     display: 'swap',
-    //   },
-    // },
-
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -47,8 +34,8 @@ module.exports = {
             {
               family: `Material+Icons+Round`,
               text: `abcdefghijklmnopqrstuvwxyz_`,
-              fontDisplay: 'swap',
-              // strategy: 'base64',
+              // fontDisplay: 'swap',
+              strategy: 'base64',
               // strategy: 'cdn',
             },
 
@@ -57,36 +44,38 @@ module.exports = {
             //   axes: 'wght@300;400;500;600',
             //   // fontDisplay: 'swap',
             //   // strategy: 'base64', // 'base64' || 'cdn'
+
             //   // strategy: 'cdn',
             // },
 
             {
               family: 'Open+Sans',
               axes: 'wght@300;400;500;600',
-              fontDisplay: 'swap',
+              // fontDisplay: 'swap',
               // strategy: 'base64', // 'base64' || 'cdn'
+              strategy: 'base64',
               // strategy: 'cdn',
             },
 
             {
               family: 'Rokkitt',
               axes: 'wght@300;500',
-              fontDisplay: 'swap',
-              // strategy: 'base64',
+              // fontDisplay: 'swap',
+              strategy: 'base64',
               // strategy: 'cdn',
             },
 
             {
               family: 'Merriweather',
               axes: 'wght@400',
-              fontDisplay: 'swap',
-              // strategy: 'base64',
+              // fontDisplay: 'swap',
+              strategy: 'base64',
               // strategy: 'cdn',
             },
           ],
         },
         // useMinify: true,
-        usePreload: true,
+        // usePreload: true,
         // usePreconnect: true,
       },
     },
