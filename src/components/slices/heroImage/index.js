@@ -261,6 +261,7 @@ const FullWidthImage = ({ slice }) => {
   const bgroundStyle = {
     height: sectionHeight,
     // height: '450px',
+    with: '100%',
     backgroundPosition: `center ${alignBGround}`,
     backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
   }
