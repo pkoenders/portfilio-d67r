@@ -1,5 +1,5 @@
-// import '/src/styles/index.scss'
-import * as React from 'react'
+const React = require('react')
+const Layout = require('./src/components/layout')
 
 // Import our Theme and wrap in the Them Provider
 import { ThemeProvider } from 'styled-components'
@@ -19,13 +19,3 @@ export const wrapRootElement = ({ element }) => (
     <PrismicPreviewProvider>{element}</PrismicPreviewProvider>
   </ThemeProvider>
 )
-
-// Provide an update message
-export const onServiceWorkerUpdateReady = () => {
-  const answer = window.confirm(
-    'This application has been updated. Reload to display the latest version?'
-  )
-  if (answer === true) {
-    window.location.reload()
-  }
-}
