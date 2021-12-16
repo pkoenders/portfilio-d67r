@@ -145,7 +145,14 @@ export const query = graphql`
                 gatsbyImageData(
                   layout: FULL_WIDTH
                   placeholder: BLURRED
-                  imgixParams: { q: 80, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                  imgixParams: {
+                    q: 80
+                    fill: "blur"
+                    fm: "avif, webp"
+                    nr: 100
+                    dpr: 2
+                    auto: "compress,enhance,format"
+                  }
                 )
               }
             }

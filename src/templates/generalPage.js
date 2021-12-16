@@ -141,7 +141,14 @@ export const query = graphql`
                 gatsbyImageData(
                   layout: FULL_WIDTH
                   placeholder: BLURRED
-                  imgixParams: { q: 80, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                  imgixParams: {
+                    q: 80
+                    fill: "blur"
+                    fm: "avif, webp"
+                    nr: 100
+                    dpr: 2
+                    auto: "compress,enhance,format"
+                  }
                 )
               }
             }
@@ -258,11 +265,17 @@ export const query = graphql`
               }
               image {
                 alt
-                gatsbyImageData (
+                gatsbyImageData(
                   width: 564
                   layout: CONSTRAINED
                   placeholder: BLURRED
-                  imgixParams: { q: 80, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                  imgixParams: {
+                    q: 80
+                    fm: "avif, webp"
+                    nr: 100
+                    dpr: 2
+                    auto: "compress,enhance,format"
+                  }
                 )
               }
             }
@@ -325,11 +338,17 @@ export const query = graphql`
                           primary {
                             image {
                               alt
-                              gatsbyImageData (
+                              gatsbyImageData(
                                 aspectRatio: 1.777777
                                 layout: FULL_WIDTH
                                 placeholder: BLURRED
-                                imgixParams: { q: 80, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                                imgixParams: {
+                                  q: 80
+                                  fm: "avif, webp"
+                                  nr: 100
+                                  dpr: 2
+                                  auto: "compress,enhance,format"
+                                }
                               )
                             }
                           }
