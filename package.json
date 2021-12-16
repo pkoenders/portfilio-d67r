@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
     "@babel/core": "^7.15.8",
@@ -30,6 +31,7 @@
     "gatsby-plugin-manifest": "^4.4.0",
     "gatsby-plugin-mdx": "^2.6.0",
     "gatsby-plugin-offline": "^5.4.0",
+    "gatsby-plugin-preload-fonts": "^3.4.0",
     "gatsby-plugin-prismic-previews": "^5.2.1",
     "gatsby-plugin-react-helmet": "^5.4.0",
     "gatsby-plugin-react-svg": "^3.0.1",

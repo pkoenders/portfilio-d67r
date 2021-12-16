@@ -78,6 +78,8 @@ module.exports = {
       },
     },
 
+    `gatsby-plugin-preload-fonts`,
+
     {
       resolve: 'gatsby-source-prismic',
       options: {
