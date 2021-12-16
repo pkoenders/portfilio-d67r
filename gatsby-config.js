@@ -26,82 +26,70 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sass',
 
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `Material+Icons+Round`,
+    //       `Open+Sans\:300,400,500,600,700`, // you can also specify font weights and styles
+    //       `Rokkitt\:300,500`,
+    //       `Merriweather\:400`,
+    //     ],
+    //     display: 'swap',
+    //   },
+    // },
+
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          `Material+Icons+Round`,
-          `Open+Sans\:300,400,500,600,700`, // you can also specify font weights and styles
-          `Rokkitt\:300,500`,
-          `Merriweather\:400`,
-        ],
-        display: 'swap',
+        fonts: {
+          google2: [
+            {
+              family: `Material+Icons+Round`,
+              text: `abcdefghijklmnopqrstuvwxyz_`,
+              fontDisplay: 'swap',
+              // strategy: 'base64',
+              // strategy: 'cdn',
+            },
+
+            // {
+            //   family: 'Roboto',
+            //   axes: 'wght@300;400;500;600',
+            //   // fontDisplay: 'swap',
+            //   // strategy: 'base64', // 'base64' || 'cdn'
+            //   // strategy: 'cdn',
+            // },
+
+            {
+              family: 'Open+Sans',
+              axes: 'wght@300;400;500;600',
+              fontDisplay: 'swap',
+              // strategy: 'base64', // 'base64' || 'cdn'
+              // strategy: 'cdn',
+            },
+
+            {
+              family: 'Rokkitt',
+              axes: 'wght@300;500',
+              fontDisplay: 'swap',
+              // strategy: 'base64',
+              // strategy: 'cdn',
+            },
+
+            {
+              family: 'Merriweather',
+              axes: 'wght@400',
+              fontDisplay: 'swap',
+              // strategy: 'base64',
+              // strategy: 'cdn',
+            },
+          ],
+        },
+        // useMinify: true,
+        usePreload: true,
+        // usePreconnect: true,
       },
     },
-
-    `gatsby-plugin-preload-fonts`,
-
-    // {
-    //   resolve: `gatsby-plugin-preload-fonts`,
-    //   options: {
-    //     //crossOrigin: `use-credentials`,
-    //     // OR
-    //     crossOrigin: (pathname) =>
-    //       pathname.match(/^\/elevated/) ? `use-credentials` : `anonymous`,
-    //   },
-    // },
-
-    // {
-    //   resolve: `gatsby-plugin-webfonts`,
-    //   options: {
-    //     fonts: {
-    //       google2: [
-    //         {
-    //           family: `Material+Icons+Round`,
-    //           text: `abcdefghijklmnopqrstuvwxyz_`,
-    //           // fontDisplay: 'swap',
-    //           // strategy: 'base64',
-    //           // strategy: 'cdn',
-    //         },
-
-    //         // {
-    //         //   family: 'Roboto',
-    //         //   axes: 'wght@300;400;500;600',
-    //         //   // fontDisplay: 'swap',
-    //         //   // strategy: 'base64', // 'base64' || 'cdn'
-    //         //   // strategy: 'cdn',
-    //         // },
-
-    //         {
-    //           family: 'Open+Sans',
-    //           axes: 'wght@300;400;500;600',
-    //           // fontDisplay: 'swap',
-    //           // strategy: 'base64', // 'base64' || 'cdn'
-    //           // strategy: 'cdn',
-    //         },
-
-    //         {
-    //           family: 'Rokkitt',
-    //           axes: 'wght@300;500',
-    //           // fontDisplay: 'swap',
-    //           // strategy: 'base64',
-    //           // strategy: 'cdn',
-    //         },
-
-    //         {
-    //           family: 'Merriweather',
-    //           axes: 'wght@400',
-    //           // fontDisplay: 'swap',
-    //           // strategy: 'base64',
-    //           // strategy: 'cdn',
-    //         },
-    //       ],
-    //     },
-    //     useMinify: true,
-    //     // usePreload: true,
-    //     // usePreconnect: true,
-    //   },
-    // },
 
     {
       resolve: 'gatsby-source-prismic',
