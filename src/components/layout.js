@@ -11,14 +11,15 @@ const LayoutWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0;
-  margin: 0;
+
   background-color: ${({ theme }) => theme.colors.page.bground.default};
 
   & .layoutInner {
     flex-grow: 1;
     overflow-x: hidden;
     display: flex;
+    padding: 0;
+    margin: 0;
 
     main {
       display: flex;
