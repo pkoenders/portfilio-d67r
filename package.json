@@ -25,6 +25,7 @@
     "gatsby": "^4.4.0",
     "gatsby-background-image": "^1.5.3",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^4.4.0",
     "gatsby-plugin-google-tagmanager": "^4.0.0",
     "gatsby-plugin-image": "^2.4.0",
