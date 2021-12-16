@@ -11,9 +11,6 @@ const LayoutWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0;
-  margin: 0;
-
   background-color: ${({ theme }) => theme.colors.page.bground.default};
 
   & .layoutInner {
