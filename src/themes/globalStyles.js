@@ -37,8 +37,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-          padding: 0;
-  margin: 0;
      line-height: ${({ theme }) => theme.lineHeight.relaxed};
      letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
   }  
