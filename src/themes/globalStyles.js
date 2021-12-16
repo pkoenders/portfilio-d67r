@@ -33,11 +33,12 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     word-wrap: break-word;
     font-kerning: normal;
-      padding: 0;
-  margin: 0;
+
   }
 
   body {
+          padding: 0;
+  margin: 0;
      line-height: ${({ theme }) => theme.lineHeight.relaxed};
      letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
   }  
