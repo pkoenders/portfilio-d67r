@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Header from './common/header/'
+import Header from './common/header/index'
 import Footer from './common/footer'
 import i18n from '../../config/i18n'
 
@@ -98,7 +98,7 @@ const Layout = ({ children, currentLang, primaryNav }) => {
       />
 
       <div className="layoutInner">
-        <main id="main" tabindex="-1" className={i18n.allPrefix.includes(pathName) ? 'index' : ''}>
+        <main id="main" tabIndex="-1" className={i18n.allPrefix.includes(pathName) ? 'index' : ''}>
           {children}
         </main>
       </div>

@@ -44,6 +44,13 @@ const FormWraper = styled.div`
     font: inherit;
   }
 
+  /* input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.primary.default};
+  } */
+
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
@@ -57,21 +64,21 @@ const FormWraper = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.primary.default};
   }
 
-  [type='color'],
-  [type='date'],
-  [type='email'],
-  [type='datetime-local'],
-  [type='datetime'],
-  [type='email'],
-  [type='month'],
-  [type='number'],
-  [type='password'],
-  [type='search'],
-  [type='tel'],
-  [type='text'],
-  [type='time'],
-  [type='url'],
-  [type='week'],
+  input[type='color'],
+  input[type='date'],
+  input[type='email'],
+  input[type='datetime-local'],
+  input[type='datetime'],
+  input[type='email'],
+  input[type='month'],
+  input[type='number'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='time'],
+  input[type='url'],
+  input[type='week'],
   textarea,
   select {
     font-family: ${({ theme }) => theme.font.sans};
@@ -147,7 +154,7 @@ const FormWraper = styled.div`
       align-items: center;
       flex-wrap: wrap;
       width: 100%;
-      grid-gap: ${({ theme }) => theme.padding['1/8']};
+      grid-row-gap: ${({ theme }) => theme.padding['1/8']};
 
       span:last-of-type {
         display: flex;
@@ -168,16 +175,18 @@ const FormWraper = styled.div`
       .required,
       .requiredCheck,
       .error {
-        /* font-size: 80%; */
+        /* font-size: 95%; */
         /* letter-spacing: ${({ theme }) => theme.letterSpacing.wide}; */
         font-weight: normal;
         line-height: inherit;
         /* margin-top: 2px; */
         width: fit-content !important;
-        color: ${({ theme }) => theme.colors.page[600]};
+        color: ${({ theme }) => theme.colors.page[700]};
+        /* color: ${({ theme }) => theme.colors.alert.tomato}; */
         display: inline-flex;
         /* text-transform: uppercase; */
       }
+
       .error {
         color: ${({ theme }) => theme.colors.alert.tomato};
       }
@@ -256,7 +265,7 @@ const FormWraper = styled.div`
       span:last-of-type {
         input {
           //border-color: tomato;
-          border-left: 1px solid ${({ theme }) => theme.colors.alert.tomato};
+          border-left: 3px solid ${({ theme }) => theme.colors.alert.tomato};
         }
       }
     }

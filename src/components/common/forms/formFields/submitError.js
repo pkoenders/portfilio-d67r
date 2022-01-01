@@ -41,7 +41,7 @@ const SubmitError = ({ resetForm }) => {
       <p>Could you please try and complete the form again.</p>
       <Button
         buttonLabel={'Reset form'}
-        buttonType={'button'}
+        buttonType={'reset'}
         buttonStyle={'black'}
         onClick={resetForm}
         buttonIcon={'refresh'}

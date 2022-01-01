@@ -2,23 +2,24 @@ import styled from 'styled-components'
 
 const FilterWrapper = styled.div`
   margin-top: ${({ theme }) => theme.header.height};
-  padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
-  background-color: ${({ theme }) => theme.colors.tertiary[200]};
+  padding: ${({ theme }) => theme.padding['1/2']};
+  background-color: ${({ theme }) => theme.colors.card[200]};
+  display: flex;
+  flex-direction: column;
+  grid-gap: ${({ theme }) => theme.margin['1/2']};
   position: relative;
 
-  > div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10000;
-    margin: 0 auto;
-    grid-gap: ${({ theme }) => theme.margin['1/2']};
-    max-width: ${({ theme }) => theme.screens.md};
+  h1 {
+    text-align: center;
+    font-size: ${({ theme }) => theme.fontSize['4xl']};
+    line-height: initial;
   }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
+    h1 {
+      font-size: ${({ theme }) => theme.fontSize['3xl']};
+    }
   }
 
   @media print {

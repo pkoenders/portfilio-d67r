@@ -51,6 +51,7 @@ export const query = graphql`
                     uid
                     type
                     lang
+                    raw
                   }
                   label {
                     text
@@ -61,6 +62,7 @@ export const query = graphql`
                     uid
                     type
                     lang
+                    raw
                   }
                   sub_nav_link_label {
                     text
@@ -142,13 +144,14 @@ export const query = graphql`
                   layout: FULL_WIDTH
                   placeholder: BLURRED
                   imgixParams: {
-                    q: 80
+                    q: 75
                     fill: "blur"
                     fit: "crop"
                     fm: "avif, webp"
-                    nr: 100
-                    dpr: 2
-                    auto: "compress,enhance,format"
+                    nr: 20
+                    nrs: 50
+                    dpr: 3
+                    auto: "compress,format"
                   }
                 )
               }
@@ -175,6 +178,8 @@ export const query = graphql`
                 text
                 richText
               }
+              override_content_style
+              screen_reader_only
               button_alignment
               button_label
               button_link {
@@ -267,13 +272,17 @@ export const query = graphql`
               image {
                 alt
                 gatsbyImageData(
-                  width: 564
+                  width: 1200
                   layout: CONSTRAINED
                   placeholder: BLURRED
                   imgixParams: {
-                    q: 80
+                    q: 100
+                    fit: "facearea"
+                    faces: 2
+                    facepad: 10
                     fm: "avif, webp"
-                    nr: 100
+                    nr: 0
+                    nrs: 50
                     dpr: 2
                     auto: "compress,enhance,format"
                   }
@@ -337,6 +346,7 @@ export const query = graphql`
                         ... on PrismicSharedContentDataBodyImage {
                           slice_type
                           primary {
+                            format
                             image {
                               alt
                               gatsbyImageData(
@@ -344,9 +354,10 @@ export const query = graphql`
                                 layout: FULL_WIDTH
                                 placeholder: BLURRED
                                 imgixParams: {
-                                  q: 80
+                                  q: 100
                                   fm: "avif, webp"
-                                  nr: 100
+                                  nr: 0
+                                  nrs: 50
                                   dpr: 2
                                   auto: "compress,enhance,format"
                                 }
@@ -469,6 +480,7 @@ export const query = graphql`
                   ##
                   ## Form
                   ... on PrismicForms {
+                    id
                     data {
                       form_name {
                         text
@@ -646,9 +658,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
             }
             slice_type
@@ -662,9 +672,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               price
               title {
@@ -681,9 +689,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               card_type
               twitter_handle

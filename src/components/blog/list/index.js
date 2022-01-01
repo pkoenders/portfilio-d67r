@@ -1,14 +1,12 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 
 // Helpers
 import i18n from '/config/i18n'
 
 // Layout
-import Section from '/src/components/common/layout/pageLayout/'
-// import PageTitle from '/src/components/common/layout/listResults/listPageTitle'
+import PageLayout from '/src/components/common/layout/pageLayout/'
 import ListWrapper from '/src/components/common/layout/listResults/listWrapper'
 import ListGrid from '/src/components/common/layout/listResults/listGrid'
-// import ItemWrapper from './itemWrapper'
 import GridItem from './item'
 
 // Filter componetent styles
@@ -17,10 +15,12 @@ import SkipFilter from '/src/components/common/filter/skipFilter'
 import ListTagBtns from '/src/components/common/filter/tagBtns'
 import SearchBox from '/src/components/common/filter/searchBox'
 import SortList from '/src/components/common/filter/sortList'
-import AscDesc from '/src/components/common/filter/ascDesc'
+import BtnListAscDesc from '/src/components/common/filter/btnListAscDesc'
 import SearchInput from '/src/components/common/filter/searchInput'
 import SearchTitle from '/src/components/common/filter/searchTitle'
 import NoResults from '/src/components/common/filter/noResults'
+import ListStyleWrapper from '/src/components/common/filter/listStyleWrapper'
+import BtnListStyle from '/src/components/common/filter/btnListStyle'
 
 const BlogList = ({ currentLang, pageIntro, dataList }) => {
   // A little loDash for sorting assistance
@@ -34,61 +34,41 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   var [sourceList, setSourceList] = useState(
     _.sortBy(dataList.items, 'item.document.data.creation_date').reverse()
   )
-  var [allPosts, setAllPosts] = useState(dataList.items)
-  var [queryValue, setQueryValue] = useState('')
-  var [queryLength, setQueryLength] = useState(0)
+  let [allPosts, setAllPosts] = useState(dataList.items)
+  let [queryValue, setQueryValue] = useState('')
+  let [queryLength, setQueryLength] = useState(0)
   const [ascDesc, setAscDescSort] = useState(true) // false for Acs. true for Desc
+  const ascDescRef = useRef()
+  ascDescRef.current = ascDesc
+
+  // If user has set the layout style, it is saved to sessionStorage
+  // When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
+  if (typeof window !== 'undefined') {
+    var currentLayoutStyle = sessionStorage.getItem('Layout style')
+  } else {
+    currentLayoutStyle = 'list'
+  }
+  // Initiate layout style - 'list || grid' - default is 'list'
+  const [layoutStyle, updateLayoutStlye] = useState('list')
+  useEffect(() => {
+    currentLayoutStyle !== null
+      ? updateLayoutStlye(currentLayoutStyle)
+      : updateLayoutStlye(layoutStyle)
+  }, [currentLayoutStyle, layoutStyle])
 
   // Toggle sort order - Asc / Desc
-  const sortAscDescClick = useCallback(
-    (e) => {
-      // Toggle class button
-      e.target.classList.toggle('desc')
-
-      // Toggle Aria labels for button
-      e.target.getAttribute('aria-label') === 'Sort by descending'
-        ? e.target.setAttribute('aria-label', 'Sort by ascending')
-        : e.target.setAttribute('aria-label', 'Sort by descending')
-
-      setAscDescSort(!ascDesc)
-      setAllPosts(allPosts.sort().reverse())
-    },
-    [allPosts, ascDesc]
-  )
-
-  // Toggle sort list
-  const toggleSortListClick = useCallback((e) => {
-    e.stopPropagation()
-
-    const selectListBtn = e.target
-    const selectListLabel = selectListBtn.querySelector('span').innerText
-    const selectList = selectListBtn.nextSibling
-
-    selectListBtn.parentNode.classList.toggle('isActive')
-    selectList.classList.toggle('isActive')
-
-    // Set the buttons state, if matched sort label? then hide
-    // Set the buttons state, if matched sort label? then hide
-    let btns = selectList.childNodes
-    for (let i = 0; i < btns.length; i++) {
-      btns[i].setAttribute('aria-hidden', 'false')
-      btns[i].innerText === selectListLabel && btns[i].classList.add('hide')
-      btns[i].innerText === selectListLabel && btns[i].setAttribute('aria-hidden', 'true')
-    }
-  }, [])
+  const sortAscDescClick = useCallback(() => {
+    setAscDescSort(ascDesc === true ? false : true)
+    setAllPosts(allPosts.reverse())
+  }, [ascDesc, allPosts])
 
   // Select sort item
   const sortItemClick = useCallback(
     (e) => {
-      // Update the label title to the selected title
-      const sortLabelBtn = e.target.parentNode.previousSibling
-      const sortLabel = e.target.parentNode.previousSibling.querySelector('span')
-
-      sortLabelBtn.setAttribute('aria-label', `Sort by ${e.target.innerText} active`)
-      sortLabel.innerText = e.target.innerText
+      // console.log('event')
 
       // Add the node to be sorted to the node path
-      const filterNode = e.target.getAttribute('data-nodepath')
+      const filterNode = e.getAttribute('data-nodepath')
 
       // https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value?page=1&tab=votes#tab-top
       // Sort the node with lodash
@@ -101,7 +81,10 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
         // If there is search txt, we get the 'filteredData' array
         sortPosts = _.cloneDeep([...filteredData]) // Use deep to ensure state updates?
         sortPosts = _.sortBy(filteredData, filterNode)
-        ascDesc === false && sortPosts.reverse()
+
+        // Check  AscDesc state
+        ascDescRef.current === false && sortPosts.reverse()
+
         // Update the states of 'allposts' and 'filteredData'
         setAllPosts(sortPosts)
         setState({ filteredData: sortPosts })
@@ -109,39 +92,17 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
         // Else sort the 'sourceList'
         sortPosts = _.cloneDeep([...dataList.items])
         sortPosts = _.sortBy(dataList.items, filterNode)
-        ascDesc === false && sortPosts.reverse()
+
+        // Check AscDesc state
+        ascDescRef.current === false && sortPosts.reverse()
+
         setSourceList(sortPosts)
         setAllPosts(sortPosts)
       }
-      // console.log(ascDesc)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [allPosts, ascDesc]
   )
-
-  // Close the sort list from window click
-  if (typeof window !== 'undefined') {
-    window.addEventListener('click', function () {
-      handleCloseSortList()
-    })
-  }
-  function handleCloseSortList() {
-    const selectList = document.querySelector('.sort div')
-    const selectListBtn = document.querySelector('.sort div button')
-    const sortList = document.querySelector('.sort div div')
-
-    if (selectList) {
-      selectList.classList.remove('isActive')
-      selectListBtn.setAttribute('aria-expanded', 'false')
-      sortList.classList.remove('isActive')
-
-      // Reset the buttons
-      let btns = sortList.childNodes
-      for (let i = 0; i < btns.length; i++) {
-        btns[i].classList.remove('hide')
-      }
-    }
-  }
 
   // Get tag data
   const allItems = dataList.items
@@ -151,6 +112,15 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   allItems.map((node, index) => tagList.push(allItems[index].item.tags))
 
   // Reset functions
+
+  // Reset filters
+  function resetFilters(e) {
+    resetSearchQuery()
+    resetFilterBtns()
+    resetCards()
+    handleSearchChange(e)
+  }
+
   // Reset card state (on filter - mouseDown)
   const resetCards = () => {
     const filteredData = allItems
@@ -161,37 +131,34 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
     })
   }
 
-  function resetFilters(evt) {
-    resetFilterBtns()
-    resetSearchQuery()
-    handleSearchChange(evt)
+  // Reset search query
+  function resetSearchQuery() {
+    var searchInput = document.querySelector('.search input')
+    if (searchInput) {
+      searchInput.value = ''
+    }
   }
 
+  // Reset filter btns
   function resetFilterBtns() {
+    // console.log('reset')
+
     var filterBtns = document.getElementsByClassName('tagButton')
+
     for (var x = 0; x < filterBtns.length; ++x) {
-      filterBtns[x].classList.remove('isActive')
-      filterBtns[x].setAttribute('aria-label', 'Tag is unselected')
+      filterBtns[x].setAttribute('aria-checked', 'false')
     }
 
     var allCards = document.getElementsByClassName('item')
     for (var y = 0; y < allCards.length; ++y) {
       allCards[y].classList.add('show')
+      allCards[y].classList.remove('isActive')
     }
 
     var tagName = document.getElementsByClassName('tagName')
     for (var z = 0; z < tagName.length; ++z) {
       tagName[z].classList.remove('isActive')
     }
-  }
-
-  function resetSearchQuery() {
-    var searchInput = document.querySelector('.search input')
-    if (searchInput) {
-      searchInput.value = ''
-    }
-    setQueryValue(0)
-    setQueryLength(0)
   }
 
   // Input filter:
@@ -202,18 +169,20 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
     query: emptyQuery,
   })
 
-  const handleSearchChange = (event) => {
-    //console.log(event.target.value)
+  const handleSearchChange = (e) => {
+    // Get the search value
+    var searchVal = e
+    searchVal === '' ? (searchVal = '') : (searchVal = e.target.value)
 
-    // Reset any active tags - Where eith searching by tag or by input
-    resetFilterBtns()
+    // Reset any active tags - When  searching by input
+    searchVal.length > 0 && resetFilterBtns()
 
-    // Set the search value and lenth
-    setQueryValue(event.target.value)
-    setQueryLength(event.target.value.length)
+    // Set the search value and length
+    setQueryValue(searchVal)
+    setQueryLength(searchVal.length)
 
     // Consts for the filtered data array
-    const query = event.target.value
+    const query = searchVal
     const data = sourceList
 
     // Create an array for the filtered that matches the query
@@ -251,85 +220,123 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
     <>
-      {pageTitle !== null && <h1 className="hide">{pageTitle}</h1>}
+      <Filter>
+        {pageTitle !== null && <h1>{pageTitle}</h1>}
 
-      {pageIntro.show_filters === true && (
-        <Filter aria-label="Filter">
-          <SkipFilter />
+        {pageIntro.show_tags === true && tagList.length > 0 && (
+          <>
+            <SkipFilter showTags={pageIntro.show_tags} />
+            <ListTagBtns
+              resetFilterBtns={resetFilterBtns}
+              resetFilters={resetFilters}
+              tagList={tagList}
+              resetCards={resetCards}
+            />
+          </>
+        )}
+
+        {pageIntro.show_input === true && (
+          <SearchBox className="search">
+            <SearchInput
+              currentLang={currentLang}
+              handleSearchChange={handleSearchChange}
+              queryLength={queryLength}
+              resetFilters={resetFilters}
+            />
+          </SearchBox>
+        )}
+      </Filter>
+
+      {/* Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full', 'marginTopInital' = 0, 'paddingTopInital' = 0 */}
+      <PageLayout
+        classOverides={`md list marginTopInital ${
+          pageIntro.show_sorting || pageIntro.show_input === true ? 'paddingTopInital' : ''
+        }`}
+      >
+        {/* Set the list style */}
+        <ListStyleWrapper>
           <div>
-            {pageIntro.show_tags === true && tagList.length > 0 && (
-              <ListTagBtns
-                resetFilterBtns={resetFilterBtns}
-                tagList={tagList}
-                resetCards={resetCards}
-                resetSearchQuery={resetSearchQuery}
+            <SearchTitle
+              filteredData={filteredData}
+              queryValue={queryValue}
+              queryLength={queryLength}
+            />
+          </div>
+
+          <div>
+            {pageIntro.show_sorting === true && (
+              <SortList
+                currentLang={currentLang}
+                sortItemClick={sortItemClick}
+                items={[
+                  {
+                    title: `${i18n[currentLang].sortByDate}`,
+                    nodePath: 'item.document.data.creation_date',
+                  },
+
+                  {
+                    title: `${i18n[currentLang].sortByTitle}`,
+                    nodePath: 'item.document.data.title.text',
+                  },
+                  {
+                    title: `Description`,
+                    nodePath: 'item.document.data.intro',
+                  },
+                  // { title: 'URL', nodePath: 'link.document.data.web_address.url' },
+                ]}
+                sortAscDescClick={sortAscDescClick}
               />
             )}
+            {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
+              <BtnListAscDesc sortAscDescClick={sortAscDescClick} />
+            )}
 
-            <SearchBox className="search">
-              {pageIntro.show_input === true && (
-                <SearchInput
-                  currentLang={currentLang}
-                  handleSearchChange={handleSearchChange}
-                  queryLength={queryLength}
-                  resetFilters={resetFilters}
+            {pageIntro.show_grid_layout === true && (
+              <>
+                <BtnListStyle
+                  ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
+                  itemID="list"
+                  ariaLabel={'View by list'}
+                  buttonIcon={'list'}
+                  updateLayoutStlye={updateLayoutStlye}
                 />
-              )}
 
-              {pageIntro.show_sorting === true && (
-                <SortList
-                  currentLang={currentLang}
-                  toggleSortListClick={toggleSortListClick}
-                  sortItemClick={sortItemClick}
-                  // Pass the 'Sort by' properties. First being the default. Will display Asc order
-                  items={[
-                    {
-                      title: `${i18n[currentLang].sortByDate}`,
-                      nodePath: 'item.document.data.creation_date',
-                    },
-
-                    {
-                      title: `${i18n[currentLang].sortByTitle}`,
-                      nodePath: 'item.document.data.title.text',
-                    },
-                    {
-                      title: `Description`,
-                      nodePath: 'item.document.data.intro',
-                    },
-                    // { title: 'URL', nodePath: 'link.document.data.web_address.url' },
-                  ]}
-                  sortAscDescClick={sortAscDescClick}
+                <BtnListStyle
+                  ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
+                  itemID="grid"
+                  ariaLabel={'View by grid'}
+                  buttonIcon={'grid_view'}
+                  updateLayoutStlye={updateLayoutStlye}
                 />
-              )}
-              {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
-                <AscDesc onClick={sortAscDescClick} />
-              )}
-            </SearchBox>
+              </>
+            )}
           </div>
-        </Filter>
-      )}
-      <Section
-        // style={{
-        //   marginTop: '0px',
-        // }}
-        contentSize={'lg marginTopInital'}
-      >
-        {/* <PageTitle pageIntro={pageIntro} /> */}
-        <ListWrapper>
-          <SearchTitle
-            filteredData={filteredData}
-            queryValue={queryValue}
-            queryLength={queryLength}
-          />
+        </ListStyleWrapper>
 
+        <ListWrapper>
           {allPosts.length > 0 ? (
-            <ListGrid defaultColCount={2}>
+            <ListGrid
+              defaultColCount={2}
+              className={
+                layoutStyle === 'list' ? 'list' : pageIntro.show_grid_layout === true ? '' : 'list'
+              }
+            >
               {allPosts.map((node, index) => (
                 <GridItem
+                  listStyle={
+                    layoutStyle === 'list'
+                      ? 'list'
+                      : pageIntro.show_grid_layout === true
+                      ? ''
+                      : 'list'
+                  }
+                  defaultColCount={3}
                   thisItem={allPosts[index]}
                   showTags={pageIntro.show_tags}
                   key={allPosts[index].item.id}
                   id={allPosts[index].item.id}
+                  index={index}
+                  listLength={allPosts.length}
                 />
               ))}
             </ListGrid>
@@ -337,7 +344,7 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
             <NoResults resetFilters={resetFilters} query={query} />
           )}
         </ListWrapper>
-      </Section>
+      </PageLayout>
     </>
   )
 }

@@ -79,6 +79,28 @@
                   "placeholder": "Add some content"
                 }
               },
+              "override_content_style": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Style like H1",
+                    "Style like H2",
+                    "Style like H3",
+                    "Style like H4",
+                    "Style like H5",
+                    "Style like H6"
+                  ],
+                  "label": "Override content style",
+                  "placeholder": "Please select"
+                }
+              },
+              "screen_reader_only": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Screen reader only"
+                }
+              },
               "button_link": {
                 "type": "Link",
                 "config": {

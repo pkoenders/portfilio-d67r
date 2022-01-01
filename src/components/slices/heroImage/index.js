@@ -70,6 +70,7 @@ const WrapperHeroImage = styled.section`
       display: flex;
       text-align: center;
       padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+
       align-items: center;
     }
     .wrapper.centre {
@@ -118,10 +119,19 @@ const WrapperHeroImage = styled.section`
         margin: 0 auto;
         display: grid;
         padding: 0;
-        padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['2xl']};
+        padding: ${({ theme }) => theme.padding.default};
         color: #ffffff;
         background-color: ${({ theme }) => theme.colors.header.default};
         border-radius: ${({ theme }) => theme.borderRadius.default};
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: none;
+        @media (max-width: ${({ theme }) => theme.screens.sm}) {
+          padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+        }
+        h1 {
+          hyphens: auto;
+        }
 
         span * {
           margin: 0;
@@ -272,11 +282,7 @@ const FullWidthImage = ({ slice }) => {
   }
 
   return (
-    <WrapperHeroImage
-      aria-label="Hero image"
-      className={'section-layout heroImage ' + sectionWidth}
-      style={imageMargin}
-    >
+    <WrapperHeroImage className={'section-layout heroImage ' + sectionWidth} style={imageMargin}>
       <div>
         {slice.primary.image.gatsbyImageData && (
           <BackgroundImage

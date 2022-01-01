@@ -13,9 +13,10 @@ const NoResultsWrapper = styled.div`
 
   span:first-of-type {
     margin: 0;
-    font-size: 133px;
+    font-size: 128px;
+    line-height: normal;
     font-weight: ${({ theme }) => theme.fontWeight.meduim};
-    color: ${({ theme }) => theme.colors.tertiary.default};
+    color: ${({ theme }) => theme.colors.card[600]};
   }
 
   button {
@@ -23,15 +24,15 @@ const NoResultsWrapper = styled.div`
     cursor: default !important;
   }
 `
-const NoResults = ({ resetFilters, query }) => {
+const NoResults = ({ resetFilters }) => {
   return (
     <NoResultsWrapper>
       <span>(·_·)</span>
       <Button
         onClick={resetFilters}
         buttonLabel={'Clear your filters and try again'}
-        buttonStyle={'tertiary'}
-        buttonType={'button'}
+        buttonStyle={'primary'}
+        buttonType={'reset'}
       />
     </NoResultsWrapper>
   )

@@ -1,52 +1,57 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Section = styled.section`
+const Page = styled.div`
   // Section - For other templates that are not Homepage and General page
   display: block;
-  margin-top: 0;
-  padding: ${({ theme }) => theme.padding.default} 0 ${({ theme }) => theme.padding['2xl']};
+  display: flex;
+  flex-direction: column;
+  grid-gap: ${({ theme }) => theme.padding['1/2']};
+  margin: 0 auto;
+  padding: 0 ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding['2xl']};
+  max-width: ${({ theme }) => theme.screens.xl};
+  width: 100%;
 
-  &.hasSecondaryNav {
-    margin-top: ${({ theme }) => theme.header.height};
+  @media (max-width: ${({ theme }) => theme.screens.sm}) {
+    padding: ${({ theme }) => theme.padding['1/2']} !important;
   }
 
-  > div {
-    max-width: ${({ theme }) => theme.screens.xl};
-    margin: 0px auto;
-    padding: 0 ${({ theme }) => theme.padding['1/2']};
+  &.withSecondaryNav {
+    margin-top: ${({ theme }) => theme.header.withSecondaryNav.height};
+    padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']}
+      ${({ theme }) => theme.padding['2xl']};
   }
 
-  &.xs > div {
+  /* &.list {
+    grid-gap: 0;
+  } */
+
+  &.xs {
     max-width: ${({ theme }) => theme.screens.xs};
   }
-  &.sm > div {
+  &.sm {
     max-width: ${({ theme }) => theme.screens.sm};
   }
-  &.md > div {
+  &.md {
     max-width: ${({ theme }) => theme.screens.md};
   }
-  &.lg > div {
+  &.lg {
     max-width: ${({ theme }) => theme.screens.lg};
   }
-  &.xl > div {
+  &.xl {
     max-width: ${({ theme }) => theme.screens.xl};
   }
-  &.xxl > div {
+  &.xxl {
     max-width: ${({ theme }) => theme.screens.xxl};
   }
-  &.full > div {
+  &.full {
     max-width: ${({ theme }) => theme.screens.full};
     padding: 0;
   }
 `
 
 const PageLayout = ({ children, classOverides }) => {
-  return (
-    <Section className={classOverides}>
-      <div>{children}</div>
-    </Section>
-  )
+  return <Page className={classOverides}>{children}</Page>
 }
 
 export default PageLayout

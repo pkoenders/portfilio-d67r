@@ -1,6 +1,5 @@
 import React from 'react'
 // Helpers
-// import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import linkResolver from '../../../utils/linkResolver'
 import { validateString, getContentWidth, getPostionAlign, getStyle } from '/src/utils/helpers'
@@ -11,9 +10,9 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const AlertWrapper = styled.div.attrs((props) => ({
+const AlertWrapper = styled.div.attrs({
   role: 'alert',
-}))`
+})`
   aspect-ratio: unset !important;
   position: relative;
   padding: ${({ theme }) => theme.padding['1/2']};
@@ -26,10 +25,15 @@ const AlertWrapper = styled.div.attrs((props) => ({
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 95%;
 
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     p {
       margin: 0;
+      a {
+        color: inherit;
+        font-weight:600;
+      }
     }
 
     .cta {
@@ -63,43 +67,65 @@ const AlertWrapper = styled.div.attrs((props) => ({
 
   &.alertLevel-1 {
     background-color: ${({ theme }) => theme.colors.alert.l1.default};
-    button {
+    color:#ffffff;
+    *:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
+   } button {
+     color: inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l1.default};
+        /* color: inherit !important; */
+        color: ${({ theme }) => theme.colors.alert.l1.default} !important;
       }
     }
   }
   &.alertLevel-2 {
     background-color: ${({ theme }) => theme.colors.alert.l2.default};
+    color:#ffffff;
+    *:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
     button {
+      color: inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l2.default};
+        color: ${({ theme }) => theme.colors.alert.l2.default} !important;
       }
     }
   }
   &.alertLevel-3 {
-    color: ${({ theme }) => theme.colors.grey.default};
+     color: ${({ theme }) => theme.colors.page.default}
     background-color: ${({ theme }) => theme.colors.alert.l3.default};
     button {
+      color: inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l3.default};
-        background-color: ${({ theme }) => theme.colors.page.default};
+         color: inherit !important;
+       /* color: ${({ theme }) => theme.colors.alert.l3.default} !important; */
+       
       }
     }
   }
   &.alertLevel-4 {
     background-color: ${({ theme }) => theme.colors.alert.l4.default};
+
     button {
       i {
-        color: ${({ theme }) => theme.colors.alert.l4.default};
+        color: ${({ theme }) => theme.colors.alert.l4.default}!important;
       }
     }
   }
   &.alertLevel-5 {
+    color:#ffffff;
     background-color: ${({ theme }) => theme.colors.alert.l5.default};
+*:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
     button {
+      color:inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l5.default};
+        color: ${({ theme }) => theme.colors.alert.l5.default} !important;
       }
     }
   }
@@ -113,6 +139,7 @@ const AlertWrapper = styled.div.attrs((props) => ({
     right: ${({ theme }) => theme.padding['1/2']};
     text-transform: uppercase;
     font-size: 80%;
+    color: inherit;
 
     i {
       color: ${({ theme }) => theme.colors.alert.l1.default};
@@ -126,7 +153,16 @@ const AlertWrapper = styled.div.attrs((props) => ({
   & .canClose {
     /* padding-right: ${({ theme }) => theme.padding['4xl']}; */
     padding: 0px;
-    padding-right: 96px;
+   
+    @media (max-width: ${({ theme }) => theme.screens.md}) {
+       padding-right: 96px;
+
+       p {
+         text-align:left !important;
+       }
+
+    }
+
   }
 `
 const Alert = ({
@@ -149,6 +185,8 @@ const Alert = ({
 }) => {
   // Validate
   const content = alertContent
+  const contentAlign = getPostionAlign(alertAlign)
+  // console.log(contentAlign)
   const width = getContentWidth(alertWidth)
   const align = getPostionAlign(alertAlign)
 
@@ -185,26 +223,6 @@ const Alert = ({
     }
   }
 
-  const alertDesc = validateAlertDesc(alertLevel)
-  function validateAlertDesc(color) {
-    switch (color) {
-      case undefined:
-      case null:
-      case '1 - Green':
-        return 'level 1'
-      case '2 - Khaki':
-        return 'level 2'
-      case '3 - Yellow':
-        return 'level 3'
-      case '4 - Orange':
-        return 'level 4'
-      case '5 - Red':
-        return 'level 5'
-      default:
-        return 'level 1'
-    }
-  }
-
   // validate btns
   const btnLabel = validateString(alertBtnLabel)
   const btnLink = alertBtnLink
@@ -216,9 +234,6 @@ const Alert = ({
   const btnSecondaryStyle = getStyle(alertBtnSecondaryStyle)
   const btnSecondaryIcon = alertBtnSecondaryIcon
   const btnSecondaryIconAlign = getPostionAlign(alertBtnSecondaryIconAlign)
-
-  // console.log('btnSecondaryIcon = ' + btnSecondaryIcon)
-  // console.log('btnSecondaryIconAlign = ' + btnSecondaryIconAlign)
 
   function closeAlert(e) {
     e.target.closest('.alert').remove()
@@ -238,14 +253,20 @@ const Alert = ({
       <>
         <AlertWrapper
           id={alertID}
-          className={'alert section-layout ' + width + ' ' + align + ' ' + alertLev}
-          aria-label={`Alert ${alertDesc}`}
+          className={`alert section-layout ${width} ${align} ${alertLev}`}
+          // aria-label={`Alert ${alertDesc}`}
         >
           {close === true && <Close onClick={closeAlert} label={'Close'} />}
 
           {(content.text || btnLabel) && (
-            <div className={close === true ? 'canClose' : ''}>
-              {content.text && <RichText render={content.raw} linkResolver={linkResolver} />}
+            <div className={`${close === true ? 'canClose' : ''} ${contentAlign}`}>
+              {content.text && (
+                <RichText
+                  render={content.richText}
+                  linkResolver={linkResolver}
+                  // className={contentAlign}
+                />
+              )}
 
               {(btnLabel || btnSecondaryLabel) && (
                 <span className={'cta ' + align}>

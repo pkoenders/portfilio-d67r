@@ -48,8 +48,8 @@ const ApproachSection = styled.section`
       span {
         width: 100%;
         h4 {
-          font-weight: 500;
-          margin-bottom: 0.1em;
+          /* font-weight: 500;
+          margin-bottom: 0.1em; */
         }
 
         /* p:first-of-type {

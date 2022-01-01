@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import General from './general.js'
 import OpenGraph from './openGraph.js'
 import Twitter from './twitter.js'

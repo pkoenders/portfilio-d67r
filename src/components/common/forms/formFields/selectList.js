@@ -1,7 +1,11 @@
 import React from 'react'
 
-const SelectList = ({ label }) => {
-  return <option value={label}>{label}</option>
+const SelectList = ({ id, label }) => {
+  return (
+    <option key={id} id={id} value={label}>
+      {label}
+    </option>
+  )
 }
 
 export default SelectList

@@ -354,6 +354,13 @@ const LinkButton = ({
         </button>
       )}
 
+      {buttonType === 'reset' && (
+        <button onClick={onClick} type={buttonType} className={'btn' + btnStyle + btnIconAlign}>
+          {btnIcon !== null && <IconMaterial icon={btnIcon} />}
+          {buttonLabel}
+        </button>
+      )}
+
       {buttonType === 'button' && (
         <button onClick={onClick} type={buttonType} className={'btn' + btnStyle + btnIconAlign}>
           {btnIcon !== null && <IconMaterial icon={btnIcon} />}

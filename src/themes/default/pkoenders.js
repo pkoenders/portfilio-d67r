@@ -29,51 +29,24 @@ export const defaultTheme = {
     alert: {
       tomato: '#FF6347',
       l1: {
-        default: '#5FAF77',
-        100: '#EFF7F1',
-        200: '#DFEFE3',
-        300: '#CFE7D6',
-        400: '#BFDFC8',
-        500: '#AFD7BA',
-        600: '#9FCFAD',
-        700: '#8FC79F',
-        800: '#7FBF92',
-        900: '#6FB784',
-        1100: '#559d6b',
-        1200: '#4c8c5f',
-        1300: '#427a53',
+        default: '#478055',
+        1100: '#3f734c',
+        1200: '#386644',
+        1300: '#31593b',
       },
       l2: {
-        default: '#A3B951',
-        1100: '#92a648',
-        1200: '#829440',
-        1300: '#728138',
+        default: '#6D7C31',
+        1100: '#626f2c',
+        1200: '#576327',
+        1300: '#4c5622',
       },
       l3: {
-        100: '#FEF8EC',
-        200: '#FDF2D9',
-        300: '#FCECC6',
-        400: '#FBE6B3',
-        500: '#FAE0A1',
-        600: '#F9DA8E',
-        700: '#F8D47B',
-        800: '#F7CE68',
-        900: '#F6C855',
         default: '#F6C243',
         1100: '#ddae3c',
         1200: '#c49b35',
         1300: '#ac872e',
       },
       l4: {
-        100: '#FCF3EB',
-        200: '#FAE8D8',
-        300: '#F8DCC5',
-        400: '#F5D1B1',
-        500: '#F3C69E',
-        600: '#F1BA8B',
-        700: '#EEAF77',
-        800: '#ECA364',
-        900: '#EA9851',
         default: '#E88D3E',
         1100: '#d07e37',
         1200: '#b97031',
@@ -81,15 +54,6 @@ export const defaultTheme = {
       },
       l5: {
         default: '#D95B4B',
-        100: '#FBEEED',
-        200: '#F7DEDB',
-        300: '#F3CDC9',
-        400: '#EFBDB7',
-        500: '#ECADA5',
-        600: '#E89C93',
-        700: '#E48C81',
-        800: '#E07B6F',
-        900: '#DC6B5D',
         1100: '#c35143',
         1200: '#ad483c',
         1300: '#973f34',
@@ -265,18 +229,61 @@ export const defaultTheme = {
     serif: 'Merriweather, serif',
   },
 
+  // Major second - 1.125
+  // fontSize: {
+  //   xs: '0.79rem', // x-small
+  //   sm: '0.889rem', // small
+  //   base: '1rem', // p
+  //   lg: '1.125rem', // h6
+  //   xl: '1.125rem', // h5
+  //   '2xl': '1.266rem', // h4
+  //   '3xl': '1.424rem', // h3
+  //   '4xl': '1.602rem', // h2
+  //   '5xl': '1.802rem', // h1
+  //   '6xl': '2.027rem', // Other
+  // },
+
+  // Minor third - 1.200
+  // fontSize: {
+  //   xs: '0.694rem', // x-small
+  //   sm: '0.833rem', // small
+  //   base: '1rem', // p
+  //   lg: '1.2rem', // h6
+  //   xl: '1.2rem', // h5
+  //   '2xl': '1.44rem', // h4
+  //   '3xl': '1.728rem', // h3
+  //   '4xl': '2.074rem', // h2
+  //   '5xl': '2.488rem', // h1
+  //   '6xl': '2.986rem', // Other
+  // },
+
+  // Major third - 1.250
   fontSize: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    base: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    '2xl': '1.5rem',
-    '3xl': '1.875rem',
-    '4xl': '2.25rem',
-    '5xl': '3rem',
-    '6xl': '4rem',
+    xs: '0.64rem', // x-small
+    sm: '0.833rem', // small
+    base: '1rem', // p
+    lg: '1.25rem', // h6
+    xl: '1.25rem', // h5
+    '2xl': '1.563rem', // h4
+    '3xl': '1.953rem', // h3
+    '4xl': '2.441rem', // h2
+    '5xl': '3.052rem', // h1
+    '6xl': '3.815rem', // Other
   },
+
+  // Perfect fourth - 1.333
+  // fontSize: {
+  //   xs: '0.563rem', // x-small
+  //   sm: '0.75rem', // small
+  //   base: '1rem', // p
+  //   lg: '1.333rem', // h6
+  //   xl: '1.333rem', // h5
+  //   '2xl': '1.777rem', // h4
+  //   '3xl': '2.369rem', // h3
+  //   '4xl': '3.157rem', // h2
+  //   '5xl': '4.209rem', // h1
+  //   '6xl': '5.61rem', // Other
+  // },
 
   fontWeight: {
     hairline: '100',
@@ -291,6 +298,16 @@ export const defaultTheme = {
   },
 
   header: {
+    height: '64px',
+    secondaryNav: {
+      height: '60px',
+    },
+    withSecondaryNav: {
+      height: '124px',
+    },
+  },
+
+  SecondaryNav: {
     height: '64px',
   },
 

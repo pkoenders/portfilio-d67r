@@ -115,6 +115,35 @@ export function getColumnCount(columns) {
   }
 }
 
+// Return content overide style
+export function getContentOverrideStyle(contentStyle) {
+  switch (contentStyle) {
+    case null:
+      return null
+
+    case 'Style like H1':
+      return 'styledh1'
+
+    case 'Style like H2':
+      return 'styledh2'
+
+    case 'Style like H3':
+      return 'styledh3'
+
+    case 'Style like H4':
+      return 'styledh4'
+
+    case 'Style like H5':
+      return 'styledh5'
+
+    case 'Style like H6':
+      return 'styledh6'
+
+    default:
+      return null
+  }
+}
+
 // Return content width
 export function getContentWidth(width) {
   switch (width) {

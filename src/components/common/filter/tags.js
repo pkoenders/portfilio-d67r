@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Tags = styled.div`
+const Tags = styled.div.attrs({
+  // 'aria-label': 'Tags list',
+})`
   ul {
     list-style: none;
     display: flex;
@@ -18,23 +20,16 @@ const Tags = styled.div`
       letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
       padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/4']};
       white-space: nowrap;
-
-      /* background-color: ${({ theme }) => theme.colors.card[300]}; */
-      background-color: ${({ theme }) => theme.colors.tertiary[200]};
-      /* border: 1px solid ${({ theme }) => theme.colors.secondary[400]}; */
+      background-color: ${({ theme }) => theme.colors.card[300]};
       border: 1px solid transparent;
       color: ${({ theme }) => theme.colors.page.default};
       white-space: nowrap;
       text-transform: uppercase;
-      border-radius: ${({ theme }) => theme.borderRadius.sm};
+      border-radius: ${({ theme }) => theme.borderRadius.default};
     }
     li.isActive {
-      /* color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors.primary.default}; */
       color: ${({ theme }) => theme.colors.page.default};
-      background-color: ${({ theme }) => theme.colors.tertiary.default};
-      background-color: ${({ theme }) => theme.colors.secondary[600]};
-      /* border: 1px solid ${({ theme }) => theme.colors.secondary[800]}; */
+      background-color: ${({ theme }) => theme.colors.tertiary[700]};
       border: 1px solid transparent;
     }
   }

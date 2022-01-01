@@ -3,15 +3,16 @@ import React from 'react'
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-const TextAreaInput = ({ label, input, type, meta, describedby, required }) => {
-  const { name } = input
+const TextAreaInput = ({ id, label, input, type, meta, describedby, required }) => {
+  // const { name } = input
   const { dirty, error, touched, invalid } = meta
   const hasError = invalid && !!touched
   const hasValue = !!dirty && !invalid
 
   return (
     <label
-      htmlFor={name}
+      key={id}
+      htmlFor={id}
       className={hasError ? 'error' : undefined || hasValue ? 'touched' : undefined}
     >
       {label}
@@ -19,7 +20,7 @@ const TextAreaInput = ({ label, input, type, meta, describedby, required }) => {
       {hasError && <span className="error">{error}</span>}
       <span className="textArea">
         <textarea
-          id={name}
+          id={id}
           type={type}
           rows="5"
           aria-invalid={hasError && 'true'}

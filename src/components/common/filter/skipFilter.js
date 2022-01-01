@@ -2,9 +2,9 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-const SkipFilterWrapper = styled.span.attrs((props) => ({
+const SkipFilterWrapper = styled.span.attrs({
   'aria-label': 'Skip filter',
-}))`
+})`
   
     position: absolute;
     top: -100%;
@@ -14,8 +14,8 @@ const SkipFilterWrapper = styled.span.attrs((props) => ({
     display: flex;
     justify-content: center;
     height: 60px;
-  background-color: ${({ theme }) => theme.colors.tertiary[200]};
-      z-index: 100000;
+    background-color: ${({ theme }) => theme.colors.card[200]};
+    z-index: 100000;
 
     .skipLink {
       margin: 0 ${({ theme }) => theme.margin['1/2']};
@@ -36,12 +36,12 @@ const SkipFilterWrapper = styled.span.attrs((props) => ({
     }
   }
   &&:focus-within {
-    top: ${({ theme }) => theme.padding['1/4']};
+    top: ${({ theme }) => theme.padding['1/8']};
     .skipLink:focus {
     }
   }
 `
-const SkipFilter = () => {
+const SkipFilter = ({ showTags }) => {
   function KeepLocation() {
     setTimeout(function () {
       window.scrollTo(0, 0)
@@ -57,9 +57,11 @@ const SkipFilter = () => {
         Skip filter
       </a>
 
-      <a className="skipLink" href="#searchInput" onClick={KeepLocation}>
-        Skip filter tags
-      </a>
+      {showTags === true && (
+        <a className="skipLink" href="#searchInput" onClick={KeepLocation}>
+          Skip filter tags
+        </a>
+      )}
     </SkipFilterWrapper>
   )
 }

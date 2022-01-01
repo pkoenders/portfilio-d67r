@@ -92,7 +92,7 @@ const Highlight = styled.section`
 
     .media {
       /* display: contents; */
-      display: flex;
+      display: block;
 
       .imageWrapper {
         /* width: 100%; */
@@ -234,35 +234,35 @@ const Highlight = styled.section`
     > div {
       flex-direction: column;
     }
+  }
 
-    &.media-left,
-    &.media-right,
-    &.media-top,
-    &.media-bottom {
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        /* padding-left: 0px;
+  &.media-left,
+  &.media-right,
+  &.media-top,
+  &.media-bottom {
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      /* padding-left: 0px;
         padding-right: 0px; */
-        padding: 0px !important;
+      padding: 0px !important;
 
-        div {
-          .content {
-            padding: ${({ theme }) => theme.padding['1/2']};
-            padding-top: 0px;
-            font-size: 100% !important;
-            margin-bottom: 0px;
+      div {
+        .content {
+          padding: ${({ theme }) => theme.padding['1/2']};
+          padding-top: 0px;
+          font-size: 100% !important;
+          margin-bottom: 0px;
+        }
+
+        .media {
+          .textBlock {
+            padding-left: ${({ theme }) => theme.padding['1/2']};
+            padding-right: ${({ theme }) => theme.padding['1/2']};
           }
 
-          .media {
-            .textBlock {
-              padding-left: ${({ theme }) => theme.padding['1/2']};
-              padding-right: ${({ theme }) => theme.padding['1/2']};
-            }
-
-            padding: 0;
-            width: 100% !important;
-            min-width: 100%;
-            min-width: 100%;
-          }
+          padding: 0;
+          width: 100% !important;
+          min-width: 100%;
+          min-width: 100%;
         }
       }
     }
@@ -355,8 +355,7 @@ const ImageHighlight = ({ slice }) => {
       i++
 
       if (mediaType === 'image') {
-        mediaContentObj =
-          mediaContent.data.body[0].primary.image.gatsbyImageData
+        mediaContentObj = mediaContent.data.body[0].primary.image.gatsbyImageData
         mediaType = 'Image'
         var imagFormat = getImgFormat(mediaContent.data.body[0].primary.format)
       }
@@ -419,6 +418,10 @@ const ImageHighlight = ({ slice }) => {
   useEffect(() => {
     // console.log("animation activated = " + slice.primary.animate_scroll)
     if (slice.primary.animate_scroll !== true) return
+
+    gsap.config({
+      nullTargetWarn: false,
+    })
 
     const aninItems = gsap.utils.toArray('.animActive')
     aninItems.forEach((item) => {

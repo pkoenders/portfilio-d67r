@@ -214,7 +214,7 @@ const Intro = () => {
         <article className="intro">
           <div className="part1">
             <span>
-              <Icon icon={'follow_the_signs'} ref={iconRef} />
+              <Icon icon={'follow_the_signs'} useRef={iconRef} />
               {/* <i className="material-icons-round" aria-hidden="true" ref={iconRef}>
               follow_the_signs
             </i> */}
@@ -227,7 +227,7 @@ const Intro = () => {
 
           <div className="part2">
             <span>
-              <Icon icon={'accessibility_new'} ref={iconRef} />
+              <Icon icon={'accessibility_new'} useRef={iconRef} />
               {/* <i className="material-icons-round" aria-hidden="true" ref={iconRef}>
               accessibility_new
             </i> */}
@@ -240,7 +240,7 @@ const Intro = () => {
 
           <div className="part3">
             <span>
-              <Icon icon={'favorite_border'} ref={iconRef} />
+              <Icon icon={'favorite_border'} useRef={iconRef} />
               {/* <i className="material-icons-round" aria-hidden="true" ref={iconRef}>
               favorite_border
             </i> */}
@@ -254,7 +254,7 @@ const Intro = () => {
 
           <div className="part4">
             <span>
-              <Icon icon={'design_services'} ref={iconRef} />
+              <Icon icon={'design_services'} useRef={iconRef} />
               {/* <i className="material-icons-round" aria-hidden="true" ref={iconRef}>
               design_services
             </i> */}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
 import i18n from '../../../../config/i18n'
 import linkResolver from '../../../utils/linkResolver'
@@ -76,8 +76,11 @@ const SecondaryNavWrapper = styled.section`
       }
     }
 
-    button {
+    .backBtn {
       padding-right: ${({ theme }) => theme.padding.default};
+      i {
+        padding-right: ${({ theme }) => theme.padding['1/8']};
+      }
     }
 
     .alignRight {
@@ -117,19 +120,40 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
   // console.log(next.uid)
   // console.log(previous.uid)
 
+  useEffect(() => {
+    const backBtn = document.querySelector('.backBtn')
+    'click, keydown'.split(', ').forEach(function (e) {
+      backBtn.addEventListener(e, (evt) => {
+        if (!evt.key) {
+          window.history.back()
+        } else {
+          switch (evt.key) {
+            case 'Enter':
+            case 'Return':
+            case 'Spacebar':
+              evt.preventDefault()
+              window.history.back()
+              break
+
+            default:
+              break
+          }
+        }
+      })
+    })
+  }, [])
+
   return (
     <SecondaryNavWrapper className="secondaryNav">
-      <nav aria-label="Navigate to previous page or next page" role="navigation">
-        {/* <Link aria-label="Back" to="../"> */}
-
-        <button onClick={() => window.history.back()}>
+      <nav aria-label="Secondary navigation">
+        <button className="backBtn" type="button">
           <IconMaterial icon={'arrow_back'} />
           {i18n[currentLang].back}
         </button>
 
         <span className="alignRight">
           {previous && previous.lang === currentLang && (
-            <Link aria-label={previousTitle} to={linkResolver(previous)}>
+            <Link to={linkResolver(previous)}>
               <IconMaterial icon={'chevron_left'} />
               <span className="label">{previousTitle}</span>
               <span className="shortLabel">Previous</span>
@@ -137,7 +161,7 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
           )}
 
           {next && next.lang === currentLang && (
-            <Link aria-label={nextTitle} to={linkResolver(next)}>
+            <Link to={linkResolver(next)}>
               <span className="label">{nextTitle}</span>
               <span className="shortLabel">Next</span>
               <IconMaterial icon={'chevron_right'} />

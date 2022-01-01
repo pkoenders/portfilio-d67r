@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: auto; */
     scroll-behavior: initial;
     font-family: ${({ theme }) => theme.font.sans};
-    font-size: ${({ theme }) => theme.fontSize.base};
+    font-size: 100%; /*16px*/
     color: ${({ theme }) => theme.colors.page.default};
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-smoothing: antialiased;
@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-     line-height: ${({ theme }) => theme.lineHeight.relaxed};
+      line-height: 1.75;
      letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
   }  
 
@@ -57,8 +57,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     main {
-      margin: 11mm 0; 
-      overflow: hidden;      
+      margin: 11mm 0;   
+      overflow: hidden;   
     }
 
     div, li, a {
@@ -71,11 +71,10 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-
   .hide {
     display: none;
   }
-  
+
   .sr-only {
     position:absolute;
     left:-10000px;
@@ -84,8 +83,8 @@ export const GlobalStyles = createGlobalStyle`
     height:1px;
     overflow:hidden;
   }
-
- section.light {
+  
+  section.light {
     color: ${({ theme }) => theme.colors.page.default};
   }
    
@@ -93,7 +92,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.page[100]};
     
     a {
-       color: ${({ theme }) => theme.colors.primary[500]};
+       color: ${({ theme }) => theme.colors.primary[400]};
     }
     form {
       input:focus-visible,
@@ -120,13 +119,15 @@ export const GlobalStyles = createGlobalStyle`
   a:hover,
   a:visited {
     color: ${({ theme }) => theme.colors.accent.default};
-    text-decoration: none;
-    border-bottom: none;
+    /* text-decoration: none; */
+    text-decoration: underline;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* hyphens: auto; */
   }
 
   a:hover {
     text-decoration: underline;
-    border-bottom: none;
   }
 
   .visit {
@@ -137,23 +138,6 @@ export const GlobalStyles = createGlobalStyle`
   .visit:hover {
     border-bottom: 1px solid ${({ theme }) => theme.colors.accent.default} !important;
   }
-
-  /* a:focus {
-    outline: none;
-  }
-  
-  :focus:not(:focus-visible),
-  :focus:not(:-webkit-direct-focus) {
-    outline: 0; 
-  }
-
-  :focus-visible,
-  :-webkit-direct-focus {
-    outline: 2px solid ${({ theme }) => theme.colors.focusVisible}; 
-  } */
-
-
-
 
 
   /* a:focus,
@@ -179,58 +163,112 @@ export const GlobalStyles = createGlobalStyle`
     outline: none !important;
   }
 
+
   .marginTopInital {
     margin-top:0 !important;
+  }
+  .paddingTopInital {
+    padding-top:0 !important;
+  }
+
+  .marginTopHeader {
+    margin-top:0 ${({ theme }) => theme.header.height} !important;
   }
 
   [data-rmiz-overlay='true'] {
     background-color: ${({ theme }) => theme.colors.header.default} !important;
   }
 
-  h1 {
+  
+  h1, .styledh1, h2, .styledh2, h3, .styledh3, h4, .styledh4, h5, .styledh5, h6, .styledh6 {
+    line-height: 1.3;
+  } 
+  
+  h1,
+  .styledh1 {
     font-size: ${({ theme }) => theme.fontSize['5xl']};
     font-family: ${({ theme }) => theme.font.slab};
-    line-height: ${({ theme }) => theme.lineHeight.none};
-    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-    
+    /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
-  h2 {
+  h2,
+  .styledh2 {
     font-size: ${({ theme }) => theme.fontSize['4xl']};
     font-family: ${({ theme }) => theme.font.slab};
-    line-height: ${({ theme }) => theme.lineHeight.none};
-    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-    /* font-weight: 700; */
+    /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
+    font-weight: ${({ theme }) => theme.fontWeight.normal};
   }
 
-  h3 {
+  h3,
+  .styledh3 {
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.snug};
-    margin-bottom: .5rem;
+     font-weight: ${({ theme }) => theme.fontWeight.medium};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
   }
 
-  h4 {
+  h4,
+  .styledh4 {
     font-size: ${({ theme }) => theme.fontSize.xl};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.relaxed};
-  }  
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
+  }
+  
+  h5,
+  .styledh5 {
+    font-size: ${({ theme }) => theme.fontSize.lg};
+    font-family: ${({ theme }) => theme.font.sans};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  }
+
+  h6,
+  .styledh6 {
+     font-size: ${({ theme }) => theme.fontSize.lg};
+    font-family: ${({ theme }) => theme.font.sans};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    h1 {
+    h1,
+    .styledh1 {
       font-size: ${({ theme }) => theme.fontSize['4xl']};
+        /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     }
 
-    h2 {
+    h2,
+    .styledh2 {
       font-size: ${({ theme }) => theme.fontSize['3xl']};
+       /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     }
 
-    h3 {
-      font-size: ${({ theme }) => theme.fontSize['2xl']};
+    h3,
+    .styledh3 {
+      font-size: ${({ theme }) => theme.fontSize['xl']};
+       font-weight: ${({ theme }) => theme.fontWeight.medium};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
-    h4 {
+    h4,
+    .styledh4 {
       font-size: ${({ theme }) => theme.fontSize.xl};
+      font-weight: ${({ theme }) => theme.fontWeight.semibold};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
+    }
+
+    h5,
+    .styledh5 {
+      font-size: ${({ theme }) => theme.fontSize.lg};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
+    }
+
+    h6,
+    .styledh6 {
+       font-size: ${({ theme }) => theme.fontSize.lg};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
   }
@@ -238,7 +276,7 @@ export const GlobalStyles = createGlobalStyle`
   p {
     /* font-size: ${({ theme }) => theme.fontSize.base}; */
     font-family: ${({ theme }) => theme.font.sans};
-    margin-bottom: ${({ theme }) => theme.spacing['3']};
+    margin-bottom: ${({ theme }) => theme.spacing['4']};
    
     em {
       font-style: italic;

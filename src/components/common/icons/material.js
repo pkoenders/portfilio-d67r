@@ -10,23 +10,32 @@ const MaterialIcon = styled.i`
   text-align: center;
   align-items: center;
 
+  /* Matrial icons. */
   .material-icons.md-18,
-  .material-icons-round.md-18 {
+  .material-icons-outlined.md-18,
+  .material-icons-round.md-18,
+  .material-icons-sharp.md-18 {
     font-size: 18px;
   }
 
   .material-icons.md-24,
-  .material-icons-round.md-24 {
+  .material-icons-outlined.md-24,
+  .material-icons-round.md-24,
+  .material-icons-sharp.md-24 {
     font-size: 24px;
   }
 
   .material-icons.md-36,
-  .material-icons-round.md-36 {
+  .material-icons-outlined.md-36,
+  .material-icons-round.md-36,
+  .material-icons-sharp.md-36 {
     font-size: 36px;
   }
 
   .material-icons.md-48,
-  .material-icons-round.md-48 {
+  .material-icons-outlined.md-48,
+  .material-icons-round.md-48,
+  .material-icons-sharp.md-48 {
     font-size: 48px;
   }
 
@@ -42,27 +51,35 @@ const MaterialIcon = styled.i`
   font-feature-settings: 'liga';
 `
 
-const MaterialIconButton = styled.button.attrs((props) => ({
-  type: props.type || 'button',
-}))`
+const MaterialIconButton = styled.button.attrs({
+  type: 'button',
+})`
   /* Matrial icons. */
   .material-icons.md-18,
-  .material-icons-round.md-18 {
+  .material-icons-outlined.md-18,
+  .material-icons-round.md-18,
+  .material-icons-sharp.md-18 {
     font-size: 18px;
   }
 
   .material-icons.md-24,
-  .material-icons-round.md-24 {
+  .material-icons-outlined.md-24,
+  .material-icons-round.md-24,
+  .material-icons-sharp.md-24 {
     font-size: 24px;
   }
 
   .material-icons.md-36,
-  .material-icons-round.md-36 {
+  .material-icons-outlined.md-36,
+  .material-icons-round.md-36,
+  .material-icons-sharp.md-36 {
     font-size: 36px;
   }
 
   .material-icons.md-48,
-  .material-icons-round.md-48 {
+  .material-icons-outlined.md-48,
+  .material-icons-round.md-48,
+  .material-icons-sharp.md-48 {
     font-size: 48px;
   }
 
@@ -81,7 +98,17 @@ const MaterialIconButton = styled.button.attrs((props) => ({
 const Material = ({ icon, size, style, type, onClick, ariaLabel, ref }) => {
   // Today our default is 'Round'
   if (style === undefined) {
+    // Filled - Default
+    // style = ''
+
+    // Outlined
+    // style = '-outlined'
+
+    // Rounded
     style = '-round'
+
+    // Sharp
+    // style = '-sharp'
   }
 
   if (size === undefined) {

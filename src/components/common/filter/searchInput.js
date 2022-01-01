@@ -13,6 +13,7 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
   justify-content: center;
   margin: 0;
   width: 100%;
+  /* min-width: 66%; */
 
   [type='search']::-webkit-search-cancel-button,
   [type='search']::-webkit-search-decoration {
@@ -28,18 +29,16 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
     input {
       font-size: inherit;
       width: 100%;
-      padding: ${({ theme }) => theme.padding['1/4']} 0 ${({ theme }) => theme.padding['1/4']}
-        ${({ theme }) => theme.padding['2xl']};
-      /* border: 1px solid ${({ theme }) => theme.colors.card[300]}; */
-      /* border: 1px solid ${({ theme }) => theme.colors.primary[600]};
-      border: 1px solid ${({ theme }) => theme.colors.tertiary[600]}; */
-      border: 1px solid transparent;
+      padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['2xl']};
+      /* border: 1px solid transparent; */
+      border: 1px solid ${({ theme }) => theme.colors.card[300]};
 
       border-radius: 999rem;
     }
     input:hover,
     input:focus {
-      border: 1px solid ${({ theme }) => theme.colors.tertiary[600]};
+      border: 1px solid ${({ theme }) => theme.colors.primary[600]};
+      box-shadow: ${({ theme }) => theme.boxShadow.default};
     }
 
     > i {
@@ -51,16 +50,18 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
   }
 `
 
-const Reset = styled.button.attrs((props) => ({
-  type: props.type || 'button',
+const Reset = styled.button.attrs({
+  type: 'button',
   'aria-label': 'Reset search input',
-}))`
+})`
   position: absolute;
   align-self: center;
   /* cursor: pointer; */
   user-select: none;
-  right: ${({ theme }) => theme.margin['1/2']};
+  /* right: ${({ theme }) => theme.margin['1/2']}; */
+  right: 2px;
   opacity: 0.5;
+  padding: 10px;
 
   i {
     pointer-events: none;
@@ -70,7 +71,7 @@ const Reset = styled.button.attrs((props) => ({
   }
   &:hover {
     opacity: 1;
-    color: ${({ theme }) => theme.colors.tertiary.default};
+    color: ${({ theme }) => theme.colors.primary.default};
   }
 `
 
@@ -81,11 +82,10 @@ const Search = ({ currentLang, handleSearchChange, queryLength, resetFilters }) 
   }
   return (
     <Input>
-      <label className={'search'} htmlFor="search">
+      <label className={'search'} htmlFor="search" aria-label="Search">
         <input
           type="search"
           name="search"
-          aria-label="Search"
           placeholder={`${i18n[currentLang].searchPlacholder}`}
           onChange={handleSearchChange}
         />

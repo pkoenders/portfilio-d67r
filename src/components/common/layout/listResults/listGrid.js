@@ -1,18 +1,19 @@
 import styled from 'styled-components'
 
-const Grid = styled.ul.attrs((props) => ({
-  'aria-label': 'List results as cards',
-  'aria-live': 'polite',
-  'aria-atomic': 'false',
-}))`
+const Grid = styled.ul.attrs({
+  // 'aria-label': 'List results as cards',
+  // 'aria-live': 'polite',
+  // 'aria-atomic': 'false',
+  role: 'group',
+})`
   display: grid;
+
   position: relative;
   align-items: flex-start;
   grid-template-columns: repeat(${(props) => props.defaultColCount}, 1fr);
 
-  grid-row-gap: ${({ theme }) => theme.padding['1xl']};
-  /* grid-row-gap: 0; */
-  grid-column-gap: ${({ theme }) => theme.padding['4xl']};
+  grid-row-gap: ${({ theme }) => theme.padding.default};
+  grid-column-gap: ${({ theme }) => theme.padding.default};
 
   grid-auto-rows: min-content;
   list-style: none;
@@ -25,11 +26,19 @@ const Grid = styled.ul.attrs((props) => ({
   z-index: 1000;
   width: auto;
   height: fit-content;
-  height: fit-content;
   min-height: 100%;
 
+  &.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    grid-gap: ${({ theme }) => theme.margin.default};
+  }
+
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.screens.md}) {
@@ -41,7 +50,7 @@ const Grid = styled.ul.attrs((props) => ({
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     grid-row-gap: ${({ theme }) => theme.padding['1xl']};
     grid-column-gap: ${({ theme }) => theme.padding.default};
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.screens.xs}) {
@@ -50,11 +59,11 @@ const Grid = styled.ul.attrs((props) => ({
     grid-template-columns: repeat(1, 1fr);
   }
 
-  li {
+  > li {
     transition: ${({ theme }) => theme.transition.easeOut.quick};
     z-index: 5;
     margin: 0;
-    /* padding-bottom: ${({ theme }) => theme.padding['4xl']}; */
+    width: 100%;
   }
 `
 

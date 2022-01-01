@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 
 // Helpers
-import { isRequired, isValidEmail } from './validators'
 import { Form, Field } from 'react-final-form'
+import { isRequired, isValidEmail } from './validators'
 import linkResolver from '../../../utils/linkResolver'
 import { RichText } from 'prismic-reactjs'
 import {
@@ -32,6 +32,7 @@ import IconMaterial from '/src/components/common/icons/material'
 
 // Layout
 import Button from '/src/components/common/buttons/linkButton'
+// import { parseZone } from 'moment'
 
 const encode = (data) => {
   return Object.keys(data)
@@ -80,8 +81,8 @@ const ContactNew = ({ formData, slice }) => {
       // Update contrast color and set it as a class in the section
       setForgroundColor(updateContrast)
       // Disable warinings of missing dependencies
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData, sectionID])
 
   const [requiredFieldSet, setRequiredFieldSet] = useState(true)
@@ -167,6 +168,7 @@ const ContactNew = ({ formData, slice }) => {
       removeError()
       if (e.target.checked === false) {
         addError()
+        setRequiredFieldSet(true)
       }
 
       const allCheckbox = [
@@ -175,9 +177,10 @@ const ContactNew = ({ formData, slice }) => {
       for (const checkBox of allCheckbox) {
         if (checkBox.checked === true) {
           removeError()
+          setRequiredFieldSet(false)
         }
       }
-      setRequiredFieldSet(false)
+      // setRequiredFieldSet(false)
     }
 
     function removeError() {
@@ -223,7 +226,7 @@ const ContactNew = ({ formData, slice }) => {
           </div>
         )}
 
-        <Form role="form" onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit}>
           {({ values, invalid }) => (
             <form
               id="form"
@@ -237,7 +240,7 @@ const ContactNew = ({ formData, slice }) => {
               <input type="hidden" name="form-name" value={formName} />
               <input type="hidden" name="location" value={pathName} />
 
-              {formDataFields.map((primary, index) => {
+              {formDataFields.map((fields, index) => {
                 return (
                   <>
                     {/* Add rich text */}
@@ -261,7 +264,7 @@ const ContactNew = ({ formData, slice }) => {
                     {/* Add text input */}
                     {formDataFields[index].slice_type === 'text_input' && (
                       <Field
-                        key={formDataFields[index].id}
+                        id={formDataFields[index].id}
                         name={formDataFields[index].primary.field_name.text}
                         label={formDataFields[index].primary.field_name.text}
                         type={formDataFields[index].primary.field_type.toLowerCase()}
@@ -300,11 +303,10 @@ const ContactNew = ({ formData, slice }) => {
                           )}
                         </legend>
 
-                        {formDataFields[index].items.map((chekbox) => {
+                        {formDataFields[index].items.map((chekbox, i) => {
                           return (
                             <Field
-                              key={formDataFields[index].id + chekbox.item.text}
-                              fieldId={formDataFields[index].id + chekbox.item.text}
+                              id={formDataFields[index].id + i}
                               name={chekbox.item.text}
                               label={chekbox.item.text}
                               component={CheckBox}
@@ -314,6 +316,7 @@ const ContactNew = ({ formData, slice }) => {
                         })}
                       </fieldset>
                     )}
+
                     {/* Add radio button */}
                     {formDataFields[index].slice_type === 'radio_button' && (
                       <fieldset
@@ -336,12 +339,11 @@ const ContactNew = ({ formData, slice }) => {
                             <span className="fieldSetRequired isRequired required">Required</span>
                           )}
                         </legend>
-                        {formDataFields[index].items.map((radioBtn) => {
+                        {formDataFields[index].items.map((radioBtn, i) => {
                           return (
                             <Field
-                              key={formDataFields[index].id + radioBtn.item.text}
+                              id={formDataFields[index].id + i}
                               name={formDataFields[index].primary.title.text}
-                              fieldId={formDataFields[index].id + radioBtn.item.text}
                               fieldName={radioBtn.item.text}
                               label={radioBtn.item.text}
                               component={RadioBtn}
@@ -369,7 +371,6 @@ const ContactNew = ({ formData, slice }) => {
                           <div className="select">
                             <IconMaterial icon={'expand_more'} />
                             <select
-                              id={formDataFields[index].primary.title.text}
                               name={formDataFields[index].primary.title.text}
                               onClick={toggleFieldSet}
                               aria-describedby={
@@ -377,10 +378,11 @@ const ContactNew = ({ formData, slice }) => {
                                 `Described by ${formDataFields[index].primary.described}`
                               }
                             >
-                              {formDataFields[index].items.map((listItem) => {
+                              {formDataFields[index].items.map((listItem, i) => {
                                 return (
                                   <Field
-                                    name={formDataFields[index].primary.title.text}
+                                    id={formDataFields[index].id + i}
+                                    name={listItem.item.text}
                                     label={listItem.item.text}
                                     component={SelectList}
                                     onClick={toggleFieldSet}
@@ -397,16 +399,15 @@ const ContactNew = ({ formData, slice }) => {
                     {/* Add text area input */}
                     {formDataFields[index].slice_type === 'text_area_input' && (
                       <Field
-                        key={formDataFields[index].id}
-                        name={formDataFields[index].primary.field_name.text
-                          .replace(/\s/g, '')
-                          .toLowerCase()}
+                        id={formDataFields[index].id}
+                        name={formDataFields[index].primary.field_name.text}
                         label={formDataFields[index].primary.field_name.text}
                         component={TextAreaInput}
                         describedby={formDataFields[index].primary.described_by}
                         validate={formDataFields[index].primary.required === true ? isRequired : ''}
                       />
                     )}
+
                     {/* Add submit button */}
                     {formDataFields[index].slice_type === 'button' && (
                       <div key={formDataFields[index].id} className={'submitForm'}>

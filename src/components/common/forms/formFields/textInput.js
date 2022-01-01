@@ -3,8 +3,8 @@ import React from 'react'
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-const TextInput = ({ label, input, type, meta, describedby }) => {
-  const { name } = input
+const TextInput = ({ id, label, input, type, meta, describedby }) => {
+  // const { name } = input
   // const { delay, active, pristine, dirty, error, touched, children, invalid } = meta
   const { dirty, error, touched, invalid } = meta
   const hasError = invalid && !!touched
@@ -15,7 +15,8 @@ const TextInput = ({ label, input, type, meta, describedby }) => {
 
   return (
     <label
-      htmlFor={name}
+      key={id}
+      htmlFor={id}
       className={hasError ? 'error' : undefined || hasValue ? 'touched' : undefined}
     >
       {label}
@@ -23,8 +24,9 @@ const TextInput = ({ label, input, type, meta, describedby }) => {
       {hasError && <span className="error">{`${error}`}</span>}
       <span>
         <input
+          id={id}
           type={type}
-          id={name}
+          // id={name}
           required={required}
           aria-invalid={hasError && 'true'}
           aria-describedby={describedby && `Described by ${describedby}`}

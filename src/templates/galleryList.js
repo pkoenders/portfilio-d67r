@@ -50,6 +50,7 @@ export const query = graphql`
                 uid
                 lang
                 type
+                raw
               }
             }
             items {
@@ -57,6 +58,7 @@ export const query = graphql`
                 uid
                 type
                 lang
+                raw
               }
               sub_nav_link_label {
                 text
@@ -82,10 +84,10 @@ export const query = graphql`
           text
           richText
         }
-        show_filters
+        show_tags
         show_input
         show_sorting
-        show_tags
+        show_grid_layout
 
         body {
           ... on PrismicGalleryPageDataBodyGalleryItem {
@@ -150,9 +152,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
             }
             slice_type
@@ -166,9 +166,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               price
               title {
@@ -185,9 +183,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               card_type
               twitter_handle

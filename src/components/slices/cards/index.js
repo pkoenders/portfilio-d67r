@@ -35,6 +35,11 @@ const CardsWrapper = styled.section`
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     padding-top: 0 !important;
     padding-bottom: ${({ theme }) => theme.padding.default} !important;
+
+    div.masonry-grid,
+    div.profileList {
+      padding-top: ${({ theme }) => theme.padding['1/2']} !important;
+    }
   }
 
   .title {
@@ -86,141 +91,13 @@ const CardsWrapper = styled.section`
     @media (max-width: ${({ theme }) => theme.screens.xs}) {
       grid-gap: ${({ theme }) => theme.padding.default};
     }
-    .cardItem {
+    /* .cardItem {
       flex: 0 1 48%;
       width: 100%;
-    }
+    } */
   }
 
-  // Gallery layout
-  .cardItem.gallery {
-    overflow: visible;
-    display: flex;
-    @media (max-width: ${({ theme }) => theme.screens.sm}) {
-      padding-top: ${({ theme }) => theme.padding['1/2']} !important;
-    }
-
-    a {
-      width: 100%;
-      text-decoration: none;
-      > div {
-        background-color: #fff;
-
-        div.portrait {
-          img {
-            aspect-ratio: 3/4;
-            object-fit: fill;
-            object-position: center bottom;
-          }
-        }
-      }
-    }
-
-    p {
-      display: flex;
-      a {
-        display: contents;
-      }
-    }
-  }
-
-  // Profile layout - Grid and List
-  .cardItem.profile,
-  .cardItem.profileList {
-    overflow: visible;
-    display: flex;
-
-    div {
-      width: 100%;
-      text-decoration: none;
-
-      article {
-        overflow: visible;
-        grid-gap: ${({ theme }) => theme.padding['1/2']};
-        padding-top: ${({ theme }) => theme.padding.default};
-      }
-      .imageWrapper {
-        aspect-ratio: 1;
-        width: 128px;
-        z-index: 1;
-        border-radius: 999rem;
-        /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
-        border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
-        margin: 0 auto;
-        box-shadow: ${({ theme }) => theme.boxShadow.lg};
-      }
-      .content {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        grid-gap: ${({ theme }) => theme.padding['1/4']};
-        .title,
-        p {
-          justify-content: inherit;
-        }
-
-        p {
-          display: block;
-          margin: 0;
-          a {
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-  }
-
-  // Profile layout - List only
-  .cardItem.profileList {
-    overflow: visible;
-    /* flex-direction: row;
-    grid-row-gap: ${({ theme }) => theme.padding.default}; */
-
-    div {
-      width: 100%;
-      text-decoration: none;
-
-      article {
-        overflow: visible;
-        padding-top: 0;
-        flex-direction: row;
-        align-items: center;
-        box-shadow: none;
-      }
-      .imageWrapper {
-        aspect-ratio: 1;
-
-        width: 128px;
-        border-radius: 999rem;
-        /* border: 1px solid ${({ theme }) => theme.colors.secondary.default}; */
-        border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
-        margin: 0;
-        box-shadow: ${({ theme }) => theme.boxShadow.lg};
-      }
-      .content {
-        //width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        grid-gap: ${({ theme }) => theme.padding['1/4']};
-        .title,
-        p {
-          justify-content: flex-start;
-        }
-
-        p {
-          display: block;
-          margin: 0;
-          a {
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-  }
-
-  // Carousel layout keen_slider {
+  // Carousel layout = keen_slider
   .keen-slider {
     margin: 0 -16px;
   }
@@ -251,134 +128,54 @@ const CardsWrapper = styled.section`
       }
     }
 
-    .cardItem {
-      /* cursor: col-resize; */
-
-      > a {
-        width: 100%;
-        text-decoration: none;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        grid-gap: ${({ theme }) => theme.padding['1/2']};
-
-        article {
-          background-color: transparent;
-          border: none;
-          box-shadow: none;
-          overflow: visible;
-
-          .imageWrapper {
-            border-radius: ${({ theme }) => theme.borderRadius.default};
-            border: none;
-            @media (max-width: ${({ theme }) => theme.screens.sm}) {
-              border-radius: 0px;
-            }
+    &.light {
+      .carousel {
+        .nav {
+          .item {
+            background-color: ${({ theme }) => theme.colors.page[100]};
           }
 
-          .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            grid-gap: ${({ theme }) => theme.padding['1/4']};
-
-            .title {
-              justify-content: center;
-            }
-
-            p {
-              text-align: center;
-              a {
-                width: auto;
-              }
-            }
-
-            .link {
-              text-transform: uppercase;
-              position: relative;
-              display: flex;
-              grid-gap: ${({ theme }) => theme.padding['1/4']};
-              margin: 0 auto;
-              align-items: center;
-              white-space: nowrap;
-              width: fit-content;
-              padding: 8px 18px;
-              color: ${({ theme }) => theme.colors.page.default};
-              background-color: #ffffffa8;
-              border-radius: ${({ theme }) => theme.borderRadius.default};
-              box-shadow: ${({ theme }) => theme.boxShadow.default};
-              i {
-                position: inherit;
-                transition: ${({ theme }) => theme.transition.easeIn.default};
-                right: 0px;
-              }
-            }
+          .item:hover,
+          .item.active {
+            background-color: ${({ theme }) => theme.colors.page.default};
           }
         }
       }
+    }
 
-      a:hover {
-        .imageWrapper {
-          box-shadow: ${({ theme }) => theme.boxShadow.lg};
+    &.dark {
+      .carousel {
+        .prev,
+        .next {
+          i {
+            color: ${({ theme }) => theme.colors.page.default};
+          }
         }
+
+        .nav {
+          .item {
+            background-color: ${({ theme }) => theme.colors.page.default};
+          }
+
+          .item:hover,
+          .item.active {
+            background-color: #fff;
+          }
+        }
+
         .content {
-          .link {
-            box-shadow: ${({ theme }) => theme.boxShadow.lg};
-            i {
-              color: inherit;
-              transition: ${({ theme }) => theme.transition.easeOut.default};
-              right: -${({ theme }) => theme.padding['1/8']};
-            }
-          }
+          color: ${({ theme }) => theme.colors.page[100]};
         }
-      }
-    }
-  }
-
-  &.light {
-    .carousel {
-      .nav {
-        .item {
-          background-color: ${({ theme }) => theme.colors.page[100]};
-        }
-
-        .item:hover,
-        .item.active {
-          background-color: ${({ theme }) => theme.colors.page.default};
-        }
-      }
-    }
-  }
-
-  &.dark {
-    .carousel {
-      .prev,
-      .next {
-        i {
-          color: ${({ theme }) => theme.colors.page.default};
-        }
-      }
-
-      .nav {
-        .item {
-          background-color: ${({ theme }) => theme.colors.page.default};
-        }
-
-        .item:hover,
-        .item.active {
-          background-color: #fff;
-        }
-      }
-
-      .content {
-        color: ${({ theme }) => theme.colors.page[100]};
       }
     }
   }
 `
 
-const CardList = styled.div`
+const CardList = styled.div.attrs({
+  role: 'group',
+})`
   display: flex;
+  list-style: none;
   flex-direction: column;
   grid-gap: ${({ theme }) => theme.padding.default};
 `
@@ -482,7 +279,7 @@ const Cards = ({ slice }) => {
       <div>
         {title.text && (
           <span className={'title ' + align}>
-            <RichText render={title.raw} linkResolver={linkResolver} />
+            <RichText render={title.richText} linkResolver={linkResolver} />
           </span>
         )}
 

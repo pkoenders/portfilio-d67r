@@ -9,6 +9,7 @@ import {
   getLineHeight,
   getPostionAlign,
   getColumnCount,
+  getContentOverrideStyle,
   validateString,
   getStyle,
   getAutoSpacing,
@@ -22,13 +23,17 @@ import {
 // Buttons
 import Button from '/src/components/common/buttons/linkButton'
 
+// import './index.scss'
+
 import styled from 'styled-components'
 
 const TextBlock = styled.section`
   padding: 0 ${({ theme }) => theme.padding['1/2']};
+
   > div {
     padding: 0;
   }
+
   .col1,
   .col2 {
   }
@@ -57,7 +62,7 @@ const TextBlock = styled.section`
 
     span {
       width: fit-content;
-      margin: ${({ theme }) => theme.margin.default} 0 0 0;
+      margin: ${({ theme }) => theme.margin['1/2']} 0 0;
     }
 
     @media (max-width: ${({ theme }) => theme.screens.sm}) {
@@ -109,7 +114,9 @@ const Text = ({ slice }) => {
   // Set the bgColor class
   var bgColor = getBgColor(slice.primary.background_color)
   const bGroundTint = getColorTint(slice.primary.background_tint)
-  bgColor = 'background-' + bgColor + '-' + bGroundTint
+  bgColor === 'page'
+    ? (bgColor = 'background-' + bgColor)
+    : (bgColor = 'background-' + bgColor + '-' + bGroundTint)
   // Set the vertical padding - inline style
   const defaultPadding = getAutoSpacing(slice.primary.default_padding)
   var vPaddingTop = getManualSpacing(slice.primary.v_padding_top)
@@ -149,8 +156,14 @@ const Text = ({ slice }) => {
   // Line height
   var lineHeight = getLineHeight(slice.primary.font_sizing)
 
-  // Validate text
+  // Content
   const content = slice.primary.content
+
+  // Validate content style
+  const contentOverrideStyle = getContentOverrideStyle(slice.primary.override_content_style)
+
+  // For screen reader only?
+  const screenReaderOnly = slice.primary.screen_reader_only
 
   // Validate primary button
   const primaryButtonLabel = validateString(slice.primary.button_label)
@@ -166,12 +179,13 @@ const Text = ({ slice }) => {
   const secondaryButtonIcon = slice.primary.secondary_button_icon
   const secondaryButtonIconAlign = getPostionAlign(slice.primary.secondary_button_icon_align)
 
-  const btnAlign = getPostionAlign(slice.primary.button_alignment)
+  // Validate button align
+  const buttonAlign = getPostionAlign(slice.primary.button_alignment)
 
   return (
     <TextBlock
       id={sectionID}
-      className={'section-layout ' + sectionWidth + ' ' + forGroundColor + ' ' + bgColor}
+      className={`section-layout ${sectionWidth} ${forGroundColor} ${bgColor}`}
       style={{
         paddingTop: vPaddingTop,
         paddingBottom: vPaddingBottom,
@@ -180,19 +194,35 @@ const Text = ({ slice }) => {
       <div>
         {content.text && (
           <article
-            className={columnCount}
+            // className={columnCount}
+            className={`${screenReaderOnly === true ? '.sr-only ' : ''}${columnCount}`}
             style={{
               fontSize: fontSize,
               lineHeight: lineHeight,
               textAlign: txtAlign,
             }}
           >
-            {content.text && <RichText render={content.richText} linkResolver={linkResolver} />}
+            {contentOverrideStyle === null ? (
+              content.text && (
+                <RichText
+                  // className={`${screenReaderOnly === true ? '.sr-only' : ''}`}
+                  render={content.richText}
+                  linkResolver={linkResolver}
+                />
+              )
+            ) : (
+              <p
+                // className={`${screenReaderOnly === true ? '.sr-only' : ''} ${contentOverrideStyle}`}
+                className={contentOverrideStyle}
+              >
+                {content.text}
+              </p>
+            )}
           </article>
         )}
 
         {(primaryButtonLabel || secondaryButtonLabel) && (
-          <span className={`cta ${btnAlign}`}>
+          <span className={`cta ${buttonAlign}`}>
             {/* Primary Button */}
             {primaryButtonLabel && (
               <Button

@@ -77,6 +77,7 @@ export const query = graphql`
                 uid
                 lang
                 type
+                raw
               }
             }
             items {
@@ -84,6 +85,7 @@ export const query = graphql`
                 uid
                 type
                 lang
+                raw
               }
               sub_nav_link_label {
                 text
@@ -149,11 +151,17 @@ export const query = graphql`
                 primary {
                   image {
                     alt
-                    gatsbyImageData (
+                    gatsbyImageData(
                       width: 992
                       layout: CONSTRAINED
                       placeholder: BLURRED
-                      imgixParams: { q: 90, fm: "avif, webp", nr: 100, dpr: 2, auto: "compress,enhance,format" }
+                      imgixParams: {
+                        q: 90
+                        fm: "avif, webp"
+                        nr: 100
+                        dpr: 2
+                        auto: "compress,enhance,format"
+                      }
                     )
                   }
                 }
@@ -198,9 +206,7 @@ export const query = graphql`
                     text
                   }
                   image {
-                    localFile {
-                      publicURL
-                    }
+                    url
                   }
                 }
                 slice_type
@@ -214,9 +220,7 @@ export const query = graphql`
                     text
                   }
                   image {
-                    localFile {
-                      publicURL
-                    }
+                    url
                   }
                   price
                   title {
@@ -233,9 +237,7 @@ export const query = graphql`
                     text
                   }
                   image {
-                    localFile {
-                      publicURL
-                    }
+                    url
                   }
                   card_type
                   twitter_handle

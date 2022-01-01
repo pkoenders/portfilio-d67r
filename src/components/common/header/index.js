@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
@@ -25,6 +25,7 @@ const HeaderWrapper = styled.header`
     right: 0px;
     display: flex;
     height: 60px;
+    color: #ffffff;
     background-color: ${({ theme }) => theme.colors.header[50]};
     z-index: 10000;
 
@@ -72,36 +73,67 @@ const HeaderWrapper = styled.header`
   will-change: transform;
   transition: all 0.75s;
   height: ${({ theme }) => theme.header.height};
+  background-color: transparent;
 
   nav.headerNav {
     z-index: 999;
     min-width: 130px;
     height: inherit;
     display: flex;
+    align-items: center;
     width: 100%;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
 
-    a.brand {
+    button.hamburger {
+      order: 0;
+      top: 0;
+      display: none;
+      position: absolute;
+      align-self: center;
+      padding: ${({ theme }) => theme.padding['1/2']};
+      width: fit-content;
+      white-space: nowrap;
+      align-items: center;
+      height: ${({ theme }) => theme.header.height};
+      background-color: transparent;
+      /* pointer-events: all; */
+      line-height: initial;
+
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        display: flex;
+      }
+
+      @media print {
+        display: none;
+      }
+    }
+
+    .brand {
       z-index: 10001 !important;
-      order: 3;
+
       display: flex;
       align-self: center;
       align-items: center;
-      padding: 0 ${({ theme }) => theme.padding['1/4']};
-      margin: auto 0;
+      margin: auto ${({ theme }) => theme.margin['1/2']} auto 0;
       z-index: 1003;
-      position: absolute;
-      left: ${({ theme }) => theme.padding['1/4']};
-      right: auto;
-      height: ${({ theme }) => theme.header.height};
-      top: inherit;
 
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        order: 1;
-        right: ${({ theme }) => theme.padding['1/4']};
-        left: auto;
+        display: flex;
+        visibility: visible;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        margin-right: ${({ theme }) => theme.margin['1/4']};
+      }
+      a {
+        line-height: initial;
+        padding: 0 ${({ theme }) => theme.padding['1/4']};
+        height: ${({ theme }) => theme.header.height};
+        display: flex;
+        align-items: center;
       }
 
       @media print {
@@ -109,47 +141,16 @@ const HeaderWrapper = styled.header`
         right: auto;
       }
 
-      span {
-        display: none;
-      }
-
       svg {
-        height: 28px;
+        height: 36px;
         width: auto;
       }
-    }
-
-    button.hamburger {
-      order: 0;
-      display: none;
-      position: absolute;
-      left: ${({ theme }) => theme.padding['1/2']};
-      margin: 0 0 auto 0;
-      width: fit-content;
-      white-space: nowrap;
-      align-items: center;
-      height: ${({ theme }) => theme.header.height};
-      padding: 0;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      pointer-events: all;
-
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        display: flex;
-      }
-      @media print {
-        display: none;
-      }
-    }
-
-    button:focus {
-      outline: none;
     }
 
     // Mobile nav
     > ul {
       justify-self: start;
+      align-self: start;
       display: none;
       list-style: none;
       padding: 3px 0 120px 3px;
@@ -158,6 +159,7 @@ const HeaderWrapper = styled.header`
       left: 0px;
       position: relative;
       width: 100%;
+      height: 100%;
       margin: 0 auto;
       overflow-x: scroll;
 
@@ -179,11 +181,12 @@ const HeaderWrapper = styled.header`
           text-decoration: none;
           display: inline-flex;
           align-items: center;
-          cursor: pointer;
+          /* cursor: pointer; */
           z-index: 10000;
 
           i {
-            color: ${({ theme }) => theme.colors.primary.default};
+            pointer-events: none;
+            color: ${({ theme }) => theme.colors.primary[400]};
             margin-left: ${({ theme }) => theme.padding['1/4']};
           }
         }
@@ -194,7 +197,9 @@ const HeaderWrapper = styled.header`
         }
 
         a:hover,
-        button:hover {
+        a:focus,
+        button:hover,
+        button:focus {
           text-decoration: none !important;
           color: ${({ theme }) => theme.colors.header.text.default};
         }
@@ -220,12 +225,14 @@ const HeaderWrapper = styled.header`
           transition: width 150ms ease-in-out;
         }
 
-        a:hover:after {
+        a:hover:after,
+        a:focus:after {
           width: 100%;
         }
 
         ul {
           display: none;
+          flex-direction: column;
           margin-left: 0;
           li {
             a {
@@ -257,9 +264,6 @@ const HeaderWrapper = styled.header`
 
         button {
           left: 0px;
-          i {
-            color: ${({ theme }) => theme.colors.page[100]};
-          }
         }
       }
     }
@@ -300,16 +304,26 @@ const HeaderWrapper = styled.header`
 
       > ul {
         display: flex;
-        justify-self: center;
-        align-items: stretch;
-        padding: 0px ${({ theme }) => theme.padding['3xl']};
-        /* margin: 0 auto 0 ${({ theme }) => theme.margin.default}; */
+        /* align-items: stretch; */
+        padding: 0;
+        /* margin: 0 auto 0 ${({ theme }) => theme.padding['1/4']}; */
         margin: 0 auto;
+        justify-content: center;
+
         top: 0px;
         position: relative;
-        width: auto;
+        width: 100%;
         overflow-x: visible;
-        max-width: ${({ theme }) => theme.screens.md};
+        /* max-width: ${({ theme }) => theme.screens.md}; */
+
+        li.brand {
+          justify-self: flex-start;
+          position: absolute;
+          left: 0;
+          a:after {
+            display: none;
+          }
+        }
 
         li {
           display: flex;
@@ -348,6 +362,8 @@ const HeaderWrapper = styled.header`
 
           a:hover:after,
           button:hover:after,
+          a:focus:after,
+          button:focus:after,
           a.activeNavItem:after,
           button.activeNavItem:after {
             left: 2px;
@@ -367,7 +383,6 @@ const HeaderWrapper = styled.header`
             i {
               margin-left: ${({ theme }) => theme.margin['1/4']};
               margin-right: -${({ theme }) => theme.margin['1/4']};
-              color: ${({ theme }) => theme.colors.primary.default};
             }
           }
 
@@ -387,25 +402,29 @@ const HeaderWrapper = styled.header`
             display: none;
             flex-direction: column;
             position: absolute;
-            margin: 0;
+            margin: 0 -1px;
             padding: ${({ theme }) => theme.padding['1/2']} 0;
             top: ${({ theme }) => theme.header.height};
+            grid-gap: ${({ theme }) => theme.padding['1/4']};
+            padding: ${({ theme }) => theme.padding['1/2']};
             background-color: ${({ theme }) => theme.colors.header[800]};
-            /* background-color: ${({ theme }) => theme.colors.primary[1100]}; */
+            border: 1px solid ${({ theme }) => theme.colors.header.default};
+            border-top: none;
             border-radius: 0 0 ${({ theme }) => theme.borderRadius.default}
               ${({ theme }) => theme.borderRadius.default};
             box-shadow: ${({ theme }) => theme.boxShadow.lg} !important;
 
             li {
-              padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
-
               a {
+                /* color: ${({ theme }) => theme.colors.header.default}; */
                 white-space: nowrap;
                 padding: ${({ theme }) => theme.padding['1/4']}
                   ${({ theme }) => theme.padding['1/2']};
                 border-radius: ${({ theme }) => theme.borderRadius.sm};
                 display: flex;
                 align-items: center;
+                border: 1px solid transparent;
+                color: #fff;
 
                 i {
                   visibility: hidden;
@@ -414,10 +433,11 @@ const HeaderWrapper = styled.header`
               }
 
               a:hover,
+              a:focus,
               a.activeNavItem {
                 background-color: ${({ theme }) => theme.colors.primary.default};
-                /* background-color: ${({ theme }) => theme.colors.header.default}; */
-                border: none;
+                /* border: 1px solid ${({ theme }) => theme.colors.primary[1300]}; */
+                box-shadow: ${({ theme }) => theme.boxShadow.default};
                 i {
                   display: none;
                 }
@@ -448,7 +468,6 @@ const HeaderWrapper = styled.header`
               padding-right: ${({ theme }) => theme.padding['1/2']};
               position: relative;
               text-align: center;
-              cursor: pointer;
               z-index: 10000;
             }
 
@@ -491,7 +510,6 @@ const HeaderWrapper = styled.header`
 
   &.fillBground {
     transition: all 0.75s;
-    background-color: ${({ theme }) => theme.colors.header.default};
   }
 
   &.fillBground::before,
@@ -516,6 +534,10 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     pathName = window.location.pathname
   }
 
+  const myLocationRef = useRef({
+    location: null,
+  })
+
   // console.log(primaryNav)
   // console.log('pathName = ' + pathName)
 
@@ -527,80 +549,286 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     return isCurrent ? { className: 'activeNavItem' } : {}
   }
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('click', function () {
-      handleCloseSecondaryNav()
-    })
-  }
-
-  function handleToggleSecondaryNav(e) {
-    e.stopPropagation()
-    const menuItem = e.currentTarget
-    menuItem.classList.toggle('isActive')
-    menuItem.nextSibling.classList.toggle('isActive')
-
-    menuItem.setAttribute('aria-label', 'Secondary navigation is open')
-    menuItem.setAttribute('aria-expanded', 'true')
-    menuItem.setAttribute('aria-pressed', 'true')
-
-    if (menuItem.classList.contains('isActive')) {
-      handleOpenSecondaryNavAria(menuItem)
-    } else {
-      handleCloseSecondaryNavAria(menuItem)
-    }
-
-    handleCloseSecondaryNav(menuItem)
-  }
-
-  function handleOpenSecondaryNavAria(menuItem) {
-    menuItem.setAttribute('aria-label', 'Secondary navigation is open')
-    menuItem.setAttribute('aria-expanded', 'true')
-    menuItem.setAttribute('aria-pressed', 'true')
-  }
-  function handleCloseSecondaryNavAria(menuItem) {
-    menuItem.setAttribute('aria-label', 'Secondary navigation is closed')
-    menuItem.setAttribute('aria-expanded', 'false')
-    menuItem.setAttribute('aria-pressed', 'false')
-  }
-
-  function handleCloseSecondaryNav(menuItem) {
-    var secondaryNavBtn = document.querySelectorAll('.secondaryNavBtn')
-    var secondaryNavList = document.querySelectorAll('.secondaryNavList')
-    if (window.innerWidth > 768) {
-      for (var i = 0; i < secondaryNavBtn.length; ++i) {
-        if (secondaryNavBtn[i] !== menuItem) {
-          secondaryNavBtn[i].classList.remove('isActive')
-          secondaryNavList[i].classList.remove('isActive')
-          handleCloseSecondaryNavAria(secondaryNavBtn[i])
-        }
-      }
-    }
-  }
-
   useEffect(() => {
     var pathName = ''
     if (typeof window !== 'undefined') {
       pathName = window.location.pathname
     }
 
+    /*
+     *   Start Discosure menu
+     *
+     *   This content is licensed according to the W3C Software License at
+     *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+     *
+     *   Supplemental JS for the disclosure menu keyboard behavior
+     */
+
+    var DisclosureNav = function (domNode) {
+      this.rootNode = domNode
+      this.triggerNodes = []
+      this.controlledNodes = []
+      this.openIndex = null
+      this.useArrowKeys = true
+    }
+
+    DisclosureNav.prototype.init = function () {
+      // var buttons = this.rootNode.querySelectorAll('button[aria-expanded][aria-controls], a.l1')
+      var buttons = this.rootNode.querySelectorAll('.l1')
+      for (var i = 0; i < buttons.length; i++) {
+        var button = buttons[i]
+        this.triggerNodes.push(button)
+        var menu = button.parentNode.querySelector('ul')
+        if (menu) {
+          // save ref to button and controlled menu
+          // this.triggerNodes.push(button)
+          this.controlledNodes.push(menu)
+
+          // collapse menus
+          button.setAttribute('aria-expanded', 'false')
+          this.toggleMenu(menu, false)
+
+          // attach event listeners
+          menu.addEventListener('keydown', this.handleMenuKeyDown.bind(this))
+        } else {
+          this.controlledNodes.push(button)
+        }
+        button.addEventListener('click', this.handleButtonClick.bind(this))
+        button.addEventListener('keydown', this.handleButtonKeyDown.bind(this))
+      }
+
+      // console.log(this.triggerNodes)
+      // console.log(this.controlledNodes)
+      this.rootNode.addEventListener('focusout', this.handleBlur.bind(this))
+    }
+
+    DisclosureNav.prototype.toggleMenu = function (domNode, show) {
+      if (domNode) {
+        domNode.style.display = show ? 'flex' : 'none'
+      }
+    }
+
+    DisclosureNav.prototype.toggleExpand = function (index, expanded) {
+      // close open menu, if applicable
+      if (this.openIndex !== index) {
+        this.toggleExpand(this.openIndex, false)
+        // Close style of menu button
+        for (var i = 0; i < this.triggerNodes.length; ++i) {
+          this.triggerNodes[i].classList.remove('isActive')
+        }
+      }
+
+      // handle menu at called index
+      if (this.triggerNodes[index]) {
+        // console.log(index)
+        this.openIndex = expanded ? index : null
+        this.triggerNodes[index].setAttribute('aria-expanded', expanded)
+
+        // dont style brand menu button #1 in array
+        if (index !== 0) {
+          // only if the item has a sub menu - toggle
+          if (this.triggerNodes[index].classList.contains('secondaryNavBtn')) {
+            this.toggleMenu(this.controlledNodes[index], expanded)
+          }
+
+          // Toggle style of menu button
+          this.triggerNodes[index].classList.toggle('isActive')
+        }
+      }
+    }
+
+    DisclosureNav.prototype.controlFocusByKey = function (keyboardEvent, nodeList, currentIndex) {
+      switch (keyboardEvent.key) {
+        case 'ArrowUp':
+        case 'ArrowLeft':
+          keyboardEvent.preventDefault()
+          if (currentIndex > -1) {
+            var prevIndex = Math.max(0, currentIndex - 1)
+            nodeList[prevIndex].focus()
+          }
+          break
+        case 'ArrowDown':
+        case 'ArrowRight':
+          keyboardEvent.preventDefault()
+          if (currentIndex > -1) {
+            var nextIndex = Math.min(nodeList.length - 1, currentIndex + 1)
+            nodeList[nextIndex].focus()
+          }
+          break
+
+        case 'Home':
+          keyboardEvent.preventDefault()
+          nodeList[0].focus()
+          break
+
+        case 'End':
+          keyboardEvent.preventDefault()
+          nodeList[nodeList.length - 1].focus()
+          break
+
+        default:
+          return ''
+      }
+    }
+
+    /* Event Handlers */
+    DisclosureNav.prototype.handleBlur = function (event) {
+      var menuContainsFocus = this.rootNode.contains(event.relatedTarget)
+      if (!menuContainsFocus && this.openIndex !== null) {
+        this.toggleExpand(this.openIndex, false)
+      }
+    }
+
+    DisclosureNav.prototype.handleButtonKeyDown = function (event) {
+      var targetButtonIndex = this.triggerNodes.indexOf(document.activeElement)
+
+      // close on escape
+      if (event.key === 'Escape') {
+        this.toggleExpand(this.openIndex, false)
+      }
+
+      // move focus into the open menu if the current menu is open
+      else if (
+        this.useArrowKeys &&
+        this.openIndex === targetButtonIndex &&
+        event.key === 'ArrowDown'
+      ) {
+        event.preventDefault()
+        this.controlledNodes[this.openIndex].querySelector('a').focus()
+      }
+
+      // handle arrow key navigation between top-level buttons, if set
+      else if (this.useArrowKeys) {
+        this.controlFocusByKey(event, this.triggerNodes, targetButtonIndex)
+      }
+    }
+
+    DisclosureNav.prototype.handleButtonClick = function (event) {
+      var button = event.target
+      var buttonIndex = this.triggerNodes.indexOf(button)
+      var buttonExpanded = button.getAttribute('aria-expanded') === 'true'
+      this.toggleExpand(buttonIndex, !buttonExpanded)
+    }
+
+    DisclosureNav.prototype.handleMenuKeyDown = function (event) {
+      if (this.openIndex === null) {
+        return
+      }
+
+      var menuLinks = Array.prototype.slice.call(
+        this.controlledNodes[this.openIndex].querySelectorAll('a')
+      )
+      var currentIndex = menuLinks.indexOf(document.activeElement)
+
+      // close on escape
+      if (event.key === 'Escape') {
+        this.triggerNodes[this.openIndex].focus()
+        this.toggleExpand(this.openIndex, false)
+      }
+
+      // handle arrow key navigation within menu links, if set
+      else if (this.useArrowKeys) {
+        this.controlFocusByKey(event, menuLinks, currentIndex)
+      }
+    }
+
+    // switch on/off arrow key navigation
+    DisclosureNav.prototype.updateKeyControls = function (useArrowKeys) {
+      this.useArrowKeys = useArrowKeys
+    }
+
+    /* Initialize Disclosure Menus */
+
+    var menus = document.querySelectorAll('.disclosure-nav')
+    var disclosureMenus = []
+
+    for (var i = 0; i < menus.length; i++) {
+      disclosureMenus[i] = new DisclosureNav(menus[i])
+      disclosureMenus[i].init()
+    }
+
+    // fake link behavior
+    var links = document.querySelectorAll('[href="#mlmv-page-content"]')
+    // var examplePageHeading = document.getElementById('mythical-page-heading')
+    for (var x = 0; x < links.length; x++) {
+      links[x].addEventListener('click', function (event) {
+        // handle aria-current
+        for (var n = 0; n < links.length; n++) {
+          links[n].removeAttribute('aria-current')
+        }
+        this.setAttribute('aria-current', 'page')
+      })
+    }
+
+    /*
+     *   End Discosure menu
+     */
+
     const skipLink = document.querySelector('.skipLink')
     const headerNavWrapper = document.querySelector('.headerNavWrapper')
     const secondaryNav = document.querySelector('.secondaryNav')
+
     const headerNav = document.querySelector('.headerNav')
+    // const disclosureNav = document.querySelector('.disclosure-nav')
+    const headerNavExpaned = document.querySelector('.secondaryNavList')
     const toggleHamburger = document.querySelector('.hamburger')
     const closeHamburger = document.querySelector('.closeMenu')
-    const clickBrand = document.querySelector('.brand')
+    const brandLink = document.querySelector('.brand')
+    // const brandMobile = document.querySelector('.mobile')
 
-    // Set nav on resize
     'load, resize, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
-        var viewportWidth = Math.max(
-          document.documentElement.clientWidth || 0,
-          window.innerWidth || 0
-        )
-        viewportWidth >= 768 && closeHamburgerNav()
+        eventList()
       })
     })
+
+    // fire route hange
+    if (myLocationRef.current.location !== currentPath) {
+      // console.log('routeChange')
+      myLocationRef.current.location = currentPath
+      eventList()
+    }
+
+    function eventList() {
+      var viewportWidth = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
+
+      // var viewportWidth = window.innerWidth
+      // console.log(viewportWidth)
+
+      if (viewportWidth >= 768) {
+        closeHamburgerNav()
+
+        // Move the brand span and change to a li
+        let brand = document.querySelector('span.brand')
+        const disclosureNav = document.querySelector('.disclosure-nav')
+        if (brand) {
+          // console.log('desktop')
+          disclosureNav.insertBefore(brand, disclosureNav.firstChild)
+          let newEl = document.createElement('li')
+          newEl.classList.add('brand')
+          newEl.innerHTML = brand.innerHTML
+          brand.parentNode.replaceChild(newEl, brand)
+        }
+      }
+
+      if (viewportWidth < 768) {
+        // Move the brand li and change to a span
+        let brand = document.querySelector('li.brand')
+        const moveToDMobile = document.querySelector('.headerNav')
+
+        if (brand) {
+          // console.log('mobile')
+          moveToDMobile.insertBefore(brand, moveToDMobile.firstChild)
+          let newEl = document.createElement('span')
+          newEl.classList.add('brand')
+          newEl.innerHTML = brand.innerHTML
+          brand.parentNode.replaceChild(newEl, brand)
+        }
+      }
+    }
 
     var prevScrollpos = window.pageYOffset
     //
@@ -617,13 +845,14 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       closeHamburgerNav()
     })
 
-    clickBrand.addEventListener('click', function () {
+    brandLink.addEventListener('click', function () {
       closeHamburgerNav()
     })
 
     function openHamburgerNav() {
       headerNav.classList.add('open', 'fillBground')
       toggleHamburger.classList.add('is-active')
+      toggleHamburger.setAttribute('aria-label', 'Close mobile navigation')
       toggleHamburger.setAttribute('aria-expanded', 'true')
       toggleHamburger.setAttribute('aria-pressed', 'true')
       closeHamburger.classList.remove('hide')
@@ -634,15 +863,19 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       var secondaryNavList = document.querySelectorAll('.secondaryNavList')
       for (var i = 0; i < secondaryNavBtn.length; ++i) {
         secondaryNavBtn[i].classList.remove('isActive')
-        secondaryNavList[i].classList.remove('isActive')
-        handleCloseSecondaryNavAria(secondaryNavBtn[i])
+        secondaryNavBtn[i].setAttribute('aria-expanded', 'false')
+        secondaryNavList[i].setAttribute('style', 'display: none;')
+
+        // handleCloseSecondaryNavAria(secondaryNavBtn[i])
       }
 
       headerNav.classList.remove('open', 'fillBground')
       toggleHamburger.classList.remove('is-active')
+      toggleHamburger.setAttribute('aria-label', 'Open mobile navigation')
       toggleHamburger.setAttribute('aria-expanded', 'false')
       toggleHamburger.setAttribute('aria-pressed', 'false')
       closeHamburger.classList.add('hide')
+      headerNavExpaned.setAttribute('style', 'display: none;')
     }
 
     //
@@ -674,14 +907,13 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       }
       prevScrollpos = currentScrollPos
     })
-  }, [])
+  }, [myLocationRef, currentPath])
 
   return (
     <HeaderWrapper
       className={
         i18n.allPrefix.includes(pathName) ? 'headerNavWrapper' : 'headerNavWrapper fillBground'
       }
-      aria-label="Main heading"
     >
       <div className="skipNav">
         <a className="skipLink" href="#main">
@@ -689,14 +921,15 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         </a>
       </div>
 
-      <nav className="headerNav" aria-label="Main navigation">
+      <nav className="headerNav" aria-label="My Life My Voice">
         <button
-          className="hamburger hamburger--squeeze"
+          className="l1 hamburger hamburger--squeeze"
           type="button"
-          aria-label="Open and close mobile navigation menu"
+          aria-label="Toggle mobile navigation"
           aria-controls="mainNavigation"
           aria-expanded="false"
           aria-pressed="false"
+          aria-haspopup="true"
         >
           <span className="hamburger-label"> {i18n[currentLang].menu}</span>
           <span className="hamburger-box">
@@ -704,43 +937,59 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           </span>
         </button>
 
-        <Link
-          className="brand"
-          to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
-          title="Link to homepage"
-        >
-          <span>Link to homepage</span>
-          <Brand alt={'Logo - Link to homepage'} />
-        </Link>
+        <ul id="mainNavigation" className="disclosure-nav">
+          <li className="brand">
+            <Link
+              to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
+              aria-label={i18n[currentLang].linkToHomepage}
+              className="l1"
+            >
+              <Brand currentLang={currentLang} />
+            </Link>
+          </li>
 
-        <ul>
           {primaryNav.map((navItem, index) => {
             //console.log(navItem.link)
             return (
               <li key={`main-nav-${index}`}>
                 {navItem.primary.link.uid ? (
-                  <Link
-                    to={linkResolver(navItem.primary.link)}
-                    activeClassName="activeNavItem"
-                    getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
-                  >
-                    {navItem.primary.label.text}
-                  </Link>
+                  navItem.primary.link.uid !== null ? (
+                    <Link
+                      to={linkResolver(navItem.primary.link)}
+                      className="l1"
+                      activeClassName="activeNavItem"
+                      getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
+                    >
+                      {navItem.primary.label.text}
+                    </Link>
+                  ) : (
+                    <a
+                      href={
+                        navItem.primary.link.raw.url !== undefined
+                          ? navItem.primary.link.raw.url
+                          : ''
+                      }
+                      className="l1"
+                      getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
+                    >
+                      {navItem.primary.label.text}
+                    </a>
+                  )
                 ) : (
                   <button
                     className={
-                      'secondaryNavBtn ' +
+                      'l1 secondaryNavBtn ' +
                       `${
                         pathName.includes(_.kebabCase(navItem.primary.label.text)) &&
                         'activeNavItem'
                       }`
                     }
-                    onClick={handleToggleSecondaryNav}
-                    aria-label="Open and close secondary navigation"
-                    aria-controls="secondaryNavList"
-                    aria-expanded="false"
-                    aria-pressed="false"
-                    // onKeyDown={handleToggleSecondaryNav}
+                    aria-controls={`id_${navItem.primary.label.text
+                      .replace(/\s/g, '_')
+                      .toLowerCase()}`}
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    type="button"
                   >
                     {navItem.primary.label.text}
                     <IconMaterial icon={'expand_more'} />
@@ -749,18 +998,34 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
 
                 {navItem.items.length > 0 ? (
                   <>
-                    <ul className="secondaryNavList" aria-label="Secondary navigation">
+                    <ul
+                      id={`id_${navItem.primary.label.text.replace(/\s/g, '_').toLowerCase()}`}
+                      className="secondaryNavList"
+                      aria-label={navItem.primary.label.text}
+                    >
                       {navItem.items.map((subNavItem, index) => {
                         return (
                           <li key={`sub-nav-${index}`}>
-                            <Link
-                              to={linkResolver(subNavItem.sub_nav_link)}
-                              activeClassName="activeNavItem"
-                              // getProps={isPartiallyActive}
-                            >
-                              {subNavItem.sub_nav_link_label.text}
-                              <IconMaterial icon={'chevron_right'} />
-                            </Link>
+                            {subNavItem.sub_nav_link.uid !== null ? (
+                              <Link
+                                to={linkResolver(subNavItem.sub_nav_link)}
+                                activeClassName="activeNavItem"
+                              >
+                                {subNavItem.sub_nav_link_label.text}
+                                <IconMaterial icon={'chevron_right'} />
+                              </Link>
+                            ) : (
+                              <a
+                                href={
+                                  subNavItem.sub_nav_link.raw.url !== undefined
+                                    ? subNavItem.sub_nav_link.raw.url
+                                    : ''
+                                }
+                              >
+                                {subNavItem.sub_nav_link_label.text}
+                                <IconMaterial icon={'chevron_right'} />
+                              </a>
+                            )}
                           </li>
                         )
                       })}
@@ -774,12 +1039,14 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           })}
 
           <li className="closeMenu hide">
-            <button>
+            <button className="l1" type="button">
               {i18n[currentLang].close}
               <IconMaterial icon={'clear'} />
             </button>
           </li>
         </ul>
+
+        {/* // Activate locale */}
         {/* <LocaleSwitcher currentLang={currentLang} currentPath={currentPath} /> */}
       </nav>
     </HeaderWrapper>

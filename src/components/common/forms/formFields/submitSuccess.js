@@ -42,7 +42,7 @@ const SubmitSuccess = ({ resetForm }) => {
       <p>We have recieved your enquiry and will get back to you soon.</p>
       <Button
         buttonLabel={'Reset form'}
-        buttonType={'button'}
+        buttonType={'reset'}
         buttonStyle={'primary'}
         onClick={resetForm}
         buttonIcon={'refresh'}
