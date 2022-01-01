@@ -875,7 +875,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       toggleHamburger.setAttribute('aria-expanded', 'false')
       toggleHamburger.setAttribute('aria-pressed', 'false')
       closeHamburger.classList.add('hide')
-      headerNavExpaned.setAttribute('style', 'display: none;')
+      headerNavExpaned && headerNavExpaned.setAttribute('style', 'display: none;')
     }
 
     //
@@ -996,7 +996,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                   </button>
                 )}
 
-                {navItem.items.length > 0 ? (
+                {navItem.items.subNavItem && (
                   <>
                     <ul
                       id={`id_${navItem.primary.label.text.replace(/\s/g, '_').toLowerCase()}`}
@@ -1031,8 +1031,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                       })}
                     </ul>
                   </>
-                ) : (
-                  ''
                 )}
               </li>
             )
