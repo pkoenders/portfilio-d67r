@@ -85,8 +85,9 @@ export const query = graphql`
               }
               link {
                 uid
-                lang
                 type
+                lang
+                raw
               }
             }
             items {
@@ -94,6 +95,7 @@ export const query = graphql`
                 uid
                 type
                 lang
+                raw
               }
               sub_nav_link_label {
                 text
