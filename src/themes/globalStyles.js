@@ -204,7 +204,7 @@ export const GlobalStyles = createGlobalStyle`
   .styledh3 {
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.font.sans};
-     font-weight: ${({ theme }) => theme.fontWeight.medium};
+     font-weight: ${({ theme }) => theme.fontWeight.semibold};
     /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
   }
 
@@ -236,47 +236,38 @@ export const GlobalStyles = createGlobalStyle`
     h1,
     .styledh1 {
       font-size: ${({ theme }) => theme.fontSize['4xl']};
-        /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     }
 
     h2,
     .styledh2 {
       font-size: ${({ theme }) => theme.fontSize['3xl']};
-       /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     }
 
     h3,
     .styledh3 {
       font-size: ${({ theme }) => theme.fontSize['xl']};
-       font-weight: ${({ theme }) => theme.fontWeight.medium};
-      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
     h4,
     .styledh4 {
       font-size: ${({ theme }) => theme.fontSize.xl};
-      font-weight: ${({ theme }) => theme.fontWeight.semibold};
-      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
     h5,
     .styledh5 {
       font-size: ${({ theme }) => theme.fontSize.lg};
-      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
     h6,
     .styledh6 {
        font-size: ${({ theme }) => theme.fontSize.lg};
-      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
   }
 
   p {
-    /* font-size: ${({ theme }) => theme.fontSize.base}; */
     font-family: ${({ theme }) => theme.font.sans};
-    margin-bottom: ${({ theme }) => theme.spacing['4']};
+    margin-bottom: ${({ theme }) => theme.spacing['3']};
    
     em {
       font-style: italic;

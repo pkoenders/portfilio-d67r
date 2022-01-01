@@ -51,7 +51,7 @@ const ItemContent = styled.article`
 
     .title {
       font-family: ${({ theme }) => theme.font.sans};
-      font-weight: ${({ theme }) => theme.fontWeight.medium};
+      font-weight: ${({ theme }) => theme.fontWeight.semibold};
       font-size: ${({ theme }) => theme.fontSize['xl']};
       /* font-size: 103%;
       
