@@ -58,6 +58,14 @@ module.exports = {
             },
 
             {
+              family: 'Bitter',
+              axes: 'wght@400;500',
+              // fontDisplay: 'swap',
+              strategy: 'base64',
+              // strategy: 'cdn',
+            },
+
+            {
               family: 'Rokkitt',
               axes: 'wght@300;500',
               // fontDisplay: 'swap',

@@ -3,7 +3,9 @@ import styled from 'styled-components'
 const FilterWrapper = styled.div`
   margin-top: ${({ theme }) => theme.header.height};
   padding: ${({ theme }) => theme.padding['1/2']};
-  background-color: ${({ theme }) => theme.colors.card[200]};
+  /* background-color: ${({ theme }) => theme.colors.card[200]}; */
+
+  background-color: ${({ theme }) => theme.colors.tertiary[100]};
   display: flex;
   flex-direction: column;
   grid-gap: ${({ theme }) => theme.margin['1/2']};

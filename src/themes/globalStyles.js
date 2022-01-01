@@ -187,7 +187,7 @@ export const GlobalStyles = createGlobalStyle`
   h1,
   .styledh1 {
     font-size: ${({ theme }) => theme.fontSize['5xl']};
-    font-family: ${({ theme }) => theme.font.slab};
+    font-family: ${({ theme }) => theme.font.headers};
     /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
@@ -195,7 +195,7 @@ export const GlobalStyles = createGlobalStyle`
   h2,
   .styledh2 {
     font-size: ${({ theme }) => theme.fontSize['4xl']};
-    font-family: ${({ theme }) => theme.font.slab};
+    font-family: ${({ theme }) => theme.font.headers};
     /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     font-weight: ${({ theme }) => theme.fontWeight.normal};
   }
