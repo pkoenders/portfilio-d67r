@@ -53,9 +53,7 @@ const ItemContent = styled.article`
       font-family: ${({ theme }) => theme.font.sans};
       font-weight: ${({ theme }) => theme.fontWeight.semibold};
       font-size: ${({ theme }) => theme.fontSize['xl']};
-      /* font-size: 103%;
-      
-      
+
       /* color: ${({ theme }) => theme.colors.accent.default}; */
       align-content: space-between;
       display: flex;
