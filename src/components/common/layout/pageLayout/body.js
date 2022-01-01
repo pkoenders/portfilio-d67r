@@ -55,7 +55,7 @@ const PageBody = styled.article`
         font-size: ${({ theme }) => theme.fontSize['xl']}; */
         font-size: ${({ theme }) => theme.fontSize['2xl']};
         font-family: ${({ theme }) => theme.font.sans};
-        font-weight: ${({ theme }) => theme.fontWeight.medium};
+        font-weight: ${({ theme }) => theme.fontWeight.semibold};
       }
 
       @media (max-width: ${({ theme }) => theme.screens.md}) {
