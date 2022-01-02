@@ -751,12 +751,12 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     }
 
     function eventList() {
-      // var viewportWidth = Math.max(
-      //   document.documentElement.clientWidth || 0,
-      //   window.innerWidth || 0
-      // )
+      var viewportWidth = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
 
-      var viewportWidth = window.innerWidth
+      // var viewportWidth = window.innerWidth
       // console.log(viewportWidth)
 
       if (viewportWidth > 768) {
@@ -773,9 +773,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           newEl.innerHTML = brand.innerHTML
           brand.parentNode.replaceChild(newEl, brand)
         }
-      }
-
-      if (viewportWidth <= 768) {
+      } else {
         // Move the brand li and change to a span
         let brand = document.querySelector('li.brand')
         const moveToDMobile = document.querySelector('.headerNav')
@@ -786,6 +784,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           let newEl = document.createElement('span')
           newEl.classList.add('brand')
           newEl.innerHTML = brand.innerHTML
+          // newEl.setAttribute('style', 'right:0')
           brand.parentNode.replaceChild(newEl, brand)
         }
       }
