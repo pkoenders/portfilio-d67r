@@ -73,7 +73,7 @@ const Footer = ({ currentLang, currentPrefix }) => {
         </p>
         <Link
           to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
-          title={i18n[currentLang].linkToHomepage}
+          aria-label={i18n[currentLang].linkToHomepage}
           className="brand"
         >
           <Brand />

@@ -151,7 +151,7 @@ export const query = graphql`
                     nr: 20
                     nrs: 50
                     dpr: 2
-                    auto: "compress,format"
+                    auto: "compress,enhance,format"
                   }
                 )
               }

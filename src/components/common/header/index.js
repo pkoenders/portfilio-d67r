@@ -17,6 +17,17 @@ import '/src/styles/hamburger.scss'
 import styled from 'styled-components'
 
 const HeaderWrapper = styled.header`
+  z-index: 9999;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: ${({ theme }) => theme.header.height};
+  /* background-color: transparent; */
+  background-color: ${({ theme }) => theme.colors.header.default};
+
   .skipNav {
     position: absolute;
     top: -1000rem;
@@ -62,19 +73,6 @@ const HeaderWrapper = styled.header`
     transform: translate(0, 0px);
   }
 
-  z-index: 9999;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  right: 0;
-  top: 0;
-  transform: translate(0, 0);
-  will-change: transform;
-  transition: all 0.75s;
-  height: ${({ theme }) => theme.header.height};
-  background-color: transparent;
-
   nav.headerNav {
     z-index: 999;
     min-width: 130px;
@@ -111,29 +109,29 @@ const HeaderWrapper = styled.header`
     }
 
     .brand {
-      z-index: 10001 !important;
-
       display: flex;
+      height: ${({ theme }) => theme.header.height};
       align-self: center;
       align-items: center;
-      margin: auto ${({ theme }) => theme.margin['1/2']} auto 0;
-      z-index: 1003;
+      margin: auto 0;
 
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      a {
         display: flex;
-        visibility: visible;
+        align-items: center;
+        height: ${({ theme }) => theme.padding.default};
+        padding: 0 ${({ theme }) => theme.padding['1/2']};
+        svg {
+          max-height: fit-content;
+          height: 100%;
+        }
+      }
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
         position: absolute;
         top: 0;
         right: 0;
-        display: flex;
-        margin-right: ${({ theme }) => theme.margin['1/4']};
-      }
-      a {
-        line-height: initial;
-        padding: 0 ${({ theme }) => theme.padding['1/4']};
-        height: ${({ theme }) => theme.header.height};
-        display: flex;
-        align-items: center;
+        a {
+          height: 24px;
+        }
       }
 
       @media print {
@@ -142,7 +140,6 @@ const HeaderWrapper = styled.header`
       }
 
       svg {
-        height: 36px;
         width: auto;
       }
     }
@@ -304,9 +301,7 @@ const HeaderWrapper = styled.header`
 
       > ul {
         display: flex;
-        /* align-items: stretch; */
         padding: 0;
-        /* margin: 0 auto 0 ${({ theme }) => theme.padding['1/4']}; */
         margin: 0 auto;
         justify-content: center;
 
@@ -314,7 +309,6 @@ const HeaderWrapper = styled.header`
         position: relative;
         width: 100%;
         overflow-x: visible;
-        /* max-width: ${({ theme }) => theme.screens.md}; */
 
         li.brand {
           justify-self: flex-start;
@@ -491,39 +485,6 @@ const HeaderWrapper = styled.header`
         }
       }
     }
-  }
-
-  // Desktop header
-  &::before {
-    content: '';
-    background-color: ${({ theme }) => theme.colors.header.default};
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    will-change: transform;
-    transition: opacity 0.75s;
-    transition-timing-function: ease-in;
-  }
-
-  &.fillBground {
-    transition: all 0.75s;
-  }
-
-  &.fillBground::before,
-  &.fillBgroundQuick::before {
-    content: '';
-    background-color: ${({ theme }) => theme.colors.header.default};
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    will-change: transform;
-    transition: opacity 0.25s;
   }
 `
 
@@ -894,14 +855,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         }
       }
 
-      if (i18n.allPrefix.includes(pathName)) {
-        if (currentScrollPos >= 60) {
-          headerNavWrapper.classList.add('fillBground')
-        } else {
-          headerNavWrapper.classList.remove('fillBground')
-        }
-      }
-
       if (window.pageYOffset <= 0) {
         currentScrollPos = 0
       }
@@ -910,11 +863,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
   }, [myLocationRef, currentPath])
 
   return (
-    <HeaderWrapper
-      className={
-        i18n.allPrefix.includes(pathName) ? 'headerNavWrapper' : 'headerNavWrapper fillBground'
-      }
-    >
+    <HeaderWrapper className="headerNavWrapper">
       <div className="skipNav">
         <a className="skipLink" href="#main">
           Skip to main content

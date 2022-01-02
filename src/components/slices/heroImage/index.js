@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 // Helpers
 import { getImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
@@ -176,12 +177,6 @@ const FullWidthImage = ({ slice }) => {
   // Hero image height
   var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
 
-  // if (slice.primary.v_height === true) {
-  //   sectionHeight = parseFloat(100 - (60 / 100) * 10) + 'vh'
-  // }
-
-  // console.log('sectionHeight = ' + sectionHeight)
-
   // Overlay colors
   var overlayFrom = getColor(slice.primary.overlay_from)
   var overlayTo = getColor(slice.primary.overlay_to)
@@ -204,19 +199,43 @@ const FullWidthImage = ({ slice }) => {
   // Banner overlay (gradient) direction
   var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
 
-  // Background color
-  var bgroundColor = getColor(slice.primary.background_color)
-  if (bgroundColor === null || bgroundColor === 'transparent') {
-    bgroundColor = '#000000'
-  }
+  // Background color of content
+  useEffect(() => {
+    // The specified color
+    var bgroundColor = getColor(slice.primary.background_color)
 
-  // Background opacity
-  var bgroundOpacity = getOpacity(slice.primary.background_opacity)
+    // The styled color
+    var contentWrapper = document.querySelector('.content')
+    var contentBgColor = window
+      .getComputedStyle(contentWrapper, null)
+      .getPropertyValue('background-color')
 
-  // Background colors to RGBA
-  bgroundColor = getHexToRGB(bgroundColor, bgroundOpacity)
+    const rgb2hex = (rgb) =>
+      `#${rgb
+        .match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+        .slice(1)
+        .map((n) => parseInt(n, 10).toString(16).padStart(2, '0'))
+        .join('')}`
+    contentBgColor = rgb2hex(contentBgColor)
 
-  // console.log('bgroundColor = ' + bgroundColor)
+    // If spcecified color - set to the styled color
+    if (bgroundColor === null || bgroundColor === 'transparent') {
+      bgroundColor = contentBgColor
+    }
+
+    // Get the opacity
+    var bgroundOpacity = getOpacity(slice.primary.background_opacity)
+    // console.log(bgroundOpacity)
+
+    // Convert background color to RGBA -  include opacity
+    bgroundColor = getHexToRGB(bgroundColor, bgroundOpacity)
+
+    // console.log(contentBgColor)
+    // console.log(bgroundColor)
+
+    // Write inline style
+    contentWrapper.setAttribute('style', `background-color:rgb(${bgroundColor})`)
+  }, [slice])
 
   // Banner bGround postion
   var alignBGround = getPostionAlign(slice.primary.align_image)
@@ -277,10 +296,6 @@ const FullWidthImage = ({ slice }) => {
     backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
   }
 
-  const contentBgroundColor = {
-    backgroundColor: `rgb(${bgroundColor})`,
-  }
-
   return (
     <WrapperHeroImage className={'section-layout heroImage ' + sectionWidth} style={imageMargin}>
       <div>
@@ -301,7 +316,7 @@ const FullWidthImage = ({ slice }) => {
         >
           <div
             className={'content ' + `${slice.primary.align_content}`.toLowerCase()}
-            style={contentBgroundColor}
+            // style={bgroundColor}
           >
             {(title || description) !== null && (
               <span>

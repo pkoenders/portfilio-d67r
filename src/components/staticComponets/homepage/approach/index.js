@@ -39,9 +39,9 @@ const ApproachSection = styled.section`
         -webkit-text-fill-color: transparent;
         -moz-background-clip: text;
         -moz-text-fill-color: transparent; */
-        color: ${({ theme }) => theme.colors.tertiary[900]};
+        color: ${({ theme }) => theme.colors.tertiary[1200]};
         /* opacity: 0.75; */
-        margin-top: -${({ theme }) => theme.padding['1/8']};
+        margin-top: -${({ theme }) => theme.padding['1/4']};
         /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
       }
 

@@ -73,8 +73,8 @@ const BtnWrapper = styled.span`
   .btn.primary {
     color: ${({ theme }) => theme.colors.header.default};
     font-weight: 400;
-    background-color: ${({ theme }) => theme.colors.primary.default};
-    border: 1px solid ${({ theme }) => theme.colors.primary[1100]};
+    background-color: ${({ theme }) => theme.colors.primary[500]};
+    border: 1px solid ${({ theme }) => theme.colors.primary[900]};
     i {
       color: inherit;
     }
