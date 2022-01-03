@@ -81,10 +81,11 @@ const LighthouseScoresTableWrapper = styled.div`
     }
 
     th {
-      span {
+      button {
         text-align: left;
         font-weight: 500;
         display: flex;
+        padding: ${({ theme }) => theme.margin['1/4']} 0;
         align-items: center;
         /* justify-content: space-between; */
         /* border-radius: ${({ theme }) => theme.borderRadius.sm}; */
@@ -163,7 +164,7 @@ function ReactTable({ columns, data, getCellProps = defaultPropGetter }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  <span>
+                  <button type="button" onKeyDown={keyEscape}>
                     {/* Add a sort direction indicator */}
                     {column.isSorted ? (
                       column.isSortedDesc ? (
@@ -176,7 +177,7 @@ function ReactTable({ columns, data, getCellProps = defaultPropGetter }) {
                     )}
                     {/* Label */}
                     {column.render('Header')}
-                  </span>
+                  </button>
                 </th>
               ))}
             </tr>
@@ -209,6 +210,20 @@ function ReactTable({ columns, data, getCellProps = defaultPropGetter }) {
       </table>
     </>
   )
+}
+
+const keyEscape = function (e) {
+  switch (e.key) {
+    case 'Escape':
+      e.preventDefault()
+      // window.history.back()'
+
+      console.log('Escape')
+      break
+
+    default:
+      break
+  }
 }
 
 const LighthouseScores = () => {
@@ -569,7 +584,11 @@ const LighthouseScores = () => {
                 //   score.remove()
                 // }
                 return {
-                  url: <a href={score.node.url}>{score.node.url}</a>,
+                  url: (
+                    <a onKeyDown={keyEscape} href={score.node.url}>
+                      {score.node.url}
+                    </a>
+                  ),
                   secure: score.node.secure,
                   responsive: score.node.responsive,
                   pwa: score.node.pwa,
