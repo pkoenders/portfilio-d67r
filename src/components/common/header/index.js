@@ -118,20 +118,20 @@ const HeaderWrapper = styled.header`
       a {
         display: flex;
         align-items: center;
-        height: ${({ theme }) => theme.padding.default};
+        height: ${({ theme }) => theme.header.height};
         padding: 0 ${({ theme }) => theme.padding['1/2']};
         svg {
           max-height: fit-content;
-          height: 100%;
+          height: ${({ theme }) => theme.padding.default};
+          @media (max-width: ${({ theme }) => theme.screens.sm}) {
+            height: 24px;
+          }
         }
       }
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
         position: absolute;
         top: 0;
         right: 0;
-        a {
-          height: 24px;
-        }
       }
 
       @media print {
