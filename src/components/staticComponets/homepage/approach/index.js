@@ -202,8 +202,8 @@ const Approch = () => {
                 drops, so does your usage — and your costs. Host your website for less (cheaper than
                 Wix, WordPress and Squarespace) and use less energy. If you plan to administer your
                 website on your own and have a low traffic, you could be hosting for free. It's a
-                more brilliant choice for the conscious who consider responsible hosting with lower
-                costs and a carbon footprint!
+                more brilliant choice for those considering responsible hosting with lower costs and
+                carbon footprint!
               </p>
             </span>
           </div>
