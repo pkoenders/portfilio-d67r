@@ -133,7 +133,7 @@ const WrapperHeroImage = styled.section.attrs({
         word-wrap: break-word;
         hyphens: none;
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
-          padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+          padding: ${({ theme }) => theme.padding['1/2']}};
         }
         h1 {
           hyphens: auto;
