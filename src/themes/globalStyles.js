@@ -92,20 +92,20 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.page[100]};
     
     a {
-       color: ${({ theme }) => theme.colors.primary[400]};
+       color: ${({ theme }) => theme.colors.primary[100]};
     }
     form {
       input:focus-visible,
       textarea:focus-visible,
       select:focus-visible {
-        outline: 2px solid ${({ theme }) => theme.colors.primary[400]};
+        outline: 3px dotted ${({ theme }) => theme.colors.focusVisibleOnDark} !important;
       }
       label,
       legend,
       .submitForm {
         .required,
         .requiredCheck {
-          color: ${({ theme }) => theme.colors.primary[400]};
+          color: ${({ theme }) => theme.colors.primary[100]};
         }
         .error {
           color: ${({ theme }) => theme.colors.alert.tomato};
@@ -147,7 +147,8 @@ export const GlobalStyles = createGlobalStyle`
 
   *:focus,
   *:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important;  
+    /* background-color: ${({ theme }) => theme.colors.accent[100]};   */
+    outline: 3px solid ${({ theme }) => theme.colors.focusVisible} !important;  
   }
 
   .dark,
@@ -155,7 +156,7 @@ export const GlobalStyles = createGlobalStyle`
   footer {
     *:focus,
     *:focus-visible {
-      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+      outline: 3px dotted ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
     }
   }
 

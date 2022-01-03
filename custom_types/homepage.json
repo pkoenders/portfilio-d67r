@@ -1128,6 +1128,19 @@
                   "placeholder": "Vertical align (Default is center)"
                 }
               },
+              "content_background_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Content background colour"
+                }
+              },
+              "content_background_opacity": {
+                "type": "Number",
+                "config": {
+                  "label": "Content background opacity",
+                  "placeholder": "0"
+                }
+              },
               "width": {
                 "type": "Select",
                 "config": {
@@ -1239,19 +1252,6 @@
                   "options": ["Center", "Top", "Bottom"],
                   "label": "Align image",
                   "placeholder": "Select one"
-                }
-              },
-              "background_color": {
-                "type": "Color",
-                "config": {
-                  "label": "Background colour"
-                }
-              },
-              "background_opacity": {
-                "type": "Number",
-                "config": {
-                  "label": "Background opacity",
-                  "placeholder": "33"
                 }
               },
               "image": {

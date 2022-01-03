@@ -73,8 +73,8 @@ const BtnWrapper = styled.span`
   .btn.primary {
     color: ${({ theme }) => theme.colors.header.default};
     font-weight: 400;
-    background-color: ${({ theme }) => theme.colors.primary[500]};
-    border: 1px solid ${({ theme }) => theme.colors.primary[900]};
+    background-color: ${({ theme }) => theme.colors.primary[200]};
+    border: 1px solid ${({ theme }) => theme.colors.primary[600]};
     i {
       color: inherit;
     }
@@ -130,7 +130,7 @@ const BtnWrapper = styled.span`
   }
 
   .dark &,
-  .heroImage & {
+  .heroImageWrapper & {
     .btn.link {
       color: ${({ theme }) => theme.colors.grey[100]} !important;
       i {

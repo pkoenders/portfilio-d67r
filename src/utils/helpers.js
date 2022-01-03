@@ -395,20 +395,6 @@ export function getColor(color) {
   }
 }
 
-// RGB to Hex
-var hexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
-
-//Function to convert rgb color to hex format
-export function rgb2hex(rgb) {
-  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-  return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
-}
-
-function hex(x) {
-  return isNaN(x) ? '00' : hexDigits[(x - (x % 16)) / 16] + hexDigits[x % 16]
-}
-//
-
 // Get contrast
 export function getContrast(hexcolor) {
   // If a leading # is provided, remove it
@@ -516,6 +502,15 @@ export function getOpacity(value) {
       return 0.33
   }
 }
+
+// RGB to Hex
+export const getRgb2Hex = (rgb) =>
+  `#${rgb
+    .match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    .slice(1)
+    .map((n) => parseInt(n, 10).toString(16).padStart(2, '0'))
+    .join('')}`
+//
 
 // Return hexToRGB value
 export function getHexToRGB(color, opacity) {

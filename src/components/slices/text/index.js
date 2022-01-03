@@ -16,7 +16,7 @@ import {
   getManualSpacing,
   getBgColor,
   getColorTint,
-  rgb2hex,
+  getRgb2Hex,
   getContrast,
 } from '/src/utils/helpers'
 
@@ -135,7 +135,7 @@ const Text = ({ slice }) => {
     var objBground = document.getElementById(`${sectionID}`)
     let bgColor = window.getComputedStyle(objBground).backgroundColor
     // Convert it a hex value
-    bgColor = rgb2hex(bgColor)
+    bgColor = getRgb2Hex(bgColor)
     // Return the contrast mode  - 'dark' or 'light'
     var updateContrast = getContrast(bgColor)
     // Update contrast color and set it as a class in the section

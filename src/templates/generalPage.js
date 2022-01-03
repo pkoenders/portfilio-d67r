@@ -125,6 +125,8 @@ export const query = graphql`
               secondary_button_icon_align
               align_content
               vertical_align_content
+              content_background_color
+              content_background_opacity
               width
               height
               v_height
@@ -137,8 +139,6 @@ export const query = graphql`
               overlay_to_opacity
               overlay_direction
               align_image
-              background_color
-              background_opacity
               image {
                 gatsbyImageData(
                   layout: FULL_WIDTH
