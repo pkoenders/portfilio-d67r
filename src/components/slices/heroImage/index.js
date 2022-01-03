@@ -90,42 +90,42 @@ const WrapperHeroImage = styled.section.attrs({
       align-items: flex-start;
     }
 
-    .contentWrapper.bottom {
-      align-items: flex-end;
-    }
-
     .contentWrapper {
       height: 100%;
-      content * {
+      .content,
+      .content.centre {
+        /* flex-direction: row; */
         margin: 0 auto;
         text-align: center;
         justify-content: center;
+        .cta {
+          justify-self: center;
+        }
       }
-      .content.left * {
+
+      .content.left {
         margin: 0 auto 0 0;
         text-align: left;
         justify-self: flex-start;
+        .cta {
+          justify-self: flex-start;
+        }
       }
 
-      .content.centre * {
-        margin: 0 auto;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .content.right * {
+      .content.right {
         margin: 0 0 0 auto;
         text-align: right;
         justify-content: flex-end;
+        .cta {
+          justify-self: flex-end;
+        }
       }
 
       .content {
         /* width: 100%; */
         width: fit-content;
-        margin: 0 auto;
         display: grid;
-        padding: 0;
-        padding: ${({ theme }) => theme.padding.default};
+        padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default};
         color: #ffffff;
         background-color: ${({ theme }) => theme.colors.header.default};
         border-radius: ${({ theme }) => theme.borderRadius.default};
@@ -175,7 +175,7 @@ const WrapperHeroImage = styled.section.attrs({
   }
 `
 
-const FullWidthImage = ({ slice }) => {
+const HeroImg = ({ slice }) => {
   // Get the image
   const image = getImage(slice.primary.image.gatsbyImageData)
   const bgImage = convertToBgImage(image)
@@ -323,10 +323,10 @@ const FullWidthImage = ({ slice }) => {
           className={'contentWrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
         >
           <div className={'content ' + `${slice.primary.align_content}`.toLowerCase()}>
-            {(title || description) !== null && (
+            {(title || description) && (
               <span>
-                {title !== null && <RichText render={title} />}
-                {description !== null && (
+                {title && title[0].text.length > 0 && <RichText render={title} />}
+                {description && description[0].text.length > 0 && (
                   <RichText render={description} linkResolver={linkResolver} />
                 )}
               </span>
@@ -364,4 +364,4 @@ const FullWidthImage = ({ slice }) => {
   )
 }
 
-export default FullWidthImage
+export default HeroImg

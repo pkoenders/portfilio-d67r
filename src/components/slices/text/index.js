@@ -6,7 +6,6 @@ import linkResolver from '../../../utils/linkResolver'
 import {
   getContentWidth,
   getFontSize,
-  getLineHeight,
   getPostionAlign,
   getColumnCount,
   getContentOverrideStyle,
@@ -153,9 +152,6 @@ const Text = ({ slice }) => {
   // Font sizing
   var fontSize = getFontSize(slice.primary.font_sizing)
 
-  // Line height
-  var lineHeight = getLineHeight(slice.primary.font_sizing)
-
   // Content
   const content = slice.primary.content
 
@@ -198,7 +194,6 @@ const Text = ({ slice }) => {
             className={`${screenReaderOnly === true ? '.sr-only ' : ''}${columnCount}`}
             style={{
               fontSize: fontSize,
-              lineHeight: lineHeight,
               textAlign: txtAlign,
             }}
           >

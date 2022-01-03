@@ -490,16 +490,18 @@ export function getOpacity(value) {
   switch (value) {
     case null:
     case undefined:
-      return 0.33
+      return 0
 
-    case value >= 100:
-      return '1'
+    case value:
+      if (value >= 100) {
+        return 1
+      }
 
     case value:
       return parseFloat(`0.${value}`)
 
     default:
-      return 0.33
+      return 0
   }
 }
 
