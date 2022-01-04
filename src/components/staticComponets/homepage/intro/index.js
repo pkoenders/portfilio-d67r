@@ -278,10 +278,10 @@ const Intro = () => {
       </div>
       <div className="resume">
         <Button
-          buttonLabel={'View my resumé'}
+          buttonLabel={'My resumé'}
           buttonType={'Static'}
           buttonLink={'/peter-koenders-resume.pdf'}
-          buttonStyle={'transparent'}
+          // buttonStyle={'transparent'}
           // buttonIcon={'article'}
           // buttonIconAlign={'right'}
         />
