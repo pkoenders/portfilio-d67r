@@ -183,7 +183,7 @@ const HeaderWrapper = styled.header`
 
           i {
             pointer-events: none;
-            color: ${({ theme }) => theme.colors.primary[400]};
+            color: ${({ theme }) => theme.colors.white};
             margin-left: ${({ theme }) => theme.padding['1/4']};
           }
         }
