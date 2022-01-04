@@ -147,7 +147,7 @@ export const query = graphql`
                     q: 50
                     fill: "blur"
                     fit: "crop"
-                    fm: "avif, webp"
+                    fm: "jpg, avif, webp"
                     nr: 20
                     nrs: 50
                     dpr: 2
@@ -280,7 +280,7 @@ export const query = graphql`
                     fit: "facearea"
                     faces: 2
                     facepad: 10
-                    fm: "avif, webp"
+                    fm: "jpg, avif, webp"
                     nr: 0
                     nrs: 50
                     dpr: 2
@@ -355,7 +355,7 @@ export const query = graphql`
                                 placeholder: BLURRED
                                 imgixParams: {
                                   q: 100
-                                  fm: "avif, webp"
+                                  fm: "jpg, avif, webp"
                                   nr: 0
                                   nrs: 50
                                   dpr: 2

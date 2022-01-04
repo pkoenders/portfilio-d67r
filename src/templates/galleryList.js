@@ -119,7 +119,7 @@ export const query = graphql`
                           placeholder: BLURRED
                           imgixParams: {
                             q: 90
-                            fm: "avif, webp"
+                            fm: "jpg, avif, webp"
                             nr: 100
                             dpr: 2
                             auto: "compress,enhance,format"
