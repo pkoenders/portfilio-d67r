@@ -12,7 +12,7 @@ module.exports = {
     defaultImage: '/static/android-chrome-512x512.png', // Path to your image you placed in the 'static' folder
     logo: '/static/android-chrome-512x512.png', // Used for SEO
     author: 'Peter Koenders',
-    year: '2021',
+    year: '2022',
   },
 
   flags: {
@@ -244,7 +244,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://d67r.app',
-        sitemap: 'https://d67r.app/sitemap.xml',
+        sitemap: 'https://d67r.app/sitemap/sitemap-0.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }],
