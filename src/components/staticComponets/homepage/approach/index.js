@@ -60,9 +60,12 @@ const ApproachSection = styled.section`
         ul,
         li {
           text-align: left;
-          .emoji {
+          .emoji::before {
             letter-spacing: 0.01em;
             padding-left: 0.25em;
+          }
+          .emoji.heart::before {
+            content: '❤️';
           }
         }
         span {
@@ -219,7 +222,7 @@ const Approch = () => {
               <p>
                 In my hands, your website will be blazingly fast, accessible, secure and customised.
                 You will get personal support, and I respond to requests because I simply{' '}
-                <span className="emoji">❤️</span> what I do.
+                <span className="emoji heart"></span> what I do.
               </p>
               <Button
                 buttonLabel={'Reach out'}
