@@ -68,14 +68,12 @@ const WrapperHeroImage = styled.section.attrs({
       max-width: ${({ theme }) => theme.screens.md};
       margin: 0 auto;
       z-index: 100;
-
       top: 0;
       left: 0;
       right: 0;
       display: flex;
       text-align: center;
       padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
-
       align-items: center;
     }
     .contentWrapper.centre {
@@ -84,10 +82,12 @@ const WrapperHeroImage = styled.section.attrs({
 
     .contentWrapper.bottom {
       align-items: flex-end;
+      padding: ${({ theme }) => theme.padding['1/2']};
     }
 
     .contentWrapper.top {
       align-items: flex-start;
+      padding: ${({ theme }) => theme.padding['1/2']};
     }
 
     .contentWrapper {
@@ -100,6 +100,7 @@ const WrapperHeroImage = styled.section.attrs({
         justify-content: center;
         .cta {
           justify-self: center;
+          align-items: center;
         }
       }
 
@@ -109,6 +110,7 @@ const WrapperHeroImage = styled.section.attrs({
         justify-self: flex-start;
         .cta {
           justify-self: flex-start;
+          align-items: flex-start;
         }
       }
 
@@ -118,6 +120,7 @@ const WrapperHeroImage = styled.section.attrs({
         justify-content: flex-end;
         .cta {
           justify-self: flex-end;
+          align-items: flex-end;
         }
       }
 
@@ -125,6 +128,7 @@ const WrapperHeroImage = styled.section.attrs({
         /* width: 100%; */
         width: fit-content;
         display: grid;
+        grid-gap: ${({ theme }) => theme.padding.default};
         padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default};
         color: #ffffff;
         background-color: ${({ theme }) => theme.colors.header.default};
@@ -162,7 +166,6 @@ const WrapperHeroImage = styled.section.attrs({
 
         span.cta {
           display: flex;
-          margin-top: ${({ theme }) => theme.margin.default};
           grid-gap: ${({ theme }) => theme.padding['1/2']};
           width: fit-content;
 
