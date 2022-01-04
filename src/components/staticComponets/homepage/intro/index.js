@@ -26,7 +26,8 @@ const IntroSection = styled.section`
     text-align: center;
     /* font-size: 120%; */
     /* font-weight: 600; */
-    color: ${({ theme }) => theme.colors.page[100]};
+    /* color: ${({ theme }) => theme.colors.page[100]}; */
+    color: #cff0e0;
     span {
       display: contents;
     }
@@ -75,7 +76,6 @@ const IntroSection = styled.section`
           /* height: auto; */
         }
 
-        h2,
         p,
         ul,
         li {
