@@ -63,18 +63,22 @@ const WrapperHeroImage = styled.section.attrs({
     margin: 0 auto;
 
     .contentWrapper {
+      display: flex;
       background: none;
       position: absolute;
       max-width: ${({ theme }) => theme.screens.md};
-      margin: 0 auto;
+      height: 100%;
+      overflow: visible;
       z-index: 100;
       top: 0;
       left: 0;
       right: 0;
-      display: flex;
       text-align: center;
-      padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+      align-self: center;
       align-items: center;
+      margin: 0 auto;
+      padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+      
     }
     .contentWrapper.centre {
       align-items: center;
@@ -91,7 +95,7 @@ const WrapperHeroImage = styled.section.attrs({
     }
 
     .contentWrapper {
-      height: 100%;
+      
       .content,
       .content.centre {
         /* flex-direction: row; */
@@ -127,6 +131,7 @@ const WrapperHeroImage = styled.section.attrs({
       .content {
         /* width: 100%; */
         width: fit-content;
+        height: fit-content;
         display: grid;
         grid-gap: ${({ theme }) => theme.padding.default};
         padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default};
@@ -205,22 +210,24 @@ const HeroImg = ({ slice }) => {
   }
 
   //
-  // Set up image props -  ovelay of image, height and margins
+  // Set up image props - ovelay of image, height, margins and check the content height to adjust container height
   useEffect(() => {
     // Overlay colors - from & to
     var overlayFrom = getColor(slice.primary.overlay_from)
     var overlayTo = getColor(slice.primary.overlay_to)
 
-    // The styled color of header bground
+    // The styled color of header bground to use on content background & gradients if not specified
     var headerWrapper = document.querySelector('.headerNavWrapper')
     var headerBgColor = window
       .getComputedStyle(headerWrapper, null)
       .getPropertyValue('background-color')
 
-    // Convert background color to #hex
+    // Convert headerBgColor color to #hex
     headerBgColor = getRgb2Hex(headerBgColor)
 
     // If spcecified color - set to the styled color else set the header bground color
+    // We are going to write a gradient in any case. Null or transparent will have 0 opacity
+    // Content editors can just add opacity and no color, the default color will be the header color
     if (overlayFrom === null || overlayFrom === 'transparent') {
       overlayFrom = headerBgColor
     }
@@ -232,25 +239,41 @@ const HeroImg = ({ slice }) => {
     var overlayFromOpacity = getOpacity(slice.primary.overlay_from_opacity)
     var overlayToOpacity = getOpacity(slice.primary.overlay_to_opacity)
 
-    // Overlay colors to RGBA
+    // Set overlay colors to RGBA
     overlayFrom = getHexToRGB(overlayFrom, overlayFromOpacity)
     overlayTo = getHexToRGB(overlayTo, overlayToOpacity)
 
     // Banner overlay (gradient) direction
     var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
 
+    // Check contentHeight - if content overflows the set height of the banner
+    var checkContentHeight = document.querySelector('.content')
+    var contentHeight = checkContentHeight.offsetHeight
+    'load, resize, orientationchange'.split(', ').forEach(function (e) {
+      window.addEventListener(e, () => {
+        contentHeight = checkContentHeight.offsetHeight
+        setHeroImageStyles()
+      })
+    })
+
     // Set inline styles attrs
-    var heroImageInner = document.querySelector('.heroImage')
-    heroImageInner.setAttribute(
-      `style`,
-      `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
-       height: ${sectionHeight};
-       with: '100%'; 
-       background-position: center ${alignBGround};
-       margin-top: ${vMarginTop};
-       margin-bottom: ${vMarginBottom}
-      `
-    )
+    setHeroImageStyles()
+    function setHeroImageStyles() {
+      contentHeight = contentHeight + 32 * 2 // Allow for top and bottom margins
+      var heroImageInner = document.querySelector('.heroImage')
+      heroImageInner.setAttribute(
+        `style`,
+        `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
+        min-height: ${sectionHeight};
+        height: ${contentHeight}px;
+        width: 100%; 
+        background-position: center ${alignBGround};
+        margin-top: ${vMarginTop};
+        margin-bottom: ${vMarginBottom}
+        `
+      )
+    }
+    // Done
   }, [slice, sectionHeight, alignBGround, vMarginTop, vMarginBottom])
 
   //
