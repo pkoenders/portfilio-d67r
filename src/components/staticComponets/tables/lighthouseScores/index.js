@@ -33,9 +33,20 @@ const LighthouseScoresWrapper = styled.div`
 `
 
 const LighthouseScoresTableWrapper = styled.div`
+  padding-top: ${({ theme }) => theme.padding['2xl']};
   .title {
     padding: ${({ theme }) => theme.padding['1/4']};
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    grid-gap: ${({ theme }) => theme.padding['1/4']};
+    .detail {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: ${({ theme }) => theme.fontSize.sm};
+      color: ${({ theme }) => theme.colors.page['600']};
+    }
   }
   .tableWrapper {
     border: 1px solid ${({ theme }) => theme.colors.card[300]};
@@ -536,9 +547,11 @@ const LighthouseScores = () => {
       classOverides={'xl'}
     >
       <LighthouseScoresTableWrapper>
-        <p className="title" id="table-description">
-          A selection of websites in the Manawatu region and their average Lighthouse scores.
-        </p>
+        <h3 className="title" id="table-description">
+          A selection of websites from the Manawatu region and their average Lighthouse scores.
+          <span className="detail">Based on data taken during July 2021</span>
+        </h3>
+
         {/* <p className="title">Total count: {tableData.totalCount}</p> */}
         <LighthouseScoresWrapper>
           <canvas
