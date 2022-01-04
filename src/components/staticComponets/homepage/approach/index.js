@@ -62,7 +62,7 @@ const ApproachSection = styled.section`
           text-align: left;
           .emoji {
             letter-spacing: 0.01em;
-            padding-left: 0.35em;
+            padding-left: 0.25em;
           }
         }
         span {
