@@ -244,7 +244,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://d67r.app',
-        sitemap: 'https://d67r.app/sitemap/sitemap-0.xml',
+        sitemap: 'https://d67r.app/sitemap/sitemap-index.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }],
