@@ -146,7 +146,7 @@ const IntroSection = styled.section`
         /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]} !important; */
 
         // Overide  default styles
-        padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default} !important;
+        padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding['2xl']} !important;
         border: 1px solid ${({ theme }) => theme.colors.tertiary[900]} !important;
         color: #0a031d !important;
         background-color: #cff0e0 !important;
