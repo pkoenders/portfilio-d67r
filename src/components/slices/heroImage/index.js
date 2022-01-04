@@ -26,13 +26,13 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const WrapperHeroImage = styled.section.attrs({
+const HeroImage = styled.section.attrs({
   className: 'heroBanner',
 })`
   padding-top: 0px;
   padding-bottom: 0px;
-  position: relative;
   z-index: 100;
+  
 
   > div {
     max-width: ${({ theme }) => theme.screens.md};
@@ -58,18 +58,17 @@ const WrapperHeroImage = styled.section.attrs({
 
   div {
     padding: 0;
-    color: #ffffff;
     position: relative;
     margin: 0 auto;
+    width: 100%;
 
     .contentWrapper {
       display: flex;
-      background: none;
       position: absolute;
       max-width: ${({ theme }) => theme.screens.md};
       height: 100%;
       overflow: visible;
-      z-index: 100;
+      z-index: 101;
       top: 0;
       left: 0;
       right: 0;
@@ -98,7 +97,6 @@ const WrapperHeroImage = styled.section.attrs({
       
       .content,
       .content.centre {
-        /* flex-direction: row; */
         margin: 0 auto;
         text-align: center;
         justify-content: center;
@@ -333,7 +331,7 @@ const HeroImg = ({ slice }) => {
   // console.log(secondaryButtonLink.raw.link_type)
 
   return (
-    <WrapperHeroImage className={`section-layout ${sectionWidth}`}>
+    <HeroImage className={`section-layout ${sectionWidth}`}>
       <div className="heroImageWrapper">
         {slice.primary.image.gatsbyImageData && (
           <BackgroundImage
@@ -386,7 +384,7 @@ const HeroImg = ({ slice }) => {
           </div>
         </div>
       </div>
-    </WrapperHeroImage>
+    </HeroImage>
   )
 }
 
