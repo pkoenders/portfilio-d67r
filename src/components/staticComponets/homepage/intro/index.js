@@ -13,7 +13,7 @@ import styled from 'styled-components'
 const IntroSection = styled.section`
   background: rgb(7, 8, 9);
   background: linear-gradient(180deg, rgba(7, 8, 9, 1) 0%, rgba(10, 3, 31, 1) 100%);
-  padding: ${({ theme }) => theme.padding['4xl']} 0;
+  padding: ${({ theme }) => theme.padding['4xl']} 0 ${({ theme }) => theme.padding['2xl']};
   display: flex;
   flex-direction: column;
   grid-gap: ${({ theme }) => theme.padding['2xl']};
@@ -143,8 +143,14 @@ const IntroSection = styled.section`
     span {
       margin-top: 0;
       a {
-        padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default};
-        border: 1px solid ${({ theme }) => theme.colors.tertiary[400]} !important;
+        /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]} !important; */
+
+        // Overide  default styles
+        padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default} !important;
+        border: 1px solid ${({ theme }) => theme.colors.tertiary[900]} !important;
+        color: #0a031d !important;
+        background-color: #cff0e0 !important;
+
         i {
           color: ${({ theme }) => theme.colors.tertiary[600]} !important;
         }
