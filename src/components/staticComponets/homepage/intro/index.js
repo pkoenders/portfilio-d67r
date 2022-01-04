@@ -106,7 +106,7 @@ const IntroSection = styled.section`
     .part1 {
       span {
         i {
-          background-color: ${({ theme }) => theme.colors.primary[600]};
+          background-color: ${({ theme }) => theme.colors.primary[200]};
         }
       }
     }
