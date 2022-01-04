@@ -9,7 +9,7 @@ import styled from 'styled-components'
 const LayoutWrapper = styled.div`
   display: flex;
   min-width: 100%;
-  /* width: 100%; */
+  width: 100%;
   flex-direction: column;
   min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.page.bground.default};
