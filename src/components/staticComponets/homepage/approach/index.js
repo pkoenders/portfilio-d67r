@@ -221,8 +221,8 @@ const Approch = () => {
               <h4>Support</h4>
               <p>
                 In my hands, your website will be blazingly fast, accessible, secure and customised.
-                You will get personal support, and I respond to requests because I simply{' '}
-                <span className="emoji heart"></span> what I do.
+                You will get personal support, and I respond to requests because I simply ❤️ what I
+                do.
               </p>
               <Button
                 buttonLabel={'Reach out'}
