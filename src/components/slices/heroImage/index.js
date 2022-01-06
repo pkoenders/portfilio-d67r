@@ -143,6 +143,8 @@ const HeroImage = styled.section.attrs({
           padding: ${({ theme }) => theme.padding['1/2']}};
         }
         h1 {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
           hyphens: auto;
         }
 
