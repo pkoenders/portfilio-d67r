@@ -879,7 +879,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           aria-pressed="false"
           aria-haspopup="true"
         >
-          <span className="hamburger-label"> {i18n[currentLang].menu}</span>
+          {/* <span className="hamburger-label"> {i18n[currentLang].menu}</span> */}
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>
           </span>
