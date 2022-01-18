@@ -130,7 +130,10 @@ const Highlight = styled.section`
       > div {
         border-radius: 999rem;
         box-shadow: ${({ theme }) => theme.boxShadow.outlineRight};
+        width: auto;
+
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
+          margin: 0 ${({ theme }) => theme.margin['4xl']};
           margin-bottom: ${({ theme }) => theme.margin['1/2']};
         }
       }
