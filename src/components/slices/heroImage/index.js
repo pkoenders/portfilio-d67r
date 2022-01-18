@@ -142,6 +142,7 @@ const HeroImage = styled.section.attrs({
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
           padding: ${({ theme }) => theme.padding['1/2']}};
         }
+        
 
         span * {
           margin: 0;
@@ -149,12 +150,13 @@ const HeroImage = styled.section.attrs({
         span {
           display: grid;
           grid-gap: ${({ theme }) => theme.padding['1/2']};
-
+          
           h1 {
             overflow-wrap: break-word;
             word-wrap: break-word;
             hyphens: auto;
           }
+
           p {
             color: inherit;
             width: 100%;
@@ -261,9 +263,11 @@ const HeroImg = ({ slice }) => {
     function setHeroImageStyles() {
       contentHeight = contentHeight + 32 * 2 // Allow for top and bottom margins
       var heroImageInner = document.querySelector('.heroImage')
-      heroImageInner.setAttribute(
-        `style`,
-        `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
+
+      if (heroImageInner) {
+        heroImageInner.setAttribute(
+          `style`,
+          `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
         min-height: ${sectionHeight};
         height: ${contentHeight}px;
         width: 100%; 
@@ -271,9 +275,11 @@ const HeroImg = ({ slice }) => {
         margin-top: ${vMarginTop};
         margin-bottom: ${vMarginBottom}
         `
-      )
+        )
+      }
     }
     // Done
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slice, sectionHeight, alignBGround, vMarginTop, vMarginBottom])
 
   //
@@ -290,6 +296,8 @@ const HeroImg = ({ slice }) => {
 
     // Convert background color to #hex
     contentBgColor = getRgb2Hex(contentBgColor)
+
+    // contentBgColor = getRgb2Hex(contentBgColor)
 
     // If spcecified color - set to the styled color else set the content bground color
     if (bgroundColor === null || bgroundColor === 'transparent') {
