@@ -36,8 +36,11 @@ const BtnWrapper = styled.span`
     text-align: center;
     text-transform: uppercase;
     text-decoration: none !important;
-    font-weight: 600;
-    font-family: inherit;
+
+    /* font-family: inherit; */
+    font-family: ${({ theme }) => theme.font.sans};
+    font-weight: 400;
+    /* font-variation-settings: 'GRAD' -200; */
     line-height: initial;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
     color: #ffffff;
@@ -60,6 +63,9 @@ const BtnWrapper = styled.span`
   }
   .btn:hover {
     box-shadow: ${({ theme }) => theme.boxShadow.lg};
+    font-variation-settings: 'GRAD' 150;
+    /* font-weight: 900; */
+    /* font-variation-settings: 'GRAD' ${({ theme }) => theme.fontGrad.black}; */
   }
 
   .btn.accent {
@@ -72,7 +78,7 @@ const BtnWrapper = styled.span`
 
   .btn.primary {
     color: ${({ theme }) => theme.colors.header.default};
-    font-weight: 400;
+    //font-weight: 400;
     background-color: ${({ theme }) => theme.colors.primary[200]};
     border: 1px solid ${({ theme }) => theme.colors.primary[600]};
     i {

@@ -223,7 +223,8 @@ export const defaultTheme = {
 
   font: {
     // sans: 'Roboto, sans-serif',
-    sans: '"Open Sans", sans-serif',
+    // sans: '"Open Sans", sans-serif',
+    sans: '"Roboto Flex"',
     slab: 'Rokkitt, serif',
     headers: 'Bitter, serif',
     mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
@@ -289,6 +290,18 @@ export const defaultTheme = {
   fontWeight: {
     hairline: '100',
     thin: '200',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extrabold: '800',
+    black: '900',
+  },
+
+  fontGrad: {
+    hairline: '100',
+    heavy: '200',
     light: '300',
     normal: '400',
     medium: '500',

@@ -48,18 +48,30 @@ module.exports = {
             //   // strategy: 'cdn',
             // },
 
-            {
-              family: 'Open+Sans',
-              axes: 'wght@300;400;500;600',
-              // fontDisplay: 'swap',
-              // strategy: 'base64', // 'base64' || 'cdn'
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
+            // {
+            //   family: 'Open+Sans',
+            //   axes: 'wght@300;400;500;600',
+            //   // fontDisplay: 'swap',
+            //   // strategy: 'base64', // 'base64' || 'cdn'
+            //   strategy: 'base64',
+            //   // strategy: 'cdn',
+            // },
+
+            // {
+            //   family: 'Roboto+Flex',
+            //   // axes: 'wght@100..900',
+            //   // axes: 'opsz,GRAD@8..144,14',
+            //   axes: 'opsz,wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
+            //   // fontDisplay: 'swap',
+            //   // strategy: 'base64', // 'base64' || 'cdn'
+            //   strategy: 'base64',
+            //   // strategy: 'cdn',
+            // },
 
             {
               family: 'Bitter',
               axes: 'wght@400;500',
+
               // fontDisplay: 'swap',
               strategy: 'base64',
               // strategy: 'cdn',
