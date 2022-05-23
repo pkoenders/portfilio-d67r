@@ -50,6 +50,7 @@ const ApproachSection = styled.section`
         h4 {
           /* font-weight: 500;
           margin-bottom: 0.1em; */
+          margin-bottom: 0.2em;
         }
 
         /* p:first-of-type {

@@ -32,6 +32,27 @@ module.exports = {
         fonts: {
           google2: [
             {
+              family: `Roboto+Flex`,
+              axes: `wght@100..900`,
+              // axes: 'wght,GRAD@100,150;200,150;300,150;400,150;500,150;600,150;700,150;800,150;900,150',
+
+              // axes: 'wght@100..900',
+
+              // axes: 'opsz,wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
+
+              // axes: 'GRAD@8..144',
+
+              // axes: 'wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
+
+              //   // axes: 'opsz,GRAD@8..144,14',
+              //   axes: 'opsz,wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
+              fontDisplay: 'swap',
+              //   // strategy: 'base64', // 'base64' || 'cdn'
+              strategy: 'base64',
+              //   // strategy: 'cdn',
+            },
+
+            {
               family: `Material+Icons+Round`,
               text: `abcdefghijklmnopqrstuvwxyz_`,
               // fontDisplay: 'swap',
@@ -57,22 +78,11 @@ module.exports = {
             //   // strategy: 'cdn',
             // },
 
-            // {
-            //   family: 'Roboto+Flex',
-            //   // axes: 'wght@100..900',
-            //   // axes: 'opsz,GRAD@8..144,14',
-            //   axes: 'opsz,wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
-            //   // fontDisplay: 'swap',
-            //   // strategy: 'base64', // 'base64' || 'cdn'
-            //   strategy: 'base64',
-            //   // strategy: 'cdn',
-            // },
-
             {
               family: 'Bitter',
               axes: 'wght@400;500',
 
-              // fontDisplay: 'swap',
+              fontDisplay: 'swap',
               strategy: 'base64',
               // strategy: 'cdn',
             },
@@ -80,7 +90,7 @@ module.exports = {
             {
               family: 'Crimson+Pro',
               axes: 'wght@400;500',
-              // fontDisplay: 'swap',
+              fontDisplay: 'swap',
               strategy: 'base64',
               // strategy: 'cdn',
             },

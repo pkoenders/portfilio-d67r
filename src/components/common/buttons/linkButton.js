@@ -39,8 +39,10 @@ const BtnWrapper = styled.span`
 
     /* font-family: inherit; */
     font-family: ${({ theme }) => theme.font.sans};
-    font-weight: 400;
-    /* font-variation-settings: 'GRAD' -200; */
+    /* font-variation-settings: 'GRAD' 150; */
+    font-variation-settings: 'wght' 800, 'GRAD' 150;
+
+    /* font-weight: 400; */
     line-height: initial;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
     color: #ffffff;
@@ -50,7 +52,7 @@ const BtnWrapper = styled.span`
     box-sizing: border-box;
     box-shadow: ${({ theme }) => theme.boxShadow.md};
     /* transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1); */
-    transition: ${({ theme }) => theme.transition.linear.quick};
+    transition: ${({ theme }) => theme.transition.linear.slow};
 
     i {
       line-height: 0;
@@ -63,7 +65,10 @@ const BtnWrapper = styled.span`
   }
   .btn:hover {
     box-shadow: ${({ theme }) => theme.boxShadow.lg};
-    font-variation-settings: 'GRAD' 150;
+    /* font-variation-settings: 'GRAD' 150; */
+    font-weight: 600;
+    transition: ${({ theme }) => theme.transition.linear.slow};
+
     /* font-weight: 900; */
     /* font-variation-settings: 'GRAD' ${({ theme }) => theme.fontGrad.black}; */
   }

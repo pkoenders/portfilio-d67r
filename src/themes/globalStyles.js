@@ -25,8 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: auto; */
     scroll-behavior: initial;
     font-family: ${({ theme }) => theme.font.sans};
-    font-size: 100%; /*16px*/
-    font-variation-settings: 'GRAD' 150;
+    //font-size: 100%; /*16px*/
+    font-size: 106.3%; /*17px*/
+    // font-size: 112.5%; /*18px*/
+    /* font-variation-settings: 'GRAD' 150; */
     /* font-variation-settings: 'opsz' 8; */
     color: ${({ theme }) => theme.colors.page.default};
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -125,6 +127,8 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: underline;
     overflow-wrap: break-word;
     word-wrap: break-word;
+        font-variation-settings: 'wght' 800, 'GRAD' 150;
+
     /* hyphens: auto; */
   }
 
@@ -272,7 +276,11 @@ export const GlobalStyles = createGlobalStyle`
   p {
     font-family: ${({ theme }) => theme.font.sans};
     margin-bottom: ${({ theme }) => theme.spacing['3']};
-   
+    font-variation-settings: 'wght' 900, 'GRAD' 150;
+
+       /* font-variation-settings: 'wght' 900; */
+      /* font-weight: 900; */
+
     em {
       font-style: italic;
     }
