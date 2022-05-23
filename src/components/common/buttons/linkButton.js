@@ -67,7 +67,7 @@ const BtnWrapper = styled.span`
     box-shadow: ${({ theme }) => theme.boxShadow.lg};
     /* font-variation-settings: 'GRAD' 150; */
     font-weight: 600;
-    transition: ${({ theme }) => theme.transition.linear.slow};
+    transition: ${({ theme }) => theme.transition.linear.quick};
 
     /* font-weight: 900; */
     /* font-variation-settings: 'GRAD' ${({ theme }) => theme.fontGrad.black}; */
