@@ -83,9 +83,11 @@ const Styleguide = () => {
       )
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
     }
   }, [fixTabbedNav, contentOffset])
 
@@ -103,6 +105,7 @@ const Styleguide = () => {
             { id: 'spacing', name: 'Spacing' },
           ]}
         />
+
         <ScrollSpy offsetTop={300} offsetBottom={300}>
           <Intro spyID={'intro'} />
           <Typography spyID={'typography'} />
