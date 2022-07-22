@@ -73,6 +73,7 @@
     "styled-reset": "^4.3.4"
   },
   "devDependencies": {
+    "netlify-plugin-submit-sitemap": "^0.4.0",
     "resolve-url-loader": "^4.0.0"
   }
 }
