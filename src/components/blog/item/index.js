@@ -19,14 +19,16 @@ const BlogPost = ({ currentLang, itemData }) => {
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
     <PageLayout classOverides="sm withSecondaryNav">
-      <PageHeader>
-        <div className="intro">{title && <h1>{title}</h1>}</div>
-      </PageHeader>
+      <div>
+        <PageHeader>
+          <div className="intro">{title && <h1>{title}</h1>}</div>
+        </PageHeader>
 
-      <PageBody className="content">
-        {date && <time>{date}</time>}
-        <SliceZone currentLang={currentLang} sliceZone={itemData.data.body} />
-      </PageBody>
+        <PageBody className="content">
+          {date && <time>{date}</time>}
+          <SliceZone currentLang={currentLang} sliceZone={itemData.data.body} />
+        </PageBody>
+      </div>
     </PageLayout>
   )
 }

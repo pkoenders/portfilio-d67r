@@ -34,15 +34,14 @@ const BtnWrapper = styled.span`
     padding: 16px ${({ theme }) => theme.padding.default};
     padding: 12px 24px;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-decoration: none !important;
 
     /* font-family: inherit; */
     font-family: ${({ theme }) => theme.font.sans};
-    /* font-variation-settings: 'GRAD' 150; */
-    font-variation-settings: 'wght' 800, 'GRAD' 150;
-
-    /* font-weight: 400; */
+    font-size: 18px;
+    font-variation-settings: 'GRAD' 0;
+    font-weight: 500;
     line-height: initial;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
     color: #ffffff;
@@ -54,6 +53,14 @@ const BtnWrapper = styled.span`
     /* transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1); */
     transition: ${({ theme }) => theme.transition.linear.slow};
 
+    &:hover,
+    &:focus {
+      box-shadow: ${({ theme }) => theme.boxShadow.lg};
+      transition: ${({ theme }) => theme.transition.linear.quick};
+      font-variation-settings: 'GRAD' 150 !important;
+      transition: ${({ theme }) => theme.transition.linear.slow};
+    }
+
     i {
       line-height: 0;
       color: inherit;
@@ -62,15 +69,6 @@ const BtnWrapper = styled.span`
 
   .btn.right {
     flex-direction: row-reverse;
-  }
-  .btn:hover {
-    box-shadow: ${({ theme }) => theme.boxShadow.lg};
-    /* font-variation-settings: 'GRAD' 150; */
-    font-weight: 600;
-    transition: ${({ theme }) => theme.transition.linear.quick};
-
-    /* font-weight: 900; */
-    /* font-variation-settings: 'GRAD' ${({ theme }) => theme.fontGrad.black}; */
   }
 
   .btn.accent {
@@ -83,9 +81,8 @@ const BtnWrapper = styled.span`
 
   .btn.primary {
     color: ${({ theme }) => theme.colors.header.default};
-    //font-weight: 400;
     background-color: ${({ theme }) => theme.colors.primary[200]};
-    border: 1px solid ${({ theme }) => theme.colors.primary[600]};
+    border: 1px solid ${({ theme }) => theme.colors.primary[700]};
     i {
       color: inherit;
     }

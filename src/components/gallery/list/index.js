@@ -284,69 +284,70 @@ const GalleryList = ({ currentLang, pageIntro, dataList }) => {
           pageIntro.show_sorting || pageIntro.show_input === true ? 'paddingTopInital' : ''
         }`}
       >
-        {/* Set the list style */}
-        <ListStyleWrapper>
-          <div>
-            <SearchTitle
-              filteredData={filteredData}
-              queryValue={queryValue}
-              queryLength={queryLength}
-            />
-          </div>
-
-          <div>
-            {pageIntro.show_sorting === true && (
-              <SortList
-                currentLang={currentLang}
-                sortItemClick={sortItemClick}
-                // setWidth={pageIntro.show_input}
-                // Pass the 'Sort by' properties. First being the default. Will display Asc order
-                items={[
-                  {
-                    title: `${i18n[currentLang].sortByDate}`,
-                    nodePath: 'item.document.data.creation_date',
-                  },
-
-                  {
-                    title: `${i18n[currentLang].sortByTitle}`,
-                    nodePath: 'item.document.data.title.text',
-                  },
-                  {
-                    title: `Description`,
-                    nodePath: 'item.document.data.intro',
-                  },
-                  // { title: 'URL', nodePath: 'link.document.data.web_address.url' },
-                ]}
-                sortAscDescClick={sortAscDescClick}
-              />
-            )}
-            {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
-              <BtnListAscDesc sortAscDescClick={sortAscDescClick} />
-            )}
-
-            {pageIntro.show_grid_layout === true && (
-              <>
-                <BtnListStyle
-                  ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
-                  itemID="list"
-                  ariaLabel={'View by list'}
-                  buttonIcon={'list'}
-                  updateLayoutStlye={updateLayoutStlye}
-                />
-
-                <BtnListStyle
-                  ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
-                  itemID="grid"
-                  ariaLabel={'View by grid'}
-                  buttonIcon={'grid_view'}
-                  updateLayoutStlye={updateLayoutStlye}
-                />
-              </>
-            )}
-          </div>
-        </ListStyleWrapper>
-
         <ListWrapper>
+          {/* Set the filter / list style */}
+
+          <ListStyleWrapper>
+            <div>
+              <SearchTitle
+                filteredData={filteredData}
+                queryValue={queryValue}
+                queryLength={queryLength}
+              />
+            </div>
+
+            <div>
+              {pageIntro.show_sorting === true && (
+                <SortList
+                  currentLang={currentLang}
+                  sortItemClick={sortItemClick}
+                  // setWidth={pageIntro.show_input}
+                  // Pass the 'Sort by' properties. First being the default. Will display Asc order
+                  items={[
+                    {
+                      title: `${i18n[currentLang].sortByDate}`,
+                      nodePath: 'item.document.data.creation_date',
+                    },
+
+                    {
+                      title: `${i18n[currentLang].sortByTitle}`,
+                      nodePath: 'item.document.data.title.text',
+                    },
+                    {
+                      title: `Description`,
+                      nodePath: 'item.document.data.intro',
+                    },
+                    // { title: 'URL', nodePath: 'link.document.data.web_address.url' },
+                  ]}
+                  sortAscDescClick={sortAscDescClick}
+                />
+              )}
+              {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
+                <BtnListAscDesc sortAscDescClick={sortAscDescClick} />
+              )}
+
+              {pageIntro.show_grid_layout === true && (
+                <>
+                  <BtnListStyle
+                    ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
+                    itemID="list"
+                    ariaLabel={'View by list'}
+                    buttonIcon={'list'}
+                    updateLayoutStlye={updateLayoutStlye}
+                  />
+
+                  <BtnListStyle
+                    ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
+                    itemID="grid"
+                    ariaLabel={'View by grid'}
+                    buttonIcon={'grid_view'}
+                    updateLayoutStlye={updateLayoutStlye}
+                  />
+                </>
+              )}
+            </div>
+          </ListStyleWrapper>
+
           {allPosts.length > 0 ? (
             <SimpleReactLightbox>
               <SRLWrapper options={options}>

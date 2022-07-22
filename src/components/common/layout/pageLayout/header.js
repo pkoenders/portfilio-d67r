@@ -5,6 +5,7 @@ const PageHeader = styled.header`
   position: relative;
   width: 100%;
   grid-gap: ${({ theme }) => theme.padding.default};
+  padding: ${({ theme }) => theme.padding.default} 0;
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
     grid-gap: ${({ theme }) => theme.padding['1/2']};

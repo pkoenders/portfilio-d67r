@@ -1,57 +1,73 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Page = styled.div`
+const Section = styled.div`
   // Section - For other templates that are not Homepage and General page
-  display: block;
   display: flex;
   flex-direction: column;
-  grid-gap: ${({ theme }) => theme.padding['1/2']};
-  margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding['2xl']};
-  max-width: ${({ theme }) => theme.screens.xl};
-  width: 100%;
+  /* margin-top: ${({ theme }) => theme.header.height}; */
+  padding: 0 0 ${({ theme }) => theme.padding['2xl']};
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    padding: ${({ theme }) => theme.padding['1/2']} !important;
+    /* padding: ${({ theme }) => theme.padding['1/8']} !important; */
   }
 
   &.withSecondaryNav {
-    margin-top: ${({ theme }) => theme.header.withSecondaryNav.height};
-    padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']}
-      ${({ theme }) => theme.padding['2xl']};
+    margin-top: 124px;
   }
 
-  /* &.list {
-    grid-gap: 0;
-  } */
+  > div,
+  > nav,
+  > article {
+    max-width: ${({ theme }) => theme.screens.xl};
+    margin: 0px auto;
+    padding: 0 ${({ theme }) => theme.padding['1/2']};
+  }
 
-  &.xs {
+  &.xs > div,
+  &.xs > nav,
+  &.xs > article {
     max-width: ${({ theme }) => theme.screens.xs};
   }
-  &.sm {
+  &.sm > div,
+  &.sm > nav,
+  &.sm > article {
     max-width: ${({ theme }) => theme.screens.sm};
   }
-  &.md {
+  &.md > div,
+  &.md > nav,
+  &.md > article {
     max-width: ${({ theme }) => theme.screens.md};
   }
-  &.lg {
+  &.lg > div,
+  &.lg > nav,
+  &.lg > article {
     max-width: ${({ theme }) => theme.screens.lg};
   }
-  &.xl {
+  &.xl > div,
+  &.xl > nav,
+  &.xl > article {
     max-width: ${({ theme }) => theme.screens.xl};
   }
-  &.xxl {
+  &.xxl > div,
+  &.xxl > nav,
+  &.xxl > article {
     max-width: ${({ theme }) => theme.screens.xxl};
   }
-  &.full {
+  &.full > div,
+  &.full > nav,
+  &.full > article {
     max-width: ${({ theme }) => theme.screens.full};
     padding: 0;
   }
 `
 
-const PageLayout = ({ children, classOverides }) => {
-  return <Page className={classOverides}>{children}</Page>
+const PageLayout = ({ children, classOverides, marginTop, paddingTop }) => {
+  return (
+    <Section className={classOverides} style={{ marginTop: marginTop, paddingTop: paddingTop }}>
+      {children}
+    </Section>
+  )
 }
 
 export default PageLayout

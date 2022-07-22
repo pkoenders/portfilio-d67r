@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 const ListStyleWrapper = styled.div`
   position: relative;
+  z-index: 100000;
+
   display: flex;
   min-width: 100%;
   flex-direction: row;
