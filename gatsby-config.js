@@ -240,6 +240,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     // 'gatsby-plugin-advanced-sitemap',
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
 
     {
       resolve: `gatsby-plugin-google-gtag`,
