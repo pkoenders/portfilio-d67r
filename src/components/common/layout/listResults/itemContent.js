@@ -400,9 +400,9 @@ const ItemContent = styled.article`
       min-width: 128px;
       max-width: 128px;
       height: 128px;
-
+      z-index: 0;
       aspect-ratio: 1;
-      border-radius: 100%;
+      border-radius: 999rem;
       /* border: 2px solid ${({ theme }) => theme.colors.secondary[400]}; */
       border: 1px solid ${({ theme }) => theme.colors.card[400]};
       margin: ${({ theme }) => theme.margin.default};

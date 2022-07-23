@@ -128,6 +128,7 @@ const Highlight = styled.section`
 
     .imageWrapper.attention {
       > div {
+        z-index: 0;
         border-radius: 999rem;
         box-shadow: ${({ theme }) => theme.boxShadow.outlineRight};
         width: auto;
