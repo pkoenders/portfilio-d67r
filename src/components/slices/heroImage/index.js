@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
-// Helpers
-import { getImage } from 'gatsby-plugin-image'
+//Helpers
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
 import linkResolver from '../../../utils/linkResolver'
@@ -139,18 +139,41 @@ const HeroImage = styled.section.attrs({
         overflow-wrap: break-word;
         word-wrap: break-word;
         hyphens: none;
+
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
           padding: ${({ theme }) => theme.padding['1/2']}};
         }
         
+       
 
         span * {
           margin: 0;
         }
+
+        span.hide {
+          display:none;
+        }
         span {
           display: grid;
           grid-gap: ${({ theme }) => theme.padding['1/2']};
+           
+          .leadImage {
+            display: flex;
+            max-width: fit-content;
+           /* min-width:auto !important; */
+           object-fit: contain !important;
+            margin: ${({ theme }) => theme.padding['1/2']} auto 0 auto;
+            > div {
+               max-width: 100% !important;
+               /* max-width:auto !important */
+            }
+            img {
+               object-fit: contain !important;
+            }
+          }
           
+
+
           h1 {
             overflow-wrap: break-word;
             word-wrap: break-word;
@@ -186,8 +209,19 @@ const HeroImage = styled.section.attrs({
 `
 
 const HeroImg = ({ slice }) => {
+  // Get leading image
+  const leadImage = slice.primary.leading_image.gatsbyImageData
+  const leadImage_alt = slice.primary.leading_image.alt
+  var leadImageHeight = slice.primary.leading_image_height
+
+  if (leadImageHeight === null) {
+    leadImageHeight = 64 + 'px'
+  } else {
+    leadImageHeight = leadImageHeight + 'px'
+  }
+
   // Get the image
-  const image = getImage(slice.primary.image.gatsbyImageData)
+  const image = slice.primary.image.gatsbyImageData
   const bgImage = convertToBgImage(image)
 
   // Container width
@@ -320,6 +354,7 @@ const HeroImg = ({ slice }) => {
 
   // Validate title
   const title = validateString(slice.primary.title.richText)
+  const titleColor = validateString(slice.primary.title_color)
 
   // Validate description
   const description = validateString(slice.primary.description.richText)
@@ -357,9 +392,27 @@ const HeroImg = ({ slice }) => {
           className={'contentWrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
         >
           <div className={'content ' + `${slice.primary.align_content}`.toLowerCase()}>
-            {(title || description) && (
+            {(title || description || leadImage) && (
               <span>
-                {title && title[0].text.length > 0 && <RichText render={title} />}
+                {leadImage && (
+                  <GatsbyImage
+                    className="leadImage"
+                    image={leadImage}
+                    alt={leadImage_alt ? leadImage_alt : 'Placeholder image'}
+                    style={{
+                      height: leadImageHeight,
+                    }}
+                  />
+                )}
+
+                {title && title[0].text.length > 0 && (
+                  <span
+                    className={slice.primary.display_title === false && 'hide'}
+                    style={{ color: titleColor !== null && titleColor }}
+                  >
+                    <RichText render={title} />
+                  </span>
+                )}
                 {description && description[0].text.length > 0 && (
                   <RichText render={description} linkResolver={linkResolver} />
                 )}
