@@ -333,6 +333,8 @@ const StyleSection = ({ spyID }) => {
           good example of this issue
           <br />
           <span className="gillSans largeParaText x48">I 1 l</span>
+          <br />
+          <span className="largeParaText x48">I 1 l</span>
         </p>
         <p>
           To avoid this problem choose a typeface or font with distinct features on both the top
