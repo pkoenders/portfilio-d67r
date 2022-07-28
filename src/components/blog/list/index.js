@@ -265,54 +265,56 @@ const BlogList = ({ currentLang, pageIntro, dataList }) => {
               />
             </div>
 
-            <div>
-              {pageIntro.show_sorting === true && (
-                <SortList
-                  currentLang={currentLang}
-                  sortItemClick={sortItemClick}
-                  items={[
-                    {
-                      title: `${i18n[currentLang].sortByDate}`,
-                      nodePath: 'item.document.data.creation_date',
-                    },
+            {allPosts.length > 0 && (
+              <div>
+                {pageIntro.show_sorting === true && (
+                  <SortList
+                    currentLang={currentLang}
+                    sortItemClick={sortItemClick}
+                    items={[
+                      {
+                        title: `${i18n[currentLang].sortByDate}`,
+                        nodePath: 'item.document.data.creation_date',
+                      },
 
-                    {
-                      title: `${i18n[currentLang].sortByTitle}`,
-                      nodePath: 'item.document.data.title.text',
-                    },
-                    {
-                      title: `Description`,
-                      nodePath: 'item.document.data.intro',
-                    },
-                    // { title: 'URL', nodePath: 'link.document.data.web_address.url' },
-                  ]}
-                  sortAscDescClick={sortAscDescClick}
-                />
-              )}
-              {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
-                <BtnListAscDesc sortAscDescClick={sortAscDescClick} />
-              )}
-
-              {pageIntro.show_grid_layout === true && (
-                <>
-                  <BtnListStyle
-                    ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
-                    itemID="list"
-                    ariaLabel={'View by list'}
-                    buttonIcon={'list'}
-                    updateLayoutStlye={updateLayoutStlye}
+                      {
+                        title: `${i18n[currentLang].sortByTitle}`,
+                        nodePath: 'item.document.data.title.text',
+                      },
+                      {
+                        title: `Description`,
+                        nodePath: 'item.document.data.intro',
+                      },
+                      // { title: 'URL', nodePath: 'link.document.data.web_address.url' },
+                    ]}
+                    sortAscDescClick={sortAscDescClick}
                   />
+                )}
+                {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
+                  <BtnListAscDesc sortAscDescClick={sortAscDescClick} />
+                )}
 
-                  <BtnListStyle
-                    ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
-                    itemID="grid"
-                    ariaLabel={'View by grid'}
-                    buttonIcon={'grid_view'}
-                    updateLayoutStlye={updateLayoutStlye}
-                  />
-                </>
-              )}
-            </div>
+                {pageIntro.show_grid_layout === true && (
+                  <>
+                    <BtnListStyle
+                      ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
+                      itemID="list"
+                      ariaLabel={'View by list'}
+                      buttonIcon={'list'}
+                      updateLayoutStlye={updateLayoutStlye}
+                    />
+
+                    <BtnListStyle
+                      ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
+                      itemID="grid"
+                      ariaLabel={'View by grid'}
+                      buttonIcon={'grid_view'}
+                      updateLayoutStlye={updateLayoutStlye}
+                    />
+                  </>
+                )}
+              </div>
+            )}
           </ListStyleWrapper>
 
           {allPosts.length > 0 ? (
