@@ -176,12 +176,12 @@ const StyleSection = ({ spyID }) => {
           <a href="https://maketintsandshades.com">https://maketintsandshades.com</a>
         </p>
         <p>
-          Use the{' '}
+          If using Figma, the{' '}
           <a href="https://www.figma.com/community/plugin/732603254453395948/Stark">
             https://www.figma.com/community/plugin/732603254453395948/Stark
           </a>{' '}
-          plugin you installed (See Getting Started page) to see if your colour combinations meets
-          w3c requirements.
+          plugin is a helpful tool to check{' '}
+          <a href="https://webaim.org/resources/contrastchecker/">W3C colour requirements</a>.
         </p>
         <h3>Get to know the colour wheel</h3>
         <p>
