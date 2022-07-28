@@ -294,7 +294,7 @@ const StyleSection = ({ spyID }) => {
           <div className="colourPsychology orange">
             <p>Orange</p>
             <ul>
-              <li>Confience</li>
+              <li>Confidence</li>
               <li>Success</li>
               <li>Bravery</li>
               <li>Sociability</li>
