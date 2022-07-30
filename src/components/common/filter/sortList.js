@@ -921,7 +921,7 @@ const Sort = ({
           className="sortBox hidden"
         >
           {items.map((node, i) => (
-            <li // eslint-disable-line jsx-a11y/no-static-element-interactions   ff
+            <li // eslint-disable-line jsx-a11y/no-static-element-interactions
               id={'list-item'[i]}
               role="option"
               aria-selected="false"
