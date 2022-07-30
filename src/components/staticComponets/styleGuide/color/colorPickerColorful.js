@@ -23,6 +23,9 @@ const ColorPicker = styled.div`
       div {
         border-radius: 0;
       }
+      .react-colorful__pointer {
+        border: 2px solid #fff !important;
+      }
     }
     .bgroundColor {
       display: flex;
