@@ -78,7 +78,7 @@ const ColorPicker = styled.div`
   }
 `
 
-const ColorPickerHex = ({}) => {
+const ColorPickerHex = () => {
   const theme = useTheme()
 
   var compareColor = theme.colors.primary.default
@@ -119,6 +119,8 @@ const ColorPickerHex = ({}) => {
 
         <div
           className="bgroundColor"
+          role="button"
+          tabIndex="-1"
           onMouseEnter={ResetCopyIcon}
           style={{ backgroundColor: color }}
         >

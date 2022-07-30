@@ -149,7 +149,8 @@ const Sort = ({
      * @namespace aria
      */
 
-    var aria = aria || {}
+    // var aria = aria || {}
+    var aria = {}
 
     /**
      * @constructor
@@ -888,7 +889,6 @@ const Sort = ({
     function updateSortOrder(focusedItem) {
       sortItemClick(focusedItem)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -913,15 +913,15 @@ const Sort = ({
           <IconMaterial icon={'expand_more'} />
         </button>
 
-        <ul
+        <ul // eslint-disable-line jsx-a11y/no-static-element-interactions
           id="list_box"
-          tabIndex="-1"
           role="listbox"
+          tabindex="0"
           aria-labelledby="list_elem"
           className="sortBox hidden"
         >
           {items.map((node, i) => (
-            <li
+            <li // eslint-disable-line jsx-a11y/no-static-element-interactions
               id={'list-item'[i]}
               role="option"
               aria-selected="false"
