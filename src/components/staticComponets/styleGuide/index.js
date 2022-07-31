@@ -106,6 +106,8 @@ const Styleguide = () => {
           ]}
         />
 
+        {/* if (typeof window !== 'undefined') { */}
+
         {typeof window !== 'undefined' && (
           <ScrollSpy offsetTop={300} offsetBottom={300}>
             <Intro spyID={'intro'} />

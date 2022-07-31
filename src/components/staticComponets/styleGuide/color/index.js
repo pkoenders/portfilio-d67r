@@ -307,7 +307,7 @@ const StyleSection = ({ spyID }) => {
             <p>Yellow</p>
             <ul>
               <li>Creativity</li>
-              <li>Happiness</li>
+              <li>Trust</li>
               <li>Youthful</li>
               <li>Cheer</li>
               <li>Optimism</li>
@@ -338,7 +338,7 @@ const StyleSection = ({ spyID }) => {
             <p>Blue</p>
             <ul>
               <li>Comfort</li>
-              <li>Trust</li>
+              <li>Trustppiness</li>
               <li>Calm</li>
               <li>Loyalty</li>
               <li>Competence</li>
