@@ -6,10 +6,10 @@ import { validateString } from '/src/utils/helpers'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 // Layout
-import Layout from '../components/layout'
+import Layout from '/src/components/layout'
 import SeoZone from '/src/components/slices/seoZone'
-import BlogPost from '../components/blog/item'
-import SecondaryNav from '../components/common/secondaryNav'
+import BlogPost from '/src/components/blog/item'
+import SecondaryNav from '/src/components/common/secondaryNav'
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   if (!data) return null

@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import Header from './common/header/index'
-import Footer from './common/footer'
-import i18n from '../../config/i18n'
+import Header from '/src/components/common/header'
+import Footer from '/src/components/common/footer'
+import i18n from '/config/i18n'
 
 import styled from 'styled-components'
 

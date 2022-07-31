@@ -6,7 +6,7 @@ import Bground404 from '/src/components/common/404/404-bground'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 import HomeTemplate from './index'
-import PageTemplate from '../templates/generalPage'
+import PageTemplate from '/src/templates/generalPage'
 import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
