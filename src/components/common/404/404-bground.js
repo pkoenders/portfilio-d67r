@@ -2,7 +2,21 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImageWrapper from 'gatsby-background-image'
+
+import styled from 'styled-components'
+
+const BackgroundImage = styled.div`
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  z-index: -1;
+`
 
 const BackgroundSection = () => {
   const { placeholderImage } = useStaticQuery(
@@ -11,7 +25,7 @@ const BackgroundSection = () => {
         placeholderImage: file(relativePath: { eq: "images/zoe2.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              quality: 33
+              quality: 75
               layout: FULL_WIDTH
               transformOptions: {
                 fit: COVER
@@ -32,7 +46,7 @@ const BackgroundSection = () => {
   const bgImage = convertToBgImage(image)
 
   return (
-    <BackgroundImage
+    <BackgroundImageWrapper
       Tag="section"
       // Spread bgImage into BackgroundImage:
       {...bgImage}
@@ -44,28 +58,12 @@ const BackgroundSection = () => {
         bottom: 0,
         left: 0,
         right: 0,
-        // backgroundColor: '#000',
-        // opacity: '.3',
-
-        // zIndex: '-1',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          flexGrow: '1',
-          // height: '100vh',
-          width: '100%',
-          // zIndex: '-1',
-          position: 'absolute',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          top: 0,
-        }}
-      >
+      <BackgroundImage>
         <GatsbyImage image={image} />
-      </div>
-    </BackgroundImage>
+      </BackgroundImage>
+    </BackgroundImageWrapper>
   )
 }
 
