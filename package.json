@@ -22,7 +22,7 @@
     "chart.js": "^3.5.1",
     "dateformat": "^4.5.1",
     "final-form": "^4.20.7",
-    "gatsby": "^4.4.0",
+    "gatsby": "^4.19.2",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-gatsby-cloud": "^4.19.0",
     "gatsby-plugin-google-gtag": "^4.19.0",
