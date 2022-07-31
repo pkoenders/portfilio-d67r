@@ -11,7 +11,7 @@ const BackgroundSection = () => {
         placeholderImage: file(relativePath: { eq: "images/zoe2.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              quality: 50
+              quality: 33
               layout: FULL_WIDTH
               transformOptions: {
                 fit: COVER
