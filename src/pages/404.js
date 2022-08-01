@@ -60,7 +60,7 @@ const NotFoundPage = ({ data }) => {
         <NotFound>
           <span>
             <h1>Oh purr-leaze!</h1>
-            <p>It appears that Zoe has hidden this page.</p>
+            <p>404 error. It appears that Zoe has hidden this page.</p>
             <Button
               buttonLabel={'Take me home'}
               buttonType={'Static'}
