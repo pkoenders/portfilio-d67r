@@ -37,6 +37,7 @@ const NotFound = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: ${({ theme }) => theme.padding.default} 0;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
     h1,
     p {
