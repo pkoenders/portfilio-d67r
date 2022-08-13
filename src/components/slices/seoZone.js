@@ -20,14 +20,7 @@ const SeoZone = ({ currentLang, seoZone }) => {
       return null
     })
 
-    return (
-      <>
-        <Helmet>
-          <html lang={currentLang} />
-        </Helmet>
-        {sliceZoneContent}
-      </>
-    )
+    return <>{sliceZoneContent}</>
   }
 }
 
