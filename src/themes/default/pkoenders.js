@@ -43,7 +43,7 @@ export const defaultTheme = {
       1300: '#0e1215',
 
       bground: {
-        default: '#fcfcfc',
+        default: '#fefefe',
       },
     },
 
