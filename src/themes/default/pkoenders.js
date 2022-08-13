@@ -239,7 +239,7 @@ export const defaultTheme = {
     // sans: '"Open Sans", sans-serif',
     sans: '"Roboto Flex"',
     serif: 'Merriweather, serif',
-    slab: 'Rokkitt, serif',
+    // slab: 'Rokkitt, serif',
     headers: 'Bitter, serif',
     mono: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },

@@ -4,95 +4,76 @@ import styled from 'styled-components'
 
 const MaterialIcon = styled.i`
   /* Matrial icons. */
-  display: flex;
-
-  justify-content: center;
-  text-align: center;
-  align-items: center;
 
   /* Matrial icons. */
-  .material-icons.md-18,
-  .material-icons-outlined.md-18,
-  .material-icons-round.md-18,
-  .material-icons-sharp.md-18 {
+  .material-symbols.md-18,
+  .material-symbols-outlined.md-18,
+  .material-symbols-round.md-18,
+  .material-symbols-sharp.md-18 {
     font-size: 18px;
   }
 
-  .material-icons.md-24,
-  .material-icons-outlined.md-24,
-  .material-icons-round.md-24,
-  .material-icons-sharp.md-24 {
+  .material-symbols.md-24,
+  .material-symbols-outlined.md-24,
+  .material-symbols-round.md-24,
+  .material-symbols-sharp.md-24 {
     font-size: 24px;
   }
 
-  .material-icons.md-36,
-  .material-icons-outlined.md-36,
-  .material-icons-round.md-36,
-  .material-icons-sharp.md-36 {
+  .material-symbols.md-36,
+  .material-symbols-outlined.md-36,
+  .material-symbols-round.md-36,
+  .material-symbols-sharp.md-36 {
     font-size: 36px;
   }
 
-  .material-icons.md-48,
-  .material-icons-outlined.md-48,
-  .material-icons-round.md-48,
-  .material-icons-sharp.md-48 {
+  .material-symbols.md-48,
+  .material-symbols-outlined.md-48,
+  .material-symbols-round.md-48,
+  .material-symbols-sharp.md-48 {
     font-size: 48px;
   }
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+  display: flex;
+  align-items: center;
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
 `
 
 const MaterialIconButton = styled.button.attrs({
   type: 'button',
 })`
   /* Matrial icons. */
-  .material-icons.md-18,
-  .material-icons-outlined.md-18,
-  .material-icons-round.md-18,
-  .material-icons-sharp.md-18 {
+
+  .material-symbols.md-18,
+  .material-symbols-outlined.md-18,
+  .material-symbols-round.md-18,
+  .material-symbols-sharp.md-18 {
     font-size: 18px;
   }
 
-  .material-icons.md-24,
-  .material-icons-outlined.md-24,
-  .material-icons-round.md-24,
-  .material-icons-sharp.md-24 {
+  .material-symbols.md-24,
+  .material-symbols-outlined.md-24,
+  .material-symbols-round.md-24,
+  .material-symbols-sharp.md-24 {
     font-size: 24px;
   }
 
-  .material-icons.md-36,
-  .material-icons-outlined.md-36,
-  .material-icons-round.md-36,
-  .material-icons-sharp.md-36 {
+  .material-symbols.md-36,
+  .material-symbols-outlined.md-36,
+  .material-symbols-round.md-36,
+  .material-symbols-sharp.md-36 {
     font-size: 36px;
   }
 
-  .material-icons.md-48,
-  .material-icons-outlined.md-48,
-  .material-icons-round.md-48,
-  .material-icons-sharp.md-48 {
+  .material-symbols.md-48,
+  .material-symbols-outlined.md-48,
+  .material-symbols-round.md-48,
+  .material-symbols-sharp.md-48 {
     font-size: 48px;
   }
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+  display: flex;
+  align-items: center;
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
 `
 
 const Material = ({ icon, size, style, type, onClick, ariaLabel, ref, className }) => {
@@ -105,10 +86,10 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref, className 
     // style = '-outlined'
 
     // Rounded
-    style = '-round'
+    // style = '-round'
 
     // Sharp
-    // style = '-sharp'
+    style = '-sharp'
   }
 
   if (size === undefined) {
@@ -121,7 +102,7 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref, className 
     <>
       {type === undefined && ariaLabel === undefined && (
         <MaterialIcon
-          className={`material-icons${style} md-${size} ${className}`}
+          className={`material-symbols${style} md-${size} ${className}`}
           aria-hidden="true"
           ref={ref}
         >
@@ -131,7 +112,7 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref, className 
 
       {type === undefined && ariaLabel !== undefined && (
         <MaterialIcon
-          className={`material-icons${style} md-${size} ${className}`}
+          className={`material-symbols${style} md-${size} ${className}`}
           aria-label={ariaLabel}
           ref={ref}
         >
@@ -141,7 +122,7 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel, ref, className 
 
       {type === 'button' && (
         <MaterialIconButton
-          className={`material-icons${style} md-${size} ${className}`}
+          className={`material-symbols${style} md-${size} ${className}`}
           onClick={onClick}
           ref={ref}
         >

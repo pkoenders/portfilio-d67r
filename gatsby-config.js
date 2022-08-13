@@ -27,98 +27,6 @@ module.exports = {
     'gatsby-plugin-sass',
 
     {
-      resolve: `gatsby-plugin-webfonts`,
-      options: {
-        fonts: {
-          google2: [
-            {
-              family: `Roboto+Flex`,
-              axes: `wght@100..900`,
-              // axes: 'wght,GRAD@100,150;200,150;300,150;400,150;500,150;600,150;700,150;800,150;900,150',
-
-              // axes: 'wght@100..900',
-
-              // axes: 'opsz,wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
-
-              // axes: 'GRAD@8..144',
-
-              // axes: 'wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
-
-              //   // axes: 'opsz,GRAD@8..144,14',
-              //   axes: 'opsz,wght,GRAD@8..144,100,0;8..144,200,0;8..144,300,0;8..144,400,14;8..144,500,0;8..144,600,0;8..144,700,0;8..144,800,0;8..144,900,0',
-              fontDisplay: 'swap',
-              //   // strategy: 'base64', // 'base64' || 'cdn'
-              strategy: 'base64',
-              //   // strategy: 'cdn',
-            },
-
-            {
-              family: `Material+Icons+Round`,
-              text: `abcdefghijklmnopqrstuvwxyz_`,
-              // fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
-
-            // {
-            //   family: 'Roboto',
-            //   axes: 'wght@300;400;500;600',
-            //   // fontDisplay: 'swap',
-            //   // strategy: 'base64', // 'base64' || 'cdn'
-
-            //   // strategy: 'cdn',
-            // },
-
-            // {
-            //   family: 'Open+Sans',
-            //   axes: 'wght@300;400;500;600',
-            //   // fontDisplay: 'swap',
-            //   // strategy: 'base64', // 'base64' || 'cdn'
-            //   strategy: 'base64',
-            //   // strategy: 'cdn',
-            // },
-
-            {
-              family: 'Bitter',
-              axes: 'wght@400;500',
-
-              fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
-
-            {
-              family: 'Crimson+Pro',
-              axes: 'wght@400;500',
-              fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
-
-            {
-              family: 'Rokkitt',
-              axes: 'wght@300;500',
-              // fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
-
-            {
-              family: 'Merriweather',
-              axes: 'wght@400',
-              // fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
-          ],
-        },
-        // useMinify: true,
-        // usePreload: true,
-        // usePreconnect: true,
-      },
-    },
-
-    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
@@ -243,21 +151,10 @@ module.exports = {
     `gatsby-plugin-netlify`,
 
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          'G-V4GEV21FN2', // Google Analytics / GA
-        ],
-
-        // This object is used for configuration specific to this plugin
-        pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true,
-
-          // Avoids sending pageview hits from custom paths
-          exclude: ['/preview/**', '/do-not-track/me/too/'],
-        },
+        id: 'GTM-TNBTNLW',
+        includeInDevelopment: false,
       },
     },
 

@@ -37,17 +37,6 @@ const LayoutWrapper = styled.div`
         }
       }
     }
-
-    main:before {
-      content: '';
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      left: 0px;
-      height: 60px;
-      z-index: -1;
-      background-color: ${({ theme }) => theme.colors.header.default};
-    }
   }
 `
 const Layout = ({ children, currentLang, primaryNav }) => {

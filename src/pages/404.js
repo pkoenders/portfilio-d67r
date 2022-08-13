@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '/src/components/layout'
+import HTMLHeader from '/src/components/common/htmlheader/'
 import Bground404 from '/src/components/common/404/404-bground'
-
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
-
 import HomeTemplate from './index'
 import PageTemplate from '/src/templates/generalPage'
 import Button from '/src/components/common/buttons/linkButton'
@@ -56,6 +55,7 @@ const NotFoundPage = ({ data }) => {
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav}>
       <FillPageColor>
+        <HTMLHeader currentLang={currentLang} />
         <Bground404 />
         <NotFound>
           <span>

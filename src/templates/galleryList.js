@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '/src/components/layout'
+import HTMLHeader from '/src/components/common/htmlheader/'
 import SeoZone from '/src/components/slices/seoZone'
 import SliceZone from '/src/components/slices/sliceZone'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
@@ -17,7 +18,8 @@ const GalleryTemplate = ({ data }) => {
 
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav}>
-      <SeoZone currentLang={currentLang} seoZone={document.data.body1} />
+      <HTMLHeader currentLang={currentLang} />
+      <SeoZone seoZone={document.data.body1} />
       <SliceZone sliceZone={document.data.body} />
       <GalleryPageList currentLang={currentLang} pageIntro={pageIntro} dataList={dataList} />
     </Layout>

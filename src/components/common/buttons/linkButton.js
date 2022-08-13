@@ -2,7 +2,7 @@ import React from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
@@ -11,16 +11,13 @@ import styled from 'styled-components'
 
 const BtnWrapper = styled.span`
   display: flex;
-  margin: ${({ theme }) => theme.margin.default} auto 0 auto;
+  margin: ${({ theme }) => theme.margin['1/2']} auto 0 auto;
 
   .btn:focus {
     outline: none;
   }
 
   .btn {
-    @media print {
-      display: none;
-    }
     display: flex;
     flex-direction: row;
     align-self: center;
@@ -31,18 +28,16 @@ const BtnWrapper = styled.span`
     width: fit-content;
     white-space: nowrap;
     margin: 0 auto;
+    /* margin: ${({ theme }) => theme.margin['1/2']} auto 0 auto; */
     padding: 16px ${({ theme }) => theme.padding.default};
     padding: 12px 24px;
     text-align: center;
     /* text-transform: uppercase; */
     text-decoration: none !important;
-
-    /* font-family: inherit; */
-    font-family: ${({ theme }) => theme.font.sans};
-    font-size: 18px;
-    font-variation-settings: 'GRAD' 0;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: inherit;
     line-height: initial;
+
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
     color: #ffffff;
     background-color: ${({ theme }) => theme.colors.primary.default};
@@ -51,44 +46,41 @@ const BtnWrapper = styled.span`
     box-sizing: border-box;
     box-shadow: ${({ theme }) => theme.boxShadow.md};
     /* transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1); */
-    transition: ${({ theme }) => theme.transition.linear.slow};
-
-    &:hover,
-    &:focus {
-      box-shadow: ${({ theme }) => theme.boxShadow.lg};
-      transition: ${({ theme }) => theme.transition.linear.quick};
-      font-variation-settings: 'GRAD' 150 !important;
-      transition: ${({ theme }) => theme.transition.linear.slow};
-    }
+    transition: ${({ theme }) => theme.transition.linear.quick};
 
     i {
       line-height: 0;
       color: inherit;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+      transition: font-variation-settings 0.08s ease;
+    }
+
+    @media print {
+      display: none;
     }
   }
 
   .btn.right {
     flex-direction: row-reverse;
   }
+  .btn:hover {
+    box-shadow: ${({ theme }) => theme.boxShadow.lg};
 
-  .btn.accent {
-    background-color: ${({ theme }) => theme.colors.accent.default};
-    border: 1px solid ${({ theme }) => theme.colors.accent[1100]};
     i {
-      color: inherit;
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
     }
   }
-
   .btn.primary {
-    color: ${({ theme }) => theme.colors.header.default};
-    background-color: ${({ theme }) => theme.colors.primary[200]};
-    border: 1px solid ${({ theme }) => theme.colors.primary[700]};
+    /* color: ${({ theme }) => theme.colors.grey.default}; */
+    color: #000000;
+    background-color: ${({ theme }) => theme.colors.primary.default};
+    border: 1px solid ${({ theme }) => theme.colors.primary[1200]};
     i {
       color: inherit;
     }
   }
   .btn.secondary {
-    color: ${({ theme }) => theme.colors.page.default};
+    color: #000000;
     background-color: ${({ theme }) => theme.colors.secondary.default};
     border: 1px solid ${({ theme }) => theme.colors.secondary[1200]};
     i {
@@ -96,9 +88,10 @@ const BtnWrapper = styled.span`
     }
   }
   .btn.tertiary {
-    /* color: ${({ theme }) => theme.colors.page.default}; */
-    background-color: ${({ theme }) => theme.colors.tertiary[1200]};
-    border: 1px solid ${({ theme }) => theme.colors.tertiary[1300]};
+    /* color: ${({ theme }) => theme.colors.grey.default}; */
+    color: #000000;
+    background-color: ${({ theme }) => theme.colors.tertiary[800]};
+    border: 1px solid ${({ theme }) => theme.colors.tertiary[1100]};
     i {
       color: inherit;
     }
@@ -138,7 +131,7 @@ const BtnWrapper = styled.span`
   }
 
   .dark &,
-  .heroImageWrapper & {
+  .heroImage & {
     .btn.link {
       color: ${({ theme }) => theme.colors.grey[100]} !important;
       i {

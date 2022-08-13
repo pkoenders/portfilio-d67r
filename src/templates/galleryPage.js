@@ -7,6 +7,7 @@ import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 // Layout
 import Layout from '/src/components/layout'
+import HTMLHeader from '/src/components/common/htmlheader/'
 import SeoZone from '/src/components/slices/seoZone'
 import GalleryItem from '/src/components/gallery/item'
 import SecondaryNav from '/src/components/common/secondaryNav'
@@ -38,7 +39,8 @@ const GalleryItemTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav}>
-      <SeoZone currentLang={currentLang} seoZone={document.data.body} />
+      <HTMLHeader currentLang={currentLang} />
+      <SeoZone seoZone={document.data.body1} />
       <SecondaryNav
         currentLang={currentLang}
         next={next}
