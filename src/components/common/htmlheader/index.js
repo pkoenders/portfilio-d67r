@@ -14,7 +14,6 @@ const HTMLHeader = ({ currentLang }) => (
           <html lang={currentLang ? currentLang : 'en-nz'} />
           {/* set default title */}
           <title>{metaTitle}</title>
-          {/* Google analytics */}
           <meta
             name="google-site-verification"
             content="IEc3M4dn1WAD587hXAeNTEion1kcNSPTrC7CUAcGo74"
