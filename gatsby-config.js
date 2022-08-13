@@ -155,6 +155,7 @@ module.exports = {
       options: {
         id: 'GTM-TNBTNLW',
         includeInDevelopment: false,
+        enableWebVitalsTracking: true,
       },
     },
 
