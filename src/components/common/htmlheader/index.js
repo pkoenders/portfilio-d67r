@@ -17,7 +17,7 @@ const HTMLHeader = ({ currentLang }) => (
           {/* Google analytics */}
           <meta
             name="google-site-verification"
-            content="OeOzruvqni3pGyA2GZn_UZLmsY8AP8itjoCLA3ncwsY"
+            content="IEc3M4dn1WAD587hXAeNTEion1kcNSPTrC7CUAcGo74"
           />
 
           {/* Add Google fonts - Pre connect warm-up */}
