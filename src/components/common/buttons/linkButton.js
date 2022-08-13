@@ -34,7 +34,8 @@ const BtnWrapper = styled.span`
     text-align: center;
     /* text-transform: uppercase; */
     text-decoration: none !important;
-    font-weight: 600;
+    font-variation-settings: 'wdth' 100 'wght' 400, 'slnt' 0, 'opsz' AUTO;
+    /* font-weight: 600; */
     font-family: inherit;
     line-height: initial;
 
@@ -64,6 +65,7 @@ const BtnWrapper = styled.span`
     flex-direction: row-reverse;
   }
   .btn:hover {
+    font-variation-settings: 'wdth' 100 'wght' 500, 'slnt' 0, 'opsz' AUTO;
     box-shadow: ${({ theme }) => theme.boxShadow.lg};
 
     i {
