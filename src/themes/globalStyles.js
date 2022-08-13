@@ -25,8 +25,8 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: auto; */
     /* scroll-behavior: initial; */
     font-family: ${({ theme }) => theme.font.sans};
-    font-size: 100% !important; /*16px */
-     /* font-size: 106.3%; 17px */
+   /* font-size: 100% !important; 16px */
+      font-size: 106.3%; /*17px */
     // font-size: 112.5%; 18px
     /* font-variation-settings: 'GRAD' 150; */
     /* font-variation-settings: 'opsz' 8; */
