@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
 import { defaultTheme } from './default/pkoenders'
-// import { darkTheme } from './default/pkoenders-dark'
+// import { defaultTheme } from './default/pkoenders-dark'
 
 export const theme = defaultTheme
 // export const typography = defaultTypography
