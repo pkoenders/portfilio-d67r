@@ -153,7 +153,7 @@ module.exports = {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: 'GTM-MXW33SC',
-        routeChangeEventName: D76R_ROUTE_CHANGE,
+        routeChangeEventName: 'd67-route-change',
         includeInDevelopment: false,
         enableWebVitalsTracking: true,
       },
