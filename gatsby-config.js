@@ -146,7 +146,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    // 'gatsby-plugin-advanced-sitemap',
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
 
@@ -155,7 +154,7 @@ module.exports = {
       options: {
         id: 'GTM-TNBTNLW',
         includeInDevelopment: false,
-        // enableWebVitalsTracking: true,
+        enableWebVitalsTracking: true,
       },
     },
 
