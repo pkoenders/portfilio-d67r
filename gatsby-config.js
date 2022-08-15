@@ -27,6 +27,15 @@ module.exports = {
     'gatsby-plugin-sass',
 
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-M5HMD6B',
+        includeInDevelopment: false,
+        // enableWebVitalsTracking: true,
+      },
+    },
+
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
@@ -148,15 +157,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
-
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-M5HMD6B',
-        includeInDevelopment: false,
-        // enableWebVitalsTracking: true,
-      },
-    },
 
     'gatsby-plugin-react-helmet',
 
