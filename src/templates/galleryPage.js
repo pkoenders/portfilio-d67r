@@ -40,7 +40,7 @@ const GalleryItemTemplate = ({ data, pageContext }) => {
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav}>
       <HTMLHeader currentLang={currentLang} />
-      <SeoZone seoZone={document.data.body1} />
+      <SeoZone seoZone={document.data.body} />
       <SecondaryNav
         currentLang={currentLang}
         next={next}

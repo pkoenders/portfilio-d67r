@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+// import { Helmet } from 'react-helmet'
 import SEOGeneral from './seo/general.js'
 import SEOOpenGraph from './seo/openGraph.js'
 import SEOTwitter from './seo/twitter.js'
