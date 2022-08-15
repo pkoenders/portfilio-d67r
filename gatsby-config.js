@@ -154,7 +154,7 @@ module.exports = {
       options: {
         id: 'GTM-M5HMD6B',
         includeInDevelopment: false,
-        enableWebVitalsTracking: true,
+        // enableWebVitalsTracking: true,
       },
     },
 
