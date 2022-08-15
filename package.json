@@ -26,7 +26,6 @@
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-gatsby-cloud": "^4.19.0",
     "gatsby-plugin-google-gtag": "^4.20.0",
-    "gatsby-plugin-google-tagmanager": "^4.20.0",
     "gatsby-plugin-image": "^2.19.0",
     "gatsby-plugin-manifest": "^4.19.0",
     "gatsby-plugin-mdx": "^3.19.0",
