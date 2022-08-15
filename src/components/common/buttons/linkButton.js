@@ -133,7 +133,7 @@ const BtnWrapper = styled.span`
   }
 
   .dark &,
-  .heroImage & {
+  .heroBanner & {
     .btn.link {
       color: ${({ theme }) => theme.colors.grey[100]} !important;
       i {
