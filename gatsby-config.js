@@ -26,15 +26,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sass',
 
-    // {
-    //   resolve: 'gatsby-plugin-google-tagmanager',
-    //   options: {
-    //     id: 'GTM-M5HMD6B',
-    //     includeInDevelopment: false,
-    //     enableWebVitalsTracking: true,
-    //   },
-    // },
-
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

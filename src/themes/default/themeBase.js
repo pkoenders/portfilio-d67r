@@ -1,52 +1,5 @@
-export const themes = {
-  borderRadius: {
-    none: '0',
-    sm: '0.125rem',
-    default: '0.25rem',
-    lg: '0.5rem',
-    full: '9999px',
-  },
-  borderWidth: {
-    default: '1px',
-    0: '0',
-    2: '2px',
-    4: '4px',
-    8: '8px',
-  },
-
-  boxShadow: {
-    default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-    outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-    none: 'none',
-  },
-
+export const defaultBase = {
   colors: {
-    // @Page
-    page: {
-      default: '#151a1e',
-      100: '#e7e8e8',
-      200: '#d0d1d2',
-      300: '#b8babb',
-      400: '#a1a3a5',
-      500: '#8a8c8e',
-      600: '#727578',
-      700: '#5b5e61',
-      800: '#43474a',
-      900: '#2c3034',
-      1100: '#12171b',
-      1200: '#101418',
-      1300: '#0e1215',
-
-      bground: {
-        default: '#fefefe',
-      },
-    },
-
     // @Primary
     primary: {
       default: '#51bfeb',
@@ -98,55 +51,6 @@ export const themes = {
       1300: '#428f6b',
     },
 
-    // @Accent
-    accent: {
-      default: '#e41b5b',
-      100: '#fce8ee',
-      200: '#f9d1de',
-      300: '#f6bacd',
-      400: '#f4a3bd',
-      500: '#f18dad',
-      600: '#ee769c',
-      700: '#ec5f8c',
-      800: '#e9487b',
-      900: '#e6316b',
-      1100: '#cd1851',
-      1200: '#b61548',
-      1300: '#9f123f',
-    },
-
-    // @Grey
-    grey: {
-      default: '#323335',
-      100: '#EAEAEA',
-      200: '#D6D6D6',
-      300: '#C1C1C2',
-      400: '#ADADAE',
-      500: '#98999A',
-      600: '#848485',
-      700: '#6F7071',
-      800: '#5B5B5D',
-      900: '#464749',
-      1100: '#2D2D2F',
-      1200: '#28282A',
-      1300: '#142323',
-    },
-
-    // @Card
-    card: {
-      default: '#171c27',
-      100: '#f7fafc',
-      200: '#edf2f7',
-      300: '#e2e8f0',
-      400: '#cbd5e0',
-      500: '#a0aec0',
-      600: '#718096',
-      700: '#4a5568',
-      800: '#2d3748',
-      900: '#1a202c',
-    },
-
-    // @Header
     header: {
       text: {
         default: '#e6e6e7',
@@ -192,7 +96,6 @@ export const themes = {
     transparent: 'transparent',
     black: '#000',
     white: '#fff',
-    // focusVisible: '#9ecaed',
     focusVisible: '#51bfe4',
     focusVisibleOnDark: '#97d9f3',
 
@@ -234,6 +137,33 @@ export const themes = {
     },
   },
 
+  borderRadius: {
+    none: '0',
+    sm: '0.125rem',
+    default: '0.25rem',
+    lg: '0.5rem',
+    full: '9999px',
+  },
+
+  borderWidth: {
+    default: '1px',
+    0: '0',
+    2: '2px',
+    4: '4px',
+    8: '8px',
+  },
+
+  boxShadow: {
+    default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+    outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+    none: 'none',
+  },
+
   font: {
     // sans: 'Roboto, sans-serif',
     // sans: '"Open Sans", sans-serif',
@@ -243,6 +173,9 @@ export const themes = {
     headers: 'Bitter, serif',
     mono: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
+
+  // use https://type-scale.com/ to generate font sizes
+  // currently we default to (1.250) Major Third for this project
 
   // Major second - 1.125
   // fontSize: {
@@ -258,7 +191,7 @@ export const themes = {
   //   '6xl': '2.027rem', // Other
   // },
 
-  // Minor third - 1.200
+  // Minor third - 1.200 - Good for mobile/web
   fontSize: {
     xs: '0.694rem', // x-small
     sm: '0.833rem', // small
@@ -272,7 +205,7 @@ export const themes = {
     '6xl': '2.986rem', // Other
   },
 
-  // // Major third - 1.250
+  // Major third - 1.250 Good for Desktop / blogs
   // fontSize: {
   //   xs: '0.64rem', // x-small
   //   sm: '0.833rem', // small

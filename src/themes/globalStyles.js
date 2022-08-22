@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
-import { light } from './default/themeDefault'
-export const theme = light
+import { light } from './default/themeLightDark'
+import { defaultBase } from './default/themeBase'
+
+const _ = require('lodash')
+export const mergeThemes = _.merge(light, defaultBase)
+export const theme = mergeThemes
+
 export const screenSize = theme.screens
 export const GlobalStyles = createGlobalStyle`
   ${reset}
