@@ -28,7 +28,8 @@ const ListTagBtnsWrapper = styled.div`
     /* cursor: pointer; */
     user-select: none;
     background-color: #fff;
-    border: 1px solid ${({ theme }) => theme.colors.card[300]};
+    color: ${({ theme }) => theme.colors.pageHold.default};
+    border: 1px solid ${({ theme }) => theme.colors.pageHold[300]};
     border-radius: 999rem;
 
     position: absolute;
@@ -39,7 +40,6 @@ const ListTagBtnsWrapper = styled.div`
 
     &:hover {
       border: 1px solid ${({ theme }) => theme.colors.primary[600]};
-      color: ${({ theme }) => theme.colors.primary.default};
       box-shadow: ${({ theme }) => theme.boxShadow.default};
     }
     i {
@@ -84,7 +84,7 @@ const ListTagBtnsWrapper = styled.div`
       display: flex;
       flex-wrap: wrap;
       grid-gap: ${({ theme }) => theme.padding['1/4']};
-      justify-content: center;
+      justify-content: flex-start;
       margin: 0 ${({ theme }) => theme.padding['2xl']};
       height: fit-content;
     }
@@ -106,8 +106,9 @@ const ListTagBtnsWrapper = styled.div`
     height: fit-content;
     padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
     white-space: nowrap;
-    color: ${({ theme }) => theme.colors.page.default};
+    color: ${({ theme }) => theme.colors.pageHold.default};
     background-color: #fff;
+
     /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]}; */
     border: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.sm};
@@ -115,13 +116,12 @@ const ListTagBtnsWrapper = styled.div`
   }
 
   .tagButton:hover {
-    color: ${({ theme }) => theme.colors.page.default};
     /* background-color: ${({ theme }) => theme.colors.card[400]}; */
-    border: 1px solid ${({ theme }) => theme.colors.primary[600]};
+    border: 1px solid ${({ theme }) => theme.colors.primary[700]};
   }
 
   .tagButton[aria-checked='true'] {
-    color: ${({ theme }) => theme.colors.page.default};
+    font-variation-settings: 'GRAD' 100;
     background-color: ${({ theme }) => theme.colors.tertiary[600]};
     border: 1px solid transparent;
     box-shadow: none;
@@ -276,6 +276,11 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
   useEffect(() => {
     // Hide reset if input has a value
     const searchInput = document.querySelector('.search input')
+
+    const tagWrapper = document.querySelector('.wrapper')
+    const innerHeight = document.querySelector('.inner').offsetHeight
+    const tagBtnHeight = document.querySelector('.tagButton').offsetHeight
+
     searchInput.addEventListener('keydown', function () {
       if (searchInput.value.length >= 0) {
         hideTagReset()
@@ -294,8 +299,10 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
       if (!document.querySelector('.tagButton')) {
         return
       }
-      const tagBtnHeight = document.querySelector('.tagButton').offsetHeight
-      var innerHeight = document.querySelector('.inner').offsetHeight
+
+      if (!tagWrapper.classList.contains('showMore')) {
+        tagWrapper.style.height = tagBtnHeight + 2 + 'px' /* allow for drop shadow */
+      }
       innerHeight > tagBtnHeight && setMoreBtns(true)
 
       if (innerHeight <= tagBtnHeight) {
@@ -313,8 +320,16 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
 
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
-    const tagWrapper = document.querySelector('.wrapper')
+    var tagWrapper = document.querySelector('.wrapper')
+    var tagBtnHeight = document.querySelector('.tagButton').offsetHeight
+
     tagWrapper.classList.toggle('showMore')
+
+    if (tagWrapper.classList.contains('showMore')) {
+      tagWrapper.style.height = '100%'
+    } else {
+      tagWrapper.style.height = tagBtnHeight + 2 + 'px'
+    }
 
     e.target.firstChild.innerHTML === 'unfold_more'
       ? (e.target.firstChild.innerHTML = 'unfold_less')
@@ -339,7 +354,13 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
         </button>
       )}
       <p className="sr-only">Filter list by tags</p>
-      <div id="tagWrapper" className="wrapper" role="group" aria-labelledby="group-label">
+      <div
+        id="tagWrapper"
+        className="wrapper"
+        role="group"
+        aria-labelledby="group-label"
+        // style={{ height: tagBtnHeight }}
+      >
         <ul className="inner">
           {tagList.map((node, index) => (
             <li key={`tagButton` + index}>

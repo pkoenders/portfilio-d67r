@@ -46,6 +46,7 @@ const CardsWrapper = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;
+    /* color: ${({ theme }) => theme.colors.page.default}; */
     margin-bottom: ${({ theme }) => theme.padding.default};
     @media (max-width: ${({ theme }) => theme.screens.sm}) {
       margin: ${({ theme }) => theme.padding.default} 0;
@@ -91,10 +92,6 @@ const CardsWrapper = styled.section`
     @media (max-width: ${({ theme }) => theme.screens.xs}) {
       grid-gap: ${({ theme }) => theme.padding.default};
     }
-    /* .cardItem {
-      flex: 0 1 48%;
-      width: 100%;
-    } */
   }
 
   // Carousel layout = keen_slider
@@ -162,10 +159,6 @@ const CardsWrapper = styled.section`
             background-color: #fff;
           }
         }
-
-        .content {
-          color: ${({ theme }) => theme.colors.page[100]};
-        }
       }
     }
   }
@@ -211,8 +204,11 @@ const Cards = ({ slice }) => {
     let bgColor = window.getComputedStyle(objBground).backgroundColor
     // Convert it a hex value
     bgColor = getRgb2Hex(bgColor)
-    // Return the contrast mode  - 'dark' or 'light'
-    var updateContrast = getContrast(bgColor)
+
+    // If there is a bGround color - return the contrast mode  - 'dark' or 'light'
+    let updateContrast
+    bgColor !== '#00000000' ? (updateContrast = getContrast(bgColor)) : (updateContrast = '')
+
     // Update contrast color and set it as a class in the section
     setForgroundColor(updateContrast)
     // Disable warinings of missing dependencies

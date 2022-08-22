@@ -28,7 +28,9 @@ export const themes = {
   colors: {
     // @Page
     page: {
-      default: '#151a1e',
+      // default: '#151a1e',
+      default: '#fefefe',
+
       100: '#e7e8e8',
       200: '#d0d1d2',
       300: '#b8babb',
@@ -43,7 +45,8 @@ export const themes = {
       1300: '#0e1215',
 
       bground: {
-        default: '#fefefe',
+        // default: '#fefefe',
+        default: '#151a1e',
       },
     },
 

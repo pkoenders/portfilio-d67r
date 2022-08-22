@@ -306,8 +306,11 @@ const ImageHighlight = ({ slice }) => {
     let bgColor = window.getComputedStyle(objBground).backgroundColor
     // Convert it a hex value
     bgColor = getRgb2Hex(bgColor)
-    // Return the contrast mode  - 'dark' or 'light'
-    var updateContrast = getContrast(bgColor)
+
+    // If there is a bGround color - return the contrast mode  - 'dark' or 'light'
+    let updateContrast
+    bgColor !== '#00000000' ? (updateContrast = getContrast(bgColor)) : (updateContrast = '')
+
     // Update contrast color and set it as a class in the section
     setForgroundColor(updateContrast)
     // Disable warinings of missing dependencies

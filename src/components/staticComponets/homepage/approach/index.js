@@ -61,13 +61,14 @@ const ApproachSection = styled.section`
         ul,
         li {
           text-align: left;
-          .emoji::before {
+
+          /* .emoji::before {
             letter-spacing: 0.01em;
             padding-left: 0.25em;
           }
           .emoji.heart::before {
             content: '❤️';
-          }
+          } */
         }
         span {
           margin-top: ${({ theme }) => theme.padding['1/4']};
@@ -222,7 +223,7 @@ const Approch = () => {
               <h4>Support</h4>
               <p>
                 In my hands, your website will be blazingly fast, accessible, secure and customised.
-                You will get personal support, and I respond to requests because I simply ❤️ what I
+                You will get personal support, and I respond to requests because I simply 🧡 what I
                 do.
               </p>
               <Button

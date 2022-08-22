@@ -3,31 +3,49 @@ import styled from 'styled-components'
 const PageBody = styled.article`
   display: flex;
   flex-direction: column;
-  grid-gap: ${({ theme }) => theme.padding['1/2']};
   width: 100%;
 
-  /* h3 {
-    font-family: ${({ theme }) => theme.font.sans};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    font-size: ${({ theme }) => theme.fontSize['xl']};
-  } */
-
-  time {
-    color: ${({ theme }) => theme.colors.page[700]};
-    line-height: initial;
+  h1 {
+    display: flex;
+    width: 100%;
+    grid-gap: ${({ theme }) => theme.padding.default};
+    padding: ${({ theme }) => theme.padding.default} 0;
+    color: ${({ theme }) => theme.colors.accent.default};
   }
 
-  &.galleryContent {
+  > div {
+    display: flex;
     flex-direction: row;
+    grid-gap: ${({ theme }) => theme.padding['1/2']};
+    width: 100%;
+
+    time {
+      color: ${({ theme }) => theme.colors.page[700]};
+      line-height: initial;
+    }
+
+    &.blog {
+      flex-direction: column;
+      grid-gap: ${({ theme }) => theme.padding.default};
+    }
+
     @media (max-width: ${({ theme }) => theme.screens.sm}) {
       flex-direction: column;
+      grid-gap: ${({ theme }) => theme.padding['1/2']};
     }
-    > div {
-      width: 33%;
-      /* display: grid; */
+
+    .galleryContent {
       display: flex;
       flex-direction: column;
-      grid-gap: ${({ theme }) => theme.padding['1/4']};
+      max-width: 33%;
+
+      @media (max-width: ${({ theme }) => theme.screens.md}) {
+        max-width: 50%;
+      }
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        flex-direction: column;
+        max-width: 100%;
+      }
 
       > a {
         display: flex;
@@ -40,7 +58,7 @@ const PageBody = styled.article`
         word-wrap: break-word;
         hyphens: auto;
         border-bottom: 1px solid transparent;
-        margin-bottom: ${({ theme }) => theme.margin['1/2']};
+        margin: ${({ theme }) => theme.margin.default} 0;
         i {
           margin-top: ${({ theme }) => theme.margin['1/16']};
         }
@@ -48,38 +66,16 @@ const PageBody = styled.article`
           border-bottom: 1px solid ${({ theme }) => theme.colors.primary.default};
         }
       }
-
-      h2 {
-        /* font-family: ${({ theme }) => theme.font.sans};
-        font-weight: ${({ theme }) => theme.fontWeight.medium};
-        font-size: ${({ theme }) => theme.fontSize['xl']}; */
-        font-size: ${({ theme }) => theme.fontSize['2xl']};
-        font-family: ${({ theme }) => theme.font.sans};
-        font-weight: ${({ theme }) => theme.fontWeight.semibold};
-      }
-
-      @media (max-width: ${({ theme }) => theme.screens.md}) {
-        width: 50%;
-      }
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        width: 100%;
-      }
     }
 
     .galleryImgs {
       display: flex;
       flex-direction: column;
       grid-gap: ${({ theme }) => theme.padding['4xl']};
-      width: 66%;
-      @media (max-width: ${({ theme }) => theme.screens.md}) {
-        width: 50%;
-      }
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        width: 100%;
-      }
+      flex-grow: 1;
       div {
         display: flex;
-        border: 1px solid ${({ theme }) => theme.colors.card[400]};
+        border: 1px solid ${({ theme }) => theme.colors.card[100]};
         box-shadow: ${({ theme }) => theme.boxShadow.xl};
         border-radius: ${({ theme }) => theme.borderRadius.default};
       }

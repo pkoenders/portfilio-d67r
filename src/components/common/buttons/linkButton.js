@@ -32,7 +32,6 @@ const BtnWrapper = styled.span`
     padding: 16px ${({ theme }) => theme.padding.default};
     padding: 12px 24px;
     text-align: center;
-    /* text-transform: uppercase; */
     text-decoration: none !important;
     font-variation-settings: 'GRAD' 0;
     /* font-weight: 600; */

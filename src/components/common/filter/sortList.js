@@ -38,7 +38,7 @@ const SortListWrapper = styled.div`
     user-select: none;
     min-width: 160px;
     position: relative;
-    background-color: ${({ theme }) => theme.colors.page.bground.default};
+    /* background-color: ${({ theme }) => theme.colors.page.bground.default}; */
     border: 1px solid ${({ theme }) => theme.colors.card[300]};
     border-radius: ${({ theme }) => theme.borderRadius.sm};
 
@@ -50,14 +50,14 @@ const SortListWrapper = styled.div`
       justify-content: space-between;
       z-index: 100;
       /* background-color: #fff; */
-      background-color: ${({ theme }) => theme.colors.card[200]};
+      background-color: ${({ theme }) => theme.colors.card[100]};
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
       i {
         margin-right: -${({ theme }) => theme.padding['1/8']};
       }
     }
     button[aria-expanded='true'] {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.primary[600]};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.primary[500]};
       margin-bottom: -1px;
       box-shadow: ${({ theme }) => theme.boxShadow.default};
       i {
@@ -71,7 +71,8 @@ const SortListWrapper = styled.div`
     ul.sortBox {
       z-index: 99;
       list-style: none;
-      background: transparent;
+      /* background: transparent; */
+      background-color: ${({ theme }) => theme.colors.card[100]};
       border: inherit;
       border-top: none;
       border-radius: 0 0 ${({ theme }) => theme.borderRadius.sm}
@@ -92,15 +93,14 @@ const SortListWrapper = styled.div`
       li {
         display: flex;
         justify-content: space-between;
-        /* cursor: pointer; */
         white-space: nowrap;
-        background-color: #fff;
         text-align: left;
         width: 100%;
-        padding: 8px ${({ theme }) => theme.padding['1/2']};
+        color: ${({ theme }) => theme.colors.page.default};
         border-top: 1px solid ${({ theme }) => theme.colors.card[300]};
+        padding: 8px ${({ theme }) => theme.padding['1/2']};
+
         i {
-          /* color: ${({ theme }) => theme.colors.primary[600]}; */
           margin-right: -${({ theme }) => theme.padding['1/8']};
           display: none;
         }
@@ -109,13 +109,12 @@ const SortListWrapper = styled.div`
         display: none;
       }
 
+      [role='option'].focused,
       li:hover {
-        background-color: ${({ theme }) => theme.colors.card[100]};
-        border-top: 1px solid ${({ theme }) => theme.colors.card[300]};
+        background-color: ${({ theme }) => theme.colors.card[200]};
       }
 
       [role='option'].focused {
-        background: ${({ theme }) => theme.colors.card[400]};
         i {
           display: flex;
         }
@@ -889,15 +888,10 @@ const Sort = ({
     function updateSortOrder(focusedItem) {
       sortItemClick(focusedItem)
     }
-  }, [])
+  }, [sortItemClick])
 
   return (
-    <SortListWrapper
-      className="sort"
-      // style={{
-      //   width: setWidth === true ? 'auto' : '100%',
-      // }}
-    >
+    <SortListWrapper className="sort">
       <span>{i18n[currentLang].sortBy}</span>
 
       <div className="sortWrapper">
@@ -909,14 +903,13 @@ const Sort = ({
           id="list_button"
         >
           {items[0].title}
-          {/* <span>{items[0].title}</span> */}
           <IconMaterial icon={'expand_more'} />
         </button>
 
         <ul // eslint-disable-line jsx-a11y/no-static-element-interactions
           id="list_box"
           role="listbox"
-          tabindex="0"
+          tabIndex="0"
           aria-labelledby="list_elem"
           className="sortBox hidden"
         >

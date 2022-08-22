@@ -31,6 +31,10 @@ const CardsWrapper = styled.div`
       }
       .content {
         background-color: transparent;
+        .link {
+          color: inherit;
+          text-transform: none;
+        }
       }
 
       &:hover {

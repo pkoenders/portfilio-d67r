@@ -15,6 +15,7 @@ const FilterWrapper = styled.div`
     text-align: center;
     font-size: ${({ theme }) => theme.fontSize['4xl']};
     line-height: initial;
+    color: ${({ theme }) => theme.colors.pageHold.default};
   }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {

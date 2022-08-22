@@ -10,9 +10,10 @@ const ListBtnToggle = styled.button.attrs({
   padding: ${({ theme }) => theme.padding['1/4']};
   user-select: none;
   /* background-color: #ffffff; */
-  background-color: ${({ theme }) => theme.colors.card[200]};
-  border: 1px solid ${({ theme }) => theme.colors.card[300]};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  /* background-color: ${({ theme }) => theme.colors.card[200]}; */
+  /* border: 1px solid ${({ theme }) => theme.colors.card[300]}; */
+  /* border-radius: ${({ theme }) => theme.borderRadius.sm}; */
+  color: ${({ theme }) => theme.colors.card[900]};
 
   i {
     pointer-events: none;
@@ -27,8 +28,8 @@ const ListBtnToggle = styled.button.attrs({
   &:hover,
   &[aria-pressed='true'] {
     color: ${({ theme }) => theme.colors.primary.default};
-    border-color: ${({ theme }) => theme.colors.primary[600]};
-    box-shadow: ${({ theme }) => theme.boxShadow.default};
+    /* border-color: ${({ theme }) => theme.colors.primary[600]}; */
+    /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
 
     i {
       color: ${({ theme }) => theme.colors.primary.default};
@@ -36,9 +37,9 @@ const ListBtnToggle = styled.button.attrs({
   }
 
   &[aria-pressed='true'] {
-    background-color: ${({ theme }) => theme.colors.card[400]};
-    border-color: transparent;
-    box-shadow: none;
+    /* background-color: ${({ theme }) => theme.colors.card[400]}; */
+    /* border-color: transparent; */
+    /* box-shadow: none; */
     i {
       color: ${({ theme }) => theme.colors.page.default};
     }

@@ -1,14 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
-
-import { defaultTheme } from './default/pkoenders'
-// import { defaultTheme } from './default/pkoenders-dark'
-
-export const theme = defaultTheme
-// export const typography = defaultTypography
-
+import { light } from './default/themeDefault'
+export const theme = light
 export const screenSize = theme.screens
-
 export const GlobalStyles = createGlobalStyle`
   ${reset}
   
@@ -21,15 +15,13 @@ export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box; 
     scroll-behavior: smooth;
-    /* scroll-behavior: initial; */
-    /* scroll-behavior: auto; */
-    /* scroll-behavior: initial; */
     font-family: ${({ theme }) => theme.font.sans};
-   /* font-size: 100% !important; 16px */
-      font-size: 106.3%; /*17px */
-    // font-size: 112.5%; 18px
-    /* font-variation-settings: 'GRAD' 150; */
-    /* font-variation-settings: 'opsz' 8; */
+
+    // Base font sizing
+    // font-size: 100%; /* 16px */
+     font-size: 106.3%; /* 17px */
+    //font-size: 112.5%; /* 18px */
+
     color: ${({ theme }) => theme.colors.page.default};
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-smoothing: antialiased;
@@ -37,12 +29,11 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     word-wrap: break-word;
     font-kerning: normal;
-
   }
 
   body {
-      line-height: 1.75;
-     letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
+    line-height: 1.75;
+    letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
   }  
 
   @media print {  
@@ -89,15 +80,22 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   section.light {
-    color: ${({ theme }) => theme.colors.page.default};
+    color: ${({ theme }) => theme.colors.pageHold.default};
+    .carousel > * {
+      color: ${({ theme }) => theme.colors.pageHold.default};
+    }
   }
+
    
   section.dark {
-    color: ${({ theme }) => theme.colors.page[100]};
+    color: ${({ theme }) => theme.colors.pageHold[100]};
+
+  
     
     a {
-       color: ${({ theme }) => theme.colors.primary[100]};
+       /* color: ${({ theme }) => theme.colors.primary[100]}; */
     }
+
     form {
       input:focus-visible,
       textarea:focus-visible,
@@ -127,8 +125,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: underline;
     overflow-wrap: break-word;
     word-wrap: break-word;
-        /* font-variation-settings: 'wght' 800, 'GRAD' 150; */
-
+    overflow-wrap: anywhere;
     /* hyphens: auto; */
   }
 
@@ -276,11 +273,7 @@ export const GlobalStyles = createGlobalStyle`
   p {
     font-family: ${({ theme }) => theme.font.sans};
     margin-bottom: ${({ theme }) => theme.spacing['3']};
-    /* font-variation-settings: 'wght' 900, 'GRAD' 150; */
-
-       /* font-variation-settings: 'wght' 900; */
-      /* font-weight: 900; */
-
+   
     em {
       font-style: italic;
     }
@@ -372,7 +365,7 @@ export const GlobalStyles = createGlobalStyle`
 
 
   button {
-    font-size: ${({ theme }) => theme.fontSize.base};
+    /* font-size: ${({ theme }) => theme.fontSize.base}; */
     color: ${({ theme }) => theme.colors.page.default};
     background-color: transparent;  
     /* outline: none; */
@@ -450,14 +443,16 @@ export const GlobalStyles = createGlobalStyle`
   // Bground color options
   // Default
   // Grey 
-  [class^="background-page"],
+
+  /* [class^="background-page"],
   [class*=" background-page"]{
     background-color: ${({ theme }) => theme.colors.page.bground.default}; 
-  }
+  } */
+
    //
    // Page
   .background-page-default {
-    background-color: ${({ theme }) => theme.colors.page.bground.default}; 
+    /* background-color: ${({ theme }) => theme.colors.page.bground.default};  */
   }
   .background-page-100 {
     background-color: ${({ theme }) => theme.colors.page[100]}; 

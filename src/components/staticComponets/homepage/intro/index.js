@@ -26,7 +26,7 @@ const IntroSection = styled.section`
     text-align: center;
     /* font-size: 120%; */
     /* font-weight: 600; */
-    color: ${({ theme }) => theme.colors.page[100]};
+    color: ${({ theme }) => theme.colors.pageHold[100]};
     /* color: #cff0e0; */
     span {
       display: contents;
@@ -67,7 +67,7 @@ const IntroSection = styled.section`
         width: 100%;
 
         i {
-          color: ${({ theme }) => theme.colors.page.default};
+          color: ${({ theme }) => theme.colors.pageHold.default};
           display: flex;
           align-self: flex-start;
           font-size: 28px;
@@ -79,7 +79,7 @@ const IntroSection = styled.section`
         p,
         ul,
         li {
-          color: ${({ theme }) => theme.colors.page[100]};
+          color: ${({ theme }) => theme.colors.pageHold[100]};
           margin-bottom: 0;
           text-align: left;
         }
@@ -144,13 +144,12 @@ const IntroSection = styled.section`
       margin-top: 0;
       a {
         /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]} !important; */
-
+        font-weight: 500;
         // Overide  default styles
         padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding['2xl']} !important;
         border: 1px solid ${({ theme }) => theme.colors.tertiary[900]} !important;
-        color: #0a031d !important;
-        background-color: #cff0e0 !important;
-
+        color: ${({ theme }) => theme.colors.pageHold.default};
+        background-color: ${({ theme }) => theme.colors.tertiary[300]};
         i {
           color: ${({ theme }) => theme.colors.tertiary[600]} !important;
         }

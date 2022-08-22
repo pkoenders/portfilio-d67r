@@ -5,12 +5,7 @@ const Section = styled.div`
   // Section - For other templates that are not Homepage and General page
   display: flex;
   flex-direction: column;
-  /* margin-top: ${({ theme }) => theme.header.height}; */
   padding: 0 0 ${({ theme }) => theme.padding['2xl']};
-
-  @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    /* padding: ${({ theme }) => theme.padding['1/8']} !important; */
-  }
 
   &.withSecondaryNav {
     margin-top: 124px;

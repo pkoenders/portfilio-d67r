@@ -28,7 +28,7 @@ const Tags = styled.div.attrs({
       border-radius: ${({ theme }) => theme.borderRadius.default};
     }
     li.isActive {
-      color: ${({ theme }) => theme.colors.page.default};
+      color: ${({ theme }) => theme.colors.pageHold.default};
       background-color: ${({ theme }) => theme.colors.tertiary[700]};
       border: 1px solid transparent;
     }

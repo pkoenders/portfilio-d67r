@@ -9,9 +9,9 @@ const BlogReferences = styled.div`
   flex-direction: column;
   grid-gap: ${({ theme }) => theme.padding['1/4']};
   span {
-    color: ${({ theme }) => theme.colors.page[500]};
+    color: ${({ theme }) => theme.colors.page[700]};
   }
-  border-top: 1px solid ${({ theme }) => theme.colors.primary[400]};
+  border-top: 1px solid ${({ theme }) => theme.colors.card[400]};
   padding-top: ${({ theme }) => theme.padding['1/4']};
 `
 

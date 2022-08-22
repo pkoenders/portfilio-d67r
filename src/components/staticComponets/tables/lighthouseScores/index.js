@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Chart from 'chart.js/auto'
-// import { getRelativePosition } from 'chart.js/helpers'
 
 // Helpers
 import { useTable, useSortBy } from 'react-table'
@@ -20,20 +19,27 @@ const LighthouseScoresWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
   grid-gap: ${({ theme }) => theme.padding.default};
   margin: ${({ theme }) => theme.padding['1/2']} 0 ${({ theme }) => theme.padding.default};
-  canvas {
-    overflow: visible;
-    position: relative;
-    z-index: 10;
-    width: 160px;
-    max-width: 160px;
-    max-height: 160px;
+
+  div {
+    text-align: center;
+
+    canvas {
+      overflow: visible;
+      position: relative;
+      z-index: 10;
+      width: 160px;
+      max-width: 160px;
+      max-height: 160px;
+    }
   }
 `
 
 const LighthouseScoresTableWrapper = styled.div`
   padding-top: ${({ theme }) => theme.padding['2xl']};
+
   .title {
     padding: ${({ theme }) => theme.padding['1/4']};
     text-align: center;
@@ -44,10 +50,12 @@ const LighthouseScoresTableWrapper = styled.div`
       display: flex;
       justify-content: center;
       margin: 0 auto;
-      font-size: ${({ theme }) => theme.fontSize.sm};
-      color: ${({ theme }) => theme.colors.page['600']};
+      /* font-size: ${({ theme }) => theme.fontSize.md}; */
+      font-weight: 400;
+      color: ${({ theme }) => theme.colors.page['800']};
     }
   }
+
   .tableWrapper {
     border: 1px solid ${({ theme }) => theme.colors.card[300]};
     border-radius: ${({ theme }) => theme.borderRadius.default};
@@ -68,7 +76,7 @@ const LighthouseScoresTableWrapper = styled.div`
       top: 0px;
       left: 0px;
       right: 0px;
-      background-color: #fff;
+      background-color: ${({ theme }) => theme.colors.page.bground.default};
     }
 
     thead:after {
@@ -383,11 +391,9 @@ const LighthouseScores = () => {
     const myAccessibilityChart = new Chart(accessibilityChart, {
       type: 'doughnut',
       data: {
-        labels: [`Accessibility ${accessiblityData}%`],
+        // labels: [`Accessibility ${accessiblityData}%`],
         datasets: [
           {
-            // label: 'Accessiblity',
-            //
             data: [`${accessiblityData}`, 100 - `${accessiblityData}`],
             backgroundColor: [`#F9DA8E`, `#EDF2F7`],
             hoverOffset: 4,
@@ -400,7 +406,106 @@ const LighthouseScores = () => {
       options: {
         hover: { mode: null },
         responsive: true,
-        cutout: 52,
+        cutout: 64,
+        plugins: {
+          tooltip: {
+            enabled: false,
+          },
+          legend: {
+            labels: {
+              boxWidth: 0,
+            },
+          },
+        },
+      },
+    })
+
+    // SEO
+    const seoChart = document.getElementById('seoChart')
+    const mySeoChart = new Chart(seoChart, {
+      type: 'doughnut',
+      data: {
+        // labels: [`SEO ${seoData}%`],
+        datasets: [
+          {
+            data: [`${seoData}`, 100 - `${seoData}`],
+            backgroundColor: [`#F9DA8E`, `#EDF2F7`],
+            hoverOffset: 4,
+            borderWidth: 0,
+            borderRadius: 100,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        hover: { mode: null },
+        cutout: 64,
+        plugins: {
+          tooltip: {
+            enabled: false,
+          },
+          legend: {
+            labels: {
+              boxWidth: 0,
+            },
+          },
+        },
+      },
+    })
+
+    // Performance
+    const performanceChart = document.getElementById('performmanceChart')
+    const myPerformanceChart = new Chart(performanceChart, {
+      type: 'doughnut',
+      data: {
+        // labels: [`Performance ${performanceData}%`],
+        datasets: [
+          {
+            data: [`${performanceData}`, 100 - `${performanceData}`],
+            backgroundColor: [`#F1BA8B`, `#EDF2F7`],
+            hoverOffset: 4,
+            borderWidth: 0,
+            borderRadius: 100,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        hover: { mode: null },
+        cutout: 64,
+        plugins: {
+          tooltip: {
+            enabled: false,
+          },
+          legend: {
+            labels: {
+              boxWidth: 0,
+            },
+          },
+        },
+      },
+    })
+
+    // Best practice
+    const bestPracticeChart = document.getElementById('bestPracticeChart')
+    const mybestPracticeChart = new Chart(bestPracticeChart, {
+      type: 'doughnut',
+      data: {
+        // labels: [`Best practice ${bestPracticeData}%`],
+        datasets: [
+          {
+            data: [`${bestPracticeData}`, 100 - `${bestPracticeData}`],
+            backgroundColor: [`#F9DA8E`, `#EDF2F7`],
+            hoverOffset: 4,
+            borderWidth: 0,
+            borderRadius: 100,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        hover: { mode: null },
+        cutout: 64,
         plugins: {
           tooltip: {
             enabled: false,
@@ -416,215 +521,121 @@ const LighthouseScores = () => {
 
     return () => {
       myAccessibilityChart.destroy()
-    }
-  }, [accessiblityData])
-
-  // SEO
-  useEffect(() => {
-    const seoChart = document.getElementById('seoChart')
-    const mySeoChart = new Chart(seoChart, {
-      type: 'doughnut',
-      data: {
-        labels: [`SEO ${seoData}%`],
-        datasets: [
-          {
-            // label: 'SEO',
-            //
-            data: [`${seoData}`, 100 - `${seoData}`],
-            backgroundColor: [`#F9DA8E`, `#EDF2F7`],
-            hoverOffset: 4,
-            borderWidth: 0,
-            borderRadius: 100,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        hover: { mode: null },
-        cutout: 52,
-        plugins: {
-          tooltip: {
-            enabled: false,
-          },
-          legend: {
-            labels: {
-              boxWidth: 0,
-            },
-          },
-        },
-      },
-    })
-    return () => {
       mySeoChart.destroy()
-    }
-  }, [seoData])
-
-  // Performance
-  useEffect(() => {
-    const performanceChart = document.getElementById('performmanceChart')
-    const myPerformanceChart = new Chart(performanceChart, {
-      type: 'doughnut',
-      data: {
-        labels: [`Performance ${performanceData}%`],
-        datasets: [
-          {
-            // label: 'SEO',
-            //
-            data: [`${performanceData}`, 100 - `${performanceData}`],
-            backgroundColor: [`#F1BA8B`, `#EDF2F7`],
-            hoverOffset: 4,
-            borderWidth: 0,
-            borderRadius: 100,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        hover: { mode: null },
-        cutout: 52,
-        plugins: {
-          tooltip: {
-            enabled: false,
-          },
-          legend: {
-            labels: {
-              boxWidth: 0,
-            },
-          },
-        },
-      },
-    })
-    return () => {
       myPerformanceChart.destroy()
-    }
-  }, [performanceData])
-
-  // Best practice
-  useEffect(() => {
-    const bestPracticeChart = document.getElementById('bestPracticeChart')
-    const mybestPracticeChart = new Chart(bestPracticeChart, {
-      type: 'doughnut',
-      data: {
-        labels: [`Best practice ${bestPracticeData}%`],
-        datasets: [
-          {
-            // label: 'SEO',
-            //
-            data: [`${bestPracticeData}`, 100 - `${bestPracticeData}`],
-
-            // backgroundColor: [`#CFE7D6`, `rgba(255, 99, 132, 0.0)`],
-            backgroundColor: [`#F9DA8E`, `#EDF2F7`],
-            hoverOffset: 4,
-            borderWidth: 0,
-            borderRadius: 100,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        hover: { mode: null },
-        cutout: 52,
-        plugins: {
-          tooltip: {
-            enabled: false,
-          },
-          legend: {
-            labels: {
-              boxWidth: 0,
-            },
-          },
-        },
-      },
-    })
-    return () => {
       mybestPracticeChart.destroy()
     }
-  }, [bestPracticeData])
+  }, [accessiblityData, seoData, bestPracticeData, performanceData])
 
   return (
     <Section
       // contentSize={'xl noMarginTop'}
       classOverides={'xl'}
     >
-      <LighthouseScoresTableWrapper>
-        <h3 className="title" id="table-description">
-          A selection of websites from the Manawatu region and their average Lighthouse scores.
-          <span className="detail">Based on data taken during July 2021</span>
-        </h3>
+      <div style={{ marginTop: '64px ', marginBottom: '64px ' }}>
+        <LighthouseScoresTableWrapper>
+          <h3 className="title" id="table-description">
+            A selection of websites from the Manawatu region and their average Lighthouse scores.
+            <span className="detail">Based on data taken during July 2021</span>
+          </h3>
 
-        {/* <p className="title">Total count: {tableData.totalCount}</p> */}
-        <LighthouseScoresWrapper>
-          <canvas
-            id="accessibilityChart"
-            width="auto"
-            height="auto"
-            title={`Average accessibility scrore ${accessiblityData}%`}
-          ></canvas>
-          <canvas
-            id="seoChart"
-            width="auto"
-            height="auto"
-            title={`Average SEO scrore ${seoData}%`}
-          ></canvas>
-          <canvas
-            id="performmanceChart"
-            width="auto"
-            height="auto"
-            title={`Average performance scrore ${performanceData}%`}
-          ></canvas>
-          <canvas
-            id="bestPracticeChart"
-            width="auto"
-            height="auto"
-            title={`Average best practice scrore ${bestPracticeData}%`}
-          ></canvas>
-        </LighthouseScoresWrapper>
+          <LighthouseScoresWrapper>
+            <div>
+              <p>
+                Accessibility
+                <br /> {accessiblityData}%
+              </p>
+              <canvas
+                id="accessibilityChart"
+                width="auto"
+                height="auto"
+                // title={`Average accessibility scrore ${accessiblityData}%`}
+              ></canvas>
+            </div>
 
-        <p className="title">The breakdown</p>
-        <div className="tableWrapper">
-          <ReactTable
-            // data={tableData.edges.map((score) => {
+            <div>
+              <p>
+                SEO <br /> {seoData}%
+              </p>
+              <canvas
+                id="seoChart"
+                width="auto"
+                height="auto"
+                title={`Average SEO scrore ${seoData}%`}
+              ></canvas>
+            </div>
 
-            data={tableData.edges
-              .filter((row) => row.node.url !== null)
-              .filter((row) => row.node.url.includes('.'))
-              .filter((row) => row.node.accessiblity !== null)
-              .filter((row) => row.node.seo !== null)
-              .filter((row) => row.node.bestPactice !== null)
-              .map((score) => {
-                // if (score.node.url === null) return {}
-                // if (score.node.url === null) {
-                //   score.remove()
-                // }
-                return {
-                  url: (
-                    <a onKeyDown={keyEscape} href={score.node.url}>
-                      {score.node.url}
-                    </a>
-                  ),
-                  secure: score.node.secure,
-                  responsive: score.node.responsive,
-                  pwa: score.node.pwa,
-                  errors: score.node.noErrors,
-                  accessiblity: score.node.accessiblity + '%',
-                  seo: score.node.seo + '%',
-                  performance: score.node.performance + '%',
-                  bestPractice: score.node.bestPractice + '%',
-                }
+            <div>
+              <p>
+                Performance <br /> {performanceData}%
+              </p>
+              <canvas
+                id="performmanceChart"
+                width="auto"
+                height="auto"
+                title={`Average performance scrore ${performanceData}%`}
+              ></canvas>
+            </div>
+
+            <div>
+              <p>
+                Best practice <br /> {bestPracticeData}%
+              </p>
+              <canvas
+                id="bestPracticeChart"
+                width="auto"
+                height="auto"
+                title={`Average best practice scrore ${bestPracticeData}%`}
+              ></canvas>
+            </div>
+          </LighthouseScoresWrapper>
+
+          <p className="title">The breakdown</p>
+          <div className="tableWrapper">
+            <ReactTable
+              // data={tableData.edges.map((score) => {
+
+              data={tableData.edges
+                .filter((row) => row.node.url !== null)
+                .filter((row) => row.node.url.includes('.'))
+                .filter((row) => row.node.accessiblity !== null)
+                .filter((row) => row.node.seo !== null)
+                .filter((row) => row.node.bestPactice !== null)
+                .map((score) => {
+                  // if (score.node.url === null) return {}
+                  // if (score.node.url === null) {
+                  //   score.remove()
+                  // }
+                  return {
+                    url: (
+                      <a onKeyDown={keyEscape} href={score.node.url}>
+                        {score.node.url}
+                      </a>
+                    ),
+                    secure: score.node.secure,
+                    responsive: score.node.responsive,
+                    pwa: score.node.pwa,
+                    errors: score.node.noErrors,
+                    accessiblity: score.node.accessiblity + '%',
+                    seo: score.node.seo + '%',
+                    performance: score.node.performance + '%',
+                    bestPractice: score.node.bestPractice + '%',
+                  }
+                })}
+              columns={columns}
+              minRows={0}
+              defaultPageSize={10}
+              getCellProps={(cellInfo) => ({
+                className:
+                  (cellInfo.value === 'FALSE' && 'red') || (cellInfo.value === 'TRUE' && 'green'),
+
+                // 'aria-label':
+                //   (cellInfo.value === 'FALSE' && 'False') || (cellInfo.value === 'TRUE' && 'True'),
               })}
-            columns={columns}
-            minRows={0}
-            defaultPageSize={10}
-            getCellProps={(cellInfo) => ({
-              className:
-                (cellInfo.value === 'FALSE' && 'red') || (cellInfo.value === 'TRUE' && 'green'),
-
-              // 'aria-label':
-              //   (cellInfo.value === 'FALSE' && 'False') || (cellInfo.value === 'TRUE' && 'True'),
-            })}
-          />
-        </div>
-      </LighthouseScoresTableWrapper>
+            />
+          </div>
+        </LighthouseScoresTableWrapper>
+      </div>
     </Section>
   )
 }

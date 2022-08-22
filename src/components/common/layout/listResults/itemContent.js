@@ -4,11 +4,11 @@ const ItemContent = styled.article`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex-grow: 1
   height: 100%;
   color: ${({ theme }) => theme.colors.textColor};
   background-color: ${({ theme }) => theme.colors.card[100]};
-  border: 2px solid ${({ theme }) => theme.colors.card[300]};
+  border: 1px solid ${({ theme }) => theme.colors.card[200]};
   border-radius: ${({ theme }) => theme.borderRadius.default};
   transition: ${({ theme }) => theme.transition.easeOut.default};
 

@@ -80,7 +80,6 @@ const HeroImage = styled.section.attrs({
       align-items: center;
       margin: 0 auto;
       padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
-      
     }
     .contentWrapper.centre {
       align-items: center;
@@ -97,9 +96,6 @@ const HeroImage = styled.section.attrs({
     }
 
     .contentWrapper {
-      
-
-
       .content,
       .content.centre {
         margin: 0 auto;
@@ -146,67 +142,63 @@ const HeroImage = styled.section.attrs({
         hyphens: none;
 
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
-          padding: ${({ theme }) => theme.padding['1/2']}};
+          padding: ${({ theme }) => theme.padding['1/2']};
         }
-        
-       
+      }
 
-        span * {
-          margin: 0;
-        }
+      span * {
+        margin: 0;
+      }
 
-        span.hide {
-          display:none;
-        }
-        span {
-          display: grid;
-          grid-gap: ${({ theme }) => theme.padding['1/2']};
-           
-          .leadImage {
-            display: flex;
-            max-width: fit-content;
-           /* min-width:auto !important; */
-           object-fit: contain !important;
-            margin: ${({ theme }) => theme.padding['1/2']} auto 0 auto;
-            > div {
-               max-width: 100% !important;
-               /* max-width:auto !important */
-            }
-            img {
-               object-fit: contain !important;
-            }
-          }
-          
+      span.hide {
+        display: none;
+      }
+      span {
+        display: grid;
+        grid-gap: ${({ theme }) => theme.padding['1/2']};
 
-
-          h1 {
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            hyphens: auto;
-          }
-
-          p {
-            color: inherit;
-            width: 100%;
-            margin-bottom: 0px;
-            font-size: 115%;
-
-            a,
-            a:hover {
-              color: #ffffff;
-              text-decoration: underline;
-            }
-          }
-        }
-
-        span.cta {
+        .leadImage {
           display: flex;
-          grid-gap: ${({ theme }) => theme.padding['1/2']};
-          width: fit-content;
-
-          @media (max-width: ${({ theme }) => theme.screens.sm}) {
-            flex-direction: column;
+          max-width: fit-content;
+          /* min-width:auto !important; */
+          object-fit: contain !important;
+          margin: ${({ theme }) => theme.padding['1/2']} auto 0 auto;
+          > div {
+            max-width: 100% !important;
+            /* max-width:auto !important */
           }
+          img {
+            object-fit: contain !important;
+          }
+        }
+
+        h1 {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          hyphens: auto;
+        }
+
+        p {
+          color: inherit;
+          width: 100%;
+          margin-bottom: 0px;
+          font-size: 115%;
+
+          a,
+          a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      span.cta {
+        display: flex;
+        grid-gap: ${({ theme }) => theme.padding['1/2']};
+        width: fit-content;
+
+        @media (max-width: ${({ theme }) => theme.screens.sm}) {
+          flex-direction: column;
         }
       }
     }
@@ -412,7 +404,7 @@ const HeroImg = ({ slice }) => {
 
                 {title && title[0].text.length > 0 && (
                   <span
-                    className={slice.primary.display_title === false && 'hide'}
+                    className={slice.primary.display_title === false ? 'sr-only' : undefined}
                     style={{ color: titleColor !== null && titleColor }}
                   >
                     <RichText render={title} />

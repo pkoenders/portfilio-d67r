@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { Component, createRef } from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
@@ -11,6 +11,7 @@ import IconMaterial from '/src/components/common/icons/material'
 // Layout
 import Brand from '../brand/'
 // import LocaleSwitcher from './localeSwitcher/'
+import ThemeSwitcher from './themeSwitcher/'
 
 // Styles
 import '/src/styles/hamburger.scss'
@@ -347,7 +348,7 @@ const HeaderWrapper = styled.header`
             top: 0px;
             visibility: hidden;
             /* background-color: ${({ theme }) => theme.colors.page.bground.default}; */
-            background-color: ${({ theme }) => theme.colors.card[200]};
+            background-color: ${({ theme }) => theme.colors.pageHold[200]};
             height: ${({ theme }) => theme.margin['1/8']};
             border-radius: 0;
             transform: scaleX(0);
@@ -488,29 +489,24 @@ const HeaderWrapper = styled.header`
   }
 `
 
-const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
-  const _ = require('lodash')
-  var pathName = ''
-  if (typeof window !== 'undefined') {
-    pathName = window.location.pathname
-  }
+// const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
+class Header extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   //   // const { currentLang } = this.props
+  //   //   // const { currentPrefix } = this.props
+  //   //   // const { currentPath } = this.props
+  //   //   // const { primaryNav } = this.props
+  // }
+  //
 
-  const myLocationRef = useRef({
-    location: null,
-  })
+  componentDidMount() {
+    // this.myLocationRef = React.createRef()
 
-  // console.log(primaryNav)
-  // console.log('pathName = ' + pathName)
+    const myLocationRef = createRef({
+      location: null,
+    })
 
-  const isPartiallyActive = ({ isPartiallyCurrent }) => {
-    return isPartiallyCurrent ? { className: 'activeNavItem' } : {}
-  }
-
-  const isActive = ({ isCurrent }) => {
-    return isCurrent ? { className: 'activeNavItem' } : {}
-  }
-
-  useEffect(() => {
     var pathName = ''
     if (typeof window !== 'undefined') {
       pathName = window.location.pathname
@@ -744,9 +740,9 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     })
 
     // fire route hange
-    if (myLocationRef.current.location !== currentPath) {
+    if (myLocationRef.current !== this.props.currentPath) {
       // console.log('routeChange')
-      myLocationRef.current.location = currentPath
+      myLocationRef.current = this.props.currentPath
       eventList()
     }
 
@@ -859,144 +855,174 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       }
       prevScrollpos = currentScrollPos
     })
-  }, [myLocationRef, currentPath])
+  }
 
-  return (
-    <HeaderWrapper className="headerNavWrapper">
-      <div className="skipNav">
-        <a className="skipLink" href="#main">
-          Skip to main content
-        </a>
-      </div>
+  render() {
+    // const { currentLang } = this.props
+    // const { currentPrefix } = this.props
+    // const { currentPath } = this.props
+    // const { primaryNav } = this.props
 
-      <nav className="headerNav" aria-label="My Life My Voice">
-        <button
-          className="l1 hamburger hamburger--squeeze"
-          type="button"
-          aria-label="Toggle mobile navigation"
-          aria-controls="mainNavigation"
-          aria-expanded="false"
-          aria-pressed="false"
-          aria-haspopup="true"
-        >
-          {/* <span className="hamburger-label"> {i18n[currentLang].menu}</span> */}
-          <span className="hamburger-box">
-            <span className="hamburger-inner"></span>
-          </span>
-        </button>
+    const _ = require('lodash')
+    var pathName = ''
+    if (typeof window !== 'undefined') {
+      pathName = window.location.pathname
+    }
 
-        <ul id="mainNavigation" className="disclosure-nav">
-          <li className="brand">
-            <Link
-              to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
-              aria-label={i18n[currentLang].linkToHomepage}
-              className="l1"
-            >
-              <Brand currentLang={currentLang} />
-            </Link>
-          </li>
+    const isPartiallyActive = ({ isPartiallyCurrent }) => {
+      return isPartiallyCurrent ? { className: 'activeNavItem' } : {}
+    }
 
-          {primaryNav.map((navItem, index) => {
-            //console.log(navItem.link)
-            return (
-              <li key={`main-nav-${index}`}>
-                {navItem.primary.link.uid ? (
-                  navItem.primary.link.uid !== null ? (
-                    <Link
-                      to={linkResolver(navItem.primary.link)}
-                      className="l1"
-                      activeClassName="activeNavItem"
-                      getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
-                    >
-                      {navItem.primary.label.text}
-                    </Link>
+    const isActive = ({ isCurrent }) => {
+      return isCurrent ? { className: 'activeNavItem' } : {}
+    }
+
+    return (
+      <HeaderWrapper className="headerNavWrapper">
+        <div className="skipNav">
+          <a className="skipLink" href="#main">
+            Skip to main content
+          </a>
+        </div>
+
+        <nav className="headerNav" aria-label="My Life My Voice">
+          <button
+            className="l1 hamburger hamburger--squeeze"
+            type="button"
+            aria-label="Toggle mobile navigation"
+            aria-controls="mainNavigation"
+            aria-expanded="false"
+            aria-pressed="false"
+            aria-haspopup="true"
+          >
+            {/* <span className="hamburger-label"> {i18n[currentLang].menu}</span> */}
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
+
+          <ul id="mainNavigation" className="disclosure-nav">
+            <li className="brand">
+              <Link
+                to={
+                  this.props.currentPrefix === '/'
+                    ? this.props.currentPrefix
+                    : `${this.props.currentPrefix}/`
+                }
+                aria-label={i18n[this.props.currentLang].linkToHomepage}
+                className="l1"
+              >
+                <Brand currentLang={this.props.currentLang} />
+              </Link>
+            </li>
+
+            {this.props.primaryNav.map((navItem, index) => {
+              //console.log(navItem.link)
+              return (
+                <li key={`main-nav-${index}`}>
+                  {navItem.primary.link.uid ? (
+                    navItem.primary.link.uid !== null ? (
+                      <Link
+                        to={linkResolver(navItem.primary.link)}
+                        className="l1"
+                        activeClassName="activeNavItem"
+                        getProps={
+                          navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive
+                        }
+                      >
+                        {navItem.primary.label.text}
+                      </Link>
+                    ) : (
+                      <a
+                        href={
+                          navItem.primary.link.raw.url !== undefined
+                            ? navItem.primary.link.raw.url
+                            : ''
+                        }
+                        className="l1"
+                        getProps={
+                          navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive
+                        }
+                      >
+                        {navItem.primary.label.text}
+                      </a>
+                    )
                   ) : (
-                    <a
-                      href={
-                        navItem.primary.link.raw.url !== undefined
-                          ? navItem.primary.link.raw.url
-                          : ''
+                    <button
+                      className={
+                        'l1 secondaryNavBtn ' +
+                        `${
+                          pathName.includes(_.kebabCase(navItem.primary.label.text)) &&
+                          'activeNavItem'
+                        }`
                       }
-                      className="l1"
-                      getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
+                      aria-controls={`id_${navItem.primary.label.text
+                        .replace(/\s/g, '_')
+                        .toLowerCase()}`}
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                      type="button"
                     >
                       {navItem.primary.label.text}
-                    </a>
-                  )
-                ) : (
-                  <button
-                    className={
-                      'l1 secondaryNavBtn ' +
-                      `${
-                        pathName.includes(_.kebabCase(navItem.primary.label.text)) &&
-                        'activeNavItem'
-                      }`
-                    }
-                    aria-controls={`id_${navItem.primary.label.text
-                      .replace(/\s/g, '_')
-                      .toLowerCase()}`}
-                    aria-haspopup="true"
-                    aria-expanded="true"
-                    type="button"
-                  >
-                    {navItem.primary.label.text}
-                    <IconMaterial icon={'expand_more'} />
-                  </button>
-                )}
+                      <IconMaterial icon={'expand_more'} />
+                    </button>
+                  )}
 
-                {navItem.items.subNavItem && (
-                  <>
-                    <ul
-                      id={`id_${navItem.primary.label.text.replace(/\s/g, '_').toLowerCase()}`}
-                      className="secondaryNavList"
-                      aria-label={navItem.primary.label.text}
-                    >
-                      {navItem.items.map((subNavItem, index) => {
-                        return (
-                          <li key={`sub-nav-${index}`}>
-                            {subNavItem.sub_nav_link.uid !== null ? (
-                              <Link
-                                to={linkResolver(subNavItem.sub_nav_link)}
-                                activeClassName="activeNavItem"
-                              >
-                                {subNavItem.sub_nav_link_label.text}
-                                <IconMaterial icon={'chevron_right'} />
-                              </Link>
-                            ) : (
-                              <a
-                                href={
-                                  subNavItem.sub_nav_link.raw.url !== undefined
-                                    ? subNavItem.sub_nav_link.raw.url
-                                    : ''
-                                }
-                              >
-                                {subNavItem.sub_nav_link_label.text}
-                                <IconMaterial icon={'chevron_right'} />
-                              </a>
-                            )}
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  </>
-                )}
-              </li>
-            )
-          })}
+                  {navItem.items.subNavItem && (
+                    <>
+                      <ul
+                        id={`id_${navItem.primary.label.text.replace(/\s/g, '_').toLowerCase()}`}
+                        className="secondaryNavList"
+                        aria-label={navItem.primary.label.text}
+                      >
+                        {navItem.items.map((subNavItem, index) => {
+                          return (
+                            <li key={`sub-nav-${index}`}>
+                              {subNavItem.sub_nav_link.uid !== null ? (
+                                <Link
+                                  to={linkResolver(subNavItem.sub_nav_link)}
+                                  activeClassName="activeNavItem"
+                                >
+                                  {subNavItem.sub_nav_link_label.text}
+                                  <IconMaterial icon={'chevron_right'} />
+                                </Link>
+                              ) : (
+                                <a
+                                  href={
+                                    subNavItem.sub_nav_link.raw.url !== undefined
+                                      ? subNavItem.sub_nav_link.raw.url
+                                      : ''
+                                  }
+                                >
+                                  {subNavItem.sub_nav_link_label.text}
+                                  <IconMaterial icon={'chevron_right'} />
+                                </a>
+                              )}
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </>
+                  )}
+                </li>
+              )
+            })}
 
-          <li className="closeMenu hide">
-            <button className="l1" type="button">
-              {i18n[currentLang].close}
-              <IconMaterial icon={'clear'} />
-            </button>
-          </li>
-        </ul>
+            <li className="closeMenu hide">
+              <button className="l1" type="button">
+                {i18n[this.props.currentLang].close}
+                <IconMaterial icon={'clear'} />
+              </button>
+            </li>
+          </ul>
 
-        {/* // Activate locale */}
-        {/* <LocaleSwitcher currentLang={currentLang} currentPath={currentPath} /> */}
-      </nav>
-    </HeaderWrapper>
-  )
+          {/* // Activate locale */}
+          {/* <LocaleSwitcher currentLang={currentLang} currentPath={currentPath} /> */}
+          <ThemeSwitcher changeTheme={this.props.changeTheme} lightTheme={this.props.lightTheme} />
+        </nav>
+      </HeaderWrapper>
+    )
+  }
 }
 
 export default Header

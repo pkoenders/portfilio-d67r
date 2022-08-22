@@ -36,7 +36,7 @@ const List = styled.section`
       flex-direction: row;
       grid-gap: ${({ theme }) => theme.padding.default};
       align-items: center;
-      font-size: ${({ theme }) => theme.fontSize.lg};
+      /* font-size: ${({ theme }) => theme.fontSize.lg}; */
       p {
         margin-bottom: 0;
       }
@@ -58,7 +58,7 @@ const List = styled.section`
 
       span.uncheck {
         i {
-          opacity: 0.33;
+          /* opacity: 0.66; */
         }
       }
     }
@@ -212,8 +212,11 @@ const StyledList = ({ slice }) => {
     let bgColor = window.getComputedStyle(objBground).backgroundColor
     // Convert it a hex value
     bgColor = getRgb2Hex(bgColor)
-    // Return the contrast mode  - 'dark' or 'light'
-    var updateContrast = getContrast(bgColor)
+
+    // If there is a bGround color - return the contrast mode  - 'dark' or 'light'
+    let updateContrast
+    bgColor !== '#00000000' ? (updateContrast = getContrast(bgColor)) : (updateContrast = '')
+
     // Update contrast color and set it as a class in the section
     setForgroundColor(updateContrast)
     // Disable warinings of missing dependencies

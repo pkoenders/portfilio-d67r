@@ -31,7 +31,7 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
       width: 100%;
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['2xl']};
       /* border: 1px solid transparent; */
-      border: 1px solid ${({ theme }) => theme.colors.card[300]};
+      border: 1px solid ${({ theme }) => theme.colors.pageHold[300]};
 
       border-radius: 999rem;
     }
@@ -46,6 +46,7 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
       position: absolute;
       left: ${({ theme }) => theme.padding['1/2']};
       align-self: center;
+      color: ${({ theme }) => theme.colors.pageHold.default};
     }
   }
 `

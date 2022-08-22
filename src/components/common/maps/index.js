@@ -23,9 +23,9 @@ const MapWrapper = styled.div`
 
     p {
       white-space: nowrap;
-      color: ${({ theme }) => theme.colors.page.default};
+      color: ${({ theme }) => theme.colors.pageHold.default};
       background-color: #ffffff;
-      border: 1px solid ${({ theme }) => theme.colors.card[400]};
+      border: 1px solid ${({ theme }) => theme.colors.card[900]};
       border-radius: ${({ theme }) => theme.borderRadius.sm};
       box-shadow: ${({ theme }) => theme.boxShadow.md};
       margin-left: ${({ theme }) => theme.margin['1/8']};
@@ -75,7 +75,6 @@ const GoogleMap = ({ geopoint, description, zoomLevel }) => {
         bootstrapURLKeys={{ key: 'AIzaSyAqtG-6jfYqhE9-yb6A0QYJ1z5onDubltQ' }}
         defaultCenter={location}
         defaultZoom={zoomLevel} // Must be <= 22 - Default 16
-
         // yesIWantToUseGoogleMapApiInternals={true}
         // onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
       >

@@ -89,7 +89,7 @@ const FormWraper = styled.div`
     padding: ${({ theme }) => theme.padding['1/2']};
     padding-right: ${({ theme }) => theme.padding['1xl']};
     background-color: #ffffff;
-    border: 1px solid ${({ theme }) => theme.colors.grey[200]};
+    border: 1px solid ${({ theme }) => theme.colors.card[300]};
     border-radius: ${({ theme }) => theme.borderRadius.sm};
     appearance: none;
     background-image: none;
@@ -113,6 +113,7 @@ const FormWraper = styled.div`
       pointer-events: none;
       position: absolute;
       right: ${({ theme }) => theme.padding['1/4']};
+      color: ${({ theme }) => theme.colors.pageHold.default};
     }
     select {
       padding-right: ${({ theme }) => theme.padding.default};
@@ -320,7 +321,7 @@ const FormWraper = styled.div`
       --active: ${({ theme }) => theme.colors.primary.default};
       --active-inner: #fff;
       --border: ${({ theme }) => theme.colors.grey[200]};
-      --background: ${({ theme }) => theme.colors.card[100]};
+      --background: ${({ theme }) => theme.colors.grey[100]};
       --disabled: ${({ theme }) => theme.colors.grey[100]};
       --disabled-inner: ${({ theme }) => theme.colors.grey[100]};
 
