@@ -4,16 +4,17 @@ import Footer from '/src/components/common/footer'
 import i18n from '/config/i18n'
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-import { defaultBase } from '/src/themes/default/themeBase'
+import { themeBase } from '/src/themes/default/themeBase'
+import { themeBaseColors } from '/src/themes/default/themeBaseColors'
 import { light, dark } from '/src/themes/default/themeLightDark'
 import { GlobalStyles } from '/src/themes/globalStyles'
 
 // Merge themes with base theme
 const _ = require('lodash')
-export const mergLightTheme = _.merge(light, defaultBase)
-export const mergDarkTheme = _.merge(dark, defaultBase)
-const lightMerged = mergLightTheme
-const darkMerged = mergDarkTheme
+export const mergedLightTheme = _.merge(light, themeBase, themeBaseColors)
+export const mergedDarkTheme = _.merge(dark, themeBase, themeBaseColors)
+const lightMerged = mergedLightTheme
+const darkMerged = mergedDarkTheme
 
 const LayoutWrapper = styled.div`
   display: flex;
