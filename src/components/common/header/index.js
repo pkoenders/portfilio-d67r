@@ -84,6 +84,8 @@ const HeaderWrapper = styled.header`
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
 
     button.hamburger {
       order: 0;

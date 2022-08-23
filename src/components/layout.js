@@ -4,17 +4,11 @@ import Footer from '/src/components/common/footer'
 import i18n from '/config/i18n'
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-import { themeBase } from '/src/themes/default/themeBase'
-import { themeBaseColors } from '/src/themes/default/themeBaseColors'
-import { light, dark } from '/src/themes/default/themeLightDark'
+import { lightTheme, darkTheme } from '/src/themes/themeMerger'
 import { GlobalStyles } from '/src/themes/globalStyles'
 
-// Merge themes with base theme
-const _ = require('lodash')
-export const mergedLightTheme = _.merge(light, themeBase, themeBaseColors)
-export const mergedDarkTheme = _.merge(dark, themeBase, themeBaseColors)
-const lightMerged = mergedLightTheme
-const darkMerged = mergedDarkTheme
+const light = lightTheme
+const dark = darkTheme
 
 const LayoutWrapper = styled.div`
   display: flex;
@@ -115,7 +109,7 @@ class Layout extends React.Component {
     }
 
     return (
-      <ThemeProvider theme={this.state.lightTheme ? lightMerged : darkMerged}>
+      <ThemeProvider theme={this.state.lightTheme ? light : dark}>
         <GlobalStyles />
         <LayoutWrapper>
           <Header
