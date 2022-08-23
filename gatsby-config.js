@@ -186,14 +186,15 @@ module.exports = {
       options: {
         host: 'https://d67r.app',
         sitemap: 'https://d67r.app/sitemap/sitemap-index.xml',
-        env: {
-          development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-          },
-          production: {
-            policy: [{ userAgent: '*', allow: '/' }],
-          },
-        },
+        policy: [{ userAgent: '*', allow: '/' }],
+        // env: {
+        //   development: {
+        //     policy: [{ userAgent: '*', disallow: ['/'] }],
+        //   },
+        //   production: {
+        //     policy: [{ userAgent: '*', allow: '/' }],
+        //   },
+        // },
       },
     },
 
