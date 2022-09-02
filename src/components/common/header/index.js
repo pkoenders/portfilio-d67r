@@ -9,9 +9,9 @@ import linkResolver from '/src/utils/linkResolver'
 import IconMaterial from '/src/components/common/icons/material'
 
 // Layout
-import Brand from '../brand/'
+import Brand from '/src/components/common/brand/'
 // import LocaleSwitcher from './localeSwitcher/'
-import ThemeSwitcher from './themeSwitcher/'
+import ThemeSwitcher from '/src/components/common/header/themeSwitcher/'
 
 // Styles
 import '/src/styles/hamburger.scss'
@@ -1020,7 +1020,7 @@ class Header extends Component {
 
           {/* // Activate locale */}
           {/* <LocaleSwitcher currentLang={currentLang} currentPath={currentPath} /> */}
-          <ThemeSwitcher changeTheme={this.props.changeTheme} lightTheme={this.props.lightTheme} />
+          <ThemeSwitcher changeTheme={this.props.changeTheme} currTheme={this.props.currTheme} />
         </nav>
       </HeaderWrapper>
     )

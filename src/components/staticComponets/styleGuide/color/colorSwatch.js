@@ -9,8 +9,8 @@ const SwatchComponent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid ${({ theme }) => theme.colors.page[100]};
-  background-color: #ffffff;
+  border: 1px solid ${({ theme }) => theme.colors.page[200]} !important;
+  background-color: ${({ theme }) => theme.colors.page.bground.default};
 
   &:hover {
     box-shadow: ${({ theme }) => theme.boxShadow.default};

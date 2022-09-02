@@ -14,7 +14,7 @@ const Section = styled.section`
       span {
         aspect-ratio: 1;
         margin: ${({ theme }) => theme.padding['1/4']} 0;
-        background-color: ${({ theme }) => theme.colors.card.default};
+        background-color: ${({ theme }) => theme.colors.grey[400]};
       }
       span.default {
         width: ${({ theme }) => theme.padding.default};

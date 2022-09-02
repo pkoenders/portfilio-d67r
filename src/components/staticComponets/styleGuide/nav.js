@@ -16,7 +16,7 @@ const TabbedNav = styled.nav`
 
   &::after {
     content: '';
-    border-top: 1px solid ${({ theme }) => theme.colors.grey['200']};
+    border-top: 1px solid ${({ theme }) => theme.colors.card['200']};
     display: flex;
     width: 100%;
     height: ${({ theme }) => theme.padding['1/4']};
@@ -39,14 +39,14 @@ const TabbedNav = styled.nav`
         color: ${({ theme }) => theme.colors.page.default};
         text-decoration: none;
         /* font-weight: 600; */
-        border: 1px solid ${({ theme }) => theme.colors.grey['200']};
+        border: 1px solid ${({ theme }) => theme.colors.card[200]};
         padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding.default};
-        background-color: #d7e6f0;
+        background-color: ${({ theme }) => theme.colors.card[800]};
       }
 
       a:hover,
       .active-scroll-spy {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid ${({ theme }) => theme.colors.page.bground.default};
         background-color: ${({ theme }) => theme.colors.page.bground.default};
       }
     }

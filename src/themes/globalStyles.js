@@ -371,7 +371,8 @@ export const GlobalStyles = createGlobalStyle`
 
 
   button {
-    /* font-size: ${({ theme }) => theme.fontSize.base}; */
+    font-family: ${({ theme }) => theme.font.sans};
+    font-size: ${({ theme }) => theme.fontSize.base};
     color: ${({ theme }) => theme.colors.page.default};
     background-color: transparent;  
     /* outline: none; */

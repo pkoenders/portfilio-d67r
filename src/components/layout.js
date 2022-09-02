@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Header from '/src/components/common/header'
 import Footer from '/src/components/common/footer'
 import i18n from '/config/i18n'
@@ -47,31 +47,35 @@ const LayoutWrapper = styled.div`
 class Layout extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { lightTheme: true }
+    this.state = { currTheme: 'light' }
     this.changeTheme = this.changeTheme.bind(this)
   }
 
-  componentDidMount() {
-    const localStorageLayout = localStorage.getItem('lightTheme')
-    if (localStorageLayout) {
-      this.setState({ lightTheme: JSON.parse(localStorageLayout) })
-    }
-
-    const savedTheme = localStorage.getItem('lightTheme')
-    const prefersDark =
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (savedTheme && ['dark', 'light'].includes(savedTheme)) {
-      localStorage.setItem('lightTheme', this.state.lightTheme)
-    } else if (prefersDark) {
-      localStorage.setItem('lightTheme', !this.state.lightTheme)
-    }
-  }
-
+  // Toggle theme
   changeTheme() {
     this.setState({
-      lightTheme: !this.state.lightTheme,
+      currTheme: this.state.currTheme === 'light' ? 'dark' : 'light',
     })
-    localStorage.setItem('lightTheme', !this.state.lightTheme)
+    localStorage.setItem('storedTheme', this.state.currTheme)
+    // console.log('currTheme = ' + localStorage.getItem('storedTheme'))
+  }
+
+  // Check theme state
+  componentDidMount() {
+    const localStorageLayout = localStorage.getItem('storedTheme')
+    if (localStorageLayout) {
+      this.setState({ currTheme: this.state.currTheme })
+    }
+    const savedTheme = localStorage.getItem('storedTheme')
+    // console.log('savedTheme = ' + savedTheme)
+
+    const prefersDark =
+      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (savedTheme && ['light'].includes(savedTheme)) {
+      localStorage.setItem('storedTheme', 'light')
+    } else if (prefersDark) {
+      localStorage.setItem('storedTheme', 'dark')
+    }
   }
 
   render() {
@@ -108,8 +112,10 @@ class Layout extends React.Component {
       return path
     }
 
+    const isLightTheme = localStorage.getItem('storedTheme') === 'light'
+
     return (
-      <ThemeProvider theme={this.state.lightTheme ? light : dark}>
+      <ThemeProvider theme={isLightTheme ? light : dark}>
         <GlobalStyles />
         <LayoutWrapper>
           <Header
@@ -118,7 +124,7 @@ class Layout extends React.Component {
             currentPath={currentPath}
             primaryNav={primaryNav}
             changeTheme={this.changeTheme}
-            lightTheme={this.state.lightTheme}
+            currTheme={localStorage.getItem('storedTheme')}
           />
 
           <div className="layoutInner">

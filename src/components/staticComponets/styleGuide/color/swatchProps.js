@@ -14,7 +14,7 @@ const Props = styled.div`
 
   &.default {
     padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
-    background-color: #ffffff;
+    background-color: inherit;
   }
   span {
     display: inherit;

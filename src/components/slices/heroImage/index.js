@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { RichText } from 'prismic-reactjs'
 import {
   validateString,

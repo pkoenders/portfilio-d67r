@@ -23,7 +23,7 @@ const StyleGuide = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.grey['200']};
 
     & :last-of-type {
-      border-bottom: none;
+      /* border-bottom: none; */
     }
 
     &[id]::before {

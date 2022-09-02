@@ -23,30 +23,29 @@ const Section = styled.section`
         display: flex;
         flex-direction: column;
         width: 100%;
-        border: 1px solid #d0d0d0;
+        border: 1px solid ${({ theme }) => theme.colors.page[200]};
+        color: ${({ theme }) => theme.colors.pageHold[100]};
         p {
           font-size: 24px;
         }
         &.pink {
-          color: #ffffff;
           background-color: #e10071;
         }
         &.red {
-          color: #ffffff;
           background-color: #ff0000;
         }
         &.orange {
-          color: #ffffff;
           background-color: #ff8000;
         }
         &.yellow {
+          color: ${({ theme }) => theme.colors.pageHold.default};
           background-color: #fff924;
         }
         &.green {
+          color: ${({ theme }) => theme.colors.pageHold.default};
           background-color: #70f974;
         }
         &.blue {
-          color: #ffffff;
           background-color: #0080ff;
         }
         &.purple {
@@ -54,20 +53,16 @@ const Section = styled.section`
           background-color: #8000ff;
         }
         &.brown {
-          color: #ffffff;
-
           background-color: #6d340d;
         }
         &.black {
-          color: #ffffff;
-
           background-color: #0f1113;
         }
         &.grey {
-          color: #ffffff;
           background-color: #595959;
         }
         &.white {
+          color: ${({ theme }) => theme.colors.pageHold.default};
           background-color: #ffffff;
         }
       }
@@ -173,7 +168,9 @@ const StyleSection = ({ spyID }) => {
         </p>
         <p>
           For help to create create shades and tints, use{' '}
-          <a href="https://maketintsandshades.com">https://maketintsandshades.com</a>
+          <a href="https://noeldelgado.github.io/shadowlord">
+            https://noeldelgado.github.io/shadowlord
+          </a>
         </p>
         <p>
           If using Figma, the{' '}
@@ -488,8 +485,8 @@ const StyleSection = ({ spyID }) => {
         <h3>Colour picker and comparison tool</h3>
         <ColorPickerColorful />
         <p>
-          Use <a href="https://maketintsandshades.com">Tint & Shade Generator</a> for generating
-          tints and shades of a colour.
+          Use <a href="https://noeldelgado.github.io/shadowlord">Tint & Shade Generator</a> for
+          generating tints and shades of a colour.
         </p>
         <h3>Colour groups for this website</h3>
         <ul>

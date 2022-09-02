@@ -4,10 +4,9 @@ import styled from 'styled-components'
 
 const FontPropsWrapper = styled.div`
   margin-top: 0 !important;
-  /* border: 1px solid ${({ theme }) => theme.colors.grey['200']}; */
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey['200']} !important;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.card[200]} !important;
   padding: ${({ theme }) => theme.padding['1/2']} !important;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.card[100]};
 `
 
 const FontProps = ({ fontType, fontBase }) => {

@@ -47,7 +47,7 @@ const ItemContent = styled.article`
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     color: ${({ theme }) => theme.colors.page.default};
     padding: ${({ theme }) => theme.padding['1/2']};
-    /* width: 100%; */
+    flex-grow: 1;
 
     .title {
       font-family: ${({ theme }) => theme.font.sans};
@@ -111,7 +111,7 @@ const ItemContent = styled.article`
         margin-top: ${({ theme }) => theme.margin['1/16']};
         color: ${({ theme }) => theme.colors.secondary.default};
       }
-      .srike {
+      .strike {
         text-decoration: line-through;
         color: ${({ theme }) => theme.colors.page[400]};
       }
@@ -186,6 +186,7 @@ const ItemContent = styled.article`
     .imageWrapper {
       cursor: zoom-in;
       .openLightBox {
+         transform: scale(1.25);
         display: flex;
         pointer-events: none;
         align-items: center;
@@ -196,11 +197,14 @@ const ItemContent = styled.article`
         right: ${({ theme }) => theme.padding['1/2']};
         padding: ${({ theme }) => theme.padding['1/16']};
         border-radius: ${({ theme }) => theme.borderRadius.sm};
-        background-color: ${({ theme }) => theme.colors.accent.default};
+        border: 1px solid ${({ theme }) => theme.colors.grey[700]};
+        /* background-color: ${({ theme }) => theme.colors.accent.default}; */
+        background-color: #fff;
         box-shadow: ${({ theme }) => theme.boxShadow.lg};
         i {
           transform: scale(1);
-          color: #fff;
+          
+          color: ${({ theme }) => theme.colors.grey.default};
           transition: ${({ theme }) => theme.transition.easeOut.default};
         }
       }
@@ -226,7 +230,7 @@ const ItemContent = styled.article`
       display: flex;
       align-items: flex-start;
       /* padding: ${({ theme }) => theme.margin['1/2']}; */
-      background-color: #fff;
+      background-color: ${({ theme }) => theme.colors.card[200]};
       width: 33%;
       /* height: 100%; */
       aspect-ratio: auto;

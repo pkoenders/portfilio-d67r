@@ -16,6 +16,7 @@ const SwatchCopyWrapper = styled.button`
   opacity: 0;
   background-color: #ffffff;
   border-radius: 3px;
+  border: 1px solid ${({ theme }) => theme.colors.pageHold[400]} !important;
   box-shadow: ${({ theme }) => theme.boxShadow.md};
   .toolTip {
     display: none;
@@ -23,6 +24,8 @@ const SwatchCopyWrapper = styled.button`
 
   i {
     pointer-events: none;
+
+    color: ${({ theme }) => theme.colors.pageHold[900]};
   }
   i.checked {
     color: ${({ theme }) => theme.colors.alert.l1.default};

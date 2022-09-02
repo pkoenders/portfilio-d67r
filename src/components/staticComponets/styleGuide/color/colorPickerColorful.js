@@ -10,7 +10,7 @@ import { HexColorPicker } from 'react-colorful'
 import SwatchCopy from './swatchCopy'
 
 const ColorPicker = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.page[100]};
+  border: 1px solid ${({ theme }) => theme.colors.page[100]} !important;
 
   margin: ${({ theme }) => theme.margin['1/4']} 0;
   /* Responsive */
@@ -50,7 +50,7 @@ const ColorPicker = styled.div`
     display: flex;
     flex-direction: row;
     /* border-top: 1px solid ${({ theme }) => theme.colors.page[100]}; */
-    background-color: #ffffff;
+    background-color: transparent;
     span {
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
 

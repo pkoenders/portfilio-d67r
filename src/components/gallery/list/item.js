@@ -72,7 +72,7 @@ const GalleryItem = ({ listStyle, thisItem, index, listLength, animateScroll }) 
                     alt={content.main_image.alt ? content.main_image.alt : content.title.text}
                   />
                   <span className="openLightBox">
-                    <IconMaterial icon={'zoom_out_map'} />
+                    <IconMaterial icon={'open_in_full'} />
                   </span>
                 </div>
               )}

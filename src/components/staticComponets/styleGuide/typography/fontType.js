@@ -9,11 +9,11 @@ const FontWrapper = styled.div`
   margin: ${({ theme }) => theme.margin['1/2']} 0;
 
   p {
-    margin-bottom: 0 !important;
+    /* margin-bottom: 0 !important; */
   }
   div {
-    border: 1px solid ${({ theme }) => theme.colors.grey['200']};
-    border-bottom: none;
+    border: 1px solid ${({ theme }) => theme.colors.card[300]};
+    /* border-bottom: none; */
     padding: ${({ theme }) => theme.padding['1/2']};
     /* border: 1px solid ${({ theme }) => theme.colors.grey['200']}; */
     /* border-left: 4px solid ${({ theme }) => theme.colors.grey['200']}; */
