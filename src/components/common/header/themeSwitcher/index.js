@@ -42,7 +42,7 @@ const Switcher = styled.button`
 const ThemeSwitcher = ({ changeTheme, currTheme }) => {
   return (
     <Switcher type="button" onClick={changeTheme}>
-      {currTheme === 'light' ? (
+      {currTheme ? (
         <span aria-label="Light mode" role="img">
           Light<span>🌞</span>
         </span>

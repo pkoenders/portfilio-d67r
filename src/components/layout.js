@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '/src/components/common/header'
 import Footer from '/src/components/common/footer'
 import i18n from '/config/i18n'
@@ -112,7 +112,10 @@ class Layout extends React.Component {
       return path
     }
 
-    const isLightTheme = localStorage.getItem('storedTheme') === 'light'
+    let isLightTheme = ''
+    if (typeof window !== 'undefined') {
+      isLightTheme = localStorage.getItem('storedTheme') === 'light'
+    }
 
     return (
       <ThemeProvider theme={isLightTheme ? light : dark}>
@@ -124,7 +127,7 @@ class Layout extends React.Component {
             currentPath={currentPath}
             primaryNav={primaryNav}
             changeTheme={this.changeTheme}
-            currTheme={localStorage.getItem('storedTheme')}
+            currTheme={isLightTheme}
           />
 
           <div className="layoutInner">
