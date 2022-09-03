@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from '/src/components/common/header'
 import Footer from '/src/components/common/footer'
 import i18n from '/config/i18n'
