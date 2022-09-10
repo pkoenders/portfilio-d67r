@@ -4,7 +4,7 @@ const ItemContent = styled.article`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  flex-grow: 1
+  flex-grow: 1;
   height: 100%;
   color: ${({ theme }) => theme.colors.textColor};
   background-color: ${({ theme }) => theme.colors.card[100]};
@@ -186,7 +186,7 @@ const ItemContent = styled.article`
     .imageWrapper {
       cursor: zoom-in;
       .openLightBox {
-         transform: scale(1.25);
+        transform: scale(1.25);
         display: flex;
         pointer-events: none;
         align-items: center;
@@ -203,7 +203,7 @@ const ItemContent = styled.article`
         box-shadow: ${({ theme }) => theme.boxShadow.lg};
         i {
           transform: scale(1);
-          
+
           color: ${({ theme }) => theme.colors.grey.default};
           transition: ${({ theme }) => theme.transition.easeOut.default};
         }
