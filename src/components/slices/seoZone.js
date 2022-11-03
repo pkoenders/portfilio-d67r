@@ -14,6 +14,8 @@ const SeoZone = ({ currentLang, seoZone }) => {
   if (seoZone) {
     const sliceZoneContent = seoZone.map((slice, index) => {
       const SliceComponent = sliceComponents[slice.slice_type]
+      // console.log('SliceComponent = ' + SliceComponent)
+
       if (SliceComponent) {
         return <SliceComponent slice={slice} key={`slice-${index}`} />
       }

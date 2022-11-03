@@ -22,6 +22,7 @@ const CardsWrapper = styled.div`
   a:visited {
     display: inline-flex;
     text-decoration: none !important;
+    width: 100%;
   }
 
   a {
