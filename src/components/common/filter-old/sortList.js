@@ -49,7 +49,6 @@ const SortListWrapper = styled.div`
       align-items: center;
       justify-content: space-between;
       z-index: 100;
-
       /* background-color: #fff; */
       background-color: ${({ theme }) => theme.colors.card[100]};
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};

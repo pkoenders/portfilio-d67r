@@ -29,7 +29,7 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
     input {
       font-size: inherit;
       width: 100%;
-      padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding['2xl']};
+      padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['2xl']};
       /* border: 1px solid transparent; */
       border: 1px solid ${({ theme }) => theme.colors.pageHold[300]};
 

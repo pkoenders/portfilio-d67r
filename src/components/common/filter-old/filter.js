@@ -12,13 +12,10 @@ const FilterWrapper = styled.div`
   position: relative;
 
   h1 {
-    /* text-align: center; */
+    text-align: center;
     font-size: ${({ theme }) => theme.fontSize['4xl']};
     line-height: initial;
     color: ${({ theme }) => theme.colors.pageHold.default};
-    width: 100%;
-    max-width: ${({ theme }) => theme.screens.md};
-    margin: 0 auto;
   }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {

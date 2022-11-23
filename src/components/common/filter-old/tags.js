@@ -29,7 +29,7 @@ const Tags = styled.div.attrs({
     }
     li.isActive {
       color: ${({ theme }) => theme.colors.pageHold.default};
-      background-color: ${({ theme }) => theme.colors.tertiary.default};
+      background-color: ${({ theme }) => theme.colors.tertiary[700]};
       border: 1px solid transparent;
     }
   }

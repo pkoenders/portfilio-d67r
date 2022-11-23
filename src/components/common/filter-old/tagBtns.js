@@ -12,49 +12,39 @@ const ListTagBtnsWrapper = styled.div`
   align-items: center;
   z-index: 10000;
   max-width: ${({ theme }) => theme.screens.md};
-  width: 100%;
   margin: 0 auto;
 
   button {
-    font-size: 84%;
-    line-height: 1;
-    font-variation-settings: 'GRAD' 100;
-
-    text-transform: uppercase;
     pointer-events: all;
     display: flex;
-    width: auto;
+    position: absolute;
+    width: fit-content;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/4']}
-      ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
+    justify-content: center;
+    text-align: center;
+    aspect-ratio: 1;
+    padding: ${({ theme }) => theme.padding['1/4']};
+    /* cursor: pointer; */
     user-select: none;
+    background-color: #fff;
     color: ${({ theme }) => theme.colors.pageHold.default};
-    background-color: ${({ theme }) => theme.colors.tertiary[400]};
-    border: 1px solid ${({ theme }) => theme.colors.pageHold[600]};
-    border-radius: 999em;
+    border: 1px solid ${({ theme }) => theme.colors.pageHold[300]};
+    border-radius: 999rem;
 
     position: absolute;
-    /* top: -${({ theme }) => theme.margin['1/8']}; */
-    top: 0px;
+    top: -${({ theme }) => theme.margin['1/8']};
+
     left: 0px;
-    /* font-size: 20px; */
+    font-size: 20px;
 
     &:hover {
-      /* border: 1px solid ${({ theme }) => theme.colors.primary[600]}; */
-      /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
-    }
-    i,
-    span {
-      font-size: inherit;
-      pointer-events: none;
-      /* overflow: visible; */
+      border: 1px solid ${({ theme }) => theme.colors.primary[600]};
+      box-shadow: ${({ theme }) => theme.boxShadow.default};
     }
     i {
-      max-width: 16px;
-      overflow: hidden;
+      font-size: inherit;
+      pointer-events: none;
     }
 
     &.tagReset {
@@ -63,7 +53,6 @@ const ListTagBtnsWrapper = styled.div`
 
       i {
         pointer-events: none;
-
         @keyframes rotation {
           from {
             transform: rotate(0deg);
@@ -96,17 +85,8 @@ const ListTagBtnsWrapper = styled.div`
       flex-wrap: wrap;
       grid-gap: ${({ theme }) => theme.padding['1/4']};
       justify-content: flex-start;
-      /* margin: 0 82px; */
-      margin: 0 82px 0 0;
-      padding: 0 0 2px 0;
+      margin: 0 ${({ theme }) => theme.padding['2xl']};
       height: fit-content;
-
-      &.pullLeft {
-        /* margin-left: 0; */
-      }
-    }
-    .inner li:first-child {
-      /* margin-left: 82px; */
     }
   }
 
@@ -118,21 +98,19 @@ const ListTagBtnsWrapper = styled.div`
   }
 
   .tagButton {
-    font-size: 84%;
-    line-height: 1;
+    font-size: 80%;
     display: flex;
     cursor: default;
     text-transform: uppercase;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
-    /* height: fit-content; */
-    padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
+    height: fit-content;
+    padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
     white-space: nowrap;
     color: ${({ theme }) => theme.colors.pageHold.default};
     background-color: #fff;
 
     /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]}; */
     border: 1px solid transparent;
-    border: 1px solid ${({ theme }) => theme.colors.pageHold[300]};
     border-radius: ${({ theme }) => theme.borderRadius.sm};
     box-shadow: ${({ theme }) => theme.boxShadow.default};
   }
@@ -144,13 +122,13 @@ const ListTagBtnsWrapper = styled.div`
 
   .tagButton[aria-checked='true'] {
     font-variation-settings: 'GRAD' 100;
-    background-color: ${({ theme }) => theme.colors.tertiary.default};
+    background-color: ${({ theme }) => theme.colors.tertiary[600]};
     border: 1px solid transparent;
     box-shadow: none;
   }
 `
 
-const ListTagBtns = ({ resetFilters, tagList }) => {
+const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
   const _ = require('lodash')
   const [tagBtnsReset, setTagBtnsReset] = useState(false) // Toggle tag btns reset
   const [moreBtns, setMoreBtns] = useState(false)
@@ -295,14 +273,14 @@ const ListTagBtns = ({ resetFilters, tagList }) => {
   }, [resetFilters, updateAllCards])
 
   // Toggle full view of btn list on browser size
-
   useEffect(() => {
+    // Hide reset if input has a value
     const searchInput = document.querySelector('.search input')
+
     const tagWrapper = document.querySelector('.wrapper')
     const innerHeight = document.querySelector('.inner').offsetHeight
     const tagBtnHeight = document.querySelector('.tagButton').offsetHeight
 
-    // Hide reset if input has a value
     searchInput.addEventListener('keydown', function () {
       if (searchInput.value.length >= 0) {
         hideTagReset()
@@ -311,31 +289,23 @@ const ListTagBtns = ({ resetFilters, tagList }) => {
 
     // Check list height
     checkBtnsListHeight()
-
-    'resize, keydown, mousedown, ScreenOrientation.onchange'.split(', ').forEach(function (e) {
+    'resize, keydown, mousedown, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         checkBtnsListHeight()
       })
     })
 
     function checkBtnsListHeight() {
-      // console.log('Check Tag Height')
       if (!document.querySelector('.tagButton')) {
         return
       }
-      const firstTag = document.querySelector('.firstTag')
 
-      if (innerHeight > tagBtnHeight) {
-        setMoreBtns(true)
+      if (!tagWrapper.classList.contains('showMore')) {
+        tagWrapper.style.height = tagBtnHeight + 2 + 'px' /* allow for drop shadow */
+      }
+      innerHeight > tagBtnHeight && setMoreBtns(true)
 
-        if (moreBtns === true) {
-          const btnMoreLess = document.querySelector('.btnMoreLess')
-          if (btnMoreLess) {
-            btnMoreLess.style.width = btnMoreLess.offsetWidth + 'px'
-            firstTag.style.marginLeft = btnMoreLess.offsetWidth + 8 + 'px'
-          }
-        }
-      } else {
+      if (innerHeight <= tagBtnHeight) {
         setMoreBtns(false)
         document.querySelector('.wrapper').classList.remove('showMore')
       }
@@ -345,44 +315,41 @@ const ListTagBtns = ({ resetFilters, tagList }) => {
       // cancel the subscription
       setMoreBtns()
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hideTagReset, moreBtns])
+  }, [hideTagReset])
 
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
-    // console.log('click')
     var tagWrapper = document.querySelector('.wrapper')
     var tagBtnHeight = document.querySelector('.tagButton').offsetHeight
 
-    e.target.firstChild.innerHTML === 'More'
-      ? (e.target.firstChild.innerHTML = 'Less') && (tagWrapper.style.height = '100%')
-      : (e.target.firstChild.innerHTML = 'More') &&
-        (tagWrapper.style.height = tagBtnHeight + 2 + 'px')
+    tagWrapper.classList.toggle('showMore')
 
-    e.target.lastChild.innerHTML === 'unfold_more'
-      ? (e.target.lastChild.innerHTML = 'unfold_less')
-      : (e.target.lastChild.innerHTML = 'unfold_more')
+    if (tagWrapper.classList.contains('showMore')) {
+      tagWrapper.style.height = '100%'
+    } else {
+      tagWrapper.style.height = tagBtnHeight + 2 + 'px'
+    }
+
+    e.target.firstChild.innerHTML === 'unfold_more'
+      ? (e.target.firstChild.innerHTML = 'unfold_less')
+      : (e.target.firstChild.innerHTML = 'unfold_more')
 
     e.target.getAttribute('aria-expanded') === 'false'
       ? e.target.setAttribute('aria-expanded', 'true')
       : e.target.setAttribute('aria-expanded', 'false')
-
-    // setMoreBtnWidth(document.querySelector('.btnMoreLess').offsetWidth)
   }
 
   return (
     <ListTagBtnsWrapper>
       {moreBtns === true && (
         <button
-          className="btnMoreLess"
           type="button"
           aria-label="Toggle to view all tags"
           aria-expanded="false"
           aria-controls="tagWrapper"
           onClick={toggleMoreTagBtns}
         >
-          <span>More</span>
           <IconMaterial icon={'unfold_more'} />
         </button>
       )}
@@ -396,11 +363,7 @@ const ListTagBtns = ({ resetFilters, tagList }) => {
       >
         <ul className="inner">
           {tagList.map((node, index) => (
-            <li
-              key={`tagButton` + index}
-              className={index === 0 ? 'firstTag' : ''}
-              // style={index === 0 ? { marginLeft: moreBtnWidth + 8 + 'px' } : {}}
-            >
+            <li key={`tagButton` + index}>
               <span
                 className="tagButton"
                 role="checkbox"
@@ -409,7 +372,7 @@ const ListTagBtns = ({ resetFilters, tagList }) => {
                 tabIndex="0"
                 onClick={handleTagSelect}
                 onKeyDown={handleTagSelect}
-                //onMouseUp={handleTagReset}
+                onMouseUp={handleTagReset}
                 onKeyUp={handleTagReset}
               >
                 {node}
@@ -422,7 +385,6 @@ const ListTagBtns = ({ resetFilters, tagList }) => {
       <div className="utils">
         {tagBtnsReset === true && (
           <button type="button" className="tagReset" aria-label="Reset tags" onClick={hideTagReset}>
-            Reset
             <IconMaterial icon={'loop'} />
           </button>
         )}
