@@ -134,7 +134,7 @@ export const dark = {
     },
 
     // @Accent
-    // Twaek list for DarkMode
+    // Tweak list for DarkMode
     accent: {
       default: '#ff73a0',
       100: '#ff81aa',
