@@ -265,11 +265,8 @@ const Intro = () => {
             </i> */}
               <ul>
                 <li>Implementation of the UI/UX design process</li>
-                {/* <li>Estimating &amp; proposal review</li> */}
-                <li>Iterative wire-framing &amp; prototypes</li>
-                {/* <li>Build &amp; maintain design systems</li> */}
+                <li>Iterative wire-framing, design systems &amp; prototypes</li>
                 <li>HTML components, React &amp; Headless CMS's</li>
-                {/* <li>Graphic design</li> */}
               </ul>
             </span>
           </div>
