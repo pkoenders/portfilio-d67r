@@ -87,6 +87,11 @@ export const GlobalStyles = createGlobalStyle`
   
   section.light {
     color: ${({ theme }) => theme.colors.pageHold.default};
+
+    a {
+       color: ${({ theme }) => theme.colors.accent.lightBground.default};
+    }
+
     .carousel > * {
       color: ${({ theme }) => theme.colors.pageHold.default};
     }
