@@ -97,7 +97,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.pageHold[100]};
     
     a {
-       color: ${({ theme }) => theme.colors.accent.darkBground.default} !important;
+       color: ${({ theme }) => theme.colors.accent.darkBground.default};
     }
 
     form {
