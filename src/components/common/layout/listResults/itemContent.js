@@ -197,14 +197,18 @@ const ItemContent = styled.article`
         right: ${({ theme }) => theme.padding['1/2']};
         padding: ${({ theme }) => theme.padding['1/16']};
         border-radius: ${({ theme }) => theme.borderRadius.sm};
-        border: 1px solid ${({ theme }) => theme.colors.grey[700]};
-        /* background-color: ${({ theme }) => theme.colors.accent.default}; */
-        background-color: #fff;
-        box-shadow: ${({ theme }) => theme.boxShadow.lg};
-        i {
-          transform: scale(1);
+        border: 1px solid ${({ theme }) => theme.colors.card[800]};
+        /* border: 1px solid transparent; */
 
-          color: ${({ theme }) => theme.colors.grey.default};
+        /* background-color: ${({ theme }) => theme.colors.accent.default}; */
+
+        background-color: ${({ theme }) => theme.colors.card[200]};
+        /* border-color: ${({ theme }) => theme.colors.grey[600]}; */
+        box-shadow: ${({ theme }) => theme.boxShadow.md};
+        i {
+          transform: scale(0.66);
+          color: ${({ theme }) => theme.colors.page.default};
+          /* color: ${({ theme }) => theme.colors.grey.default}; */
           transition: ${({ theme }) => theme.transition.easeOut.default};
         }
       }
@@ -216,6 +220,17 @@ const ItemContent = styled.article`
       }
       img:hover {
         transform: scale(1.022);
+      }
+    }
+    .imageWrapper:hover {
+      .openLightBox {
+        /* border: 1px solid ${({ theme }) => theme.colors.primary.default}; */
+        /* bxorder-color: ${({ theme }) => theme.colors.card[800]}; */
+        /* box-shadow: ${({ theme }) => theme.boxShadow.lg}; */
+        i {
+          transform: scale(0.77);
+          /* color: ${({ theme }) => theme.colors.primary.default}; */
+        }
       }
     }
   }
